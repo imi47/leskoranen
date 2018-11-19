@@ -1,0 +1,1603 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+hr,
+nav,
+section {
+    display: block
+}
+
+a,
+ins {
+    text-decoration: none
+}
+
+ins,
+mark {
+    color: #000
+}
+
+dfn,
+mark {
+    font-style: italic
+}
+
+b,
+mark,
+strong {
+    font-weight: 700
+}
+
+body,
+fieldset,
+figure,
+form,
+li,
+nav ol,
+nav ul,
+ol,
+ul {
+    margin: 0
+}
+
+fieldset,
+hr,
+img,
+legend {
+    border: 0
+}
+
+body,
+fieldset,
+hr,
+legend,
+li,
+nav ol,
+nav ul,
+ol,
+ul {
+    padding: 0
+}
+
+audio,
+canvas,
+video {
+    display: inline-block
+}
+
+.quran_menu {
+    display: flex;
+    justify-content: center;
+}
+
+.quran_menu ul li:nth-child(4), .quran_menu ul li:nth-child(5), .quran_menu ul li:nth-child(6) {
+    margin:0;
+    /* width:unset !important; */
+}
+
+.aboveDrawer {
+    position:absolute;
+    top:113px;
+}
+
+.aboveDrawer .content {
+    overflow: scroll;
+}
+
+.aboveDrawer .open {
+    display:flex;
+    justify-content: center;
+}
+
+.footerDrawer .open, .aboveDrawer .open {
+    padding:2px 0;
+}
+
+.footerDrawer .c-verse {
+    margin-top:25px;
+}
+
+#c-surah p {
+    margin-top:10px;
+    margin-bottom:28px;
+}
+
+#play_btn {
+    border: none;
+}
+
+.triangle {
+    position:absolute;
+    width:40px;
+    height:auto;
+    transition:350ms;
+    z-index:1;
+}
+
+.aboveDrawer .open {
+    position:relative;
+}
+
+.footerDrawer .content {
+    overflow: scroll;
+}
+
+.footerDrawer > div  {
+    display:flex;
+    justify-content: center;
+    position:relative;
+}
+
+.footerDrawer > div .triangle {
+    bottom:-5px; 
+    transform: rotate(180deg);
+}
+
+.aboveDrawer .triangle {
+    top: -5px;
+}
+
+#CP_ForeColorInSide {
+    margin-left: 5px;
+}
+
+.ayah-end {
+    width:26px;
+    height:auto;
+}
+
+.ayah-end + span {
+    padding: 5px;
+    text-align: center;
+    margin-left: -25px;
+    font-size: 12px;
+}
+
+#translation .ayah-end + span {
+    margin-right: 6px;
+}
+
+#arabic .ayah-end + span {
+    margin-left:0;
+    margin-right:-25px;
+    margin-left: 6px;
+}
+
+.arbic .ayah-end {
+    margin-left:7px;
+}
+
+#btnPrevious,
+section.audio_player section.main_control a.next_b {
+    top:-2px !important;
+}
+
+section.audio_player section.main_control a.stop_b {
+    top:8px;
+}
+
+@media (max-width:768px) {
+    #btnPrevious,
+    section.audio_player section.main_control a.next_b {
+        top:2px !important;
+    }
+
+    section.audio_player section.main_control a.stop_b {
+        top:12px;
+    }
+
+    section.quran_menu ul li:nth-child(4) img {
+        padding-bottom:7px;
+    }
+}
+
+#btnPrevious img,
+section.audio_player section.main_control a.stop_b img,
+section.audio_player section.main_control a.next_b img {
+    width:45px;
+    top:-20px;
+}
+
+section.quran_menu ul li:nth-child(6) object {
+    transform:rotate(90deg);
+}
+
+[hidden],
+audio:not([controls]) {
+    display: none
+}
+
+.memorization_box, section.quran_menu li:nth-child(5):hover section, .ColorTheme_box {
+    border: 1px solid #83ab33;
+    border-radius: 4px;
+    box-shadow: 2px 2px 7px #777;
+}
+
+button,
+html,
+input,
+select,
+textarea {
+    font-family: Roboto, sans-serif
+}
+
+::-moz-selection {
+    background: #94c1ff;
+    color: #0042a5;
+    text-shadow: none
+}
+
+::selection {
+    background: #94c1ff;
+    color: #0042a5;
+    text-shadow: none
+}
+
+a {
+    color: #00e
+}
+
+a:visited {
+    color: #551a8b
+}
+
+a:hover {
+    color: #06e
+}
+
+a:active,
+a:focus,
+a:hover {
+    outline: 0
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+blockquote {
+    margin: 1em 40px
+}
+
+hr {
+    height: 1px;
+    border-top: 1px solid #ccc;
+    margin: 1em 0
+}
+
+ins {
+    background: #ff9
+}
+
+mark {
+    background: #ff0
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    font-size: 1em
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word
+}
+
+q {
+    quotes: none
+}
+
+q:after,
+q:before {
+    content: "";
+    content: none
+}
+
+small {
+    font-size: 85%
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -.5em
+}
+
+sub {
+    bottom: -.25em
+}
+
+li,
+ol,
+ul {
+    list-style: none
+}
+
+dd {
+    margin: 0 0 0 40px
+}
+
+nav ol,
+nav ul {
+    list-style: none
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+legend {
+    white-space: normal
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline
+}
+
+button,
+input {
+    line-height: normal
+}
+
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button
+}
+
+button[disabled],
+input[disabled] {
+    cursor: default
+}
+
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical
+}
+
+input:invalid,
+textarea:invalid {
+    background-color: #f0dddd
+}
+
+select {
+    color: #4c4c4c;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #cde69a;
+    background-size: 15px auto;
+    padding: 3px 22px 3px 5px;
+    border-radius: 10px
+}
+
+span.customSelect {
+    background-color: #9c3!important;
+    color: #fefefe;
+    padding: 5px 7px;
+    font-size: 14px;
+    border: none;
+    margin-bottom: 5px
+}
+
+span.customSelect.changed {
+    background-color: #f0dea4
+}
+
+.font_black {
+    color: #333
+}
+
+.tabs_nav {
+    padding: 0;
+    height: 40px;
+    background: #e7eef6;
+    border-bottom: 1px solid #9c3;
+    margin-left: 45px;
+    font: 12px Roboto, sans-serif
+}
+
+.tabs_nav a,
+section.quran_menu section {
+    font-family: Roboto, sans-serif
+}
+
+.tabs_nav a {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 10px 20px 9px;
+    color: #777
+}
+
+.tabs_nav a.current {
+    color: #FFF;
+    border: 1px solid #9c3;
+    border-top: 2px solid #77b646;
+    border-bottom: 2px solid rgba(62, 127, 219, 1);
+    padding-bottom: 5px 5px 6px 5px;
+    background: rgba(62, 127, 219, 1)
+}
+
+section.panes_box>section:nth-of-type(n+2) {
+    display: none
+}
+
+section.quran_menu {
+    height: 113px;
+    background: #9c3
+}
+
+div.qemenu_display {
+    position: absolute;
+    top: 10px;
+    left: 130px;
+    display: none
+}
+
+div.qemenu_display img {
+    width: 15px;
+    height: 9px;
+    cursor: pointer;
+    background: url(../../images/Quran/arrow_menu.png) no-repeat
+}
+
+div.qemenu_display img.menu_show:hover {
+    background-position: 0 -40px
+}
+
+div.qemenu_display img.menu_hide {
+    display: none;
+    background-position: -36px 0
+}
+
+div.qemenu_display img.menu_hide:hover {
+    background-position: -36px -40px
+}
+
+section.quran_menu ul li {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    /* height: 115px; */
+    text-align: center;
+    padding: 3px
+}
+
+section.quran_menu section {
+    font-size: 16px;
+    margin: 0;
+    padding: 7px 5px 1px;
+    background: #9C3
+}
+
+section.quran_menu section select {
+    margin: 5px 5px 10px 0
+}
+
+label {
+    cursor: pointer;
+    font: 12px Roboto, sans-serif
+}
+
+section.quran_menu section label {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    color: #FFF;
+    text-align: right;
+    margin-bottom: 5px;
+    padding-right: 10px
+}
+
+section.quran_menu section.nav_box {
+    width: 520px;
+    text-align: left
+}
+
+section.quran_menu section.nav_box label:nth-of-type(1) {
+    width: 110px;
+    display: inline-block
+}
+
+section.quran_menu section.nav_box label:nth-of-type(2) {
+    width: 40px;
+    display: inline-block
+}
+
+section.quran_menu section.nav_box label:nth-of-type(3) {
+    width: 110px;
+    display: inline-block
+}
+
+section.quran_menu section.nav_box label:nth-of-type(4) {
+    width: 75px;
+    display: inline-block
+}
+
+section.quran_menu section.nav_box label:nth-of-type(5) {
+    width: 40px;
+    display: inline-block
+}
+
+section.quran_menu section.script_box {
+    width: 220px;
+    text-align: left
+}
+
+section.quran_menu section.script_box #cmbReciter {
+    width: 147px
+}
+
+section.quran_menu section.script_box label {
+    width: 52px;
+    display: inline-block;
+    color: #fefefe
+}
+
+section.quran_menu section.translate_box {
+    width: 201px;
+    height: 102px;
+    text-align: left;
+    position: relative
+}
+
+section.quran_menu section.translate_box select {
+    width: 170px
+}
+
+section.quran_menu section.translate_box p {
+    margin: 5px 0;
+    padding: 0
+}
+
+section.quran_menu section.translate_box label {
+    width: 95px!important
+}
+
+section.quran_menu section.ColorTheme_box {
+    width: 160px;
+    height: 59px;
+    text-align: left
+}
+
+section.quran_menu section.ColorTheme_box div {
+    height: 35px
+}
+
+section.quran_menu section.option_box {
+    padding-top: 0
+}
+
+section.quran_menu section.option_box p {
+    margin: 0;
+    padding: 0;
+    height: 24px;
+    overflow: hidden
+}
+
+section.quran_menu section.option_box label {
+    width: 190px;
+    text-align: left;
+    display: block;
+    padding-left: 25px;
+    padding-right: 0
+}
+
+section.quran_menu section.option_box input[type=checkbox] {
+    position: absolute;
+    left: -99999px
+}
+
+section.quran_menu section.option_box input[type=checkbox]+label {
+    /* background: url(../img/qm_navigation.png) -164px -1px no-repeat; */
+    background-size: 200px auto
+}
+
+section.quran_menu section.option_box input[type=checkbox]:checked+label {
+    background-position: -164px -43px
+}
+
+section.quran_menu section.search_cl {
+    width: 300px;
+    text-align: left
+}
+
+section.quran_menu section.search_cl label {
+    width: 70px;
+    display: inline-block
+}
+
+section.quran_menu section.search_cl select {
+    width: 210px!important
+}
+
+section.quran_menu section.search_cl span {
+    width: 185px!important
+}
+
+section.quran_menu section.text_search {
+    width: 280px;
+    height: 105px;
+    text-align: left
+}
+
+section.quran_menu section.text_search label {
+    width: 150px;
+    margin-bottom: 11px;
+    display: inline-block
+}
+
+section.quran_menu section.text_search input[type=text] {
+    width: 215px;
+    margin-right: 5px
+}
+
+section.quran_menu section.memorization_box {
+    width: 385px;
+    height: 65px;
+    text-align: left
+}
+
+section.quran_menu section.memorization_box label {
+    width: 112px
+}
+
+section.quran_menu section.memorization_box input {
+    margin: 0 4px 7px 0
+}
+
+section.quran_menu section.memorization_box>div {
+    display: block;
+    width: 215px;
+    float: left;
+    margin-top: -3px
+}
+
+section.quran_menu section.memorization_box>div+div {
+    width: 238px
+}
+
+section.quran_menu section.memorization_box>div span {
+    display: block;
+    height: 22px
+}
+
+section.quran_menu section.memorization_box>div span div.iradio_square-blue {
+    width: 20px!important;
+    overflow: hidden;
+    padding-right: 5px
+}
+
+section.quran_menu section.memorization_box>div span em {
+    display: inline-block;
+    width: 70px;
+    position: relative
+}
+
+a.qExplorerLogo {
+    display: block;
+    height: 33px;
+    width: 36px;
+    background: url(../../images/Quran/quran-explorer-logo.png) -3px -5px no-repeat;
+    background-size: 41px auto;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    text-indent: -9999px
+}
+
+div.qemenu_nav {
+    position: absolute;
+    display: none;
+    top: 10px;
+    right: 10px
+}
+
+div.qemenu_nav img {
+    width: 18px;
+    height: 62px;
+    cursor: pointer;
+    background: url(../../images/Quran/qemenu_nav.png) no-repeat
+}
+
+div.qemenu_nav img.show_left:hover {
+    background-position: -24px 0
+}
+
+div.qemenu_nav img.show_right {
+    background-position: -82px 0;
+    display: none
+}
+
+div.qemenu_nav img.show_right:hover {
+    background-position: -58px 0
+}
+
+table.quran_text {
+    background: #d8dbe0;
+    border-color: #d8dbe0;
+    height: 100%
+}
+
+table.quran_text td {
+    width: 50%;
+    vertical-align: top;
+    margin: 5px
+}
+
+table.quran_text section {
+    overflow: hidden;
+    margin: 5px;
+    background: #FFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px
+}
+
+.table_text .scrollbar,
+.table_text .track {
+    background: #f1f2f3;
+    position: relative;
+    width: 5px
+}
+
+table.quran_text section.arabic_text {
+    margin: 8px
+}
+
+.table_text .viewport {
+    height: 100px;
+    overflow: hidden;
+    position: relative
+}
+
+.table_text .overview {
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%
+}
+
+.table_text .scrollbar {
+    float: right;
+    margin: 3px
+}
+
+h1,
+h1:nth-child(2) {
+    color: #06c;
+    text-shadow: 0 1px 0 #ccc;
+    padding: 0;
+    margin: 0
+}
+
+.table_text .track {
+    height: 100%;
+    padding: 0
+}
+
+.table_text .thumb {
+    background: #cdd1d8;
+    height: 20px;
+    width: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.table_text:hover .track {
+    background: #cfd0d1;
+    cursor: pointer
+}
+
+.table_text:hover .thumb {
+    background: #b6b9bf
+}
+
+h1 {
+    font: 30px Roboto, sans-serif;
+    font-weight: 700
+}
+
+h1:nth-child(2) {
+    font: 24px/24px Roboto, sans-serif;
+    font-weight: 700
+}
+
+section.audio_player section.extra_button .zoom_text {
+    padding-top: 21px;
+    height: 27px;
+    width: 40px;
+    top: 0;
+    right: 45px;
+    position: absolute
+}
+
+
+
+
+section.audio_player section.extra_button .zoom_text.minus_size {
+    right: 0
+}
+
+section.audio_player section.extra_button .zoom_text.minus_size img {
+    background-position: -346px -234px
+}
+
+section.audio_player section.extra_button .zoom_text output {
+    width: 42px!important;
+    left: -10px
+}
+
+section.audio_player section.extra_button .book_mark {
+    padding-top: 21px;
+    height: 27px;
+    width: 40px;
+    top: 0;
+    right:-42px;
+    position: absolute
+}
+
+section.audio_player section.extra_button .book_mark object {
+    width: 28px;
+    height:28px;
+    background: #fff;
+    border-radius: 100%;
+    padding: 4px;
+}
+
+
+
+
+section.audio_player section.main_control a.play_b {
+    text-align: center;
+    padding-top: 4px;
+    height: 48px;
+    width: 52px;
+    
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    position: absolute;
+    top: -5px;
+    left: 49.65%;
+    margin-left: -25px;
+    z-index: 1000
+}
+
+section.audio_player section.main_control a.play_b:hover {
+   
+}
+
+/* section.audio_player section.main_control a.play_b:active {
+    background: rgba(58, 104, 189, .95)
+} */
+
+img.pause_butn,
+img.play_butn {
+    background: url(../img/qm_navigation.png) -76px -166px no-repeat;
+    width: 40px;
+    height: 40px
+}
+
+img.pause_butn {
+    background-position: -157px -166px
+}
+
+section.audio_player section.main_control a.pre_b {
+    text-align: center;
+    padding-top: 8px;
+    height: 27px;
+    width: 53px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 20%
+}
+
+
+section.audio_player section.main_control a.pre_b:active {
+    background: rgba(58, 104, 189, .95)
+}
+
+
+section.audio_player section.main_control a.next_b {
+    text-align: center;
+    padding-top: 8px;
+    height: 27px;
+    width: 53px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 70%
+}
+
+
+
+section.audio_player section.main_control a.next_b:active {
+    background: rgba(58, 104, 189, .95)
+}
+
+
+section.audio_player section.main_control a.stop_b {
+    text-align: center;
+    padding-top: 0px;
+    height: 27px;
+    width: 40px;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+
+section.audio_player section.main_control a.stop_b:active {
+    background: rgba(58, 104, 189, .95)
+}
+
+
+section.audio_player section.main_control a.volume_b {
+    padding-top: 8px;
+    height: 27px;
+    width: 40px;
+    top: 0;
+    right: -2px;
+    cursor: pointer;
+    position: absolute
+}
+
+section.audio_player section.main_control a.volume_b:hover {
+    background: rgba(65, 115, 210, .95)
+}
+
+section.audio_player section.main_control a.volume_b:active {
+    background: rgba(58, 104, 189, .95)
+}
+
+section.audio_player section.main_control a.volume_b img.unmute_btn {
+    background: url(../img/qm_navigation.png) 3px -233px no-repeat;
+    width: 40px;
+    height: 30px
+}
+
+section.audio_player section.main_control a.volume_b img.mute_btn {
+    background: url(../img/qm_navigation.png) -65px -233px no-repeat;
+    width: 40px;
+    height: 30px
+}
+
+section.script_box a.container_btn1 {
+    position: absolute;
+    top: 9px;
+    left: 160px
+}
+
+section.script_box a.container_btn1 img:active,
+section.script_box a.container_btn1 img:hover {
+    background-color: rgba(153, 204, 51, .95)
+}
+
+section.script_box a.container_btn1 img {
+    width: 30px;
+    height: 30px;
+    background: url(../img/qm_navigation.png) -5px -226px no-repeat
+}
+
+section.script_box a.container_btn1 img.mute_btn {
+    background-color: rgba(153, 204, 51, .95);
+    background-position: -68px -225px
+}
+
+section.script_box a.container_btn2 {
+    position: absolute;
+    top: 9px;
+    left: 195px
+}
+
+section.script_box a.container_btn2 img:active,
+section.script_box a.container_btn2 img:hover {
+    background-color: rgba(153, 204, 51, .95)
+}
+
+section.script_box a.container_btn2 img {
+    width: 30px;
+    height: 30px;
+    background: url(../img/qm_navigation.png) -108px -226px no-repeat
+}
+
+section.script_box a.container_btn2 img.s_t_r,
+section.translate_box a.container_btn1 img:active,
+section.translate_box a.container_btn1 img:hover {
+    background-color: rgba(153, 204, 51, .95)
+}
+
+section.translate_box a.container_btn1 {
+    position: absolute;
+    top: 7px;
+    right: 17px
+}
+
+section.translate_box a.container_btn1 img {
+    width: 30px;
+    height: 30px;
+    background: url(../img/qm_navigation.png) -5px -226px no-repeat
+}
+
+section.translate_box a.container_btn1 img.mute_btn {
+    background-color: rgba(153, 204, 51, .95);
+    background-position: -68px -225px
+}
+
+section.quran_menu section.memorization_box div {
+    width: 170px
+}
+
+section.quran_menu section.memorization_box div p {
+    margin: 0;
+    padding: 0
+}
+
+section.quran_menu section.memorization_box div+div {
+    width: 210px;
+    margin-top: -5px
+}
+
+section.quran_menu section.memorization_box label {
+    display: block;
+    text-align: right;
+    float: left;
+    padding-top: 5px
+}
+
+section.quran_menu section.memorization_box div span.mem_span {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    height: 25px;
+    color: #FFF
+}
+
+section.quran_menu section.memorization_box div+div label,
+section.quran_menu section.memorization_box div+div span {
+    display: block;
+    width: auto;
+    clear: both;
+    margin: 0;
+    float: none;
+    text-align: left;
+    font-size: 15px
+}
+
+section.quran_menu section.memorization_box div+div span label {
+    float: left
+}
+
+section.quran_menu section.memorization_box div+div input[type=radio] {
+    position: absolute;
+    left: -99999px
+}
+
+section.quran_menu section.memorization_box div+div input[type=radio]+label {
+    background: url(../img/qm_navigation.png) -164px -61px no-repeat;
+    background-size: 200px auto;
+    padding-left: 25px
+}
+
+section.quran_menu section.memorization_box div+div input[type=radio]:checked+label {
+    background-position: -164px -103px
+}
+
+#btnNext img , #btnPrevious img, .stop_b img {
+    width:30px !important;
+}
+
+#btnNext, #btnPrevious {
+    top:13px !important;
+}
+
+.stop_b {
+    top: 21px !important;
+}
+
+
+/* @media only screen and (max-width:1780px) { */
+    section.quran_menu ul li:nth-child(6) {
+        padding-top: 10px;
+        padding-bottom:7px;
+        overflow: visible;
+        width: 52px;
+ }
+ section.quran_menu li:nth-child(6) section {
+    visibility: hidden;
+    height: auto;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    z-index: 100;
+    padding: 20px;
+    width: 205px;
+    background: rgba(153, 204, 51, .98)
+}
+section.quran_menu li:nth-child(6):hover section {
+    visibility: visible
+}
+section.quran_menu li:nth-child(6) select {
+    width: 100%
+}
+section.quran_menu ul li:nth-child(6):hover {
+    background-color: #9c3
+}
+/* } */
+
+/* @media only screen and (max-width:1680px) { */
+    section.quran_menu ul li:nth-child(5) {
+        background: url(../img/qm_navigation.png) -204px 0 no-repeat;
+        padding-top: 53px;
+        /*height: 27px;
+        */        overflow: visible;
+        width: 65px;
+        padding-bottom:20px;
+    }
+    section.quran_menu li:nth-child(5) section {
+        visibility: hidden;
+        height: auto;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        z-index: 100;
+        padding: 20px;
+        width: 220px;
+        background: rgba(153, 204, 51, .98)
+    }
+    section.quran_menu li:nth-child(5):hover section {
+        visibility: visible
+    }
+    section.quran_menu li:nth-child(5) select {
+        width: 100%
+    }
+    section.quran_menu ul li:nth-child(5):hover {
+        background-color: #9c3
+    }
+/* } */
+
+/* @media only screen and (max-width:1520px) { */
+    section.quran_menu ul li:nth-child(4) {
+        /* background: url(../img/repeat.png) -272px 0 no-repeat; */
+        padding-top: 10px;
+        padding-bottom:7px;
+        /*height: 27px;*/
+        overflow: visible;
+        width: 65px
+    }
+
+    section.quran_menu ul li:nth-child(4) img {
+        width: 48px;
+        height: auto;
+    }
+    section.quran_menu li:nth-child(4) section {
+        visibility: hidden;
+        height: auto;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        z-index: 100;
+        padding: 20px;
+        width: 230px;
+        background: rgba(153, 204, 51, .98)
+    }
+    section.quran_menu section.memorization_box div+div {
+        zoom: 100%;
+        margin-top: 5px
+    }
+    section.quran_menu section.memorization_box div span.mem_span {
+        height: 28px
+    }
+    section.quran_menu ul li:nth-child(4):hover {
+        background-color: #9c3
+    }
+    section.quran_menu ul li:nth-child(4):hover section {
+        visibility: visible
+    }
+    section.quran_menu section.option_box input {
+        float: left;
+        margin-top: 5px
+    }
+/* } */
+
+@media only screen and (max-width:1200px) {
+    section.quran_menu ul li:nth-child(3) {
+        padding-bottom:15px;
+    }
+    .translate_box {
+        border: 1px solid #83ab33;
+        border-radius: 4px;
+        box-shadow: 2px 2px 7px #777;
+    }
+    section.quran_menu ul li:nth-child(3) {
+        background: url(../img/qm_navigation.png) -135px 0 no-repeat;
+        padding-top: 50px;
+        /* height: 27px;*/
+        overflow: visible;
+        width: 65px
+    }
+    section.quran_menu li:nth-child(3) section {
+        visibility: hidden;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        z-index: 100;
+        padding: 20px;
+        background: rgba(153, 204, 51, .98)
+    }
+    section.quran_menu ul li:nth-child(3):hover {
+        background-color: #9c3
+    }
+    section.quran_menu ul li:nth-child(3):hover section {
+        visibility: visible
+    }
+}
+
+@media only screen and (max-width:1070px) {
+    .script_box {
+        border: 1px solid #83ab33;
+        border-radius: 4px;
+        box-shadow: 2px 2px 7px #777;
+    }
+    .tabs_nav a {
+        padding: 10px 10px 9px
+    }
+    section.quran_menu ul li:nth-child(2) {
+        background: url(../img/qm_navigation.png) -67px 0 no-repeat;
+        padding-top: 50px;
+        height: 27px;
+        overflow: visible;
+        width: 65px;
+        padding-bottom:15px;
+    }
+    section.quran_menu li:nth-child(2) section {
+        visibility: hidden;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        z-index: 100;
+        padding: 20px;
+        background: rgba(153, 204, 51, .98)
+    }
+    section.quran_menu ul li:nth-child(2):hover {
+        background-color: #9c3
+    }
+    section.quran_menu ul li:nth-child(2):hover section {
+        visibility: visible
+    }
+}
+
+@media only screen and (max-width:920px) {
+    section.quran_menu ul li:nth-child(6) {
+        padding-bottom: 50px;
+    }
+    .aboveDrawer {
+        top:65px;
+    }
+
+    .nav_box {
+        border: 1px solid #83ab33;
+        border-radius: 4px;
+        box-shadow: 2px 2px 7px #777;
+    }
+    /* .aboveDrawer {
+        top:128px;
+    } */
+    section.quran_menu {
+        height: 65px
+    }
+    section.quran_menu ul li:nth-child(n+1) {
+        height: 12px
+    }
+    section.quran_menu ul li:nth-child(1) {
+        background: url(../img/qm_navigation.png) no-repeat;
+        padding-top: 50px;
+        overflow: visible;
+        width: 65px;
+        padding-bottom: 15px;
+    }
+    section.quran_menu li:nth-child(1) section {
+        visibility: hidden;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        z-index: 100;
+        padding: 20px;
+        background: rgba(153, 204, 51, .98);
+        width: 256px
+    }
+    section.quran_menu ul li:hover {
+        background-color: #9c3
+    }
+    section.quran_menu ul li:nth-child(1):hover section {
+        visibility: visible
+    }
+    section.quran_menu ul li:nth-child(5) section {
+        right: -50px
+    }
+    section.quran_menu section.nav_box label {
+        width: 100%!important;
+        text-align: left!important
+    }
+    section.quran_menu section.nav_box select {
+        width: 220px!important
+    }
+    section.quran_menu section.nav_box span.customSelect {
+        width: 210px!important
+    }
+    section.quran_menu section.search_cl label {
+        width: 100%;
+        text-align: left
+    }
+}
+
+.hidden,
+.invisible {
+    visibility: hidden
+}
+
+@media only screen and (max-width:650px) {
+    .tabs_nav a {
+        padding: 10px 5px 9px
+    }
+}
+
+@media only screen and (max-width:580px) {
+    .tabs_nav a {
+        padding: 10px 2px 9px
+    }
+    .tabs_nav {
+        margin-left: 40px
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .tabs_nav {
+        position: relative;
+        width: 105px;
+        border-bottom: 0;
+        z-index: 100;
+        padding: 5px 0 0 14px;
+        height: 31px
+    }
+    .tabs_nav a {
+        background: #4488e5;
+        display: none;
+        color: #FFF;
+        width: 130px;
+        padding: 13px 10px 16px
+    }
+    .tabs_nav:hover {
+        background-position: right 17px
+    }
+    .tabs_nav:hover a {
+        display: block
+    }
+    .tabs_nav:hover a:hover {
+        background: #e1e1e1;
+        color: #1f48a1
+    }
+    .tabs_nav a:first-child {
+        margin-top: 30px
+    }
+    .tabs_nav a.current:first-child {
+        margin-top: 0
+    }
+    .tabs_nav a.current:first-child+a {
+        margin-top: 30px
+    }
+    .tabs_nav a.current {
+        padding: 9px 10px 6px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+}
+
+@media screen and (min-width:481px) {
+    div.qemenu_display {
+        display: none!important
+    }
+    .quran_menu {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .aboveDrawer {
+        top: 48px;
+    }
+    section.quran_menu ul li:nth-child(4) img {
+        margin-top: -33px;
+    }
+    section.quran_menu ul li:nth-child(6) {
+        padding-top:0 !important;
+        margin-top: 1px;
+    }
+
+    section.quran_menu ul li:nth-child(6) object {
+        width: 45px;
+    }
+    
+    section.quran_menu {
+        height: 48px
+    }
+    section.quran_menu ul li:nth-child(n+1) {
+        width: 50px;
+        padding-top: 33px
+    }
+    section.quran_menu ul li:first-child {
+        background-position: -7px -9px
+    }
+    section.quran_menu ul li:nth-child(2) {
+        background-position: -76px -9px
+    }
+    section.quran_menu ul li:nth-child(3) {
+        background-position: -145px -9px
+    }
+    section.quran_menu ul li:nth-child(4) {
+        background-position: -282px -9px
+    }
+    section.quran_menu ul li:nth-child(5) {
+        background-position: -212px -9px
+    }
+    section.quran_menu ul li:nth-child(6) {
+        background-position: -350px -9px
+    }
+    section.quran_menu li section {
+        top: 48px!important
+    }
+    section.quran_menu ul li:nth-child(4) section {
+        right: -95px
+    }
+    section.audio_player section.control_panel {
+        width: 230px
+    }
+    section.audio_player section.main_control {
+        left: 28%;
+        border: 0 solid #d8dbe0
+    }
+    .pc_qtext,
+    section.audio_player section.extra_button,
+    section.audio_player section.volume_bar {
+        display: none
+    }
+    .mobile_qtext {
+        display: table;
+        width: 100%
+    }
+    section.audio_player section.main_control a.next_b {
+        left: 63%
+    }
+}
+
+.ir,
+.visuallyhidden {
+    border: 0;
+    overflow: hidden
+}
+
+@media screen and (min-width:421px) {
+    section.quran_menu ul li {
+        display: block!important
+    }
+}
+
+@media only screen and (max-width:420px) {
+    .data_grid tr td:nth-child(2) {
+        display: none
+    }
+    .data_grid {
+        width: 100%
+    }
+    section.quran_menu ul li:nth-child(4) section {
+        left: -120px
+    }
+    section.quran_menu ul li:nth-child(3) section {
+        left: -80px
+    }
+}
+
+@media only screen and (max-width:360px) {
+    .graph_donation {
+        display: none
+    }
+    .donate_box input {
+        display: block
+    }
+    .donate_box {
+        width: auto
+    }
+    section.top_right_box {
+        width: 125px
+    }
+}
+
+@media only screen and (max-width:320px) {
+    .tabs_nav {
+        padding: 5px 0 0 5px
+    }
+    section.quran_menu li:nth-child(1) section {
+        width: 260px
+    }
+    section.quran_menu section.nav_box label:nth-of-type(1n+1) {
+        width: 70px;
+        text-align: left
+    }
+    section.quran_menu ul li:nth-child(3):hover section {
+        left: -100px
+    }
+    section.quran_menu ul li:nth-child(4):hover section {
+        left: -120px
+    }
+}
+
+@media only screen and (max-width:250px) {
+    section.quran_menu ul li:nth-child(4) {
+        display: none
+    }
+}
