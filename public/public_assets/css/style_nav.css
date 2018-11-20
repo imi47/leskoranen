@@ -1610,8 +1610,8 @@ section.quran_menu ul li:nth-child(6):hover {
 @media (min-width:1199px) {
     section.audio_player section.main_control a.play_b {
         position: fixed !important;
-        bottom: 28px !important;
+        bottom: 17px !important;
         top:unset !important;
-        left: 49.6% !important;
+        left: 50% !important;
     }
 }

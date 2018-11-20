@@ -40,7 +40,7 @@
 		.footerDrawer {
 		  width: 100%;
 		  position: fixed;
-		  bottom: 80px;
+		  bottom: 72px;
 		  z-index: 99;
 		}
 

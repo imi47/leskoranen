@@ -388,7 +388,8 @@ i:hover {
 }
 .page-header-area {
     display: table;
-    height: 80px;
+    /* height: 80px; */
+    height:72px;
     width: 100%
 }
 .page-header-content {

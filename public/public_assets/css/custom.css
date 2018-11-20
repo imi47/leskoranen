@@ -9,7 +9,8 @@ button.playing {
 
 button.paused {
   background: url(../img/play.png) no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
+  background-size: 50px;
 }
 
 section.audio_player section.control_panel{
