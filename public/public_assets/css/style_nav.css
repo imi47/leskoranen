@@ -924,9 +924,10 @@ section.audio_player section.main_control a.play_b {
     -webkit-border-radius: 40px;
     -moz-border-radius: 40px;
     border-radius: 40px;
-    position: absolute;
-    top: -5px;
-    left: 49.65%;
+    position: fixed;
+    /* top: -5px; */
+    bottom: 16px;
+    left: 50%;
     margin-left: -25px;
     z-index: 1000
 }
