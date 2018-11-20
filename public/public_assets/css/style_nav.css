@@ -912,9 +912,6 @@ section.audio_player section.extra_button .book_mark object {
     padding: 4px;
 }
 
-
-
-
 section.audio_player section.main_control a.play_b {
     text-align: center;
     padding-top: 4px;
@@ -930,10 +927,6 @@ section.audio_player section.main_control a.play_b {
     left: 50%;
     margin-left: -25px;
     z-index: 1000
-}
-
-section.audio_player section.main_control a.play_b:hover {
-   
 }
 
 /* section.audio_player section.main_control a.play_b:active {
