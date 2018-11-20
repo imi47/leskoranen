@@ -1606,3 +1606,12 @@ section.quran_menu ul li:nth-child(6):hover {
         display: none
     }
 }
+
+@media (min-width:1199px) {
+    section.audio_player section.main_control a.play_b {
+        position: fixed !important;
+        bottom: 28px !important;
+        top:unset !important;
+        left: 49.6% !important;
+    }
+}
