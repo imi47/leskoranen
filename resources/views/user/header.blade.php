@@ -35,12 +35,18 @@
    display: block;
  }
 }
+
+#logo + .inner-tabs {
+  height:0;
+  transition:350ms;
+}
+
 @media screen and (max-width: 682px) {
  .topnav.responsive {position: relative;}
  .topnav.responsive .icon {
    position: absolute;
-   right: 0;
-   top: 0;
+   right: 7px;
+   top: 10px;
  }
  .topnav.responsive a {
    float: none;
