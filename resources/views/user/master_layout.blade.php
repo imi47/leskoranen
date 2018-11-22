@@ -98,51 +98,89 @@
 
 	@stack('js')
 	<script type="text/javascript">
-			var footerDrawerOpen = false;
-		  $('.footerDrawer > div .triangle').on('click', function() {
-
-		    $('.footerDrawer .content').slideToggle(350,showstate);
-			       function showstate(){
-			               if($(this).attr('style')==="display: none;"){
-			               		$('.footerDrawer .open').show();
-			               }else{
-			               		$('.footerDrawer .open').show();
-			               }
-			    }
-					if(!footerDrawerOpen) {
-						$(this).css({ 'transform': 'rotate(360deg)', 'bottom': '-31px'});
-						footerDrawerOpen = true;
-					}
-					else {
-						$(this).css({ 'transform': 'rotate(180deg)', 'bottom': '-7px'});
-						footerDrawerOpen = false;
-					}
-				
-
-		  });
-
 			var aboveDrawerOpen = false;
-		  $('.aboveDrawer .triangle').on('click', function() {
+			var footerDrawerOpen = false;
+			$('.footerDrawer > div .triangle').on('click', function () {
 
-		    $('.aboveDrawer .content').slideToggle(350,showstate);
-			       function showstate(){
-								if($(this).attr('style')==="display: none;"){
-									$('.aboveDrawer .open').show();
-								}else{
-									$('.aboveDrawer .open').show();
-								}
-			    }
+				$('.footerDrawer .content').slideToggle(350, showstate);
 
-					if(!aboveDrawerOpen) {
-						$(this).css({ 'transform': 'rotate(180deg)', 'top': '-31px'});
-						aboveDrawerOpen = true;
-					}
-					else {
-						$(this).css({ 'transform': 'rotate(360deg)', 'top': '-7px'});
-						aboveDrawerOpen = false;
+				function showstate() {
+					if ($(this).attr('style') === "display: none;") {
+						$('.footerDrawer .open').show();
+
+					} else {
+						$('.footerDrawer .open').show();
+
+
 					}
 
-		  });
+				}
+
+				if (!footerDrawerOpen) {
+					$(this).css({
+						'transform': 'rotate(360deg)',
+						'bottom': '-31px'
+					});
+					footerDrawerOpen = true;
+				} else {
+					$(this).css({
+						'transform': 'rotate(180deg)',
+						'bottom': '-7px'
+					});
+					footerDrawerOpen = false;
+				}
+
+				if ($('.aboveDrawer .content').css('display') === 'block') {
+					$('.aboveDrawer .content').hide('350ms');
+					$('.aboveDrawer .triangle').css({
+						'transform': 'rotate(360deg)',
+						'top': '-7px'
+					});
+					aboveDrawerOpen = false;
+				}
+			});
+
+			
+			$('.aboveDrawer .triangle').on('click', function () {
+
+				$('.aboveDrawer .content').slideToggle(350, showstate);
+
+				function showstate() {
+					if ($(this).attr('style') === "display: none;") {
+						$('.aboveDrawer .open').show();
+
+
+					} else {
+						$('.aboveDrawer .open').show();
+
+
+					}
+
+				}
+
+
+				if (!aboveDrawerOpen) {
+					$(this).css({
+						'transform': 'rotate(180deg)',
+						'top': '-31px'
+					});
+					aboveDrawerOpen = true;
+				} else {
+					$(this).css({
+						'transform': 'rotate(360deg)',
+						'top': '-7px'
+					});
+					aboveDrawerOpen = false;
+				}
+				if ($('.footerDrawer .content').css('display') === 'block') {
+					$('.footerDrawer .content').hide('350ms');
+					$('.footerDrawer .triangle').css({
+						'transform': 'rotate(180deg)',
+						'bottom': '-7px'
+					});
+					footerDrawerOpen = false;
+				}
+			});
 	</script>
 
 
