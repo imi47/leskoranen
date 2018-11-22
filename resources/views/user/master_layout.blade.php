@@ -53,7 +53,7 @@
 		.footerDrawer .content {
 		  background-color: #cde69a;
 		  display: none;
-		  max-height: 200px;
+		  max-height: 40vh;
 		  color: #214300;
 		}
 
@@ -75,7 +75,7 @@
 		  height: auto;
 		  background-color: #cde69a;
 		  display: none;
-		  max-height: 300px;
+		  max-height: 40vh;
 		  color: #214300;
 		}
 
