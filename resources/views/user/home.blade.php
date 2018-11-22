@@ -128,10 +128,10 @@ $lastverse='';
           <a id="btnNext" class="next_b" onclick="nextSurah()" title="Next Sura"> <img src="{{$PUBLIC_ASSETS}}/img/forward.png"> </a>
         </section>
         <section class="extra_button barBox2">
-          <a href="#" data-toggle="tooltip" data-placement="top" title="Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text " rel="#bookmark_Scr" onclick="save_bookmarks()" id="_myBookMark" class="book_mark">
+          <a href="#" data-toggle="tooltip" data-placement="top" title="Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text " rel="#bookmark_Scr"  id="_myBookMark" class="book_mark">
            <!-- <img src="{{$PUBLIC_ASSETS}}/img/bookmark.jpg"> -->
            <!--<output class="but_title">Save Bookmark</output>-->
-           <object data="{{$PUBLIC_ASSETS}}/img/bookmark.svg" type="image/svg+xml"></object>
+           <img src="{{$PUBLIC_ASSETS}}/img/bookmark.svg" onclick="save_bookmarks()">
          </a>
        </section>
 

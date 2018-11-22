@@ -898,15 +898,14 @@ section.audio_player section.extra_button .zoom_text output {
 }
 
 section.audio_player section.extra_button .book_mark {
-    padding-top: 21px;
     height: 27px;
     width: 40px;
-    top: 0;
+    top: 22px;
     right:-42px;
     position: absolute
 }
 
-section.audio_player section.extra_button .book_mark object {
+section.audio_player section.extra_button .book_mark img {
     width: 28px;
     height:28px;
     background: #fff;
