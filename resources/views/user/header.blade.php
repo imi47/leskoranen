@@ -27,6 +27,13 @@
   height: 59px;
   text-align: left; 
 }
+
+@media (min-width:682px) {
+  #logo + .inner-tabs {
+  height:0 !important;
+  }
+}
+
 @media screen and (max-width: 682px) {
  .topnav a {display: none;}
  .topnav #logo {display: block;}
