@@ -40,7 +40,7 @@
 		.footerDrawer {
 		  width: 100%;
 		  position: fixed;
-		  bottom: 72px;
+		  bottom: 59px;
 		  z-index: 99;
 		}
 
@@ -114,7 +114,7 @@
 						footerDrawerOpen = true;
 					}
 					else {
-						$(this).css({ 'transform': 'rotate(180deg)', 'bottom': '-5px'});
+						$(this).css({ 'transform': 'rotate(180deg)', 'bottom': '-7px'});
 						footerDrawerOpen = false;
 					}
 				
@@ -138,7 +138,7 @@
 						aboveDrawerOpen = true;
 					}
 					else {
-						$(this).css({ 'transform': 'rotate(360deg)', 'top': '-5px'});
+						$(this).css({ 'transform': 'rotate(360deg)', 'top': '-7px'});
 						aboveDrawerOpen = false;
 					}
 

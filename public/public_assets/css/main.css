@@ -30,11 +30,12 @@
     direction: rtl;
     margin: 0px 0px 0px 0px;
     padding: 0cm 0cm;
-    font-weight: bold;
     font-style: normal;
     /*font-family: PDMS_IslamicFont, _PDMS_IslamicFont, Tahoma, Arial;*/
-    font-family: "_PDMS_Saleem_QuranFont", "_PDMS_Saleem_QuranFont8.eot", Tahoma, Arial;
+    /* font-family: "_PDMS_Saleem_QuranFont", "_PDMS_Saleem_QuranFont8.eot", Tahoma, Arial; */
+    font-family: PDMS_IslamicFont, _PDMS_IslamicFont, Tahoma, Arial;
     line-height: 35px;
+    word-spacing: 0.15rem;
 }
 
 body {
@@ -389,8 +390,8 @@ i:hover {
 .page-header-area {
     display: table;
     /* height: 80px; */
-    height:72px;
-    width: 100%
+    height:59px;
+    width: 100%;
 }
 .page-header-content {
     display: table-cell;

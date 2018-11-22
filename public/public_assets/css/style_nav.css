@@ -100,7 +100,7 @@ video {
 }
 
 .footerDrawer .open, .aboveDrawer .open {
-    padding:2px 0;
+    padding:1px 0;
 }
 
 .footerDrawer .c-verse {
@@ -139,12 +139,12 @@ video {
 }
 
 .footerDrawer > div .triangle {
-    bottom:-5px; 
+    bottom:-7px; 
     transform: rotate(180deg);
 }
 
 .aboveDrawer .triangle {
-    top: -5px;
+    top: -7px;
 }
 
 #CP_ForeColorInSide {
@@ -1604,7 +1604,7 @@ section.quran_menu ul li:nth-child(6):hover {
 @media (min-width:1199px) {
     section.audio_player section.main_control a.play_b {
         position: fixed !important;
-        bottom: 17px !important;
+        bottom: 11px !important;
         top:unset !important;
         left: 50% !important;
     }
