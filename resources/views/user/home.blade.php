@@ -49,7 +49,7 @@ $lastverse='';
           c_obj['arb_link' + {{ $verse->verse }}] = '{{ $verse->link_to_audio }}';
           c_obj['arb_desc' + {{ $verse->verse }}] = '{!! str_replace('<br />', '\\', $verse->description) !!}';
         </script>
-        <span class="arbic" id="arabic{{$verse->verse}}"> {!!$verse->arabic_immune!!} </span><span class="icon-round custom-number" >  <span style="padding: 5px;">{{$verse->verse}}</span></span>
+        <span class="arbic" id="arabic{{$verse->verse}}"> {!!$verse->arabic_immune!!} </span><img src="{{$PUBLIC_ASSETS}}/img/ayah-end.png" class='ayah-end'> <span style="padding: 5px;">{{$verse->verse}}</span>
        @endforeach
      
 
@@ -757,8 +757,8 @@ function assign_temp() {
      }
      //update to verse option 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'> <span style='padding: 5px;'>"+item.verse+"</span> ";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;'>"+item.verse+"</span> ";
       i++;
     });
      //assign 1st audio 
@@ -855,8 +855,8 @@ function getSurah(get_special){
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span><span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span><img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;'>"+item.verse+"</span> ";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;'>"+item.verse+"</span> ";
 
 
     });
@@ -930,8 +930,8 @@ function getSurahFromVerse(){
      var i=1;
      var link='';
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;'>"+item.verse+"</span> ";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;'>"+item.verse+"</span>";
       if(i==1)
       {
        link = "{{$ADMIN_ASSETS}}/audios/"+item.link_to_audio;
@@ -990,8 +990,8 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span><span class='icon-round custom-number' ><span style='padding: 5px;'>"+item.verse+"</span></span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;'>"+item.verse+"</span> ";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span><img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;'>"+item.verse+"</span> ";
       if(i==1)
       {
        link = "{{$ADMIN_ASSETS}}/audios/"+item.link_to_audio;
