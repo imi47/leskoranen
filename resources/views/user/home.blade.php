@@ -990,7 +990,7 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' style='margin-right:6px; class='ayah-end'><span style='padding: 5px; margin-right:-20px;'>"+item.verse+"</span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' style='margin-right:6px;' class='ayah-end'><span style='padding: 5px; margin-right:-20px;'>"+item.verse+"</span> ";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span><img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;margin-left:-20px;'>"+item.verse+"</span> ";
       if(i==1)
       {
