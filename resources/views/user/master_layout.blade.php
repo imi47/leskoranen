@@ -110,10 +110,7 @@
 
 					} else {
 						$('.footerDrawer .open').show();
-
-
 					}
-
 				}
 
 				if (!footerDrawerOpen) {
@@ -152,10 +149,7 @@
 
 					} else {
 						$('.aboveDrawer .open').show();
-
-
 					}
-
 				}
 
 
