@@ -184,7 +184,7 @@ $lastverse='';
             </div>
             <div class="form-group">
               <input style="height: auto; width: auto;" type="submit" name="btnSub" class="btn btn-primary" value="Get Bookmarks">
-              <input class="btn" style="height: auto; width: auto; background:#dc3545; border-color: #dc3545;" type="" name="" value="Delete Bookmark">
+              <input class="btn btn-del-bookmark" type="" name="" value="Delete Bookmark">
             </div>
           </form>
 

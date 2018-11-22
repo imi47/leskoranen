@@ -45,8 +45,8 @@ section.audio_player section.control_panel{
 		overflow: auto;
 	}
 	::-webkit-scrollbar {
-width: 12px;
-height: 12px;
+width: 5px;
+height: 5px;
 }
 ::-webkit-scrollbar-thumb {
 background: yellowgreen;  

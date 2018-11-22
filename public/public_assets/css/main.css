@@ -197,6 +197,12 @@ button:hover {
 .loadmore-button .btn {
     padding: 14px 35px
 }
+.btn-del-bookmark {
+    height: auto; width: auto; background:#dc3545; border-color: #dc3545;
+}
+.btn-del-bookmark:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220,53,69,.5);
+}
 .section-padding {
     padding: 110px 0
 }
@@ -392,6 +398,7 @@ i:hover {
     /* height: 80px; */
     height:59px;
     width: 100%;
+    display: flex;
 }
 .page-header-content {
     display: table-cell;
@@ -899,7 +906,12 @@ ul li > ul > li.active > a {
     .navbar-toggler {
         display: none
     }
+
+    #arab-side {
+        margin-bottom:75px;
+    }
 }
+
 .top_search_con {
     background: #fff;
     height: 38px;

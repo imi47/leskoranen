@@ -91,7 +91,8 @@ video {
 }
 
 .aboveDrawer .content {
-    overflow: scroll;
+    overflow-y:scroll;
+    overflow-x:hidden; 
 }
 
 .aboveDrawer .open {
@@ -129,7 +130,8 @@ video {
 }
 
 .footerDrawer .content {
-    overflow: scroll;
+    overflow-y:scroll;
+    overflow-x:hidden;
 }
 
 .footerDrawer > div  {
@@ -152,7 +154,7 @@ video {
 }
 
 .ayah-end {
-    width:26px;
+    width:25px;
     height:auto;
 }
 
@@ -220,7 +222,7 @@ audio:not([controls]) {
 .memorization_box, section.quran_menu li:nth-child(5):hover section, .ColorTheme_box {
     border: 1px solid #83ab33;
     border-radius: 4px;
-    box-shadow: 2px 2px 7px #777;
+    box-shadow:1px 1px 7px #888;
 }
 
 button,
@@ -923,7 +925,7 @@ section.audio_player section.main_control a.play_b {
     border-radius: 40px;
     position: fixed;
     /* top: -5px; */
-    bottom: 16px;
+    bottom: 12px;
     left: 50%;
     margin-left: -25px;
     z-index: 1000
@@ -1269,7 +1271,7 @@ section.quran_menu ul li:nth-child(6):hover {
     .translate_box {
         border: 1px solid #83ab33;
         border-radius: 4px;
-        box-shadow: 2px 2px 7px #777;
+        box-shadow:1px 1px 7px #888;
     }
     section.quran_menu ul li:nth-child(3) {
         background: url(../img/qm_navigation.png) -135px 0 no-repeat;
@@ -1299,7 +1301,7 @@ section.quran_menu ul li:nth-child(6):hover {
     .script_box {
         border: 1px solid #83ab33;
         border-radius: 4px;
-        box-shadow: 2px 2px 7px #777;
+        box-shadow:1px 1px 7px #888;
     }
     .tabs_nav a {
         padding: 10px 10px 9px
@@ -1340,7 +1342,7 @@ section.quran_menu ul li:nth-child(6):hover {
     .nav_box {
         border: 1px solid #83ab33;
         border-radius: 4px;
-        box-shadow: 2px 2px 7px #777;
+        box-shadow:1px 1px 7px #888;
     }
     /* .aboveDrawer {
         top:128px;
@@ -1530,7 +1532,7 @@ section.quran_menu ul li:nth-child(6):hover {
         width: 100%
     }
     section.audio_player section.main_control a.next_b {
-        left: 63%
+        left: 94%
     }
 }
 
