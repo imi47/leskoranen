@@ -33,9 +33,9 @@
     font-style: normal;
     /*font-family: PDMS_IslamicFont, _PDMS_IslamicFont, Tahoma, Arial;*/
     /* font-family: "_PDMS_Saleem_QuranFont", "_PDMS_Saleem_QuranFont8.eot", Tahoma, Arial; */
-    font-family: PDMS_IslamicFont, _PDMS_IslamicFont, Tahoma, Arial;
+    font-family: "_PDMS_Saleem_QuranFont", "_PDMS_Saleem_QuranFont8.eot", Tahoma, Arial;
     line-height: 35px;
-    word-spacing: 0.15rem;
+    letter-spacing: 0.06rem;
 }
 
 body {

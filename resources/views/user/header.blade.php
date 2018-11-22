@@ -28,6 +28,11 @@
   text-align: left; 
 }
 
+#logo + .inner-tabs {
+  height:0;
+  transition:350ms;
+}
+
 @media (min-width:682px) {
   #logo + .inner-tabs {
   height:0 !important;
@@ -41,11 +46,6 @@
    float: right;
    display: block;
  }
-}
-
-#logo + .inner-tabs {
-  height:0;
-  transition:350ms;
 }
 
 @media screen and (max-width: 682px) {
