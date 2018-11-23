@@ -118,7 +118,7 @@
       <label>From Verse</label>
       <select id="cmbFVerse" name="VerseID" style="width: 65px;">
         @if($surah)
-        @for(@$i=1;$i<=$surah->verses-1;$i++)
+        @for(@$i=1;$i<=$surah->verses;$i++)
         <option value="{{$i}}">{{$i}}</option>
         @endfor
         @endif
@@ -126,7 +126,7 @@
       <label>To Verse</label>
       <select id="cmbTVerse" name="VerseID" class="" style="width: 65px;">
        @if($surah)
-       @for(@$i=1;$i<=$surah->verses-1;$i++)
+       @for(@$i=$surah->verses;$i>=1;$i--)
         <option value="{{$i}}">{{$i}}</option>
         @endfor
        @endif
@@ -191,7 +191,7 @@
     <label>Verse Repeat</label>
     <select id="cmbVerseRepeat" class="">
      @if($surah)
-        @for(@$i=1;$i<=$surah->verses-1;$i++)
+        @for($i=1;$i<=$surah->verses;$i++)
         <option value="{{$i}}">{{$i}}</option>
         @endfor
         @endif
@@ -201,7 +201,7 @@
   <label>Range Repeat</label>
   <select id="cmbRangeRepeat" class="">
    @if($surah)
-        @for(@$i=1;$i<=$surah->verses-1;$i++)
+        @for($i=1;$i<=$surah->verses;$i++)
         <option value="{{$i}}">{{$i}}</option>
         @endfor
         @endif
