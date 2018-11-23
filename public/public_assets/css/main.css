@@ -24,6 +24,14 @@
     src: url('../les/PDMS_Saleem_QuranFont8.eot?#iefix') format('embedded-opentype'), url('../les/PDMS_SALEEM_QURANFONTQESHIP_0.ttf') format('truetype'), url("../les/PDMS_SALEEM_QURANFONTQESHIP_0.ttf") format("truetype");
 }
 
+html, body {
+    overflow-x:hidden;
+}
+
+body {
+    min-height: 100vh;
+}
+
 .arbic {
     line-height: 200%;
     font-size: 25px;
@@ -114,8 +122,7 @@ h6 {
 }
 .btn,
 button {
-    padding: 7px 30px;
-    border-radius: 0;
+    border-radius: 3px;
     font-weight: 400;
     color: #fff;
     font-size: 13px;
@@ -128,7 +135,7 @@ button {
 .btn:hover,
 button:hover {
     color: #fff;
-    carsoer: pointer
+    cursor: pointer
 }
 .btn-common {
     color: #fff!important;
@@ -909,6 +916,12 @@ ul li > ul > li.active > a {
 
     #arab-side {
         margin-bottom:75px;
+    }
+}
+
+@media (max-width:447px) {
+    .btn-del-bookmark {
+        margin-top:10px;
     }
 }
 

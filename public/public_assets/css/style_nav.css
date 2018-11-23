@@ -1541,6 +1541,16 @@ section.quran_menu ul li:nth-child(6):hover {
     overflow: hidden
 }
 
+@media (max-width:445px) {
+    #search_menu section.quran_menu li:nth-child(1) section {
+        left: -83px;
+    }
+
+    #search_menu section.quran_menu li:nth-child(2) section {
+        left: -140px;
+    }
+}
+
 @media screen and (min-width:421px) {
     section.quran_menu ul li {
         display: block!important

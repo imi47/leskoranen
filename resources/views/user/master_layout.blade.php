@@ -37,6 +37,7 @@
 	<script src="{{$PUBLIC_ASSETS}}/js/custom.js"></script> 
 	<script src="{{$PUBLIC_ASSETS}}/js/search.js"></script> 
 	<style type="text/css">
+
 		.footerDrawer {
 		  width: 100%;
 		  position: fixed;
@@ -98,36 +99,120 @@
 
 	@stack('js')
 	<script type="text/javascript">
-			var aboveDrawerOpen = false;
-			var footerDrawerOpen = false;
-			$('.footerDrawer > div .triangle').on('click', function () {
+	var menuOpened = false;
+	var navOpen = false;
+	
+	function myFunction() {
+		if(!navOpen) {
+		document.querySelector('#logo + .inner-tabs').style.height = '290px';
+		document.querySelector('.topnav').classList.add ('responsive');
+		navOpen = true;
+		}
+		else {
+			document.querySelector('#logo + .inner-tabs').style.height = '0';
+			document.querySelector('.topnav').classList.remove ('responsive');
+			navOpen = false;
+		}
+ 	}
+ 
+	var aboveDrawerOpen = false;
+	var footerDrawerOpen = false;
+	$('.footerDrawer > div .triangle').on('click', function () {
 
-				$('.footerDrawer .content').slideToggle(350, showstate);
+		$('.footerDrawer .content').slideToggle(350, showstate);
 
-				function showstate() {
-					if ($(this).attr('style') === "display: none;") {
-						$('.footerDrawer .open').show();
+		function showstate() {
+			if ($(this).attr('style') === "display: none;") {
+				$('.footerDrawer .open').show();
 
-					} else {
-						$('.footerDrawer .open').show();
-					}
-				}
+			} else {
+				$('.footerDrawer .open').show();
+			}
+		}
 
-				if (!footerDrawerOpen) {
-					$(this).css({
-						'transform': 'rotate(360deg)',
-						'bottom': '-31px'
-					});
-					footerDrawerOpen = true;
-				} else {
-					$(this).css({
-						'transform': 'rotate(180deg)',
-						'bottom': '-7px'
-					});
-					footerDrawerOpen = false;
-				}
+		if (!footerDrawerOpen) {
+			$(this).css({
+				'transform': 'rotate(360deg)',
+				'bottom': '-31px'
+			});
+			footerDrawerOpen = true;
+		} else {
+			$(this).css({
+				'transform': 'rotate(180deg)',
+				'bottom': '-7px'
+			});
+			footerDrawerOpen = false;
+		}
 
-				if ($('.aboveDrawer .content').css('display') === 'block') {
+		if ($('.aboveDrawer .content').css('display') === 'block') {
+			$('.aboveDrawer .content').hide('350ms');
+			$('.aboveDrawer .triangle').css({
+				'transform': 'rotate(360deg)',
+				'top': '-7px'
+			});
+			aboveDrawerOpen = false;
+		}
+
+		// hide main menu when clicked on triangle
+		if($('.topnav').hasClass('responsive'))
+		{
+			$('.topnav').removeClass('responsive');
+			$('#logo + .inner-tabs').css('height', '0');
+			navOpen = false;
+		}
+	});
+
+	
+	$('.aboveDrawer .triangle').on('click', function () {
+
+		$('.aboveDrawer .content').slideToggle(350, showstate);
+
+		function showstate() {
+			if ($(this).attr('style') === "display: none;") {
+				$('.aboveDrawer .open').show();
+
+
+			} else {
+				$('.aboveDrawer .open').show();
+			}
+		}
+
+
+		if (!aboveDrawerOpen) {
+			$(this).css({
+				'transform': 'rotate(180deg)',
+				'top': '-31px'
+			});
+			aboveDrawerOpen = true;
+		} else {
+			$(this).css({
+				'transform': 'rotate(360deg)',
+				'top': '-7px'
+			});
+			aboveDrawerOpen = false;
+		}
+		if ($('.footerDrawer .content').css('display') === 'block') {
+			$('.footerDrawer .content').hide('350ms');
+			$('.footerDrawer .triangle').css({
+				'transform': 'rotate(180deg)',
+				'bottom': '-7px'
+			});
+			footerDrawerOpen = false;
+		}
+		
+		// hide main menu when clicked on triangle
+		if($('.topnav').hasClass('responsive'))
+		{
+			$('.topnav').removeClass('responsive');
+			$('#logo + .inner-tabs').css('height', '0');
+			navOpen = false;
+		}
+	});
+
+	// close aboveDrawer content and footerDrawer content when main menu is opened
+	$('.topnav a.icon').click(function(){
+			if($('.topnav').hasClass('responsive')) {
+				if(($('.aboveDrawer .content').css('display') === 'block')) {
 					$('.aboveDrawer .content').hide('350ms');
 					$('.aboveDrawer .triangle').css({
 						'transform': 'rotate(360deg)',
@@ -135,46 +220,17 @@
 					});
 					aboveDrawerOpen = false;
 				}
-			});
 
-			
-			$('.aboveDrawer .triangle').on('click', function () {
-
-				$('.aboveDrawer .content').slideToggle(350, showstate);
-
-				function showstate() {
-					if ($(this).attr('style') === "display: none;") {
-						$('.aboveDrawer .open').show();
-
-
-					} else {
-						$('.aboveDrawer .open').show();
-					}
-				}
-
-
-				if (!aboveDrawerOpen) {
-					$(this).css({
-						'transform': 'rotate(180deg)',
-						'top': '-31px'
-					});
-					aboveDrawerOpen = true;
-				} else {
-					$(this).css({
-						'transform': 'rotate(360deg)',
-						'top': '-7px'
-					});
-					aboveDrawerOpen = false;
-				}
 				if ($('.footerDrawer .content').css('display') === 'block') {
-					$('.footerDrawer .content').hide('350ms');
-					$('.footerDrawer .triangle').css({
-						'transform': 'rotate(180deg)',
-						'bottom': '-7px'
-					});
-					footerDrawerOpen = false;
-				}
-			});
+				$('.footerDrawer .content').hide('350ms');
+				$('.footerDrawer .triangle').css({
+					'transform': 'rotate(180deg)',
+					'bottom': '-7px'
+				});
+				footerDrawerOpen = false;
+			}
+		}
+	});
 	</script>
 
 

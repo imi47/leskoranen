@@ -692,33 +692,6 @@ function assign_temp() {
   //   audio_player('repeat');
   // }
  
-   var menuOpened = false;
-   
-  var navOpen = false;
-  function myFunction() {
-   
-  //  var x = document.getElementById("myTopnav");
-  //   if (x.className === "topnav") {
-  //     x.className += " responsive";
-  //     menuOpened = true;
-  //   }
-      
-  //   else {
-  //     x.className = "topnav";
-  //     menuOpened = false;
-  //   }  
-  if(!navOpen) {
-    document.querySelector('#logo + .inner-tabs').style.height = '290px';
-    document.querySelector('.topnav').classList.add ('responsive');
-    navOpen = true;
-  }
-  else {
-    document.querySelector('#logo + .inner-tabs').style.height = '0';
-    document.querySelector('.topnav').classList.remove ('responsive');
-
-    navOpen = false;
-  }
- }
 
  //get juz 
 
