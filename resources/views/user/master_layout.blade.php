@@ -34,12 +34,8 @@
 	{{-- <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
 	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/fonts/font-awesome.min.css">
-          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/jquery.social-buttons.css">
 	<script src="{{$PUBLIC_ASSETS}}/js/custom.js"></script> 
-	<script src="{{$PUBLIC_ASSETS}}/js/search.js"></script>
-	<script src="{{$PUBLIC_ASSETS}}/js/jquery.social-buttons.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
+	<script src="{{$PUBLIC_ASSETS}}/js/search.js"></script> 
 	<style type="text/css">
 
 		.footerDrawer {

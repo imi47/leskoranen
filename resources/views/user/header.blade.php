@@ -61,15 +61,6 @@
    text-align: left;
  }
 }
-body>:nth-last-child(2) {
-            display: none !important;
-        }
-        .skiptranslate{
-                display: none !important;
-            }
-            body{
-              top:0 !important;
-            }
 </style>
 <body>
  <section id="container">
@@ -86,54 +77,6 @@ body>:nth-last-child(2) {
        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
          <i class="fa fa-bars"></i>
        </a>
-      <div class="dropdown language">
-                            <button style="width: 115px;
-    height: 34px;
-    margin-top: 7px;
-    background-color: yellowgreen;" class="btn btn-default dropdown-toggle" type="button" id="languageDrop" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                                <i class="fa fa-language"></i> Language
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="languageDrop">
-                                <li>
-                                    <a href="javascript:;" id="English" class="en" onclick="translateLanguage(this.id, this);">English</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" id="Norwegian" class="no" onclick="translateLanguage(this.id, this);">Norwegian</a>
-                                </li>
-                            </ul>
-
-                            
-                            <div id="google_translate_element" style="display: none">
-                            </div>
-  
-                            <script type="text/javascript">
-                                function googleTranslateElementInit() {
-                                    new google.translate.TranslateElement({pageLanguage: 'no', includedLanguages: 'en,no', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
-                                }
-                            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                            <script>
-                                function translateLanguage(lang, id) {
-                                    $(id).closest('ul').find('li').removeClass("active");
-                                    $(id).closest('li').addClass('active');
-                                    if (lang === "English") {
-                                        $.cookie("googtrans", '/no/en');
-                                    } else {
-                                        $.cookie("googtrans", '/en/no');
-                                    }
-                                    var $frame = $('.goog-te-menu-frame:first');
-                                    if (!$frame.size()) {
-                                        alert("Error: Could not find Google translate frame.");
-                                        return false;
-                                    }
-                                    $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
-                                    return false;
-                                }
-                            </script>
-                            </div>
-
-
       </div>
   </div>
  <section class="panes_box" id="home_menu" style='position:relative;'>
@@ -164,7 +107,7 @@ body>:nth-last-child(2) {
           @endforeach
           @endif
         </select>
-        <label class="notranslate">Juz</label>
+        <label>Juz</label>
         <select class="" id="cmbJuz" name="JuzID" style="width: 65px;">
           @for(@$i=1;$i<=30;$i++)
             <option value="{{$i}}">{{$i}}</option>
@@ -187,7 +130,7 @@ body>:nth-last-child(2) {
         @endfor
        @endif
      </select>
-     <label class="notranslate" id="lblRukuHizbCap">Ruku</label>
+     <label id="lblRukuHizbCap">Ruku</label>
      <select class="" id="cmbHizb" name="HizbRuku" style="width: 65px;">
        <option value="1">1</option>
        <option value="2">1 &#188;</option>

@@ -34,7 +34,7 @@ $lastverse='';
 
     </p>
   </div>
-  <div class="col-sm-6 right notranslate" id="arab-side">
+  <div class="col-sm-6 right" id="arab-side">
 
     <p class="text-center" dir="rtl">
       <span class="arbic" style="color: #99cc33">سُوۡرَةُ  <span id="sura_n">{{ $surah->surah_name_arabic }}</span> </span>
@@ -229,7 +229,8 @@ $lastverse='';
             </div>
           </form>
 
-          
+          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/fonts/font-awesome.min.css">
+          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/jquery.social-buttons.css">
 
           <div class="social">
             <div class="social__item">
@@ -249,7 +250,7 @@ $lastverse='';
             </div> -->
         </div>
 
-          
+          <script src="{{$PUBLIC_ASSETS}}/js/jquery.social-buttons.js"></script>
           <script>
             $(function () {
             $('[data-social]').socialButtons({
@@ -1390,7 +1391,7 @@ $(function () {
                 }
                 else
                 {
-                  $('#results_bookmarks').html('Something went wrong.');
+                  $('#results_bookmarks').html('Some thing went wrong.');
                 }
 
               }
