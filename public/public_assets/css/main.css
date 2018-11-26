@@ -745,7 +745,7 @@ i:hover {
 }
 #main-menu ul > .dropdown:hover > ul.dropdown-menu {
     display: block;
-    webkit-animation: MenuFadeIn 400ms;
+    -webkit-animation: MenuFadeIn 400ms;
     animation: MenuFadeIn 400ms;
     transition: all .3s ease-in-out 0s
 }
@@ -1184,7 +1184,7 @@ ul li > ul > li.active > a {
 .portfolio-item:hover .sup-link .right-link,
 .portfolio-item:hover .sup-link .left-link {
     opacity: 1;
-    webkit-transform: translateY(0px);
+    -webkit-transform: translateY(0px);
     transform: translateY(0px)
 }
 .loadmore-button {
@@ -2484,7 +2484,6 @@ footer #copyright .nav-inline {
 }
 .alignleft {
     display: inline;
-    float: left;
     margin-right: 1.5em
 }
 .panel-image .panel-body img {

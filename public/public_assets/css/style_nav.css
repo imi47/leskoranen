@@ -70,6 +70,13 @@ video {
     display: inline-block
 }
 
+.btn-find {
+    border:2px solid #E74C3C;
+    color:#E74C3C !important;
+    background:#fff;
+    margin-left:8px;
+}
+
 .audio_player {
     width: 85vw;
     margin: auto;

@@ -80,7 +80,7 @@
       </div>
   </div>
  <section class="panes_box" id="home_menu" style='position:relative;'>
-  <div class="aboveDrawer">
+  <div class="aboveDrawer" data-toggle="tooltip" title='Surah Introduction'>
       <div class="content">
         <div class="row container">
           <div class="col-md-12">
@@ -88,8 +88,7 @@
           </div>
         </div>
       </div>
-      <div class="open" data-toggle="tooltip" data-placement="bottom">
-        <!-- removed title="Surah Introduction" from above tag -->
+      <div class="open">
         <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" alt="" class='triangle'>
       </div>
 

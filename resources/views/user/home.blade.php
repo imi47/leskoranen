@@ -63,9 +63,8 @@ $lastverse='';
 <div class="row">
   <div class="col-md-12">
     
-    <div class="footerDrawer">
-      <div data-toggle="tooltip" data-placement="top" class="open">
-        <!-- remved title="Verse Footnotes" from above tag -->
+    <div class="footerDrawer" data-toggle="tooltip" data-placement='bottom' title='Verse Footnotes'>
+      <div class="open">
         <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" alt="" class='triangle'>
       </div>
       <div class="content">
@@ -229,6 +228,47 @@ $lastverse='';
               <input style="height: auto; width: auto;" type="submit" name="btnSub" value="Send Invitation" class="btn btn-primary">
             </div>
           </form>
+
+          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/fonts/font-awesome.min.css">
+          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/jquery.social-buttons.css">
+
+          <div class="social">
+            <div class="social__item">
+                <span class="fa fa-facebook" data-count="..." data-social="fb"></span>
+            </div>
+            <!-- <div class="social__item">
+                <span class="fa fa-vk" data-count="..." data-social="vk"></span>
+            </div> -->
+            <div class="social__item">
+                <span class="fa fa-twitter" data-count="..." data-social="tw"></span>
+            </div>
+            <div class="social__item">
+                <span class="fa fa-linkedin" data-count="..." data-social="ln"></span>
+            </div>
+            <!-- <div class="social__item">
+                <span class="fa fa-pinterest" data-count="..." data-social="pt"></span>
+            </div> -->
+        </div>
+
+          <script src="{{$PUBLIC_ASSETS}}/js/jquery.social-buttons.js"></script>
+          <script>
+            $(function () {
+            $('[data-social]').socialButtons({
+                url: 'digitalmediexpert.no/quran/#'
+              });
+            });
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36251023-1']);
+            _gaq.push(['_setDomainName', 'jqueryscript.net']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+          </script>
         </div>
       </div>
     </div>
@@ -1224,7 +1264,7 @@ function save_bookmarks() {
   swal({
     type: "info",
     title: 'Save BookMark',
-    text: '<div class="control-group"><input type="email" id="email_bookmark" class="form-control" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="Save" class="btn btn-success"></div>',
+    text: '<div class="control-group"><input type="email" id="email_bookmark" class="form-control" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="Save" class="btn btn-success"> <a href="#" class="btn btn-find">Find</a> </div> ',
     html: true,
     showConfirmButton: false ,
 
