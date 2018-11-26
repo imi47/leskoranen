@@ -1043,7 +1043,6 @@ function zoomin() {
     $(".arbic").css("line-height", "1.6"); 
     cust_num_size = cust_num_size + 0.1;
     $('.custom-number').css("font-size", cust_num_size+'rem');
-
   }
 }
 function zoomout() {
@@ -1391,7 +1390,7 @@ $(function () {
                 }
                 else
                 {
-                  $('#results_bookmarks').html('Some thing went wrong.');
+                  $('#results_bookmarks').html('Something went wrong.');
                 }
 
               }

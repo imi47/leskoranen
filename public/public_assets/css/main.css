@@ -919,7 +919,7 @@ ul li > ul > li.active > a {
     }
 }
 
-@media (max-width:447px) {
+@media (max-width:375px) {
     .btn-del-bookmark {
         margin-top:10px;
     }

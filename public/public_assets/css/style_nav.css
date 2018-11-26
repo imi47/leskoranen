@@ -165,7 +165,7 @@ video {
 }
 
 .ayah-end {
-    width:25px;
+    width:1.5rem;
     height:auto;
 }
 
@@ -1312,7 +1312,6 @@ section.quran_menu ul li:nth-child(6):hover {
         top: 65px;
         left: 0;
         z-index: 100;
-        padding: 20px;
         background: rgba(153, 204, 51, .98)
     }
     section.quran_menu ul li:nth-child(2):hover {
