@@ -4,7 +4,7 @@
 }
 button.playing {
   background: url(../img/pause.png) no-repeat;
-  background-size: cover;
+  background-size: 50px;
 }
 
 button.paused {

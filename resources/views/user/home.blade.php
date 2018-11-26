@@ -1250,7 +1250,7 @@ $(function () {
                   }
                   else
                   {
-                    $('#invite_results').html('Some thing went wrong.');
+                    $('#invite_results').html('Something went wrong.');
                   }
                   
                 }

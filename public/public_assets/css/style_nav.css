@@ -124,6 +124,10 @@ video {
     border: none;
 }
 
+#play_btn:focus {
+    outline:none;
+}
+
 .triangle {
     position:absolute;
     width:40px;
@@ -963,12 +967,6 @@ section.audio_player section.main_control a.pre_b {
     left: 20%
 }
 
-
-section.audio_player section.main_control a.pre_b:active {
-    background: rgba(58, 104, 189, .95)
-}
-
-
 section.audio_player section.main_control a.next_b {
     text-align: center;
     padding-top: 8px;
@@ -981,12 +979,6 @@ section.audio_player section.main_control a.next_b {
 }
 
 
-
-section.audio_player section.main_control a.next_b:active {
-    background: rgba(58, 104, 189, .95)
-}
-
-
 section.audio_player section.main_control a.stop_b {
     text-align: center;
     padding-top: 0px;
@@ -994,12 +986,6 @@ section.audio_player section.main_control a.stop_b {
     width: 40px;
     cursor: pointer;
     position: absolute;
-}
-
-
-
-section.audio_player section.main_control a.stop_b:active {
-    background: rgba(58, 104, 189, .95)
 }
 
 
