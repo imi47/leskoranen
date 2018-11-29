@@ -24,9 +24,9 @@ $lastverse='';
      <p id="translation">
 
       @foreach ($surah->verse as $verse)
-        <span  class="trns" id="trans{{$verse->verse}}"> {{$verse->translation}}</span>
+        <span style="padding: 5px;" class="trns" id="trans{{$verse->verse}}"> {{$verse->translation}}
         <img src="{{$PUBLIC_ASSETS}}/img/ayah-end.png" class='ayah-end'>
-        <span style="padding: 5px;">{{$verse->verse}}</span>
+        <span style="padding: 5px;">{{$verse->verse}}</span></span>
         @if($audio=='')
         <?php $audio=$verse->link_to_audio; ?>
         @endif
@@ -34,7 +34,7 @@ $lastverse='';
 
     </p>
   </div>
-  <div class="col-sm-6 right" id="arab-side">
+  <div class="col-sm-6 right notranslate" id="arab-side">
 
     <p class="text-center" dir="rtl">
       <span class="arbic" style="color: #99cc33">سُوۡرَةُ  <span id="sura_n">{{ $surah->surah_name_arabic }}</span> </span>
@@ -49,7 +49,7 @@ $lastverse='';
           c_obj['arb_link' + {{ $verse->verse }}] = '{{ $verse->link_to_audio }}';
           c_obj['arb_desc' + {{ $verse->verse }}] = '{!! str_replace('<br />', '\\', $verse->description) !!}';
         </script>
-        <span class="arbic" id="arabic{{$verse->verse}}"> {!!$verse->arabic_immune!!} </span><img src="{{$PUBLIC_ASSETS}}/img/ayah-end.png" class='ayah-end'> <span style="padding: 5px;">{{$verse->verse}}</span>
+        <span class="arbic" style="height: 100px;" id="arabic{{$verse->verse}}"> {!!$verse->arabic_immune!!} <img src="{{$PUBLIC_ASSETS}}/img/ayah-end.png" class='ayah-end'> <span  style="padding: 5px;">{{$verse->verse}}</span></span>
        @endforeach
      
 
@@ -183,7 +183,7 @@ $lastverse='';
             </div>
             <div class="form-group">
               <input style="height: auto; width: auto;" type="submit" name="btnSub" class="btn btn-primary" value="Get Bookmarks">
-              <input class="btn btn-del-bookmark" type="" name="" value="Delete Bookmark">
+              <!-- <input class="btn btn-del-bookmark" type="" name="" value="Delete Bookmark"> -->
             </div>
           </form>
 
@@ -229,8 +229,7 @@ $lastverse='';
             </div>
           </form>
 
-          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/fonts/font-awesome.min.css">
-          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/jquery.social-buttons.css">
+          
 
           <div class="social">
             <div class="social__item">
@@ -250,7 +249,7 @@ $lastverse='';
             </div> -->
         </div>
 
-          <script src="{{$PUBLIC_ASSETS}}/js/jquery.social-buttons.js"></script>
+          
           <script>
             $(function () {
             $('[data-social]').socialButtons({
@@ -389,6 +388,7 @@ $lastverse='';
 </script>
 @endpush 
 @push('js')
+
 <script src="{{ $PUBLIC_ASSETS }}/sweetalert/dist/sweetalert.js"></script>
 {{-- <script src="{{$PUBLIC_ASSETS}}/captcha/client_captcha.js" defer></script>
 --}}
@@ -1043,6 +1043,7 @@ function zoomin() {
     $(".arbic").css("line-height", "1.6"); 
     cust_num_size = cust_num_size + 0.1;
     $('.custom-number').css("font-size", cust_num_size+'rem');
+
   }
 }
 function zoomout() {
@@ -1132,6 +1133,9 @@ function show_verse(surah_id,verse){
  $('#cmbTVerse').val(verse);
  $('#cmbFVerse').val(verse).change(); 
 }
+
+
+
 function show_verse_bookmark(surah_id,from_verse,to_verse){
  change_content("home"); 
  //alert(surah_id);
@@ -1259,11 +1263,23 @@ $(function () {
 
 
 //save bookmarks
+function book()
+{
+  pause_page_switch_audio();
+  document.getElementById("home_menu").style.display = "none";
+  document.getElementById("home_content").style.display = "none";
+  document.getElementById("search_menu").style.display = "none";
+  document.getElementById("search_content").style.display = "none";
+  document.getElementById("inv_friend_content").style.display = "none";
+  document.getElementById("bug_report").style.display = "none";
+  document.getElementById("bookmark_content").style.display = "block";
+  swal.close();
+}
 function save_bookmarks() {
   swal({
     type: "info",
     title: 'Save BookMark',
-    text: '<div class="control-group"><input type="email" id="email_bookmark" class="form-control" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="Save" class="btn btn-success"> <a href="#" class="btn btn-find">Find</a> </div> ',
+    text: '<div class="control-group"><input type="email" id="email_bookmark" class="form-control" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="Save" class="btn btn-success"> <a href="#" onclick="return book()")"  class="btn btn-find">Find</a> </div> ',
     html: true,
     showConfirmButton: false ,
 
@@ -1289,6 +1305,7 @@ function submit() {
 else
 {
  var surah_id = $('#cmbSura').val();
+
  var from_verse = $('#cmbFVerse').val();
  var to_verse = $('#cmbTVerse').val();
        //here check the file attachment 
@@ -1380,7 +1397,7 @@ $(function () {
                   returnedData.forEach( function (item) {
                     total_found++;
 
-                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6>Sura '+item.surah_id+',From Verse '+item.from_verse+', To Verse'+item.to_verse+'</h6></a><p></p>';
+                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6 id='+item.id+'>Sura '+item.surah_id+',From Verse '+item.from_verse+', To Verse'+item.to_verse+'</a><a href="#" onclick="delete_book('+item.id+')">  <i class="fa fa-times" style="color:red; font-size:15px;"></i></h6> </a><p></p>';
                   });
                   $("#results_bookmarks").html("");
                   $("#results_bookmarks").append(results);
@@ -1400,5 +1417,72 @@ $(function () {
 
 
 
+
+
+
+function delete_book(id) {
+  
+  swal({
+    type: "info",
+    title: 'Are you sure you want delete?',
+    text: '<div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="deletes_book('+id+')" value="Delete" class="btn btn-success"> </div> ',
+    html: true,
+    showConfirmButton: false ,
+
+  });
+}
+
+
+
+
+function deletes_book(id) {
+
+
+         $.ajax({
+   url:'{{ url('/delete_bookmark') }}',
+   type: 'post',
+   data: {
+     "_token": "{{ csrf_token() }}",
+     "id" : id,
+     
+   },
+   beforeSend: function(){
+    document.getElementById("wait").style.display = "block";
+  },
+  complete: function(){
+  },
+  success: function (response) 
+  {
+    document.getElementById("wait").style.display = "none";
+    if(response=='true')
+    {
+      $('#'+id).html('');
+
+    swal({
+                  type: "success",
+                  title: 'Bookmark is deleted',
+                  html: true,
+                  text: '<input type="button" value="Close" onclick="swal.close()" class="btn btn-success">',
+                  showConfirmButton: false ,
+
+                });
+
+      
+    }
+    else
+    {
+      alert('error');
+    }
+}
+});
+
+
+
+            
+                  
+
+              
+
+      }
 </script>
 @endpush

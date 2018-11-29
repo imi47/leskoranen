@@ -13,6 +13,8 @@
 Route::get('/test','UserController@test');
 Route::get('/','UserController@index');
 Route::post('/get-surah','UserController@get_surah');
+Route::post('/delete_bookmark','UserController@delete_bookmark');
+
 Route::post('/get-surah-from-verse','UserController@get_surah_form_verse');
 Route::post('/get-surah-to-verse','UserController@get_surah_to_verse');
 Route::post('/get-surah-audio','UserController@get_audio_source');

@@ -31,6 +31,19 @@ class UserController extends Controller
 		$data['surahs']=Surah::withCount('verse')->has('verse' , '>' , 0)->orderBy('surah_number' , 'asc')->get();
 		return view('user/home',$data);
 	}
+	public function delete_bookmark(Request $request)
+	{
+
+       $book=Bookmarks::where('id',$request->id)->delete();
+       if($book)
+       {
+       	echo "true";
+       }
+       else
+       {
+       	echo "false";
+       }
+	}
 	public function get_surah(Request $request)
 	{
 		$messages = array(
@@ -348,16 +361,16 @@ class UserController extends Controller
 			\Session::put('emailed_bookmark_code' , $code);
 			$data['email'] = $request->email;
 			$data['msg'] = 'Verification Code is  ' . $code;
-			\Mail::send('email.general', $data, function($message) use ($data){ 
-				$message->to($data['email'])->from(env('MAIL_USERNAME'), 'Quran Online' )->subject('Bookmark Verification Code');
-			});
-			if(\Mail::failures()){
-				echo 'failed';
-			}else
-			{
-				echo 'success';
-			}
-			exit();
+			// \Mail::send('email.general', $data, function($message) use ($data){ 
+			// 	$message->to($data['email'])->from(env('MAIL_USERNAME'), 'Quran Online' )->subject('Bookmark Verification Code');
+			// });
+			// if(\Mail::failures()){
+			// 	echo 'failed';
+			// }else
+			// {
+			// 	echo 'success';
+			// }
+			// exit();
 			$check=Bookmarks::where([['email','=',$request->email],['surah_id','=',$request->surah_id],['from_verse','=',$request->from_verse],['to_verse','=',$request->to_verse]])->first();
 			if(empty($check))
 			{

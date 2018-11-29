@@ -61,6 +61,15 @@
    text-align: left;
  }
 }
+body>:nth-last-child(2) {
+            display: none !important;
+        }
+        .skiptranslate{
+                display: none !important;
+            }
+            body{
+              top:0 !important;
+            }
 </style>
 <body>
  <section id="container">
@@ -77,6 +86,32 @@
        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
          <i class="fa fa-bars"></i>
        </a>
+      <div class="dropdown language" style="width: 800px;">
+                            <button style="width: 115px;
+    height: 34px;
+    margin-top: 7px;
+    background-color: yellowgreen;" class="btn btn-default dropdown-toggle" type="button" id="languageDrop" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="true">
+                                <i class="fa fa-language"></i> Language
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageDrop">
+                                <li>
+                                    <a href="javascript:;" id="English" class="en" onclick="translateLanguage(this.id, this);">English</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" id="Norwegian" class="no" onclick="translateLanguage(this.id, this);">Norwegian</a>
+                                </li>
+                            </ul>
+
+                            
+                            <div id="google_translate_element" style="display: none">
+                            </div>
+  
+                            
+                            </div>
+
+
       </div>
   </div>
  <section class="panes_box" id="home_menu" style='position:relative;'>
@@ -107,7 +142,7 @@
           @endforeach
           @endif
         </select>
-        <label>Juz</label>
+        <label class="notranslate">Juz</label>
         <select class="" id="cmbJuz" name="JuzID" style="width: 65px;">
           @for(@$i=1;$i<=30;$i++)
             <option value="{{$i}}">{{$i}}</option>
@@ -130,7 +165,7 @@
         @endfor
        @endif
      </select>
-     <label id="lblRukuHizbCap">Ruku</label>
+     <label class="notranslate" id="lblRukuHizbCap">Ruku</label>
      <select class="" id="cmbHizb" name="HizbRuku" style="width: 65px;">
        <option value="1">1</option>
        <option value="2">1 &#188;</option>

@@ -34,8 +34,12 @@
 	{{-- <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
 	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/fonts/font-awesome.min.css">
+          <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/jquery.social-buttons.css">
 	<script src="{{$PUBLIC_ASSETS}}/js/custom.js"></script> 
-	<script src="{{$PUBLIC_ASSETS}}/js/search.js"></script> 
+	<script src="{{$PUBLIC_ASSETS}}/js/search.js"></script>
+	<script src="{{$PUBLIC_ASSETS}}/js/jquery.social-buttons.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
 	<style type="text/css">
 
 		.footerDrawer {
@@ -233,7 +237,29 @@
 	});
 	</script>
 
-
+<script type="text/javascript">
+                                function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement({pageLanguage: 'no', includedLanguages: 'en,no', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+                                }
+                            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                            <script>
+                                function translateLanguage(lang, id) {
+                                    $(id).closest('ul').find('li').removeClass("active");
+                                    $(id).closest('li').addClass('active');
+                                    if (lang === "English") {
+                                        $.cookie("googtrans", '/no/en');
+                                    } else {
+                                        $.cookie("googtrans", '/en/no');
+                                    }
+                                    var $frame = $('.goog-te-menu-frame:first');
+                                    if (!$frame.size()) {
+                                        alert("Error: Could not find Google translate frame.");
+                                        return false;
+                                    }
+                                    $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+                                    return false;
+                                }
+                            </script>
 </body>
 
 
