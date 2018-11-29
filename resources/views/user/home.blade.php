@@ -1474,7 +1474,12 @@ function deletes_book(id) {
       alert('error');
     }
 }
-});          
+});
+
+
+
+            
+                  
 
               
 
