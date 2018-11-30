@@ -1028,8 +1028,12 @@ function getSurahToVerse(){
 //end from verse js
 
 //zoomin
+var ayah_end_width = 25;
+var ayah_number_margin = -25;
+var ayah_font_size = 12;
 var zoom_size=25;
 var cust_num_size = 1;
+var arabic_margin_right = 0;
 function zoomin() {
   if(zoom_size<45)
   {
@@ -1040,10 +1044,18 @@ function zoomin() {
     var zm=z+"px";
     $(".trns").css("font-size", zm);
     $(".trns").css("line-height","1.6");
-    $(".arbic").css("line-height", "1.6"); 
+    $(".arbic").css("line-height", "1.6");
     cust_num_size = cust_num_size + 0.1;
+    ayah_end_width =  ayah_end_width + 8;
+    ayah_number_margin =  ayah_number_margin - 7;
+    ayah_font_size += 5;
+    arabic_margin_right += 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
-
+    $('.ayah-end').css('width', ayah_end_width+'px');
+    $('.ayah-end + span').css({'margin-left':ayah_number_margin+'px', 'font-size':ayah_font_size+'px'});
+    $('#arabic .ayah-end + span').css('margin-left', '6px');
+    $('#arabic .ayah-end + span').css({'margin-right':ayah_number_margin+'px'});
+    $('.arbic').css('margin-right', arabic_margin_right+'px');
   }
 }
 function zoomout() {
@@ -1056,11 +1068,22 @@ function zoomout() {
     var zm=z+"px";
     $(".trns").css("font-size", zm);
     $(".trns").css("line-height","1.5");
-    $(".arbic").css("line-height", "1.5"); 
+    $(".arbic").css("line-height", "1.5");
     cust_num_size = cust_num_size - 0.1;
+    ayah_end_width =  ayah_end_width - 8;
+    ayah_number_margin =  ayah_number_margin + 7;
+    ayah_font_size -= 5;
+    arabic_margin_right -= 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
+    $('.ayah-end').css('width', ayah_end_width+'px');
+    $('.ayah-end + span').css({'margin-left':ayah_number_margin+'px', 'font-size':ayah_font_size+'px'});
+    $('#arabic .ayah-end + span').css('margin-left', '6px');
+    $('#arabic .ayah-end + span').css('margin-right', ayah_number_margin+'px');
+    $('.arbic').css('margin-right', arabic_margin_right+'px');
   }
-
+  if(zoom_size == 25) {
+    $('.trns').css('font-size', '1rem');
+  }
 }
 //change fore color
 $('#cmbFColor').change(fore_color_change);

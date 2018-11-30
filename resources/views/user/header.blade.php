@@ -62,54 +62,54 @@
  }
 }
 body>:nth-last-child(2) {
-            display: none !important;
-        }
-        .skiptranslate{
-                display: none !important;
-            }
-            body{
-              top:0 !important;
-            }
+  display: none !important;
+}
+.skiptranslate{
+    display: none !important;
+}
+body{
+  top:0 !important;
+}
+
+.language {
+  display:inline;
+}
+
+
+#languageDrop {
+  display:none;
+}
+
+.language:hover #languageDrop {
+  display:block;
+}
 </style>
 <body>
  <section id="container">
   <div id="containerBody">
   <div class="topnav" id="myTopnav">
     <a href="#" id="logo"><img src="{{$PUBLIC_ASSETS}}/img/forweb2.jpg" width="97px" height="35px" alt=""></a>
-      <div class="inner-tabs" style="padding: 10px;">
-       <a href="#" class="active" onclick="change_content('home')">Home</a>
-       <a href="#" onclick="change_content('search')">Search</a>
-       <a href="#" onclick="change_content('inv_friend')">Invite Friend</a>
-       <a href="#" onclick="change_content('bug_report')">Bug Reporting </a>
-       <a href="#" onclick="change_content('bookmark')">Bookmarks </a>
-       
-       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-         <i class="fa fa-bars"></i>
-       </a>
-      <div class="dropdown language" style="width: 800px;">
-                            <button style="width: 115px;
-    height: 34px;
-    margin-top: 7px;
-    background-color: yellowgreen;" class="btn btn-default dropdown-toggle" type="button" id="languageDrop" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="true">
-                                <i class="fa fa-language"></i> Language
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="languageDrop">
-                                <li>
-                                    <a href="javascript:;" id="English" class="en" onclick="translateLanguage(this.id, this);">English</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;" id="Norwegian" class="no" onclick="translateLanguage(this.id, this);">Norwegian</a>
-                                </li>
-                            </ul>
+<div class="inner-tabs" style="padding: 10px;">
+  <a href="#" class="active" onclick="change_content('home')">Home</a>
+  <a href="#" onclick="change_content('search')">Search</a>
+  <a href="#" onclick="change_content('inv_friend')">Invite Friend</a>
+  <a href="#" onclick="change_content('bug_report')">Bug Reporting </a>
+  <a href="#" onclick="change_content('bookmark')">Bookmarks </a>
 
-                            
-                            <div id="google_translate_element" style="display: none">
-                            </div>
-  
-                            
-                            </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <!-- <div class="language">
+    <button style="width: 115px; height: 34px; margin-top: 7px; background-color: yellowgreen;" class="btn btn-default dropdown-toggle" type="button">
+      <i class="fa fa-language"></i> Language
+      <span class="caret"></span>
+    </button>
+    <div id='languageDrop'>
+      <a href="javascript:;" id="English" class="en" onclick="translateLanguage(this.id, this);">English</a>
+      <a href="javascript:;" id="Norwegian" class="no" onclick="translateLanguage(this.id, this);">Norwegian</a>
+    </div>
+
+  </div> -->
 
 
       </div>
