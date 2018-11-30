@@ -164,6 +164,36 @@ video {
     margin-left: 5px;
 }
 
+.trns {
+    line-height:30px;
+}
+
+#translation .ayah-end1 {
+    margin-right:5px;
+}
+
+#arabic .ayah-end1 {
+    margin-left:6px;
+}
+
+#arabic .ayah-end1 span, #translation .ayah-end1 span {
+    line-height:1.6;
+}
+
+.ayah-end1 {
+    background-image:url('{{$PUBLIC_ASSETS}}/img/ayah-end.png');
+    background-image: url(http://localhost/quran/public/public_assets/img/ayah-end.png);
+    background-size: 100%;
+    display: inline-flex;
+    background-repeat: no-repeat;
+    width: 21px;
+    justify-content: center;
+ }
+
+ .ayah-end1 span {
+   font-size:14px;
+ }
+
 .ayah-end {
     width: 25px;
     height:auto;

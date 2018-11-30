@@ -22,11 +22,13 @@ $lastverse='';
       </p>
       
      <p id="translation">
-
       @foreach ($surah->verse as $verse)
-        <span style="padding: 5px;" class="trns" id="trans{{$verse->verse}}"> {{$verse->translation}}
-        <img src="{{$PUBLIC_ASSETS}}/img/ayah-end.png" class='ayah-end'>
-        <span style="padding: 5px;">{{$verse->verse}}</span></span>
+        <span class="trns" id="trans{{$verse->verse}}"> {{$verse->translation}}
+        <!-- <img src="{{$PUBLIC_ASSETS}}/img/ayah-end.png" class='ayah-end'>
+        <span style="padding: 5px;">{{$verse->verse}}</span></span> -->
+        <span class='ayah-end1'>
+          <span>{{$verse->verse}}</span>
+</span>
         @if($audio=='')
         <?php $audio=$verse->link_to_audio; ?>
         @endif
@@ -49,7 +51,11 @@ $lastverse='';
           c_obj['arb_link' + {{ $verse->verse }}] = '{{ $verse->link_to_audio }}';
           c_obj['arb_desc' + {{ $verse->verse }}] = '{!! str_replace('<br />', '\\', $verse->description) !!}';
         </script>
-        <span class="arbic" style="height: 100px;" id="arabic{{$verse->verse}}"> {!!$verse->arabic_immune!!} <img src="{{$PUBLIC_ASSETS}}/img/ayah-end.png" class='ayah-end'> <span  style="padding: 5px;">{{$verse->verse}}</span></span>
+        <span class="arbic" style="height: 100px;" id="arabic{{$verse->verse}}"> {!!$verse->arabic_immune!!}
+        <span class='ayah-end1'>
+          <span>{{$verse->verse}}</span>
+        </span>
+      </span>
        @endforeach
      
 
@@ -128,8 +134,6 @@ $lastverse='';
         </section>
         <section class="extra_button barBox2">
           <a href="#" data-toggle="tooltip" data-placement="top" title="Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text " rel="#bookmark_Scr"  id="_myBookMark" class="book_mark">
-           <!-- <img src="{{$PUBLIC_ASSETS}}/img/bookmark.jpg"> -->
-           <!--<output class="but_title">Save Bookmark</output>-->
            <img src="{{$PUBLIC_ASSETS}}/img/bookmark.svg" onclick="save_bookmarks()">
          </a>
        </section>
@@ -770,8 +774,8 @@ function assign_temp() {
      }
      //update to verse option 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png'  style='margin-right:6px;' class='ayah-end'> <span style='padding: 5px; margin-right:-20px;'>"+item.verse+"</span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px; margin-left:-20px;'>"+item.verse+"</span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span></span> ";
       i++;
     });
      //assign 1st audio 
@@ -868,8 +872,8 @@ function getSurah(get_special){
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span><img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' style='margin-right:6px;' class='ayah-end'><span style='padding: 5px; margin-right:-20px;'>"+item.verse+"</span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px; margin-left:-20px;'>"+item.verse+"</span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
 
 
     });
@@ -943,8 +947,8 @@ function getSurahFromVerse(){
      var i=1;
      var link='';
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png'  style='margin-right:6px;' class='ayah-end'><span style='padding: 5px; margin-right:-20px;'>"+item.verse+"</span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px; margin-left:-20px;'>"+item.verse+"</span>";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(i==1)
       {
        link = "{{$ADMIN_ASSETS}}/audios/"+item.link_to_audio;
@@ -1003,8 +1007,8 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' style='margin-right:6px;' class='ayah-end'><span style='padding: 5px; margin-right:-20px;'>"+item.verse+"</span> ";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span><img src='{{$PUBLIC_ASSETS}}/img/ayah-end.png' class='ayah-end'><span style='padding: 5px;margin-left:-20px;'>"+item.verse+"</span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span> ";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(i==1)
       {
        link = "{{$ADMIN_ASSETS}}/audios/"+item.link_to_audio;
@@ -1028,12 +1032,10 @@ function getSurahToVerse(){
 //end from verse js
 
 //zoomin
-var ayah_end_width = 25;
-var ayah_number_margin = -25;
-var ayah_font_size = 12;
+var ayah_end_width = 21;
+var ayah_font_size = 14;
 var zoom_size=25;
 var cust_num_size = 1;
-var arabic_margin_right = 0;
 function zoomin() {
   if(zoom_size<45)
   {
@@ -1047,15 +1049,10 @@ function zoomin() {
     $(".arbic").css("line-height", "1.6");
     cust_num_size = cust_num_size + 0.1;
     ayah_end_width =  ayah_end_width + 7;
-    ayah_number_margin =  ayah_number_margin - 6;
     ayah_font_size += 5;
-    arabic_margin_right += 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
-    $('.ayah-end').css('width', ayah_end_width+'px');
-    $('.ayah-end + span').css({'margin-left':ayah_number_margin+'px', 'font-size':ayah_font_size+'px'});
-    $('#arabic .ayah-end + span').css('margin-left', '6px');
-    $('#arabic .ayah-end + span').css({'margin-right':ayah_number_margin+'px'});
-    $('.arbic').css('margin-right', arabic_margin_right+'px');
+    $('.ayah-end1').css('width', ayah_end_width+'px');
+    $('.ayah-end1 span').css({'font-size':ayah_font_size+'px'});
   }
 }
 function zoomout() {
@@ -1071,15 +1068,10 @@ function zoomout() {
     $(".arbic").css("line-height", "1.5");
     cust_num_size = cust_num_size - 0.1;
     ayah_end_width =  ayah_end_width - 7;
-    ayah_number_margin =  ayah_number_margin + 6;
     ayah_font_size -= 5;
-    arabic_margin_right -= 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
-    $('.ayah-end').css('width', ayah_end_width+'px');
-    $('.ayah-end + span').css({'margin-left':ayah_number_margin+'px', 'font-size':ayah_font_size+'px'});
-    $('#arabic .ayah-end + span').css('margin-left', '6px');
-    $('#arabic .ayah-end + span').css('margin-right', ayah_number_margin+'px');
-    $('.arbic').css('margin-right', arabic_margin_right+'px');
+    $('.ayah-end1').css('width', ayah_end_width+'px');
+    $('.ayah-end1 span').css({'font-size':ayah_font_size+'px'});
   }
   if(zoom_size == 25) {
     $('.trns').css('font-size', '1rem');
