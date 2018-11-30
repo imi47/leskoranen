@@ -33,34 +33,33 @@
   transition:350ms;
 }
 
-@media (min-width:682px) {
+@media (min-width:800px) {
   #logo + .inner-tabs {
   height:0 !important;
   }
 }
 
-@media screen and (max-width: 682px) {
- .topnav a {display: none;}
+@media screen and (max-width: 800px) {
+ .topnav a, .topnav .language {display: none;}
  .topnav #logo {display: block;}
  .topnav a.icon {
    float: right;
    display: block;
  }
-}
 
-@media screen and (max-width: 682px) {
  .topnav.responsive {position: relative;}
  .topnav.responsive .icon {
    position: absolute;
    right: 7px;
    top: 10px;
  }
- .topnav.responsive a {
+ .topnav.responsive a, .topnav.responsive .language {
    float: none;
    display: block;
    text-align: left;
  }
 }
+
 body>:nth-last-child(2) {
   display: none !important;
 }
@@ -69,10 +68,6 @@ body>:nth-last-child(2) {
 }
 body{
   top:0 !important;
-}
-
-.language {
-  display:inline;
 }
 
 
@@ -96,10 +91,7 @@ body{
   <a href="#" onclick="change_content('bug_report')">Bug Reporting </a>
   <a href="#" onclick="change_content('bookmark')">Bookmarks </a>
 
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-  <!-- <div class="language">
+  <div class="language">
     <button style="width: 115px; height: 34px; margin-top: 7px; background-color: yellowgreen;" class="btn btn-default dropdown-toggle" type="button">
       <i class="fa fa-language"></i> Language
       <span class="caret"></span>
@@ -109,8 +101,11 @@ body{
       <a href="javascript:;" id="Norwegian" class="no" onclick="translateLanguage(this.id, this);">Norwegian</a>
     </div>
 
-  </div> -->
+  </div>
 
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 
       </div>
   </div>

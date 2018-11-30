@@ -108,7 +108,7 @@
 	
 	function myFunction() {
 		if(!navOpen) {
-		document.querySelector('#logo + .inner-tabs').style.height = '290px';
+		document.querySelector('#logo + .inner-tabs').style.height = '335px';
 		document.querySelector('.topnav').classList.add ('responsive');
 		navOpen = true;
 		}
@@ -238,28 +238,38 @@
 	</script>
 
 <script type="text/javascript">
-                                function googleTranslateElementInit() {
-                                    new google.translate.TranslateElement({pageLanguage: 'no', includedLanguages: 'en,no', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
-                                }
-                            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                            <script>
-                                function translateLanguage(lang, id) {
-                                    $(id).closest('ul').find('li').removeClass("active");
-                                    $(id).closest('li').addClass('active');
-                                    if (lang === "English") {
-                                        $.cookie("googtrans", '/no/en');
-                                    } else {
-                                        $.cookie("googtrans", '/en/no');
-                                    }
-                                    var $frame = $('.goog-te-menu-frame:first');
-                                    if (!$frame.size()) {
-                                        alert("Error: Could not find Google translate frame.");
-                                        return false;
-                                    }
-                                    $frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
-                                    return false;
-                                }
-                            </script>
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement({pageLanguage: 'no', includedLanguages: 'en,no', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
+	}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+	function translateLanguage(lang, id) {
+		$(id).closest('ul').find('li').removeClass("active");
+		$(id).closest('li').addClass('active');
+		if (lang === "English") {
+				$.cookie("googtrans", '/no/en');
+		} else {
+				$.cookie("googtrans", '/en/no');
+		}
+		var $frame = $('.goog-te-menu-frame:first');
+		if (!$frame.size()) {
+				alert("Error: Could not find Google translate frame.");
+				return false;
+		}
+		$frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
+		return false;
+	}
+		$('.language').on("mouseenter", function () {
+			if(window.matchMedia("(max-width: 800px)").matches)
+				$('#logo + .inner-tabs').css('height', '430px');
+		});
+
+
+		$('.language').on("mouseleave", function () {
+			if(window.matchMedia("(max-width: 800px)").matches)
+				$('#logo + .inner-tabs').css('height', '335px');
+		});				
+	</script>
 </body>
 
 

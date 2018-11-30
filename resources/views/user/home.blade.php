@@ -1046,8 +1046,8 @@ function zoomin() {
     $(".trns").css("line-height","1.6");
     $(".arbic").css("line-height", "1.6");
     cust_num_size = cust_num_size + 0.1;
-    ayah_end_width =  ayah_end_width + 8;
-    ayah_number_margin =  ayah_number_margin - 7;
+    ayah_end_width =  ayah_end_width + 7;
+    ayah_number_margin =  ayah_number_margin - 6;
     ayah_font_size += 5;
     arabic_margin_right += 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
@@ -1070,8 +1070,8 @@ function zoomout() {
     $(".trns").css("line-height","1.5");
     $(".arbic").css("line-height", "1.5");
     cust_num_size = cust_num_size - 0.1;
-    ayah_end_width =  ayah_end_width - 8;
-    ayah_number_margin =  ayah_number_margin + 7;
+    ayah_end_width =  ayah_end_width - 7;
+    ayah_number_margin =  ayah_number_margin + 6;
     ayah_font_size -= 5;
     arabic_margin_right -= 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
