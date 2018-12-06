@@ -1033,48 +1033,67 @@ function getSurahToVerse(){
 
 //zoomin
 var ayah_end_width = 21;
-var ayah_font_size = 14;
+var ayah_end_font_size = 14;
 var zoom_size=25;
 var cust_num_size = 1;
+var arabic_zoom;
+
+// reset text when some other surah, ayah, juz, etc. is selected
+$('.nav_box select').change(function(){
+  ayah_end_width = 21;
+  ayah_end_font_size = 14;
+  zoom_size=25;
+  cust_num_size = 1;
+
+  $('.trns').css('font-size', '1.2rem');
+  $('.arbic').css('font-size', '1.9rem');
+});
+
+
 function zoomin() {
   if(zoom_size<45)
   {
     zoom_size=zoom_size+5;
     var zoom=zoom_size+"px";
-    $(".arbic").css("font-size", zoom);
-    z=zoom_size-4;
-    var zm=z+"px";
+    arabic_zoom = zoom_size+3;
+    arabic_zoom = arabic_zoom+"px";
+    $(".arbic").css("font-size", arabic_zoom);
+    z=zoom_size/24.5;
+    var zm=z+"rem";
     $(".trns").css("font-size", zm);
     $(".trns").css("line-height","1.6");
     $(".arbic").css("line-height", "1.6");
     cust_num_size = cust_num_size + 0.1;
     ayah_end_width =  ayah_end_width + 7;
-    ayah_font_size += 5;
+    ayah_end_font_size += 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
-    $('.ayah-end1 span').css({'font-size':ayah_font_size+'px'});
+    $('.ayah-end1 span').css({'font-size':ayah_end_font_size+'px'});
   }
 }
 function zoomout() {
   if(zoom_size<=45 && zoom_size>25)
   {
     zoom_size=zoom_size-5;
+    arabic_zoom = zoom_size+3;
+    arabic_zoom = arabic_zoom+"px";
     var zoom=zoom_size+"px";
-    $(".arbic").css("font-size", zoom);
-    z=zoom_size-5;
-    var zm=z+"px";
+    $(".arbic").css("font-size", arabic_zoom);
+    z=zoom_size/24.5;
+    var zm=z+"rem";
     $(".trns").css("font-size", zm);
     $(".trns").css("line-height","1.5");
     $(".arbic").css("line-height", "1.5");
     cust_num_size = cust_num_size - 0.1;
     ayah_end_width =  ayah_end_width - 7;
-    ayah_font_size -= 5;
+    ayah_end_font_size -= 5;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
-    $('.ayah-end1 span').css({'font-size':ayah_font_size+'px'});
+    $('.ayah-end1 span').css({'font-size':ayah_end_font_size+'px'});
   }
   if(zoom_size == 25) {
-    $('.trns').css('font-size', '1rem');
+    $('.trns').css('font-size', '1.2rem');
+    $('.arbic').css('font-size', '1.9rem');
   }
 }
 //change fore color
@@ -1491,13 +1510,7 @@ function deletes_book(id) {
 }
 });
 
-
-
-            
-                  
-
-              
-
       }
+      
 </script>
 @endpush

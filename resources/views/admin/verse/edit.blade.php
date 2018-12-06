@@ -154,7 +154,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group nversedesc">
-                          <label for="verse-desc">Verse Description</label>
+                          <label for="verse-desc">Footnotes</label>
                           <textarea type="text" name="nversedesc" class="form-control" id="verse-desc" style="resize: none" rows="15">{{ $d->description }}</textarea>
                           <div class="form-feedback" id="nversedesc"></div>
                       </div>

@@ -236,16 +236,12 @@
 		}
 	});
 
-	// if($('.topnav a.icon').css('display') == 'none') {
 		$('.language').on('mouseenter', function(){
 			$('section.quran_menu').css('margin-top', '40px');
 		});
 		$('.language').on('mouseleave', function(){
 			$('section.quran_menu').css('margin-top', '0');
 		});
-	// }
-	// else {
-	// }
 	</script>
 
 <script type="text/javascript">
@@ -261,10 +257,13 @@
 				$.cookie("googtrans", '/no/en');
 				$('.no').addClass('not-selected');
 				$('.en').removeClass('not-selected');
+				$('section.script_box a.container_btn1').css('left', '160px');
+
 		} else {
 				$.cookie("googtrans", '/en/no');
 				$('.no').removeClass('not-selected');
 				$('.en').addClass('not-selected');
+				$('section.script_box a.container_btn1').css('left', '180px');
 
 		}
 		var $frame = $('.goog-te-menu-frame:first');
@@ -275,18 +274,6 @@
 		$frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
 		return false;
 	}
-
-	
-		// $('.language').on("mouseenter", function () {
-		// 	if(window.matchMedia("(max-width: 800px)").matches)
-		// 		$('#logo + .inner-tabs').css('height', '430px');
-		// });
-
-
-		// $('.language').on("mouseleave", function () {
-		// 	if(window.matchMedia("(max-width: 800px)").matches)
-		// 		$('#logo + .inner-tabs').css('height', '335px');
-		// });				
 	</script>
 </body>
 
