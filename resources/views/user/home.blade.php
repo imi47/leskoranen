@@ -1404,7 +1404,7 @@ else
      }
    }
 //get book marks
-$(function () {
+// $(function () {
  $('#get_bookmarks').on('submit',function (e) {
    e.preventDefault();
         //here check the file attachment 
@@ -1447,7 +1447,7 @@ $(function () {
               }
             });
       });
-});
+// });
 
 
 
