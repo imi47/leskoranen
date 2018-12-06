@@ -108,7 +108,7 @@
 	
 	function myFunction() {
 		if(!navOpen) {
-		document.querySelector('#logo + .inner-tabs').style.height = '335px';
+		document.querySelector('#logo + .inner-tabs').style.height = '360px';
 		document.querySelector('.topnav').classList.add ('responsive');
 		navOpen = true;
 		}
@@ -235,6 +235,17 @@
 			}
 		}
 	});
+
+	// if($('.topnav a.icon').css('display') == 'none') {
+		$('.language').on('mouseenter', function(){
+			$('section.quran_menu').css('margin-top', '40px');
+		});
+		$('.language').on('mouseleave', function(){
+			$('section.quran_menu').css('margin-top', '0');
+		});
+	// }
+	// else {
+	// }
 	</script>
 
 <script type="text/javascript">
@@ -248,8 +259,13 @@
 		$(id).closest('li').addClass('active');
 		if (lang === "English") {
 				$.cookie("googtrans", '/no/en');
+				$('.no').addClass('not-selected');
+				$('.en').removeClass('not-selected');
 		} else {
 				$.cookie("googtrans", '/en/no');
+				$('.no').removeClass('not-selected');
+				$('.en').addClass('not-selected');
+
 		}
 		var $frame = $('.goog-te-menu-frame:first');
 		if (!$frame.size()) {
@@ -259,16 +275,18 @@
 		$frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
 		return false;
 	}
-		$('.language').on("mouseenter", function () {
-			if(window.matchMedia("(max-width: 800px)").matches)
-				$('#logo + .inner-tabs').css('height', '430px');
-		});
+
+	
+		// $('.language').on("mouseenter", function () {
+		// 	if(window.matchMedia("(max-width: 800px)").matches)
+		// 		$('#logo + .inner-tabs').css('height', '430px');
+		// });
 
 
-		$('.language').on("mouseleave", function () {
-			if(window.matchMedia("(max-width: 800px)").matches)
-				$('#logo + .inner-tabs').css('height', '335px');
-		});				
+		// $('.language').on("mouseleave", function () {
+		// 	if(window.matchMedia("(max-width: 800px)").matches)
+		// 		$('#logo + .inner-tabs').css('height', '335px');
+		// });				
 	</script>
 </body>
 

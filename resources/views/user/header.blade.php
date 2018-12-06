@@ -33,14 +33,48 @@
   transition:350ms;
 }
 
-@media (min-width:800px) {
+.language {
+  width: auto;
+  height: 40px;
+  margin-top: 4px;
+  background-color: yellowgreen;
+  display:flex;
+  align-items: center;
+  position:relative;
+}
+
+.language a {
+  float: none;
+  padding: 0;
+  display: inline;
+  color: #fff;
+}
+
+.language .not-selected {
+  top:45px;
+  position:fixed;
+  color: #333;
+  padding-top:10px;
+  padding-bottom:5px;
+  display:none;
+}
+
+.language:hover .not-selected {
+  display:block;
+}
+
+@media (min-width:801px) {
   #logo + .inner-tabs {
   height:0 !important;
+  }
+
+  .language {
+    float:right;
   }
 }
 
 @media screen and (max-width: 800px) {
- .topnav a, .topnav .language {display: none;}
+ .topnav a, .language {display: none;}
  .topnav #logo {display: block;}
  .topnav a.icon {
    float: right;
@@ -53,10 +87,31 @@
    right: 7px;
    top: 10px;
  }
- .topnav.responsive a, .topnav.responsive .language {
+ .topnav.responsive a, .topnav.responsive, .topnav.responsive button {
    float: none;
    display: block;
    text-align: left;
+ }
+
+ .topnav.responsive button {
+   margin:0;
+   height:auto;
+   margin: 14px 6px;
+ }
+
+ .topnav.responsive button a {
+   display:inline;
+ }
+
+ .language .not-selected {
+    position: absolute;
+    left: 0;
+    top: 31px;
+    display:none !important;
+ }
+
+ .language:hover .not-selected {
+  display:block !important;
  }
 }
 
@@ -70,14 +125,6 @@ body{
   top:0 !important;
 }
 
-
-#languageDrop {
-  display:none;
-}
-
-.language:hover #languageDrop {
-  display:block;
-}
 </style>
 <body>
  <section id="container">
@@ -91,18 +138,12 @@ body{
   <a href="#" onclick="change_content('bug_report')">Bug Reporting </a>
   <a href="#" onclick="change_content('bookmark')">Bookmarks </a>
 
-  <div class="language">
-    <button style="width: 115px; height: 34px; margin-top: 7px; background-color: yellowgreen;" class="btn btn-default dropdown-toggle" type="button">
-      <i class="fa fa-language"></i> Language
-      <span class="caret"></span>
-    </button>
-    <div id='languageDrop'>
+    <button class="btn btn-default language">
+      <i class="fa fa-language"></i>
       <a href="javascript:;" id="English" class="en" onclick="translateLanguage(this.id, this);">English</a>
-      <a href="javascript:;" id="Norwegian" class="no" onclick="translateLanguage(this.id, this);">Norwegian</a>
-    </div>
-
-  </div>
-
+      <a href="javascript:;" id="Norwegian" class="no not-selected" onclick="translateLanguage(this.id, this);">Norwegian</a>
+    </button>
+      
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
