@@ -42,6 +42,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
 	<style type="text/css">
 
+		.sweet-alert {
+			border: 2px solid #83ab33 !important;
+  			box-shadow: 2px 2px 15px #999 !important;
+		}
+
 		.footerDrawer {
 		  width: 100%;
 		  position: fixed;
