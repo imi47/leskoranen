@@ -21,8 +21,9 @@
         <div class="col-sm-12">
             <div class="panel panel-bd">
                 <div class="panel-heading">
-                    <div class="panel-title">
+                    <div class="panel-title" style='display:flex; justify-content:space-between; align-items: center;'>
                         <h4>{{ $title }}</h4>
+                        <a title="Add Verse" href="{{ route('add-verse' , ['surah_id' => encrypt($surah_id)]) }}" class="btn btn-success m-b-5" style='color:#fff;'>Add Verse</a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -35,7 +36,9 @@
                                     <th>Verse</th>
                                     <th>Surah</th>
                                     <th>Ruku</th>
+                                    @if(\Auth::user()->role == 3)
                                     <th>Actions</th>
+                                    @endif
                                     <th data-hide="all">Arabic</th>
                                     <th data-hide="all">Translation</th>
                                     <th data-hide="all">Recitor</th>
@@ -57,10 +60,12 @@
                                     </td>
                                     <td>{{ ($list->surah == NULL OR empty($list->surah))? 'N/A' : $list->surah->surah_name }}</td>
                                     <td>{{ $list->raku }}</td>
+                                        @if(\Auth::user()->role == 3)
                                     <td>
                                         <a title="Edit Verse" href="{{ route('edit-verse' , ['verse_id' => encrypt($list->id)]) }}" class="btn btn-primary btn-circle m-b-5"><i class="fa fa-edit"></i></a>
                                         {{-- <a title="Delete Verse" id="row-id{{ ($list->id == NULL OR $list->id == '')? 'N/A' : $list->id }}" href="javascript:delete_verse('{{ ($list->id == NULL OR $list->id == '')? 'N/A' : encrypt($list->id) }}');" class="btn btn-danger btn-circle m-b-5"><i class="fa fa-trash"></i></a> --}}
                                     </td>
+                                        @endif
                                     <td>
                                         <audio controls>
                                             <source src="{{ asset('public') . '/admin_assets/audios' }}/{{ $list->link_to_audio }}" >

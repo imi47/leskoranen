@@ -70,6 +70,10 @@ video {
     display: inline-block
 }
 
+#home_content .mt-5{
+    margin-bottom: 3rem;
+}
+
 .btn-find {
     border:2px solid #E74C3C;
     color:#E74C3C !important;

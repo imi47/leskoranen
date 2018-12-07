@@ -587,6 +587,7 @@ class AdminController extends Controller
             return redirect()->route('all-surahs');
         }
         $data['surah'] = \App\Surah::find($surah_id);
+
         $data['translators'] = \App\Role::select('*')->where(['role' => 'translator' , 'status' => 'active'])->get();
         $data['recitors'] = \App\Role::select('*')->where(['role' => 'recitor' , 'status' => 'active'])->get();
         $data['title'] = 'Add Verse';
@@ -705,6 +706,7 @@ class AdminController extends Controller
         $data['surah'] = \App\Surah::find($surah_id);
         $data['title'] = 'All Verses in ' . $data['surah']->surah_name;
         $data['listing'] = \App\Verses::where('surah_id' , $surah_id)->orderBy('verse' , 'asc')->paginate(50);
+        $data['surah_id']=$surah_id;
         return view('admin.verse.all')->with($data);
     }
 
