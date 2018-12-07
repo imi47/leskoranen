@@ -402,10 +402,10 @@ i:hover {
 }
 .page-header-area {
     display: table;
-    /* height: 80px; */
     height:59px;
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 .page-header-content {
     display: table-cell;

@@ -995,14 +995,14 @@ section.audio_player section.main_control a.pre_b {
     cursor: pointer;
     position: absolute;
     top: 0;
-    left: 20%
+    left: 21%
 }
 
 section.audio_player section.main_control a.next_b {
     text-align: center;
     padding-top: 8px;
     height: 27px;
-    width: 53px;
+    /* width: 53px; */
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -1553,8 +1553,13 @@ section.quran_menu ul li:nth-child(6):hover {
         display: table;
         width: 100%
     }
-    section.audio_player section.main_control a.next_b {
-        left: 94%
+
+    section.audio_player section.main_control a.pre_b {
+        left:15%;
+    }
+
+    section.audio_player section.main_control a.stop_b {
+        left:-5px;
     }
 }
 
