@@ -13,7 +13,7 @@ $lastverse='';
 
    <div class="row mt-5" >
    
-    <div class="col-sm-6 left" id="tran-side">
+    <div class="col-sm-6 left notranslate" id="tran-side">
       <p class="text-center"  dir="ltr">
         <span class="trns" style="color: #99cc33"><span id="sura_nm">{{ $surah->surah_name }}</span></span>
       </p>
@@ -78,7 +78,7 @@ $lastverse='';
           <div class="col-md-12">
             <a href="javascript:;" style="color:#214300;" data-toggle="modal" data-target="#footnotes">
 
-              <p class="c-verse" style="font-size: 12px">No Footnote provided</p>
+              <p class="c-verse notranslate" style="font-size: 12px">No Footnote provided</p>
             </a>
           </div>
         </div>
@@ -1141,12 +1141,12 @@ $('#searchBtn').click(function(){
       if(search_lang=='1')
       {
 
-        results=results+'<a href="#" onclick="show_verse('+item.surah.surah_number+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p class="arbic">'+item.arabic_immune+'</p>';
+        results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p class="arbic">'+item.arabic_immune+'</p>';
 
       }
       else
       {
-       results=results+'<a href="#" onclick="show_verse('+item.surah.surah_number+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p>'+item.translation+'</p>';
+       results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p>'+item.translation+'</p>';
 
      }
 
@@ -1160,22 +1160,26 @@ $('#searchBtn').click(function(){
 });
 function show_verse(surah_id,verse){
  change_content("home"); 
- //alert(surah_id);
- //$('#cmbSura').val(surah_id);
- //$('#cmbSura').val($('option:selected', this).data(surah_id));
- $("#cmbSura option[text=" + surah_id +"]").attr("selected","selected");
- $('#cmbTVerse').val(verse);
- $('#cmbFVerse').val(verse).change(); 
+ // alert(surah_id);
+ // $('#cmbSura').val(surah_id);
+ // // $('#cmbSura').val($('option:selected', this).data(surah_id));
+ // $("#cmbSura option[text=" + surah_id +"]").attr("selected","selected");
+ // // $('#cmbTVerse').val(verse);
+ $('#cmbSura').val(surah_id).change();
+  
+
+ 
+
 }
 
 
 
 function show_verse_bookmark(surah_id,from_verse,to_verse){
  change_content("home"); 
- //alert(surah_id);
- //$('#cmbSura').val(surah_id);
+ // alert(surah_id);
+ $('#cmbSura').val(surah_id);
  //$('#cmbSura').val($('option:selected', this).data(surah_id));
- $("#cmbSura option[text=" + surah_id +"]").attr("selected","selected");
+ // $("#cmbSura option[text=" + surah_id +"]").attr("selected","selected");
  $('#cmbTVerse').val(to_verse);
  $('#cmbFVerse').val(from_verse).change(); 
 }
