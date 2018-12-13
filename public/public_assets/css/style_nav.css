@@ -958,7 +958,7 @@ section.audio_player section.extra_button .zoom_text {
     padding-top: 21px;
     height: 27px;
     width: 40px;
-    top: 0;
+    top: 2px;
     right: 45px;
     position: absolute
 }

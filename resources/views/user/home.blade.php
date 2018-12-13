@@ -99,10 +99,10 @@ $lastverse='';
       <section class="control_panel">
        <section class="extra_button">
         <a href="#" onclick="zoomout()" class="zoom_text minus_size vertical" title="Zoom Out">
-          <img src="{{$PUBLIC_ASSETS}}/img/zoomout.png">                       
+          <img src="{{$PUBLIC_ASSETS}}/img/zoom_out.svg" style='width:29px;'>                       
         </a>
         <a href="#" onclick="zoomin()"  class="zoom_text vertical" title="Zoom In">
-          <img src="{{$PUBLIC_ASSETS}}/img/zoomin.png" class="zoomin">                       
+          <img src="{{$PUBLIC_ASSETS}}/img/zoom.svg" class="zoomin" style='width:29px;'>                       
         </a>
       </section>
       <section class="main_control">

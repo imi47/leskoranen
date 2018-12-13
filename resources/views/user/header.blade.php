@@ -65,11 +65,11 @@
 
 .language.lang-not-selected {
   background-color: #fff;
-  border:1px solid red;
+  border:1px solid #83ab33;
 }
 
 .language.lang-not-selected a {
-  color:red;
+  color:#83ab33;
 }
 
 /* .language .not-selected {
@@ -317,26 +317,26 @@ body{
    <div id="CP_ForeColorInSide" id="fore-color" style="width:1px; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
     █
   </div>
-  <select id="cmbFColor" style="width:30px; height:20px; margin-top:-6px" class="">
-    <option style="background-color:#394a59" value="#394a59">&nbsp;</option>
-    <option style="background-color:#675545" value="#675545">&nbsp;</option>
-    <option style="background-color:#913d1e" value="#913d1e">&nbsp;</option>
-    <option style="background-color:#4f552a" value="#4f552a">&nbsp;</option>
-    <option style="background-color:#20505f" value="#20505f">&nbsp;</option>
-    <option style="background-color:#3d263a" value="#3d263a">&nbsp;</option>
-    <option style="background-color:#61162d" value="#61162d">&nbsp;</option>
-    <option style="background-color:#001d77" value="#001d77">&nbsp;</option>
-    <option style="background-color:#897a1a" value="#897a1a">&nbsp;</option>
-    <option style="background-color:#4b471a" value="#4b471a">&nbsp;</option>
-    <option style="background-color:#654458" value="#654458">&nbsp;</option>
-    <option style="background-color:#4d4e53" value="#4d4e53">&nbsp;</option>
-    <option style="background-color:#6a5e16" value="#6a5e16">&nbsp;</option>
-    <option style="background-color:#006066" value="#006066">&nbsp;</option>
-    <option style="background-color:#002e5f" value="#002e5f">&nbsp;</option>
-    <option style="background-color:#43165e" value="#43165e">&nbsp;&nbsp;</option>
-    <option style="background-color:#C4ECBD" value="#C4ECBD"></option>
-    <option style="background-color:#c05017" value="#c05017">&nbsp;</option>
-    <option style="background-color:#000000" value="#000000" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+  <select id="cmbFColor" style="width:30px; height:20px; margin-top:-6px">
+    <option style="background:#394a59" value="#394a59">&nbsp;</option>
+    <option style="background:#675545" value="#675545">&nbsp;</option>
+    <option style="background:#913d1e" value="#913d1e">&nbsp;</option>
+    <option style="background:#4f552a" value="#4f552a">&nbsp;</option>
+    <option style="background:#20505f" value="#20505f">&nbsp;</option>
+    <option style="background:#3d263a" value="#3d263a">&nbsp;</option>
+    <option style="background:#61162d" value="#61162d">&nbsp;</option>
+    <option style="background:#001d77" value="#001d77">&nbsp;</option>
+    <option style="background:#897a1a" value="#897a1a">&nbsp;</option>
+    <option style="background:#4b471a" value="#4b471a">&nbsp;</option>
+    <option style="background:#654458" value="#654458">&nbsp;</option>
+    <option style="background:#4d4e53" value="#4d4e53">&nbsp;</option>
+    <option style="background:#6a5e16" value="#6a5e16">&nbsp;</option>
+    <option style="background:#006066" value="#006066">&nbsp;</option>
+    <option style="background:#002e5f" value="#002e5f">&nbsp;</option>
+    <option style="background:#43165e" value="#43165e">&nbsp;&nbsp;</option>
+    <option style="background:#C4ECBD" value="#C4ECBD"></option>
+    <option style="background:#c05017" value="#c05017">&nbsp;</option>
+    <option style="background:#000000" value="#000000" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
   </select>
 </div>
 <div id="CP_BackColor">
