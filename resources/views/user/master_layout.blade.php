@@ -113,7 +113,7 @@
 	
 	function myFunction() {
 		if(!navOpen) {
-		document.querySelector('#logo + .inner-tabs').style.height = '360px';
+		document.querySelector('#logo + .inner-tabs').style.height = '395px';
 		document.querySelector('.topnav').classList.add ('responsive');
 		navOpen = true;
 		}
@@ -126,7 +126,7 @@
  
 	var aboveDrawerOpen = false;
 	var footerDrawerOpen = false;
-	$('.footerDrawer > div .triangle').on('click', function () {
+	$('.footerDrawer > div .triangle, .intro-footnote div:last-child').on('click', function () {
 
 		$('.footerDrawer .content').slideToggle(350, showstate);
 
@@ -140,13 +140,13 @@
 		}
 
 		if (!footerDrawerOpen) {
-			$(this).css({
+			$('.footerDrawer > div .triangle').css({
 				'transform': 'rotate(360deg)',
 				'bottom': '-31px'
 			});
 			footerDrawerOpen = true;
 		} else {
-			$(this).css({
+			$('.footerDrawer > div .triangle').css({
 				'transform': 'rotate(180deg)',
 				'bottom': '-7px'
 			});
@@ -172,7 +172,7 @@
 	});
 
 	
-	$('.aboveDrawer .triangle').on('click', function () {
+	$('.aboveDrawer .triangle, .intro-footnote div:first-child').on('click', function () {
 
 		$('.aboveDrawer .content').slideToggle(350, showstate);
 
@@ -188,13 +188,13 @@
 
 
 		if (!aboveDrawerOpen) {
-			$(this).css({
+			$('.aboveDrawer .triangle').css({
 				'transform': 'rotate(180deg)',
 				'top': '-31px'
 			});
 			aboveDrawerOpen = true;
 		} else {
-			$(this).css({
+			$('.aboveDrawer .triangle').css({
 				'transform': 'rotate(360deg)',
 				'top': '-7px'
 			});
@@ -240,13 +240,6 @@
 			}
 		}
 	});
-
-		$('.language').on('mouseenter', function(){
-			$('section.quran_menu').css('margin-top', '40px');
-		});
-		$('.language').on('mouseleave', function(){
-			$('section.quran_menu').css('margin-top', '0');
-		});
 	</script>
 
 <script type="text/javascript">

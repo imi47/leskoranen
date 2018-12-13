@@ -104,7 +104,7 @@
                     </section>
                   </li>
                   <li>
-                    <section class="ColorTheme_box">
+                    <section class="intro-footnote">
                       <div id="CP_ForeColor">
                         <label style="padding-right:22px;">Fore Color </label>
                         <div id="CP_ForeColorInSide" style="width:1px; color:#000000; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">

@@ -87,8 +87,9 @@ video {
 }
 
 .quran_menu {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    transition: 350ms;
 }
 
 .quran_menu ul li:nth-child(4), .quran_menu ul li:nth-child(5), .quran_menu ul li:nth-child(6) {
@@ -140,6 +141,35 @@ video {
     z-index:1;
 }
 
+.intro-footnote div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.intro-footnote div .triangle {
+    position:unset;
+}
+
+.intro-footnote div:last-child .triangle {
+    transform: rotate(180deg);
+}
+
+.intro-footnote div {
+    cursor: pointer;
+}
+
+.intro-footnote span {
+    color:#fff;
+}
+
+.intro-footnote li:last-child .triangle {
+    transform: rotate(180deg);
+    margin-left: 3px;
+}
+
 .aboveDrawer .open {
     position:relative;
 }
@@ -186,13 +216,13 @@ video {
 }
 
 .ayah-end1 {
-    background-image:url('{{$PUBLIC_ASSETS}}/img/ayah-end.png');
-    background-image: url(http://localhost/quran/public/public_assets/img/ayah-end.png);
     background-size: 100%;
     display: inline-flex;
     background-repeat: no-repeat;
-    width: 21px;
+    width: 24px;
     justify-content: center;
+    border: 1px solid;
+    border-radius: 99px;
  }
 
  .ayah-end1 span {
@@ -265,7 +295,7 @@ audio:not([controls]) {
     display: none
 }
 
-.memorization_box, section.quran_menu li:nth-child(5):hover section, .ColorTheme_box {
+.memorization_box, section.quran_menu li:nth-child(5):hover section, .intro-footnote {
     border: 1px solid #83ab33;
     border-radius: 4px;
     box-shadow:1px 1px 7px #888;
@@ -573,6 +603,12 @@ section.quran_menu ul li {
     padding: 3px
 }
 
+section.quran_menu .intro-footnote ul li {
+    float:none;
+    color:#fff;
+    cursor: pointer;
+}
+
 section.quran_menu section {
     font-size: 16px;
     margin: 0;
@@ -663,13 +699,13 @@ section.quran_menu section.translate_box label {
     width: 95px!important
 }
 
-section.quran_menu section.ColorTheme_box {
+section.quran_menu section.intro-footnote {
     width: 160px;
     height: 59px;
     text-align: left
 }
 
-section.quran_menu section.ColorTheme_box div {
+section.quran_menu section.intro-footnote div {
     height: 35px
 }
 
@@ -999,7 +1035,7 @@ section.audio_player section.main_control a.pre_b {
     cursor: pointer;
     position: absolute;
     top: 0;
-    left: 21%
+    left: 23%
 }
 
 section.audio_player section.main_control a.next_b {
@@ -1432,6 +1468,12 @@ section.quran_menu ul li:nth-child(6):hover {
     }
 }
 
+@media (min-width:576px) {
+    #sura_nm {
+        line-height: 60px;
+    }
+}
+
 @media only screen and (max-width:580px) {
     .tabs_nav a {
         padding: 10px 2px 9px
@@ -1488,9 +1530,6 @@ section.quran_menu ul li:nth-child(6):hover {
 @media screen and (min-width:481px) {
     div.qemenu_display {
         display: none!important
-    }
-    .quran_menu {
-        display: flex;
     }
 }
 

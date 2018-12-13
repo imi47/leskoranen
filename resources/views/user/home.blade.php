@@ -1037,6 +1037,8 @@ var ayah_end_font_size = 14;
 var zoom_size=25;
 var cust_num_size = 1;
 var arabic_zoom;
+var surah_name_line_height = 62;
+var _surah_name_line_height;
 
 // reset text when some other surah, ayah, juz, etc. is selected
 $('.nav_box select').change(function(){
@@ -1048,7 +1050,6 @@ $('.nav_box select').change(function(){
   $('.trns').css('font-size', '1.2rem');
   $('.arbic').css('font-size', '1.9rem');
 });
-
 
 function zoomin() {
   if(zoom_size<45)
@@ -1064,11 +1065,16 @@ function zoomin() {
     $(".trns").css("line-height","1.6");
     $(".arbic").css("line-height", "1.6");
     cust_num_size = cust_num_size + 0.1;
-    ayah_end_width =  ayah_end_width + 7;
-    ayah_end_font_size += 5;
+    ayah_end_width =  ayah_end_width + 4;
+    ayah_end_font_size += 2;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
     $('.ayah-end1 span').css({'font-size':ayah_end_font_size+'px'});
+
+    surah_name_line_height+=8;
+    _surah_name_line_height = surah_name_line_height;
+    $('#sura_nm').css('line-height', _surah_name_line_height+'px');
+    $('#translation').css('margin-top', (_surah_name_line_height-39)+'px');
   }
 }
 function zoomout() {
@@ -1085,15 +1091,21 @@ function zoomout() {
     $(".trns").css("line-height","1.5");
     $(".arbic").css("line-height", "1.5");
     cust_num_size = cust_num_size - 0.1;
-    ayah_end_width =  ayah_end_width - 7;
-    ayah_end_font_size -= 5;
+    ayah_end_width =  ayah_end_width - 4;
+    ayah_end_font_size -= 2;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
     $('.ayah-end1 span').css({'font-size':ayah_end_font_size+'px'});
+
+    surah_name_line_height-=8;
+    _surah_name_line_height = surah_name_line_height;
+    $('#sura_nm').css('line-height', _surah_name_line_height+'px');
+    $('#translation').css('margin-top', (_surah_name_line_height-39)+'px');
   }
   if(zoom_size == 25) {
     $('.trns').css('font-size', '1.2rem');
     $('.arbic').css('font-size', '1.9rem');
+    $('.ayah-end1').css('width', '24px');
   }
 }
 //change fore color

@@ -37,10 +37,11 @@
   width: auto;
   height: 40px;
   margin-top: 4px;
-  background-color: yellowgreen;
   display:flex;
   align-items: center;
   position:relative;
+  margin-left:5px;
+  margin-right:5px;
 }
 
 .language a {
@@ -50,20 +51,42 @@
   color: #fff;
 }
 
-.language .not-selected {
+.language:hover a {
+  color:#fff;
+}
+
+.language.not-selected:hover a {
+  color:red;
+}
+
+.language.lang-selected {
+  background-color: yellowgreen;
+}
+
+.language.lang-not-selected {
+  background-color: #fff;
+  border:1px solid red;
+}
+
+.language.lang-not-selected a {
+  color:red;
+}
+
+/* .language .not-selected {
   top:45px;
   position:fixed;
   color: #333;
-  padding-top:10px;
+  padding-top:17px;
   padding-bottom:5px;
   display:none;
-}
+  padding-right:90px;
+} */
 
 .language:hover .not-selected {
   display:block;
 }
 
-@media (min-width:801px) {
+@media (min-width:891px) {
   #logo + .inner-tabs {
   height:0 !important;
   }
@@ -73,7 +96,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 890px) {
  .topnav a, .language {display: none;}
  .topnav #logo {display: block;}
  .topnav a.icon {
@@ -138,10 +161,12 @@ body{
   <a href="#" onclick="change_content('bug_report')">Bug Reporting </a>
   <a href="#" onclick="change_content('bookmark')">Bookmarks </a>
 
-    <button class="btn btn-default language">
-      <i class="fa fa-language"></i>
+    <button class="btn btn-default language lang-selected">
       <a href="javascript:;" id="English" class="en" onclick="translateLanguage(this.id, this);">English</a>
-      <a href="javascript:;" id="Norwegian" class="no not-selected" onclick="translateLanguage(this.id, this);">Norwegian</a>
+    </button>
+
+    <button class="btn btn-default language lang-not-selected">
+      <a href="javascript:;" id="Norwegian" class="no" onclick="translateLanguage(this.id, this);">Norwegian</a>
     </button>
       
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -346,9 +371,16 @@ body{
 </li>
 <li>
   <object data="{{$PUBLIC_ASSETS}}/img/double-arrow.svg" type=""></object>
- <!-- <section class="ColorTheme_box">
-  
-</section> -->
+ <section class="intro-footnote">
+    <div>
+      <span>Surah Intro</span>
+      <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" class='triangle'>
+    </div>
+    <div>
+      <span>Footnotes</span>
+      <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" class='triangle'>
+    </div>
+</section>
 </li>
 </ul>
 </section>
