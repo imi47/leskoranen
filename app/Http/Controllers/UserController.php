@@ -63,10 +63,12 @@ class UserController extends Controller
 			}
 			elseif(request('get_special') == 'next'){
 				$surah=Surah::find($request->surah_id);
-				if($surah->surah_number == 114){
+				if($surah->surah_number == 114)
+				{
 					$data=Surah::with('verse')->where('id',$request->surah_id)->first();
 					$data['feedback'] = 'false';
-				}else{
+				}
+				else{
 					$data=Surah::withCount('verse')->has('verse' , '>' , 0)->with('verse')->where('surah_number' , '>' , $surah->surah_number)->orderBy('surah_number' , 'asc')->first();
 					$data['feedback'] = 'true';
 				}
@@ -359,8 +361,8 @@ class UserController extends Controller
 			request()->session()->push('book_mark_data', request()->all());
 			$code = mt_rand(10000,99999);
 			\Session::put('emailed_bookmark_code' , $code);
-			$data['email'] = $request->email;
-			$data['msg'] = 'Verification Code is  ' . $code;
+			// $data['email'] = $request->email;
+			// $data['msg'] = 'Verification Code is  ' . $code;
 			// \Mail::send('email.general', $data, function($message) use ($data){ 
 			// 	$message->to($data['email'])->from(env('MAIL_USERNAME'), 'Quran Online' )->subject('Bookmark Verification Code');
 			// });
@@ -413,7 +415,7 @@ class UserController extends Controller
 		}
 		else
 		{
-			$check=Bookmarks::where('email',$request->email)->get();
+			$check=Bookmarks::where('email',$request->email)->join('surahs','surahs.id','bookmarks.surah_id')->get();
 			if(empty($check))
 			{
 				return 2;

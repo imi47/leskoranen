@@ -28,7 +28,7 @@ $lastverse='';
         <span style="padding: 5px;">{{$verse->verse}}</span></span> -->
         <span class='ayah-end1'>
           <span>{{$verse->verse}}</span>
-</span>
+        </span></span>
         @if($audio=='')
         <?php $audio=$verse->link_to_audio; ?>
         @endif
@@ -807,8 +807,9 @@ function emptyObject(obj) {
 }
 //surah js 
 $('#cmbSura').change(getSurah);
-function getSurah(get_special){
+function getSurah(get_special,verse='false'){
   next_play=false;
+  state="pause";
   equal_check=false;
   assign_temp();
   emptyObject(c_obj);
@@ -869,11 +870,15 @@ function getSurah(get_special){
 
      $('#c-surah').html(returnedData.introduction);
      returnedData.verse.forEach( function (item) {
+      if(item.verse===verse){
+        aud_link = "{{$ADMIN_ASSETS}}/audios/"+item.link_to_audio;
+        $("#audio_source").prop('src', aud_link);
+      }
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span>";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
 
 
     });
@@ -893,7 +898,9 @@ function getSurah(get_special){
 
      $("#cmbJuz").val(returnedData.juz_id);
 
+// playPause();
 
+  $("#arabic"+verse).css("background-color",$('#cmbBColor').val());
    }
    else
    {
@@ -947,8 +954,8 @@ function getSurahFromVerse(){
      var i=1;
      var link='';
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"<span class='ayah-end1'> <span>"+item.verse+"</span></span></span>";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
       if(i==1)
       {
        link = "{{$ADMIN_ASSETS}}/audios/"+item.link_to_audio;
@@ -964,6 +971,7 @@ function getSurahFromVerse(){
    $("#arabic").append(arabic);
    $("#translation").html("");
    $("#translation").append(translation);
+   $("#arabic"+from_verse).css("background-color",$('#cmbBColor').val());
    // $("#arabic").append(view);
    // 
  }
@@ -1007,7 +1015,7 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"</span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(i==1)
       {
@@ -1023,6 +1031,7 @@ function getSurahToVerse(){
    $("#arabic").append(arabic);
    $("#translation").html("");
    $("#translation").append(translation);
+   $("#arabic"+to_verse).css("background-color",$('#cmbBColor').val());
    // $("#arabic").append(view);
    // 
  }
@@ -1049,6 +1058,8 @@ $('.nav_box select').change(function(){
 
   $('.trns').css('font-size', '1.2rem');
   $('.arbic').css('font-size', '1.9rem');
+  $('#sura_nm').css('line-height', '62px');
+  $('#translation').css('margin-top', 0);
 });
 
 function zoomin() {
@@ -1106,6 +1117,7 @@ function zoomout() {
     $('.trns').css('font-size', '1.2rem');
     $('.arbic').css('font-size', '1.9rem');
     $('.ayah-end1').css('width', '24px');
+    $('#translation').css('margin-top', 0);
   }
 }
 //change fore color
@@ -1124,7 +1136,7 @@ $('#searchBtn').click(function(){
  var surah_id=$('#cmbSearchSura').val();
  var search_lang=$('#cmbSearchLanguage').val();
  var immn=$('#immn').val();
- 
+ stop_player();
  $.ajax({
    url:'{{ url('/get-search') }}',
    type: 'post',
@@ -1172,13 +1184,13 @@ $('#searchBtn').click(function(){
 });
 function show_verse(surah_id,verse){
  change_content("home"); 
- // alert(surah_id);
- // $('#cmbSura').val(surah_id);
- // // $('#cmbSura').val($('option:selected', this).data(surah_id));
- // $("#cmbSura option[text=" + surah_id +"]").attr("selected","selected");
- // // $('#cmbTVerse').val(verse);
- $('#cmbSura').val(surah_id).change();
-  
+ // alert(verse);
+ $('#cmbSura').val(surah_id);
+ 
+  $('#cmbTVerse').val(verse);
+ // $('#cmbSura').val(surah_id).change();
+ getSurah('',verse);
+    
 
  
 
@@ -1188,13 +1200,15 @@ function show_verse(surah_id,verse){
 
 function show_verse_bookmark(surah_id,from_verse,to_verse){
  change_content("home"); 
- // alert(surah_id);
+ 
+ // $('#cmbSura').val(surah_id).change();
+ 
+  $('#cmbTVerse').val(to_verse);
+  $('#cmbFVerse').val(from_verse);
  $('#cmbSura').val(surah_id);
- //$('#cmbSura').val($('option:selected', this).data(surah_id));
- // $("#cmbSura option[text=" + surah_id +"]").attr("selected","selected");
- $('#cmbTVerse').val(to_verse);
- $('#cmbFVerse').val(from_verse).change(); 
+ getSurah('',from_verse);
 }
+
 
 
 function pause_page_switch_audio() {
@@ -1447,7 +1461,7 @@ else
                   returnedData.forEach( function (item) {
                     total_found++;
 
-                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6 id='+item.id+'>Sura '+item.surah_id+',From Verse '+item.from_verse+', To Verse'+item.to_verse+'</a><a href="#" onclick="delete_book('+item.id+')">  <i class="fa fa-times" style="color:red; font-size:15px;"></i></h6> </a><p></p>';
+                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6 id='+item.id+'>Sura '+item.surah_number+',From Verse '+item.from_verse+', To Verse'+item.to_verse+'</a><a href="#" onclick="delete_book('+item.id+')">  <i class="fa fa-times" style="color:red; font-size:15px;"></i></h6> </a><p></p>';
                   });
                   $("#results_bookmarks").html("");
                   $("#results_bookmarks").append(results);

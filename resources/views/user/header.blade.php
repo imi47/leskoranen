@@ -1,4 +1,10 @@
 <style>
+
+#cmbFColor, #cmbBColor, #cmbFColor option, #cmbBColor option {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+}
+
 .topnav {
  overflow: hidden;
  background-color: #fff;
@@ -313,11 +319,24 @@ body{
   <label for="chkAPNS">Auto play next sura</label>
 
   <div id="CP_ForeColor">
-   <label style="padding-right:22px;">Fore Color </label>
+   <label style="padding-right:22px;">Font </label>
    <div id="CP_ForeColorInSide" id="fore-color" style="width:1px; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
     █
+    <span class='font-color-toggle'>v</span>
+    <div class="font-color-dropdown hidden">
+      <div style='background:orange;'></div>
+      <div style='background:blue;'></div>
+      <div style='background:green;'></div>
+      <div style='background:coral;'></div>
+      <div style='background:cyan;'></div>
+      <div style='background:#333;'></div>
+      <div style='background:purple;'></div>
+      <div style='background:#002e5f;'></div>
+      <div style='background:#654458;'></div>
+      <div style='background:#3d263a;'></div>
+    </div>
   </div>
-  <select id="cmbFColor" style="width:30px; height:20px; margin-top:-6px">
+  <!-- <select id="cmbFColor" style="width:30px; height:20px; margin-top:-6px">
     <option style="background:#394a59" value="#394a59">&nbsp;</option>
     <option style="background:#675545" value="#675545">&nbsp;</option>
     <option style="background:#913d1e" value="#913d1e">&nbsp;</option>
@@ -337,10 +356,12 @@ body{
     <option style="background:#C4ECBD" value="#C4ECBD"></option>
     <option style="background:#c05017" value="#c05017">&nbsp;</option>
     <option style="background:#000000" value="#000000" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-  </select>
+  </select> -->
+    
+
 </div>
 <div id="CP_BackColor">
- <label style="width:100px;">Select Color </label>
+ <label style="width:100px;">Highlight </label>
  <div id="CP_BackColorInSide" style="width:1px; color:#C4ECBD; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
   █
 </div>

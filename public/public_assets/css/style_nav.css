@@ -196,6 +196,25 @@ video {
 
 #CP_ForeColorInSide {
     margin-left: 5px;
+    position: relative;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.hidden {
+    display:none;
+}
+
+.font-color-dropdown {
+    display:inline-block;
+    position: absolute;
+    top: 0;
+}
+.font-color-dropdown div {
+    width:20px;
+    height:20px;
 }
 
 .trns {
@@ -963,9 +982,6 @@ section.audio_player section.extra_button .zoom_text {
     position: absolute
 }
 
-
-
-
 section.audio_player section.extra_button .zoom_text.minus_size {
     right: 0
 }
@@ -1358,6 +1374,11 @@ section.quran_menu ul li:nth-child(6):hover {
     section.quran_menu ul li:nth-child(3):hover section {
         visibility: visible
     }
+
+    section.quran_menu ul li:nth-child(3) {
+        position: absolute;
+        right:190px;
+    }
 }
 
 @media only screen and (max-width:1070px) {
@@ -1390,6 +1411,36 @@ section.quran_menu ul li:nth-child(6):hover {
     }
     section.quran_menu ul li:nth-child(2):hover section {
         visibility: visible
+    }
+
+    section.quran_menu ul li:nth-child(2) {
+        position: absolute;
+        right: 250px;
+    }
+}
+
+@media (min-width:921px) {
+    section.quran_menu ul li:nth-child(6),
+    section.quran_menu ul li:nth-child(5),
+    section.quran_menu ul li:nth-child(4)
+    /* section.quran_menu ul li:nth-child(3),
+    section.quran_menu ul li:nth-child(2) */
+    /* .translate-box-li,
+    .script-box-li */
+     {
+        position:absolute !important;
+    }
+
+    section.quran_menu ul li:nth-child(6) {
+        right:10px;
+    }
+
+    section.quran_menu ul li:nth-child(5) {
+        right:70px;
+    }
+
+    section.quran_menu ul li:nth-child(4) {
+        right:130px;
     }
 }
 
@@ -1454,6 +1505,10 @@ section.quran_menu ul li:nth-child(6):hover {
     section.quran_menu section.search_cl label {
         width: 100%;
         text-align: left
+    }
+    section.quran_menu ul li:nth-child(3), section.quran_menu ul li:nth-child(2) {
+        position:unset;
+        right:unset;
     }
 }
 
