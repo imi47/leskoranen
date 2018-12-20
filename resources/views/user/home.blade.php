@@ -507,6 +507,9 @@ var repeat_range = '';
 var start_verse = ''; 
 var t_ver = 0;
 var is_ended = false;
+
+var highlight = '';
+
 t_ver = '{{ $surah->verses }}';
 t_ver = parseInt(t_ver);
 function audio_player() {
@@ -571,8 +574,16 @@ function audio_player() {
       equal_check=true;
     }
     var audio = $('#myAudio').get(0);
-    $("#arabic"+c_cur_verse_elem).css("background-color",$('#cmbBColor').val());
-    $("#trans"+c_cur_verse_elem).css("background-color",$('#cmbBColor').val());
+    if(highlight=='') 
+      highlight = '#C4ECBD';
+
+    $('#highlight-color div').click(function(){
+      highlight = $(this).css('background-color');
+    });
+    $("#arabic"+c_cur_verse_elem).css("background-color", highlight);
+    $("#trans"+c_cur_verse_elem).css("background-color", highlight);
+
+
     $("#audio_source").prop('src', link);
     audio.load();
     audio.play();
@@ -1120,14 +1131,15 @@ function zoomout() {
     $('#translation').css('margin-top', 0);
   }
 }
+
 //change fore color
-$('#cmbFColor').change(fore_color_change);
-function fore_color_change() {
-  var color_code=$('#cmbFColor').val();
-  $("#arabic").css("color",color_code);
-  $("#translation").css("color",color_code);
-  $("#fore-color").css("color",color_code);
-}
+  $('#font-color div').click(function(){
+    color_code = $(this).css('background-color');
+    $("#arabic").css("color",color_code);
+    $("#translation").css("color",color_code);
+    $("#fore-color").css("color",color_code);
+  });
+
 
 
 //seach page content js

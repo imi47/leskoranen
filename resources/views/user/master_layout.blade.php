@@ -273,9 +273,17 @@
 		return false;
 	}
 
-	$('.font-color-toggle').click(function(){
+	$('.color-dropdown-toggle').click(function(){
 		  $(this).siblings('div').toggleClass('inline-block, hidden');
-  	});
+	  });
+
+	  $('#font-color').prev().click(function(){
+      $(this).toggleClass('turn');
+	 });
+	 
+    $('#highlight-color').prev().click(function(){
+      $(this).toggleClass('turn');
+    });
 	</script>
 </body>
 

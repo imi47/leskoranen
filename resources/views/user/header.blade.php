@@ -78,16 +78,6 @@
   color:#83ab33;
 }
 
-/* .language .not-selected {
-  top:45px;
-  position:fixed;
-  color: #333;
-  padding-top:17px;
-  padding-bottom:5px;
-  display:none;
-  padding-right:90px;
-} */
-
 .language:hover .not-selected {
   display:block;
 }
@@ -322,70 +312,57 @@ body{
    <label style="padding-right:22px;">Font </label>
    <div id="CP_ForeColorInSide" id="fore-color" style="width:1px; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
     █
-    <span class='font-color-toggle'>v</span>
-    <div class="font-color-dropdown hidden">
-      <div style='background:orange;'></div>
-      <div style='background:blue;'></div>
-      <div style='background:green;'></div>
-      <div style='background:coral;'></div>
-      <div style='background:cyan;'></div>
-      <div style='background:#333;'></div>
-      <div style='background:purple;'></div>
-      <div style='background:#002e5f;'></div>
-      <div style='background:#654458;'></div>
-      <div style='background:#3d263a;'></div>
+    <img src="{{$PUBLIC_ASSETS}}/img/caret-down.svg" alt="" class='color-dropdown-toggle'>
+    <div class="color-dropdown hidden" id='font-color'>
+      <div style="background:#394a59"></div>
+      <div style="background:#675545"></div>
+      <div style="background:#913d1e"></div>
+      <div style="background:#4f552a"></div>
+      <div style="background:#20505f"></div>
+      <div style="background:#3d263a"></div>
+      <div style="background:#61162d"></div>
+      <div style="background:#001d77"></div>
+      <div style="background:#897a1a"></div>
+      <div style="background:#4b471a"></div>
+      <div style="background:#654458"></div>
+      <div style="background:#4d4e53"></div>
+      <div style="background:#6a5e16"></div>
+      <div style="background:#006066"></div>
+      <div style="background:#002e5f"></div>
+      <div style="background:#43165e"></div>
+      <div style="background:#C4ECBD"></div>
+      <div style="background:#c05017"></div>
     </div>
   </div>
-  <!-- <select id="cmbFColor" style="width:30px; height:20px; margin-top:-6px">
-    <option style="background:#394a59" value="#394a59">&nbsp;</option>
-    <option style="background:#675545" value="#675545">&nbsp;</option>
-    <option style="background:#913d1e" value="#913d1e">&nbsp;</option>
-    <option style="background:#4f552a" value="#4f552a">&nbsp;</option>
-    <option style="background:#20505f" value="#20505f">&nbsp;</option>
-    <option style="background:#3d263a" value="#3d263a">&nbsp;</option>
-    <option style="background:#61162d" value="#61162d">&nbsp;</option>
-    <option style="background:#001d77" value="#001d77">&nbsp;</option>
-    <option style="background:#897a1a" value="#897a1a">&nbsp;</option>
-    <option style="background:#4b471a" value="#4b471a">&nbsp;</option>
-    <option style="background:#654458" value="#654458">&nbsp;</option>
-    <option style="background:#4d4e53" value="#4d4e53">&nbsp;</option>
-    <option style="background:#6a5e16" value="#6a5e16">&nbsp;</option>
-    <option style="background:#006066" value="#006066">&nbsp;</option>
-    <option style="background:#002e5f" value="#002e5f">&nbsp;</option>
-    <option style="background:#43165e" value="#43165e">&nbsp;&nbsp;</option>
-    <option style="background:#C4ECBD" value="#C4ECBD"></option>
-    <option style="background:#c05017" value="#c05017">&nbsp;</option>
-    <option style="background:#000000" value="#000000" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-  </select> -->
-    
 
 </div>
 <div id="CP_BackColor">
  <label style="width:100px;">Highlight </label>
  <div id="CP_BackColorInSide" style="width:1px; color:#C4ECBD; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
   █
+  <img src="{{$PUBLIC_ASSETS}}/img/caret-down.svg" class='color-dropdown-toggle'>
+  <div class="color-dropdown hidden" id='highlight-color'>
+    <div style="background-color:#acc0c7"></div>
+    <div style="background-color:#dad6cb"></div>
+    <div style="background-color:#ebc4b7"></div>
+    <div style="background-color:#c9d18b"></div>
+    <div style="background-color:#c5d7ed"></div>
+    <div style="background-color:#d9d8e4"></div>
+    <div style="background-color:#b7badb"></div>
+    <div style="background-color:#e8baa5"></div>
+    <div style="background-color:#c5d6e8"></div>
+    <div style="background-color:#e2deae"></div>
+    <div style="background-color:#d6d4ae"></div>
+    <div style="background-color:#d2c1c7"></div>
+    <div style="background-color:#d8d8d8"></div>
+    <div style="background-color:#f4ed73"></div>
+    <div style="background-color:#c2d8d7"></div>
+    <div style="background-color:#d7e0e8"></div>
+    <div style="background-color:#C4ECBD"></div>
+    <div style="background-color:#c05017"></div>
+  </div>
 </div>
-<select id="cmbBColor" style="width:30px; height:20px; margin-top:-6px" class="">
-  <option style="background-color:#acc0c7" value="#acc0c7">&nbsp;</option>
-  <option style="background-color:#dad6cb" value="#dad6cb">&nbsp;</option>
-  <option style="background-color:#ebc4b7" value="#ebc4b7">&nbsp;</option>
-  <option style="background-color:#c9d18b" value="#c9d18b">&nbsp;</option>
-  <option style="background-color:#c5d7ed" value="#c5d7ed">&nbsp;</option>
-  <option style="background-color:#d9d8e4" value="#d9d8e4">&nbsp;</option>
-  <option style="background-color:#b7badb" value="#b7badb">&nbsp;</option>
-  <option style="background-color:#e8baa5" value="#e8baa5">&nbsp;</option>
-  <option style="background-color:#c5d6e8" value="#c5d6e8">&nbsp;</option>
-  <option style="background-color:#e2deae" value="#e2deae">&nbsp;</option>
-  <option style="background-color:#d6d4ae" value="#d6d4ae">&nbsp;</option>
-  <option style="background-color:#d2c1c7" value="#d2c1c7">&nbsp;</option>
-  <option style="background-color:#d8d8d8" value="#d8d8d8">&nbsp;</option>
-  <option style="background-color:#f4ed73" value="#f4ed73">&nbsp;</option>
-  <option style="background-color:#c2d8d7" value="#c2d8d7">&nbsp;</option>
-  <option style="background-color:#d7e0e8" value="#d7e0e8">&nbsp;&nbsp;</option>
-  <option style="background-color:#C4ECBD" value="#C4ECBD" selected="selected"></option>
-  <option style="background-color:#c05017" value="#c05017">&nbsp;</option>
-  <option style="background-color:#FFFFE0" value="#FFFFE0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
-</select>
+    
 </div>
 </section>
 

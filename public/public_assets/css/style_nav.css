@@ -194,7 +194,7 @@ video {
     top: -7px;
 }
 
-#CP_ForeColorInSide {
+#CP_ForeColorInSide, #CP_BackColorInSide {
     margin-left: 5px;
     position: relative;
 }
@@ -207,13 +207,23 @@ video {
     display:none;
 }
 
-.font-color-dropdown {
+.turn {
+    transform:rotate(180deg);
+}
+
+.color-dropdown-toggle {
+    width:20px;
+}
+
+.color-dropdown {
     display:inline-block;
     position: absolute;
     top: 0;
+    z-index: 1;
+    border:2px solid #83ab33;
 }
-.font-color-dropdown div {
-    width:20px;
+.color-dropdown div {
+    width:30px;
     height:20px;
 }
 
