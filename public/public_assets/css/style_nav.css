@@ -218,7 +218,8 @@ video {
 .color-dropdown {
     display:inline-block;
     position: absolute;
-    top: 0;
+    top: 20px;
+    left:15px;
     z-index: 1;
     border:2px solid #83ab33;
 }
