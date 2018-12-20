@@ -205,9 +205,62 @@ body{
             <option value="{{$i}}">{{$i}}</option>
           @endfor
         </select>
-      </select>
-      <label>From Verse</label>
-      <select id="cmbFVerse" name="VerseID" style="width: 65px;">
+      
+      <label for="">From Verse</label>
+      <div class="input-group Qinput">
+            <input  type="text" class="form-control" >
+            <div class="input-group-btn">
+              
+              <select id="cmbFVerse" class="btn btn-default verseSelector">
+                  <!-- <option>Select</option> -->
+                <option>1</option>
+                 <option>3</option>
+                  <option>4</option>
+                   <option>5</option>
+              </select>
+            </div>
+          </div> 
+       
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+    $("select.btn-default").change(function(){  
+     $(this).closest(".input-group").find("input").val($(this).find('option:selected').text())
+   })
+  })
+</script>
+<label for="">To Verse</label>
+      <div class="input-group Qinput">
+            <input  type="text" class="form-control" >
+            <div class="input-group-btn">
+              
+              <select id="cmbTVerse" class="btn btn-default verseSelector">
+                  <!-- <option>Select</option> -->
+                <option>1</option>
+                 <option>3</option>
+                  <option>4</option>
+                   <option>5</option>
+              </select>
+            </div>
+          </div> 
+       
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    
+    $("select.btn-default").change(function(){  
+     $(this).closest(".input-group").find("input").val($(this).find('option:selected').text())
+   })
+  })
+</script>
+
+
+      
+      <!-- <label>From Verse</label>
+      <select  name="VerseID" style="width: 65px;">
         @if($surah)
         @for(@$i=1;$i<=$surah->verses;$i++)
         <option value="{{$i}}">{{$i}}</option>
@@ -221,7 +274,7 @@ body{
         <option value="{{$i}}">{{$i}}</option>
         @endfor
        @endif
-     </select>
+     </select> -->
      <label class="notranslate" id="lblRukuHizbCap">Ruku</label>
      <select class="" id="cmbHizb" name="HizbRuku" style="width: 65px;">
        <option value="1">1</option>
