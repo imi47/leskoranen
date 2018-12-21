@@ -205,21 +205,30 @@ body{
             <option value="{{$i}}">{{$i}}</option>
           @endfor
         </select>
-      
-      <label for="">From Verse</label>
-      <div class="input-group Qinput">
-            <input  type="text" class="form-control" >
-            <div class="input-group-btn">
-              
-              <select id="cmbFVerse" class="btn btn-default verseSelector">
-                  <!-- <option>Select</option> -->
-                <option>1</option>
-                 <option>3</option>
-                  <option>4</option>
-                   <option>5</option>
-              </select>
-            </div>
-          </div> 
+
+      <div class="label-and-select-container">
+    <label>From Verse</label>
+    <div class="select-container" style='display:inline-flex;'>
+      <input type="text" name="" id="">
+      <select name="" id="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="label-and-select-container">
+    <label>To Verse</label>
+    <div class="select-container" style='display:inline-flex;'>
+      <input type="text" name="" id="">
+      <select name="" id="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+  </div>
        
 
 
@@ -231,22 +240,6 @@ body{
    })
   })
 </script>
-<label for="">To Verse</label>
-      <div class="input-group Qinput">
-            <input  type="text" class="form-control" >
-            <div class="input-group-btn">
-              
-              <select id="cmbTVerse" class="btn btn-default verseSelector">
-                  <!-- <option>Select</option> -->
-                <option>1</option>
-                 <option>3</option>
-                  <option>4</option>
-                   <option>5</option>
-              </select>
-            </div>
-          </div> 
-       
-
 
 <script type="text/javascript">
   $(document).ready(function(){

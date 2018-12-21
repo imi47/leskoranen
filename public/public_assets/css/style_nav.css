@@ -1249,6 +1249,43 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
     top: 21px !important;
 }
 
+.label-and-select-container {
+    position:relative;
+    display: inline-block;
+  }
+
+  .label-and-select-container select {
+    position: absolute;
+    right: -15px;
+    background: none;
+    background-color: #add65c;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    top: -5px;
+    padding: 4px 0px 4px 0px;
+    color: white;
+    -webkit-appearance: menulist;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    -moz-appearance: none;
+  }
+
+  .label-and-select-container input[type='text'] {
+    color: #4c4c4c;
+  }
+
+  section.quran_menu section.nav_box .label-and-select-container label {
+    width:92px;
+  }
+
+  .label-and-select-container input {
+    padding: 5px;
+    border-radius: 10px;
+    width: 63px;
+    border: none;
+    background-color: #cde69a;
+  }
+
 .Qinput{border-radius:10px !important;width: 90px !important;height: 25px;background: #cde69a !important;text-align: left;/* margin: -15px; */margin-top: -20px;margin-left: 113px;}
 .Qinput .btn-default{margin-top: 0px;margin-right: 0px;padding: 0px 5px !important;height: 25px !important;background: #add65c;border-radius:0px 10px 10px 0px !important;}
 .Qinput input{border-radius:10px 0px 0px 10px !important; background: #cde69a; border:none; outline: none}
