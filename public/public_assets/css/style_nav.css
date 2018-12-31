@@ -1252,6 +1252,11 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
 .label-and-select-container {
     position:relative;
     display: inline-block;
+    margin-right: 15px;
+  }
+
+  .label-and-select-container .select-container {
+      margin-left: -10px;
   }
 
   .label-and-select-container select {
@@ -1275,13 +1280,14 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
   }
 
   section.quran_menu section.nav_box .label-and-select-container label {
-    width:92px;
+    width:auto;
+    margin:0;
   }
 
   .label-and-select-container input {
     padding: 5px;
     border-radius: 10px;
-    width: 63px;
+    width: 55px;
     border: none;
     background-color: #cde69a;
   }
@@ -1745,9 +1751,6 @@ section.quran_menu ul li:nth-child(6):hover {
     section.quran_menu ul li:nth-child(4) section {
         left: -120px
     }
-    section.quran_menu ul li:nth-child(3) section {
-        left: -80px
-    }
 }
 
 @media only screen and (max-width:360px) {
@@ -1775,9 +1778,6 @@ section.quran_menu ul li:nth-child(6):hover {
     section.quran_menu section.nav_box label:nth-of-type(1n+1) {
         width: 70px;
         text-align: left
-    }
-    section.quran_menu ul li:nth-child(3):hover section {
-        left: -100px
     }
     section.quran_menu ul li:nth-child(4):hover section {
         left: -120px
