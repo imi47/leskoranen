@@ -1585,6 +1585,12 @@ section.quran_menu ul li:nth-child(6):hover {
     #sura_nm {
         line-height: 60px;
     }
+
+    .aboveDrawer #c-surah,
+    .footerDrawer .content > div > .col-md-12 {
+        width: 88%;
+        margin: auto;
+    }
 }
 
 @media only screen and (max-width:580px) {
