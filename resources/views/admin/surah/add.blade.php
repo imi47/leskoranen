@@ -156,7 +156,7 @@
             if(response.feedback == 'false')
             {
               $('.form-group').addClass('has-success');
-              $.each( response.errors, function( key, value) {
+              $.each(response.errors, function( key, value) {
                 $('#' + key).html(value);
                 $('.' + key).addClass('has-danger');
               });

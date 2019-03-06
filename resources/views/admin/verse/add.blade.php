@@ -48,7 +48,7 @@
                     <div class="col-md-12">
                       <div class="form-group nversearabicwithoutimmune">
                           <label for="editor2">Arabic (Without Immune)</label>
-                          <textarea id="editor2"  dir="rtl" name="nversearabicwithoutimmune" class="form-control" style="resize: vertical;"></textarea>
+                          <textarea dir="rtl"  name="nversearabicwithoutimmune" class="form-control" style="resize: vertical;"></textarea>
                           <div class="form-feedback" id="nversearabicwithoutimmune"></div>
                       </div>
                     </div>
@@ -137,7 +137,8 @@
                     <div class="col-md-12">
                       <div class="form-group nversedesc">
                           <label for="verse-desc">Footnotes</label>
-                          <textarea type="text" name="nversedesc" class="form-control" id="verse-desc" style="resize: none" rows="15"></textarea>
+                          <textarea id="editor4" dir="rtl" name="nversedesc" class="form-control" style="resize: vertical;"></textarea>
+                          <!-- <textarea type="text" name="nversedesc" class="form-control" id="verse-desc" style="resize: none" rows="15"></textarea> -->
                           <div class="form-feedback" id="nversedesc"></div>
                       </div>
                     </div>
@@ -240,18 +241,25 @@
         contentsLangDirection: 'rtl',
         height: 150
       } );
+      CKEDITOR.replace( 'editor4', {
+        extraPlugins: 'bidi',
+        // Setting default language direction to right-to-left.
+        // contentsLangDirection: 'rtl',
+        height: 150
+      } );
+
       // CKEDITOR.replace( 'editor2', {
       //   extraPlugins: 'bidi',
       //   // Setting default language direction to right-to-left.
       //   contentsLangDirection: 'rtl',
       //   height: 150
       // } );
-      // CKEDITOR.replace( 'editor3', {
-      //   extraPlugins: 'bidi',
-      //   // Setting default language direction to right-to-left.
-      //   // contentsLangDirection: 'rtl',
-      //   height: 150
-      // } );
+      CKEDITOR.replace( 'editor3', {
+        extraPlugins: 'bidi',
+        // Setting default language direction to right-to-left.
+        // contentsLangDirection: 'rtl',
+        height: 150
+      } );
     });
   </script>
 @endpush

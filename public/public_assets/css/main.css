@@ -129,12 +129,12 @@ button {
     -moz-transition: all .2s linear;
     -o-transition: all .2s linear;
     transition: all .2s linear;
-    display: inline-block
+    display: inline-block;
 }
 .btn:hover,
 button:hover {
-    color: #fff;
-    cursor: pointer
+    color: #cde69a;
+    cursor: pointer;
 }
 .btn-common {
     color: #fff!important;

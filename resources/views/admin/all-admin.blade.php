@@ -27,6 +27,7 @@
                 <div class="panel-body">
                     <div class="table-responsive">
                         <input type="text" class="form-control input-sm m-b-15" id="filter" placeholder="Search in table">
+                        <table id="example" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
                         <table id="listing" class="footable table table-bordered toggle-arrow-tiny" data-filter=#filter>
                             <thead>
                                 <tr>
@@ -35,6 +36,7 @@
                                     <th>User Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
+                                    <th>Admin Type</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -47,9 +49,28 @@
                                     <td>{{ $row->email }}</td>
                                     <td>{{ $row->phone }}</td>
                                     <td>
+                                    @if($row->role==3)
+                                          Admin
+                                          @else
+                                          User
+
+                                        @endif
+                                        </td>
+                                    <td>
                                         <a title="Add Admin" href="{{ route('add-admin') }}" class="btn btn-success btn-circle m-b-5"><i class="fa fa-plus"></i></a>
-                                        
+                                        @if(\Auth::user()->role == 3)
                                         <a title="Edit Admin" href="{{ route('edit-admin' , ['id' => encrypt($row->id)]) }}" class="btn btn-primary btn-circle m-b-5"><i class="fa fa-edit"></i></a>
+                                        @endif
+                                        @if($row->role==3)
+                                        <a href="javascript:;">
+                                            <img src="{{$PUBLIC_ASSETS}}/img/limit_admin_1.png" alt="" style="width: 36px; padding-bottom: 5px;">
+                                          </a>
+                                          @else
+                                          <a href="javascript:;">
+                                          <img src="{{$PUBLIC_ASSETS}}/img/limit_admin_2.png" alt="" style="width: 29px; padding-bottom: 5px;">
+                                      </a>
+
+                                        @endif
                                     </td>
                                    
                                 </tr>

@@ -27,7 +27,8 @@
                 <div class="panel-body">
                     <div class="table-responsive">
                         <input type="text" class="form-control input-sm m-b-15" id="filter" placeholder="Search in table">
-                        <table id="listing" class="footable table table-bordered toggle-arrow-tiny" data-filter=#filter>
+                        <table id="example" class="table table-striped table-bordered nowrap">
+                        {{-- <table id="listing" class="footable table table-bordered toggle-arrow-tiny" data-filter=#filter> --}}
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -38,10 +39,10 @@
                                     <th>Ruku</th>
                                     <th>Verses</th>
                                     <th>Actions</th>
-                                    <th data-hide="all">Introduction</th>
+                                    {{-- <th data-hide="all">Introduction</th>
                                     <th data-hide="all">Description</th>
                                     <th data-hide="all">Added By</th>
-                                    <th data-hide="all">Updated By</th>
+                                    <th data-hide="all">Updated By</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,12 +70,14 @@
                                     <td>
                                         <a title="Add Verse" href="{{ route('add-verse' , ['surah_id' => encrypt($list->id)]) }}" class="btn btn-success btn-circle m-b-5"><i class="fa fa-plus"></i></a>
                                         <a title="All Verses" href="{{ route('all-verses' , ['surah_id' => encrypt($list->id)]) }}" class="btn btn-primary btn-circle m-b-5"><i class="fa fa-snowflake-o"></i></a>
+                                        @if(\Auth::user()->role == 3)
                                         <a title="Edit Surah" href="{{ route('edit-surah' , ['surah_id' => encrypt($list->id)]) }}" class="btn btn-primary btn-circle m-b-5"><i class="fa fa-edit"></i></a>
+                                        @endif
                                     </td>
-                                    <td>{!! nl2br($list->introduction) !!}</td>
+                                    {{-- <td>{!! nl2br($list->introduction) !!}</td>
                                     <td>{!! nl2br($list->description) !!}</td>
                                     <td>{{ ($list->added_by == NULL OR empty($list->added_by))? 'N/A' : $list->added_by->name }} at {{ date('H:i A d-m-Y' , strtotime($list->created_at)) }}</td>
-                                    <td>{{ ($list->edited_by == NULL OR empty($list->edited_by))? 'N/A' : $list->edited_by->name }} at {{ date('H:i A d-m-Y' , strtotime($list->updated_at)) }}</td>
+                                    <td>{{ ($list->edited_by == NULL OR empty($list->edited_by))? 'N/A' : $list->edited_by->name }} at {{ date('H:i A d-m-Y' , strtotime($list->updated_at)) }}</td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -95,16 +98,23 @@
 @endsection
 
 @push('css')
-    <link href="{{ $ADMIN_ASSETS }}/plugins/footable-bootstrap/css/footable.core.min.css" rel="stylesheet" type="text/css"/>
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap4.min.css">
 @endpush
 
 @push('js')
-    <script src="{{ $ADMIN_ASSETS }}/plugins/footable-bootstrap/js/footable.all.min.js" type="text/javascript"></script>
-    <script>
-        $(document).ready(function () {
-            "use strict"; // Start of use strict
-            // Footable example 1
-            $('#listing').footable();
-        });
-    </script>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+      } );
+} );
+</script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap4.min.js" type="text/javascript"></script>
+
+
 @endpush

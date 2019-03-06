@@ -44,7 +44,9 @@
                                     <td>Recitor</td>
                                     <td data-hide="all">Summary</td>
                                     <th data-hide="all">Details</th>
+                                    @if(\Auth::user()->role == 3)
                                     <td>Actions</td>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,9 +61,11 @@
                                     <td>{{ ($list->recitor == NULL OR empty($list->recitor))? 'N/A' : $list->recitor->name }}</td>  
                                     <td>{{ $list->summery }}</td>
                                     <td>{{ $list->details }}</td>
+                                        @if(\Auth::user()->role == 3)
                                     <td>
                                          <a onclick="confirm_delete(this)" title="Delete Report" href="{{ route('delete-bug-report' , ['bug_id' => encrypt($list->id)]) }}" class="btn btn-danger btn-circle m-b-5"><i class="fa fa-trash"></i></a>    
                                     </td>
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>

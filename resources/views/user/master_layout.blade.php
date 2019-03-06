@@ -8,7 +8,7 @@
 	<title>
 		{{$title}}
 	</title>
-
+      <script src="{{$PUBLIC_ASSETS}}/js/jquery-min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -20,7 +20,7 @@
 
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/css/custom.css">
-	<link rel="stylesheet" media="screen" href="{{$PUBLIC_ASSETS}}/fonts/font-awesome/font-awesome.min.css">
+	
 	<link rel="stylesheet" media="screen" href="{{$PUBLIC_ASSETS}}/fonts/simple-line-icons.css">
 
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/extras/owl/owl.carousel.css">
@@ -30,17 +30,20 @@
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/css/colors/green.css" media="screen">
 	<link rel="stylesheet" id="colors" href="{{$PUBLIC_ASSETS}}/css/colors/green.css" type="text/css">
 	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/color-switcher.css" type="text/css">
-	<script src="{{$PUBLIC_ASSETS}}/js/jquery-min.js"></script>
-	{{-- <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
+	
+ 	
 	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/fonts/font-awesome.min.css">
+  	
+  
           <link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/jquery.social-buttons.css">
 	<script src="{{$PUBLIC_ASSETS}}/js/custom.js"></script> 
 	<script src="{{$PUBLIC_ASSETS}}/js/search.js"></script>
 	<script src="{{$PUBLIC_ASSETS}}/js/jquery.social-buttons.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
+	<script src="{{$PUBLIC_ASSETS}}/js/jquery.cookie.js"></script>
+	<script src="{{url('public/translation/jquery.translate.js')}}"></script>
+	<script src="{{url('public/scrol/autoscroll.js')}}"></script> 
 	<style type="text/css">
+	
 
 		.sweet-alert {
 			border: 2px solid #83ab33 !important;
@@ -240,39 +243,6 @@
 			}
 		}
 	});
-	</script>
-
-<script type="text/javascript">
-	function googleTranslateElementInit() {
-		new google.translate.TranslateElement({pageLanguage: 'no', includedLanguages: 'en,no', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
-	}
-</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script>
-	function translateLanguage(lang, id) {
-		$(id).closest('ul').find('li').removeClass("active");
-		$(id).closest('li').addClass('active');
-		if (lang === "English") {
-				$.cookie("googtrans", '/no/en');
-				$('.no').addClass('not-selected');
-				$('.en').removeClass('not-selected');
-				$('section.script_box a.container_btn1').css('left', '160px');
-
-		} else {
-				$.cookie("googtrans", '/en/no');
-				$('.no').removeClass('not-selected');
-				$('.en').addClass('not-selected');
-				$('section.script_box a.container_btn1').css('left', '180px');
-
-		}
-		var $frame = $('.goog-te-menu-frame:first');
-		if (!$frame.size()) {
-				alert("Error: Could not find Google translate frame.");
-				return false;
-		}
-		$frame.contents().find('.goog-te-menu2-item span.text:contains(' + lang + ')').get(0).click();
-		return false;
-	}
-
 	$('.color-dropdown-toggle').click(function(){
 		  $(this).siblings('div').toggleClass('inline-block, hidden');
 	  });
@@ -283,6 +253,174 @@
 	 
     $('#highlight-color').prev().click(function(){
       $(this).toggleClass('turn');
+    });
+	</script>
+
+	<script>
+	$(document).ready(function()
+	{
+          $('#Norwegian').trigger('click');
+	});
+	
+
+
+    var dict = {
+   "Home": {
+     no: "Hjem"
+   },
+   "Search": {
+     no: "Søk"
+   },
+   
+   "Invite Friend": {
+     no: "Inviter venn"
+   },
+   
+   "Bug Reporting": {
+     no: "Feilrapportering"
+   },
+      "Bookmarks": {
+     no: "Bokmerker"
+   },
+   "Sura / Chapter": {
+     no: "Surah / Kapittel"
+   },
+   "Juz": {
+     no: "Juz"
+   },
+      "From Verse": {
+     no: "Fra Vers"
+   },
+   "To Verse": {
+     no: "Til Vers"
+   },
+
+      "Ruku": {
+     no: "Ruku"
+   },
+     "Script": {
+     no: "Tekst"
+   },
+     "Reciter": {
+     no: "Resiterer"
+   },
+        "Tranlation": {
+     no: "Oversettelse"
+   },
+     "Verse Repeat": {
+     no: "Repeter vers"
+   },
+    "Range Repeat": {
+     no: "Gjenta rekkevidde"
+   },
+   "Auto play next sura": {
+     no: "Auto spill neste sura"
+   },
+   "Surah introduction": {
+     no: "Surah introduksjon"
+   },
+
+   "Footnotes": {
+     no: "Fotnoter"
+   },
+   "Surah introduction": {
+     no: "Surah introduksjon"
+   },
+   "Chapter": {
+     no: "Kapittel"
+   },
+"All Chapters": {
+     no: "All kapitler"
+   },
+
+   "Language": {
+     no: "Språk"
+   },
+   "With Immune": {
+     no: "Med immunitet"
+   },
+   "Without Immune": {
+     no: "Uten immunitet"
+   },
+    
+     "Search Results": {
+     no: "Søkeresultat"
+   },
+   "Send Invitation": {
+     no: "Send invitasjon"
+   },
+   "Your name": {
+     no: "Ditt navn"
+   },
+   "Your email": {
+     no: "Din epost"
+   },
+   "Friend's email": {
+     no: "Vennens post"
+   },
+   "Message": {
+     no: "Melding"
+   },
+"Summary": {
+     no: "Sammendrag"
+   },
+      "Get Bookmarks": {
+     no: "Mine bokmerker"
+   },
+
+   "Arabic Text": {
+     no: "Arabisk tekst"
+   },
+
+   "Arabic Audio": {
+     no: "Arabisk lyd"
+   },
+   "Norsk Translation": {
+     no: "Norsk oversettelse"
+   },
+   "Details": {
+     no: "Beskrivelse"
+   },
+   "Total Search Count": {
+     no: "Totale Søkeresultater"
+   },
+   "Font": {
+     no: "Skrift farge"
+   },
+   "Highlight": {
+     no: "Markeringsfarge"
+   },
+ }
+ var _t = $('body').translate({
+
+        lang: "en",
+        t: dict
+    });
+    var str = _t.g("translate");
+    console.log(str);
+    $(".lang_selector").click(function(ev) {
+
+        var lang = $(this).attr("data-value");
+        if(lang=='no')
+        {
+ 
+           $('.English').removeClass('lang-selected');
+           $('.English').addClass('lang-not-selected');
+           $('.Norwegian').removeClass('lang-not-selected');
+           $('.Norwegian').addClass('lang-selected');
+        }
+        else
+        {
+            
+           $('.English').removeClass('lang-not-selected');
+           $('.English').addClass('lang-selected');
+           $('.Norwegian').removeClass('lang-selected');
+           $('.Norwegian').addClass('lang-not-selected');
+        }
+        
+        _t.lang(lang);
+        console.log(lang);
+        ev.preventDefault();
     });
 	</script>
 </body>

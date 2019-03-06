@@ -39,7 +39,7 @@
 		            		<div class="col-md-12">
 				            	<div class="form-group nversearabic">
                           <label for="editor1">Arabic (With Immune)</label>
-                          <textarea id="editor1" dir="rtl" name="nversearabic" class="form-control" style="resize: vertical;">{{ $d->arabic_immune }}</textarea>
+                          <textarea id="editor1" dir="rtl" name="nversearabic" class="form-control" style="resize: vertical;">{!! $d->arabic_immune !!}</textarea>
                           <div class="form-feedback" id="nversearabic"></div>
                       </div>
 		            		</div>
@@ -57,7 +57,7 @@
                     <div class="col-md-12">
                       <div class="form-group nnortrans">
                           <label for="editor3">Norwegian Translation</label>
-                          <textarea id="editor3" name="nnortrans" class="form-control" style="resize: vertical;">{{ $d->translation }}</textarea>
+                          <textarea id="editor3" name="nnortrans" class="form-control" style="resize: vertical;">{!! $d->translation !!}</textarea>
                           <div class="form-feedback" id="nnortrans"></div>
                       </div>
                     </div>
@@ -155,7 +155,8 @@
                     <div class="col-md-12">
                       <div class="form-group nversedesc">
                           <label for="verse-desc">Footnotes</label>
-                          <textarea type="text" name="nversedesc" class="form-control" id="verse-desc" style="resize: none" rows="15">{{ $d->description }}</textarea>
+                          <textarea id="editor4" dir="rtl" name="nversedesc" class="form-control" style="resize: vertical;">{!!$d->description !!}</textarea>
+                          <!-- <textarea type="text" name="nversedesc" class="form-control" id="verse-desc" style="resize: none" rows="15">{{ $d->description }}</textarea> -->
                           <div class="form-feedback" id="nversedesc"></div>
                       </div>
                     </div>
@@ -256,17 +257,17 @@
       contentsLangDirection: 'rtl',
       height: 150
     } );
-    // CKEDITOR.replace( 'editor2', {
-    //   extraPlugins: 'bidi',
-    //   // Setting default language direction to right-to-left.
-    //   contentsLangDirection: 'rtl',
-    //   height: 150
-    // } );
-    // CKEDITOR.replace( 'editor3', {
-    //   extraPlugins: 'bidi',
-    //   // Setting default language direction to right-to-left.
-    //   // contentsLangDirection: 'rtl',
-    //   height: 150
-    // } );
+    CKEDITOR.replace( 'editor4', {
+      extraPlugins: 'bidi',
+      // Setting default language direction to right-to-left.
+      // contentsLangDirection: 'rtl',
+      height: 150
+    } );
+    CKEDITOR.replace( 'editor3', {
+      extraPlugins: 'bidi',
+      // Setting default language direction to right-to-left.
+      // contentsLangDirection: 'rtl',
+      height: 150
+    } );
   </script>
 @endpush

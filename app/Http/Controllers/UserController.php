@@ -10,6 +10,7 @@ use App\Juz;
 use App\Verses;
 use App\Bookmarks;
 use App\Bugs;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 	public function test()
@@ -20,10 +21,35 @@ class UserController extends Controller
 		$data['surahs']=Surah::all();
 		return view('user/test',$data);
 	}
+	public function test1()
+	{
+		$r=5;
+		$surah_id=Verses::where('juzz_number',$r)->first();
+		$data=Surah::with(['verse' =>
+				function($q) use($r){
+					$q->where('verses.juzz_number',5)->get();
+				}])->where('id',$surah_id->surah_id)->first();
+		dd($data);
+		$data['title']="Test";
+		$data['title']="Quran e Kareem";
+		 
+		return view('user/test1',$data);
+	}
+	public function emailtest(Request $request)
+	{
+		$data['email']=$request->email;
+		$data['msg']='dddddd';
+		\Mail::send('email.general', $data, function($message) use ($data){ 
+				$message->to($data['email'])->from('info@Quran.com', 'Quran Online' )->subject('Bookmark Verification Code');
+			});
+	}
 	public function index()
 	{
+
 		$data['title']="Quran e Kareem";
 		$data['surah']=Surah::with('verse')->where('id','3')->first();
+		$data['surah']->verse==$data['surah']->verse;
+		
 		$data['recitors']=Role::where([['status','=','active'],['role','=','recitor']])->get();
 		//$data['raku'] = Verses::where('surah_id','3')->max('raku')->first();
 		// echo $data['raku'];
@@ -78,12 +104,34 @@ class UserController extends Controller
 					$data=Surah::with('verse')->where('id',$request->surah_id)->first();
 					$data['feedback'] = 'false';
 				}else{
-					$data=Surah::withCount('verse')->has('verse' , '>' , 0)->with('verse')->where('surah_number' , '<' , ($surah->surah_number-1))->orderBy('surah_number' , 'desc')->first();
+					$data=Surah::withCount('verse')->has('verse' , '>' , 0)->with('verse')->where('surah_number' , ($surah->surah_number-1))->orderBy('surah_number' , 'desc')->first();
 					$data['feedback'] = 'true';
 				}
 			}
 			return json_encode($data);
 		}
+	}
+	public function get_next_foot(Request $request)
+	{
+		$from_verse=$request->from_verse;
+		$from_verse=$from_verse+1;
+		// echo $from_verse;
+		$surah_id=$request->surah_id;
+			$data=Verses::where('surah_id',$surah_id)->where('verse',$from_verse)->first();
+			
+			return json_encode($data);
+			// echo $datas;
+	}
+
+	public function get_pre_foot(Request $request)
+	{
+		$from_verse=$request->from_verse;
+		$from_verse=$from_verse-1;
+		// echo $from_verse;
+		$surah_id=$request->surah_id;
+			$data=Verses::where('surah_id',$surah_id)->where('verse',$from_verse)->first();
+			
+			return json_encode($data);
 	}
 	public function get_surah_form_verse(Request $request)
 	{
@@ -113,6 +161,39 @@ class UserController extends Controller
 			return json_encode($data);
 		}
 	}
+
+	
+public function get_surah_search_verse(Request $request)
+	{
+		$messages = array(
+			'surah_id.required'   => 'This Field is Required',
+			'from_verse.required'   => 'This Field is Required',
+			
+		);
+		$rules = array(
+			'surah_id'=>'required',
+			'from_verse'=>'required',
+			
+		);
+		$validator = \Validator::make($request->all(), $rules , $messages);
+		if ($validator->fails())
+		{
+			return 0;
+		}
+		else
+		{
+			$r['from']=$request->from_verse;
+			
+			$data=Surah::with(['verse' =>
+				function($q) use($r){
+					$q->where([['verses.verse','>=',$r['from']]])->get();
+				}])->where('id',$request->surah_id)->first();
+			return json_encode($data);
+		}
+	}
+
+
+
 	public function get_surah_to_verse(Request $request)
 	{
 		$messages = array(
@@ -187,6 +268,48 @@ class UserController extends Controller
 			return json_encode($data);
 		}
 	}
+	
+	public function get_raku(Request $request)
+	{
+		$messages = array(
+			'raku_number.required'   => 'This Field is Required'
+
+		);
+		$rules = array(
+			'raku_number'=>'required'
+		);
+		$validator = \Validator::make($request->all(), $rules , $messages);
+		if ($validator->fails())
+		{
+			return 0;
+		}
+		else
+		{
+
+			$r=$request->raku_number;
+			
+
+
+		         $data=Surah::with(['verse' =>
+				function($q) use($r){
+					$q->where('verses.raku',$r)->get();
+				}])->where('id',$request->surah_id)->first();
+		         
+			// $data=Surah::with(['verse' =>
+			// 	function($q) use($r){
+			// 		$q->where('verses.juzz_number',$r)->get();
+			// 	}])->first();
+			if($data)
+			{
+				return json_encode($data);
+			}
+			else
+			{
+				return 0;
+			}
+			
+		}
+	}
 	public function get_juz(Request $request)
 	{
 		$messages = array(
@@ -205,10 +328,22 @@ class UserController extends Controller
 		{
 
 			$r=$request->juz_number;
-			$data=Surah::with(['verse' =>
-				function($q) use($r){
-					$q->where('verses.juzz_number','=',$r)->get();
-				}])->get();
+			
+
+		  //        $data=Surah::with(['verse' =>
+				// function($q) use($r){
+				// 	$q->where('verses.juzz_number',$r)->get();
+				// }])->where('juz_id',$r)->first();
+               
+                  $verses=Verses::where('juzz_number',$r)->join('surahs','surahs.id','verses.surah_id')->orderBy('surah_number','asc')->get();
+                  $surah=Surah::where('id',$verses[0]->surah_id)->orderBy('surah_number','asc')->first();
+                  $data['surah']=$surah;
+                  $data['from']=$verses[0]->verse;
+                  $data['verses']=$verses;  
+			// $data=Surah::with(['verse' =>
+			// 	function($q) use($r){
+			// 		$q->where('verses.juzz_number',$r)->get();
+			// 	}])->first();
 			if($data)
 			{
 				return json_encode($data);
@@ -217,6 +352,7 @@ class UserController extends Controller
 			{
 				return 0;
 			}
+			
 		}
 	}
 	public function get_search(Request $request)
@@ -321,16 +457,16 @@ class UserController extends Controller
 			$data['msg'] =  $request->message;
 			$data['receiver_email'] =  $request->receiver_email;
 			$data['subject'] = "Read Quran ";
-			\Mail::send('user.email', $data, function($message) use ($data){ 
-				$message->to($data['receiver_email'])->from(env(), 'Quran Online' )->subject($data['subject']);
+            
+
+           $result= \Mail::send('user.email', $data, function($message) use ($data){ 
+				$message->to($data['sender_email'])->from($data['receiver_email'], $data['name'] )->subject($data['subject']);
 			});
-			if(\Mail::failures()){
-				return 0;
-			}
-			else
-			{
+
+               
+
 				return 1;
-			}
+               			
 		}
 	}
 
@@ -354,17 +490,19 @@ class UserController extends Controller
 		{
 			return 0;
 		}
-		else
-		{
-			\Session::forget('book_mark_data');
-			\Session::forget('emailed_bookmark_code');
-			request()->session()->push('book_mark_data', request()->all());
-			$code = mt_rand(10000,99999);
-			\Session::put('emailed_bookmark_code' , $code);
+		// else
+		// {
+			// \Session::forget('book_mark_data');
+			// \Session::forget('emailed_bookmark_code');
+			// request()->session()->push('book_mark_data', request()->all());
+			// $code = mt_rand(10000,99999);
+			// \Session::put('emailed_bookmark_code' , $code);
 			// $data['email'] = $request->email;
 			// $data['msg'] = 'Verification Code is  ' . $code;
+
+
 			// \Mail::send('email.general', $data, function($message) use ($data){ 
-			// 	$message->to($data['email'])->from(env('MAIL_USERNAME'), 'Quran Online' )->subject('Bookmark Verification Code');
+			// 	$message->to($data['email'])->from('info@Quran.com', 'Quran Online' )->subject('Bookmark Verification Code');
 			// });
 			// if(\Mail::failures()){
 			// 	echo 'failed';
@@ -373,6 +511,8 @@ class UserController extends Controller
 			// 	echo 'success';
 			// }
 			// exit();
+		if(Auth::user()->email==$request->email)
+		{
 			$check=Bookmarks::where([['email','=',$request->email],['surah_id','=',$request->surah_id],['from_verse','=',$request->from_verse],['to_verse','=',$request->to_verse]])->first();
 			if(empty($check))
 			{
@@ -396,6 +536,10 @@ class UserController extends Controller
 			}
 
 		}
+		else
+		{
+			return 3;
+		}
 	}
 	public function get_bookmarks(Request $request)
 	{
@@ -413,9 +557,12 @@ class UserController extends Controller
 		{
 			return 0;
 		}
-		else
+		// else
+		// {
+		if(Auth::user()->email==$request->email)
 		{
-			$check=Bookmarks::where('email',$request->email)->join('surahs','surahs.id','bookmarks.surah_id')->get();
+			// $check=Bookmarks::where('email',$request->email)->join('surahs','surahs.id','bookmarks.surah_id')->get();
+			$check=Surah::join('bookmarks','bookmarks.surah_id','surahs.id')->where('email',$request->email)->get();
 			if(empty($check))
 			{
 				return 2;
@@ -425,6 +572,157 @@ class UserController extends Controller
 				return json_encode($check);
 			}
 		}
+		else
+		{
+			return 3;
+		}
+	}
+	
+	public function logout()
+	{
+         Auth::logout();
+         return back();
+	}
+	public function signup(Request $request)
+	{
+        
+        $messages = array(
+       
+          
+          'email.required' => 'You must enter your email', 
+           'password.required' => 'You must enter your password',
+            'password_confirmation.required' => 'You must enter your confirm password',
+           
+         
+         );
+         $rules = array(
+            
+          'email' => 'required',
+          'password' => 'bail|required|confirmed|min:3',
+          'password_confirmation' => 'bail|required|min:3',
+                
+
+         );
+            
+         $validator = \Validator::make($request->all(), $rules , $messages);
+          if($validator->fails())
+          {
+          	
+          	$data['errors']= $validator->errors()->getMessages();
+          	$data['feedback']='false';
+          	return json_encode($data);
+          	// return ;
+          	
+             // return redirect()->back()->withInput()->withErrors($validator);
+             
+          }
+          
+          
+       $user=Users::where('email',$request->email)->where('is_admin',0)->first();
+        if($user)
+        {
+        	$data['feedback']='fals';
+          	return json_encode($data);
+        }
+        else
+        {
+
+
+        $user=new Users();
+        $user->email=$request->email;
+        $passwords=$request->password;
+        $enc_password=bcrypt($passwords);
+        $user->password=$enc_password;
+        $user->is_admin=0;
+        $user->status=1;
+        $user->save();
+        $data['feedback']='true';
+        return json_encode($data);
+       }
+	}
+	public function change_password(Request $request)
+	{
+		$messages = array(
+       
+          
+          'email.required' => 'You must enter your email', 
+           'password.required' => 'You must enter your password',
+            'password_confirmation.required' => 'You must enter your confirm password',
+           
+         
+         );
+         $rules = array(
+            
+          'email' => 'required',
+          'password' => 'bail|required|confirmed|min:3',
+          'password_confirmation' => 'bail|required|min:3',
+                
+
+         );
+            
+         $validator = \Validator::make($request->all(), $rules , $messages);
+          if($validator->fails())
+          {
+          	
+          	// $data['errors']= $validator->errors()->getMessages();
+          	// $data['feedback']='false';
+          	// return json_encode($data);
+          	// // return ;
+          	
+             return redirect()->back()->withInput()->withErrors($validator);
+             
+          }
+		$email=decrypt($request->email);
+		$user=Users::where('email',$email)->where('is_admin',0)->first();
+        $user->password=bcrypt($request->password);
+        $user->save();
+        \Session::flash('successs' , 'Change your password');
+        return redirect('/');
+	}
+
+	public function reset_password($enc_email)
+	{
+		$data['email']=$enc_email;
+		$data['title']="Quran e Kareem";
+		return view('user/reset_password',$data);
+	}
+	public function forget_password(Request $request)
+	{
+		$data['email']=$request->email;
+		$email=Users::where('email',$request->email)->where('is_admin',0)->first();
+		if($email)
+		{
+
+		 $dbemail=$email->email;
+		
+		 $data['enc_email']=encrypt($dbemail);
+
+		\Mail::send('email.general', $data, function($message) use ($data){ 
+				$message->to($data['email'])->from('info@Quran.com', 'Quran Online' )->subject('Reset Password');
+			});
+		echo "true";
+	}
+	else
+	{
+		echo "false";
+	}
+
+	}
+	public function login(Request $request)
+
+	{
+
+         $login = Auth::attempt(['password' => $request->password,'status' => 1,'is_admin' => 0 ,'email' => $request->email]);
+           if($login)
+           {
+           	\Session::flash('success' , 'success');
+           	   echo "true";
+           }  
+
+           else
+           {
+           	echo "flase";
+           }
 	}
 
 	public function save_bug_report(Request $request)

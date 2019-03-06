@@ -93,11 +93,11 @@ class AdminController extends Controller
           'username.required' => 'You must enter your username',
           'email.required' => 'You must enter your email', 
            'password.required' => 'You must enter your password',
-           'phone.required' => 'You must enter your phone number',
+           // 'phone.required' => 'You must enter your phone number',
             'password_confirmation.required' => 'You must enter your confirm password',
-           'email.unique' => 'Email address already exist',
+           // 'email.unique' => 'Email address already exist',
            
-           'phone.unique' => 'phone number already exist',
+           // 'phone.unique' => 'phone number already exist',
            'username.unique' => 'User name already exist',
            'username.unique' => 'Phone number already exist',
             'password.confirmed' => 'Your passwords dont match please try again!',
@@ -106,8 +106,8 @@ class AdminController extends Controller
          );
          $rules = array(
             'username' =>'bail|required|unique:users,username|min:3',
-               'email' => 'bail|required|unique:users,email',
-             'phone' => 'bail|unique:users,phone',
+               'email' => 'required',
+             // 'phone' => 'bail|unique:users,phone',
           
            
         
@@ -130,7 +130,7 @@ class AdminController extends Controller
            'password.required' => 'You must enter your password',
            'phone.required' => 'You must enter your phone number',
             'password_confirmation.required' => 'You must enter your confirm password',
-           'email.unique' => 'Email address already exist',
+           // 'email.unique' => 'Email address already exist',
            
            
        
@@ -139,7 +139,7 @@ class AdminController extends Controller
          $rules = array(
            
             'username'=>'required',
-            'phone'=>'required',
+            // 'phone'=>'required',
             'email'=>'required', 
         
          'name' => 'required',
@@ -163,13 +163,22 @@ class AdminController extends Controller
           if(empty($id))
           {
 
+        $user=Users::where('email',$request->email)->where('is_admin',1)->first();
+        if($user)
+        {
+           \Session::flash('error' , 'Email Already Register!');
+           return back();
+        }
 
         $user=new Users();
+        $user->role=1;
         } 
         else
         {
          $user=Users::find($id);
+         $user->role=$user->role;
         }
+
         $user->name=$request->name;
         $user->username=$request->username;
         $user->email=$request->email;
@@ -177,7 +186,6 @@ class AdminController extends Controller
         $passwords=$request->password;
         $enc_password=bcrypt($passwords);
         $user->password=$enc_password;
-        $user->role=1;
         $user->is_admin=1;
         $user->save();
 
@@ -189,7 +197,7 @@ class AdminController extends Controller
 
       public function all_admin()
     {
-       $data['admin_view']=Users::where('role',1)->orderBy('id','desc')->paginate('12');
+       $data['admin_view']=Users::where('is_admin',1)->orderBy('id','desc')->paginate('12');
        $data['title'] = 'All Admin';
         return view('admin.all-admin')->with($data);
        // dd($admin_view);
@@ -615,7 +623,7 @@ class AdminController extends Controller
             'njuzzid.max' => 'Maximum allowed Juz is 30',
             'nruku.required' => 'This Field is Required',
             'nruku.numeric' => 'Must be a number',
-            'nversedesc.required' => 'This Field is Required',
+            // 'nversedesc.required' => 'This Field is Required',
         );
         $rules = array(
             'nversearabic' => 'required',
@@ -629,7 +637,7 @@ class AdminController extends Controller
             'nversenum' => ['required' , 'numeric' , 'min:1'],
             'njuzzid' => 'required|numeric|min:1|max:30',
             'nruku' => 'required|numeric',
-            'nversedesc' => 'required',
+            // 'nversedesc' => 'required',
         );
         $validator = \Validator::make(request()->all(), $rules , $messages);
         if ($validator->fails())
@@ -639,9 +647,33 @@ class AdminController extends Controller
             $data['msg'] = form_error_message();
         }
         else
-        {
+        { 
+            $nnortrans=request('nnortrans');
+            $nnortrans=preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $nnortrans); 
+            $nnortrans=str_ireplace('<p>','',$nnortrans);
+            $nnortrans=str_ireplace('<br />','', $nnortrans);
+            $nnortrans=str_ireplace('<br/>','', $nnortrans);
+            $nnortrans=str_ireplace('</p>','', $nnortrans);
+            $nnortrans=str_ireplace('<h1>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h1>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h2>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h2>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h3>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h3>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h4>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h4>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h5>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h5>','', $nnortrans);   
+            $nnortrans=str_ireplace('<h6>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h6>','', $nnortrans);
+               
+            $nnortrans=str_ireplace('<span>','', $nnortrans);     
+            $nnortrans=str_ireplace('</span>','', $nnortrans);
+            $nnortrans=trim(preg_replace('/\s\s+/', ' ', $nnortrans));
+            // ext($nnortrans);
             $nversearabic=str_ireplace('<p>','', request('nversearabic', ''));
-            $nversearabic=str_ireplace('</p>','', $nversearabic);   
+            $nversearabic=str_ireplace('</p>','', $nversearabic);
+            $nversearabic=str_ireplace('<br>','', $nversearabic);   
             $nversearabic=str_ireplace('<h1>','', $nversearabic);   
             $nversearabic=str_ireplace('</h1>','', $nversearabic);  
             $nversearabic=str_ireplace('<h2>','', $nversearabic);   
@@ -653,11 +685,16 @@ class AdminController extends Controller
             $nversearabic=str_ireplace('<h5>','', $nversearabic);   
             $nversearabic=str_ireplace('</h5>','', $nversearabic);   
             $nversearabic=str_ireplace('<h6>','', $nversearabic);   
-            $nversearabic=str_ireplace('</h6>','', $nversearabic);   
+            $nversearabic=str_ireplace('</h6>','', $nversearabic);
+
+            $nversearabic=preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $nversearabic); 
+               
+            $nversearabic=str_ireplace('<span>','', $nversearabic);     
+            $nversearabic=str_ireplace('</span>','', $nversearabic);   
             $verse = new \App\Verses();
             $verse->arabic_immune = $nversearabic;
             $verse->arabic_no_immune = request('nversearabicwithoutimmune', '');
-            $verse->translation = request('nnortrans', '');
+            $verse->translation = $nnortrans;
             $verse->translator_id = request('ntranname', '');
             $destinationPath = 'public/admin_assets/audios';
             if(request()->file('narabicaudiolink'))
@@ -685,11 +722,33 @@ class AdminController extends Controller
             $verse->verse = request('nversenum', '');
             $verse->surah_id = request('surah_id', '');
             $verse->juzz_number = request('njuzzid', '');
-            $verse->description = request('nversedesc', '');
+              
+
+
+               $description=request('nversedesc');
+            $description=preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $description); 
+            
+            $description=str_ireplace('<h1>','', $description);   
+            $description=str_ireplace('</h1>','', $description);  
+            $description=str_ireplace('<h2>','', $description);   
+            $description=str_ireplace('</h2>','', $description);  
+            $description=str_ireplace('<h3>','', $description);   
+            $description=str_ireplace('</h3>','', $description);  
+            $description=str_ireplace('<h4>','', $description);   
+            $description=str_ireplace('</h4>','', $description);  
+            $description=str_ireplace('<h5>','', $description);   
+            $description=str_ireplace('</h5>','', $description);   
+            $description=str_ireplace('<h6>','', $description);   
+            $description=str_ireplace('</h6>','', $description);
+            $description=str_ireplace('<span>','', $description);     
+            $description=str_ireplace('</span>','', $description);
+            $description=trim(preg_replace('/\s\s+/', ' ', $description));
+            $verse->description =$description;
             $verse->created_by = Auth::user()->id;
             $verse->updated_by = Auth::user()->id;
             $verse->save();
-            $data['url'] = route('all-surahs');
+
+            $data['url']=route('all-verses' , ['surah_id' => encrypt(request('surah_id'))]);
             $data['feedback'] = 'true';
             $data['msg'] = 'Verse Added Successfully';
         }
@@ -746,7 +805,7 @@ class AdminController extends Controller
             'njuzzid.max' => 'Maximum allowed Juz is 30',
             'nruku.required' => 'This Field is Required',
             'nruku.numeric' => 'Must be a number',
-            'nversedesc.required' => 'This Field is Required',
+            // 'nversedesc.required' => 'This Field is Required',
         );
         $rules = array(
             'nversearabic' => 'required',
@@ -761,7 +820,7 @@ class AdminController extends Controller
             'nversenum' => ['required' , 'numeric' , 'min:1'],
             'njuzzid' => 'required|numeric|min:1|max:30',
             'nruku' => 'required|numeric',
-            'nversedesc' => 'required',
+            // 'nversedesc' => 'required',
         );
         $validator = \Validator::make(request()->all(), $rules , $messages);
         if ($validator->fails())
@@ -772,8 +831,35 @@ class AdminController extends Controller
         }
         else
         {
+            $nnortrans=request('nnortrans');
+            $nnortrans=preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $nnortrans); 
+            $nnortrans=str_ireplace('<p>','',$nnortrans);
+            $nnortrans=str_ireplace('<br />','', $nnortrans);
+            $nnortrans=str_ireplace('<br/>','', $nnortrans);
+            $nnortrans=str_ireplace('</p>','', $nnortrans);
+            $nnortrans=str_ireplace('<h1>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h1>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h2>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h2>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h3>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h3>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h4>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h4>','', $nnortrans);  
+            $nnortrans=str_ireplace('<h5>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h5>','', $nnortrans);   
+            $nnortrans=str_ireplace('<h6>','', $nnortrans);   
+            $nnortrans=str_ireplace('</h6>','', $nnortrans);
+
+               
+            $nnortrans=str_ireplace('<span>','', $nnortrans);     
+            $nnortrans=str_ireplace('</span>','', $nnortrans);
+            // echo $nnortrans."<br><br><br>";
+           // $nnortrans=trim(preg_replace('/\s\s+/', ' ', $nnortrans));
+           // $nnortrans=trim( str_replace( PHP_EOL, ' ', $nnortrans ) );
+           // // echo $nnortrans;die;
             $nversearabic=str_ireplace('<p>','', request('nversearabic', ''));
-            $nversearabic=str_ireplace('</p>','', $nversearabic);   
+            $nversearabic=str_ireplace('</p>','', $nversearabic);
+            $nversearabic=str_ireplace('<br>','', $nversearabic);   
             $nversearabic=str_ireplace('<h1>','', $nversearabic);   
             $nversearabic=str_ireplace('</h1>','', $nversearabic);  
             $nversearabic=str_ireplace('<h2>','', $nversearabic);   
@@ -785,11 +871,17 @@ class AdminController extends Controller
             $nversearabic=str_ireplace('<h5>','', $nversearabic);   
             $nversearabic=str_ireplace('</h5>','', $nversearabic);   
             $nversearabic=str_ireplace('<h6>','', $nversearabic);   
-            $nversearabic=str_ireplace('</h6>','', $nversearabic);   
+            $nversearabic=str_ireplace('</h6>','', $nversearabic);
+
+            $nversearabic=preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $nversearabic); 
+               
+            $nversearabic=str_ireplace('<span>','', $nversearabic);     
+            $nversearabic=str_ireplace('</span>','', $nversearabic);   
+               
             $verse = \App\Verses::find(request('verse_id'));
             $verse->arabic_immune = $nversearabic;
             $verse->arabic_no_immune = request('nversearabicwithoutimmune', '');
-            $verse->translation = request('nnortrans', '');
+            $verse->translation = $nnortrans;
             $verse->translator_id = request('ntranname', '');
             $destinationPath = 'public/admin_assets/audios';
             $arabic = $verse->link_to_audio;
@@ -823,7 +915,26 @@ class AdminController extends Controller
             $verse->verse = request('nversenum', '');
             $verse->surah_id = request('surah_id', '');
             $verse->juzz_number = request('njuzzid', '');
-            $verse->description = request('nversedesc', '');
+            $description=request('nversedesc');
+            $description=preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $description); 
+            
+            $description=str_ireplace('<h1>','', $description);   
+            $description=str_ireplace('</h1>','', $description);  
+            $description=str_ireplace('<h2>','', $description);   
+            $description=str_ireplace('</h2>','', $description);  
+            $description=str_ireplace('<h3>','', $description);   
+            $description=str_ireplace('</h3>','', $description);  
+            $description=str_ireplace('<h4>','', $description);   
+            $description=str_ireplace('</h4>','', $description);  
+            $description=str_ireplace('<h5>','', $description);   
+            $description=str_ireplace('</h5>','', $description);   
+            $description=str_ireplace('<h6>','', $description);   
+            $description=str_ireplace('</h6>','', $description);
+            $description=str_ireplace('<span>','', $description);     
+            $description=str_ireplace('</span>','', $description);
+            $description=trim(preg_replace('/\s\s+/', ' ', $description));
+            $verse->description =$description;
+            // $verse->description = request('nversedesc', '');
             $verse->updated_by = Auth::user()->id;
             $verse->save();
             $data['url'] = route('all-verses' , ['surah_id' => encrypt(request('surah_id'))]);

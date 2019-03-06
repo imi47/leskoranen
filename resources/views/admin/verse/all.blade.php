@@ -56,14 +56,14 @@
                                     <td>{{ $list->verse }}</td>
                                     <td>
                                         ({!! ($list->arabic_immune == NULL OR $list->arabic_immune == '')? 'N/A' : $list->arabic_immune !!}
-                                        {{ ($list->arabic_no_immune == NULL OR $list->arabic_no_immune == '')? '' : ' (' . $list->arabic_no_immune }}
+                                        {!! ($list->arabic_no_immune == NULL OR $list->arabic_no_immune == '')? '' : ' (' . $list->arabic_no_immune !!}
                                     </td>
                                     <td>{{ ($list->surah == NULL OR empty($list->surah))? 'N/A' : $list->surah->surah_name }}</td>
                                     <td>{{ $list->raku }}</td>
                                         @if(\Auth::user()->role == 3)
                                     <td>
                                         <a title="Edit Verse" href="{{ route('edit-verse' , ['verse_id' => encrypt($list->id)]) }}" class="btn btn-primary btn-circle m-b-5"><i class="fa fa-edit"></i></a>
-                                        {{-- <a title="Delete Verse" id="row-id{{ ($list->id == NULL OR $list->id == '')? 'N/A' : $list->id }}" href="javascript:delete_verse('{{ ($list->id == NULL OR $list->id == '')? 'N/A' : encrypt($list->id) }}');" class="btn btn-danger btn-circle m-b-5"><i class="fa fa-trash"></i></a> --}}
+                                        <a title="Delete Verse" id="row-id{{ ($list->id == NULL OR $list->id == '')? 'N/A' : $list->id }}" href="javascript:delete_verse('{{ ($list->id == NULL OR $list->id == '')? 'N/A' : encrypt($list->id) }}');" class="btn btn-danger btn-circle m-b-5"><i class="fa fa-trash"></i></a>
                                     </td>
                                         @endif
                                     <td>
@@ -114,7 +114,7 @@
             // Footable example 1
             $('#listing').footable();
         });
-        @if(\Auth::user()->role == 1)
+        @if(\Auth::user()->role == 3)
             function delete_verse(verse_id)
             {
               r = confirm('Really You want to Delete?');

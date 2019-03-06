@@ -34,7 +34,9 @@
                                     <th>Name</th>
                                     <td>Starting Surah</td>
                                     <td>Ending Surah</td>
+                                    @if(\Auth::user()->role == 3)
                                     <td>Actions</td>
+                                    @endif
                                     <th data-hide="all">Added By</th>
                                     <th data-hide="all">Updated By</th>
                                 </tr>
@@ -52,9 +54,11 @@
                                     <td>
                                         {{ ($list->ending_surah == NULL OR empty($list->ending_surah))? 'N/A' : $list->ending_surah->surah_name }} to Verse {{ ($list->ending_surah_verse == NULL OR empty($list->ending_surah_verse))? 'N/A' : $list->ending_surah_verse->verse }}
                                     </td>
+                                    @if(\Auth::user()->role == 3)
                                     <td>
                                         <a title="Edit Juz" href="{{ route('edit-juz' , ['juz_id' => encrypt($list->id)]) }}" class="btn btn-primary btn-circle m-b-5"><i class="fa fa-edit"></i></a>
                                     </td>
+                                    @endif
                                     <td>{{ ($list->added_by == NULL OR empty($list->added_by))? 'N/A' : $list->added_by->name }} at {{ date('H:i A d-m-Y' , strtotime($list->created_at)) }}</td>
                                     <td>{{ ($list->edited_by == NULL OR empty($list->edited_by))? 'N/A' : $list->edited_by->name }} at {{ date('H:i A d-m-Y' , strtotime($list->updated_at)) }}</td>
                                 </tr>

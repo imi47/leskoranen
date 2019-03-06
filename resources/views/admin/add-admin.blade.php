@@ -21,6 +21,9 @@
 		        <div class="panel-heading">
 		            <div class="panel-title">
 		                <h4>
+                      @if(Session::get('error'))
+                      <p class="alert alert-danger">{{ Session::get('error') }}</p>
+                      @endif
                      @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

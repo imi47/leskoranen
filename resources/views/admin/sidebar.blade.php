@@ -53,11 +53,13 @@
                 else
                     $selected = false;
             @endphp
+            @if(\Auth::user()->role == 3)
             <li @if($selected) 
                 class=active @endif>
                 <a href="#" class="material-ripple" aria-expanded="@if($selected) true @else false @endif"><div class="material-ink animate" style="height: 247px; width: 247px; top: -88.5px; left: 15.5px;"></div><i class="fa fa-bug"></i> Bug Reports<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse @if($selected) in @endif" aria-expanded="@if($selected) true @else false @endif" @if($selected) style @else style="height: 0px;"@endif>
                     <li class={{ (admin_uri() == 'all-bug-reports')? 'active' : '' }}><a href="{{ route('all-bug-reports') }}"><i class="fa fa-bars"></i> All<span class="nav-tag red pull-right">{{ reports_count() }}</span></a></li>
+                    @endif
                 </ul>
             </li>
         </ul>

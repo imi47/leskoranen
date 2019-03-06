@@ -35,7 +35,7 @@
 	}
 	function users_count()
 	{
-		return \App\Users::where('role',1)->count();
+		return \App\Users::where('is_admin',1)->count();
 	}
 
 	function juzs_count()

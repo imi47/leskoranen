@@ -15,7 +15,7 @@ class AdminRoleJson
      */
     public function handle($request, Closure $next)
     {
-        if(\Auth::check() AND \Auth::user()->is_admin AND \Auth::user()->role == 1){
+        if(\Auth::check() AND \Auth::user()->is_admin AND \Auth::user()->role == 3){
             if(\Auth::user()->status == 0 OR \Auth::user()->is_blocked == 1)
             {
                 \Auth::logout();
