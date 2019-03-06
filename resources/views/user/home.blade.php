@@ -124,21 +124,18 @@ $lastverse='';
         <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" alt="" class='triangle'>
       </div>
       <div class="content">
-        <div class="">
-          <div class="col-md-12">
-            <a id="btnNext" class="next_b" onclick="nextfootnotes()" title="Next footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/forward.png"> </a>
-            <a href="javascript:;" style="color:#214300; line-height: 1.2 !important;display: grid;justify-content: center;" data-toggle="modal" data-target="#footnotes">
-             
-              {{-- <p class="c-verse" style="font-size: 12px">{!!$surah->verse[0]->description!!}
-                </p> --}}
-                {{-- <p class="c-verse" style="font-size: 12px">{!! str_replace( '</p>', '' , str_replace('<p>' , '' , $surah->verse[0]->description)) !!}
-                </p> --}}
-                <p class="c-verse" style="font-size: 12px;">Surah Al-Fatihah er en bønn Allah lærer mennesker som skal studere Hans bok. Dens plassering i begynnelsen viser viktigheten av den for enhver som ønsker å dra nytte av Boken, og denne bønnen til Herren over alle universene bør derfor fremlegges først.</p>
-                
-            </a>
-            <a id="btnPrevious" class="pre_b" onclick="prefootnotes()" title="Previous Footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/rewind.png">
+        <div>
+          <a id="btnNext" class="next_b" onclick="nextfootnotes()" title="Next footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/forward.png"> </a>
+          <a href="javascript:;" style="color:#214300; line-height: 1.2 !important;display: grid;justify-content: center;" data-toggle="modal" data-target="#footnotes">
+            
+            {{-- <p class="c-verse" style="font-size: 12px">{!!$surah->verse[0]->description!!}
+              </p> --}}
+              {{-- <p class="c-verse" style="font-size: 12px">{!! str_replace( '</p>', '' , str_replace('<p>' , '' , $surah->verse[0]->description)) !!}
+              </p> --}}
+              <p class="c-verse" style="font-size: 12px;">Surah Al-Fatihah er en bønn Allah lærer mennesker som skal studere Hans bok. Dens plassering i begynnelsen viser viktigheten av den for enhver som ønsker å dra nytte av Boken, og denne bønnen til Herren over alle universene bør derfor fremlegges først.</p>
           </a>
-          </div>
+          <a id="btnPrevious" class="pre_b" onclick="prefootnotes()" title="Previous Footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/rewind.png">
+        </a>
         </div>
       </div>
     </div>

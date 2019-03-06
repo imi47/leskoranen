@@ -120,6 +120,12 @@ video {
     margin-top:25px;
 }
 
+#c-surah,
+.footerDrawer .content > div {
+    width: 88%;
+    margin:auto;
+}
+
 #c-surah p {
     margin-top:10px;
     margin-bottom:28px;
