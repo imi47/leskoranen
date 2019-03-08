@@ -223,16 +223,28 @@ video {
 }
 
 .color-dropdown {
-    display:inline-block;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6px;
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #efefef;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.25);
     position: absolute;
     top: 20px;
-    left:15px;
+    left:-47px;
     z-index: 1;
     border:2px solid #83ab33;
+    cursor: auto;
 }
+
 .color-dropdown div {
     width:30px;
     height:20px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.25);
+    cursor: pointer;
 }
 
 .trns {

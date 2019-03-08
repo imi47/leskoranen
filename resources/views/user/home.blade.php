@@ -50,7 +50,7 @@ $lastverse='';
       <p class="text-center" id="trans0"  dir="ltr" style="width: 65%; margin-left: 80px;">
         <span class="trns bismila"  style="color: #99cc33">I Allahs navn, den Barmhjertige, den Nåderike</span>
         <span class='ayah-end1 fatiha'>
-          <span style="width: 24px; height: 22px;padding: 2px;">1</span>
+          <span style="width: 24px; height: 23px;padding: 3px 2px 3px 2px;">1</span>
         </span>
       </p>
       @endif
@@ -88,7 +88,7 @@ $lastverse='';
     <p class="text-center" id="arabic0"  dir="rtl" style="width: 38%; margin-left: 155px;">
       <span class="arbic bismila"  style="color: #99cc33;">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ</span>
       <span class='ayah-end1 fatiha'>
-          <span style="width: 24px; height: 22px;padding: 2px;">1</span>
+          <span style="width: 24px; height: 23px;padding: 3px 2px 3px 2px;">1</span>
         </span>
     </p>
     @endif
@@ -2449,11 +2449,11 @@ function deletes_book(id) {
 						enable: false
 					}
 				});
-        $("#tran-side").mCustomScrollbar({
-					scrollButtons: {
-						enable: false
-					}
-				});
+      $("#tran-side").mCustomScrollbar({
+        scrollButtons: {
+          enable: false
+        }
+      });
 		});
 </script>
 <!-- malihu scrollbar code start -->
