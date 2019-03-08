@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/jquery.mCustomScrollbar.min.css">
+
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/css/main.css">
 
 	<link rel="stylesheet" type="text/css" href="{{$PUBLIC_ASSETS}}/css/slicknav.css">

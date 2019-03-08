@@ -2436,4 +2436,25 @@ function deletes_book(id) {
       
 
 </script>
+
+<!-- malihu scrollbar code start -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{$PUBLIC_ASSETS}}/js/jquery.mCustomScrollbar.min.js"></script>
+<script src="{{$PUBLIC_ASSETS}}/js/jquery.mousewheel.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+			$("#arab-side").mCustomScrollbar({
+					scrollButtons: {
+						enable: false
+					}
+				});
+        $("#tran-side").mCustomScrollbar({
+					scrollButtons: {
+						enable: false
+					}
+				});
+		});
+</script>
+<!-- malihu scrollbar code start -->
 @endpush
