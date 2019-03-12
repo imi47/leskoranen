@@ -210,7 +210,7 @@ body{
           @endif
         </select>
         <label class="trn">Juz</label>
-        <select class="" id="cmbJuz" name="JuzID" style="width: 65px;">
+        <select class="" id="cmbJuz" name="JuzID" style="width: 65px; margin-left: 5px;">
           @for(@$i=1;$i<=30;$i++)
             <option value="{{$i}}">{{$i}}</option>
           @endfor
@@ -247,7 +247,7 @@ body{
             </div>
           </div> 
 
-      <label class="trn" style="margin-left: 170px; margin-top:7px; line-height: 15px !important">To Verse</label>
+      <label class="trn" style="margin-left: 197px; margin-top:7px; line-height: 15px !important">To Verse</label>
       {{-- <select id="cmbTVerse" name="VerseID" class="" style="width: 65px;">
        @if($surah)
        @for(@$i=$surah->verses;$i>=1;$i--)
@@ -255,7 +255,7 @@ body{
         @endfor
        @endif
      </select> --}}
-     <div class="input-group Qinput" style="margin-left: 250px;">
+     <div class="input-group Qinput" style="margin-left: 276px;">
       <input type="text" id="cmbTVerse1" onkeyup="this.value=this.value.replace(/[^\d]/,'')" value="{{ $surah->verses }}" class="form-control">
             <div class="input-group-btn">
               
@@ -314,7 +314,7 @@ body{
    })
   })
 </script>
-     <label class="trn" id="lblRukuHizbCap" style="margin-left: 367px;
+     <label class="trn" id="lblRukuHizbCap" style="margin-left: 379px;
     ">Ruku</label>
      <select class="" id="cmbHizb" name="HizbRuku" style="width: 65px; margin-top:2px;">
       @for(@$i=1;$i<=$surah->raku;$i++)
@@ -328,7 +328,7 @@ body{
    </section>
  </li>
  <li>
-   <section class="script_box " style="width:100% !important;">
+   <section class="script_box">
     <label class="trn">Script</label>
     <select class="" id="cmbScript" name="ResourceID">
      <option value="hide">Hide</option>
@@ -342,7 +342,7 @@ body{
 
   <br />
   <label class="trn">Reciter</label>
-  <select style="margin-left: 20px;" class="" id="cmbReciter" name="ResourceID">
+  <select style="" class="" id="cmbReciter" name="ResourceID">
    @if(!empty($recitors))
    @foreach($recitors as $recitor)
    <option value="{{$recitor->id}}">{{$recitor->name}}</option>
@@ -580,3 +580,11 @@ body{
 </div>
 </section>
 
+<script>
+  $('#myTopnav .btn.Norwegian a').click(function(){
+    $('section.quran_menu section.script_box').addClass('norweg');
+  });
+  $('#myTopnav .btn.English a').click(function(){
+    $('section.quran_menu section.script_box').removeClass('norweg');
+  });
+</script>

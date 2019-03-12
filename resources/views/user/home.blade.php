@@ -47,10 +47,10 @@ $lastverse='';
         <span class="trns" style="color: #99cc33"><span id="sura_nm">{{ $surah->surah_name }}</span></span>
       </p>
       @if($surah->surah_number!=9)
-      <p class="text-center" id="trans0"  dir="ltr" style="width: 65%; margin-left: 80px;">
+      <p class="text-center" id="trans0"  dir="ltr">
         <span class="trns bismila"  style="color: #99cc33">I Allahs navn, den Barmhjertige, den Nåderike</span>
         <span class='ayah-end1 fatiha'>
-          <span style="width: 24px; height: 23px;padding: 3px 2px 3px 2px;">1</span>
+          <span style="width: 24px; padding: 3px 2px 3px 2px;">1</span>
         </span>
       </p>
       @endif
@@ -85,10 +85,10 @@ $lastverse='';
           $('#cmbFVerse').val(0);
           </script>
           
-    <p class="text-center" id="arabic0"  dir="rtl" style="width: 38%; margin-left: 155px;">
+    <p class="text-center" id="arabic0"  dir="rtl">
       <span class="arbic bismila"  style="color: #99cc33;">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ</span>
       <span class='ayah-end1 fatiha'>
-          <span style="width: 24px; height: 23px;padding: 3px 2px 3px 2px;">1</span>
+          <span style="width: 24px; padding: 3px 2px 3px 2px;">1</span>
         </span>
     </p>
     @endif
@@ -1726,6 +1726,8 @@ var cust_num_size = 1;
 var arabic_zoom;
 var surah_name_line_height = 62;
 var _surah_name_line_height;
+var bismillahWidth = 41;
+var bismillahWidthEng = 70;
 
 // reset text when some other surah, ayah, juz, etc. is selected
 $('.nav_box select').change(function(){
@@ -1738,6 +1740,8 @@ $('.nav_box select').change(function(){
   $('.arbic').css('font-size', '1.9rem');
   $('#sura_nm').css('line-height', '62px');
   $('#translation').css('margin-top', 0);
+  $('#arabic0').css('width', '41%');
+  $('#trans0').css('width', '70%');
 });
 
 function zoomin() {
@@ -1754,7 +1758,7 @@ function zoomin() {
     $(".trns").css("line-height","1.6");
     $(".arbic").css("line-height", "1.6");
     cust_num_size = cust_num_size + 0.1;
-    ayah_end_width =  ayah_end_width + 4;
+    ayah_end_width =  ayah_end_width + 6;
     ayah_end_font_size += 2;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
@@ -1764,6 +1768,12 @@ function zoomin() {
     _surah_name_line_height = surah_name_line_height;
     $('#sura_nm').css('line-height', _surah_name_line_height+'px');
     $('#translation').css('margin-top', (_surah_name_line_height-39)+'px');
+    bismillahWidth += 6;
+    bismillahWidthEng += 8.5;
+    if(bismillahWidthEng > 98)
+      bismillahWidthEng = 98;
+    $('#arabic0').css('width', bismillahWidth + '%');
+    $('#trans0').css('width', bismillahWidthEng + '%');
   }
 }
 function zoomout() {
@@ -1780,7 +1790,7 @@ function zoomout() {
     $(".trns").css("line-height","1.5");
     $(".arbic").css("line-height", "1.5");
     cust_num_size = cust_num_size - 0.1;
-    ayah_end_width =  ayah_end_width - 4;
+    ayah_end_width =  ayah_end_width - 6;
     ayah_end_font_size -= 2;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
@@ -1790,11 +1800,17 @@ function zoomout() {
     _surah_name_line_height = surah_name_line_height;
     $('#sura_nm').css('line-height', _surah_name_line_height+'px');
     $('#translation').css('margin-top', (_surah_name_line_height-39)+'px');
+    bismillahWidth -= 6;
+    bismillahWidthEng -= 8.5;
+    if(bismillahWidthEng < 70)
+      bismillahWidthEng = 70;
+    $('#arabic0').css('width', bismillahWidth + '%');
+    $('#trans0').css('width', bismillahWidthEng + '%');
   }
   if(zoom_size == 25) {
     $('.trns').css('font-size', '1.2rem');
     $('.arbic').css('font-size', '1.9rem');
-    $('.ayah-end1').css('width', '24px');
+    $('.ayah-end1').css('width', '30px');
     $('#translation').css('margin-top', 0);
   }
 }
@@ -2438,7 +2454,6 @@ function deletes_book(id) {
 </script>
 
 <!-- malihu scrollbar code start -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{{$PUBLIC_ASSETS}}/js/jquery.mCustomScrollbar.min.js"></script>
 <script src="{{$PUBLIC_ASSETS}}/js/jquery.mousewheel.min.js"></script>
 

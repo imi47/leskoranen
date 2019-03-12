@@ -74,6 +74,27 @@ video {
     margin-bottom: 3rem;
 }
 
+#home_content .left {
+    padding-right: 0;
+}
+
+#home_content #arabic0,
+#home_content #trans0 {
+    margin:auto;
+}
+
+#home_content #arabic0 {
+    width:41%;
+}
+
+#home_content #trans0 {
+    width:70%;
+}
+
+/* .mCSB_scrollTools .mCSB_draggerContainer {
+    left:12px;
+} */
+
 .btn-find {
     border:2px solid #E74C3C;
     color:#E74C3C !important;
@@ -698,7 +719,8 @@ section.quran_menu section.nav_box label:nth-of-type(1) {
 
 section.quran_menu section.nav_box label:nth-of-type(2) {
     width: 40px;
-    display: inline-block
+    display: inline-block;
+    margin-left: 13px;
 }
 
 section.quran_menu section.nav_box label:nth-of-type(3) {
@@ -723,12 +745,31 @@ section.quran_menu section.script_box {
     text-align: left;
 }
 
+section.quran_menu section.script_box #cmbScript {
+    margin-left:9px;
+    width:150px;
+}
+
+
 section.quran_menu section.script_box #cmbReciter {
-    width: 147px
+    width: 150px;
+}
+
+section.quran_menu section.script_box {
+    width: 230px;
+}
+
+section.quran_menu section.script_box.norweg {
+    width: 245px;
+}
+
+section.quran_menu section.script_box.norweg #cmbScript {
+    margin-left: 26px;
+    width: 150px;
 }
 
 section.quran_menu section.script_box label {
-    width: 52px;
+    /* width: 52px; */
     display: inline-block;
     color: #fefefe
 }
@@ -749,9 +790,9 @@ section.quran_menu section.translate_box p {
     padding: 0
 }
 
-section.quran_menu section.translate_box label {
+/* section.quran_menu section.translate_box label {
     width: 95px!important
-}
+} */
 
 section.quran_menu section.intro-footnote {
     width: 160px;
@@ -1144,7 +1185,7 @@ section.audio_player section.main_control a.volume_b img.mute_btn {
 section.script_box a.container_btn1 {
     position: absolute;
     /* top: 9px; */
-    left: 160px;
+    left: 210px;
 }
 
 section.script_box a.container_btn1 img:active,
@@ -1525,6 +1566,14 @@ section.quran_menu ul li:nth-child(6):hover {
         position:absolute !important;
     }
 
+    section.quran_menu section.script_box.norweg a.container_btn1 {
+        left: 224px;
+    }
+
+    .quran_menu ul li:nth-child(3) {
+        margin-left: 30px;
+    }
+
     section.quran_menu ul li:nth-child(6) {
         right:10px;
     }
@@ -1539,11 +1588,37 @@ section.quran_menu ul li:nth-child(6):hover {
 }
 
 @media only screen and (max-width:920px) {
+    section.quran_menu li:nth-child(2) section {
+        width:245px !important;
+    }
     section.quran_menu ul li:nth-child(6) {
         padding-bottom: 50px;
     }
     .aboveDrawer {
         top:65px;
+    }
+
+    .quran_menu ul li:first-child section {
+        display: grid;
+        grid-gap: 10px;
+    }
+
+    .quran_menu ul li:first-child section * {
+        margin: 0 !important;
+    }
+
+    .quran_menu ul li:first-child section .Qinput .input-group-btn select {
+        width: 145px !important;
+        margin-left: 75px !important;
+        margin-top: -43px !important;
+    }
+
+    .quran_menu #cmbScript {
+        width: 143px !important;
+    }
+
+    section.script_box a.container_btn1 {
+        left: 215px;
     }
 
     .nav_box {
