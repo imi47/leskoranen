@@ -81,14 +81,7 @@ video {
 #home_content #arabic0,
 #home_content #trans0 {
     margin:auto;
-}
-
-#home_content #arabic0 {
-    width:41%;
-}
-
-#home_content #trans0 {
-    width:70%;
+    width: fit-content;
 }
 
 /* .mCSB_scrollTools .mCSB_draggerContainer {

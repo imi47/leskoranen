@@ -1726,8 +1726,6 @@ var cust_num_size = 1;
 var arabic_zoom;
 var surah_name_line_height = 62;
 var _surah_name_line_height;
-var bismillahWidth = 41;
-var bismillahWidthEng = 70;
 
 // reset text when some other surah, ayah, juz, etc. is selected
 $('.nav_box select').change(function(){
@@ -1740,8 +1738,6 @@ $('.nav_box select').change(function(){
   $('.arbic').css('font-size', '1.9rem');
   $('#sura_nm').css('line-height', '62px');
   $('#translation').css('margin-top', 0);
-  $('#arabic0').css('width', '41%');
-  $('#trans0').css('width', '70%');
   $('.ayah-end1').css('width', '30px');
   $('.ayah-end1 span').css('font-size', '14px');
 });
@@ -1772,12 +1768,6 @@ function zoomin() {
     _surah_name_line_height = surah_name_line_height;
     $('#sura_nm').css('line-height', _surah_name_line_height+'px');
     $('#translation').css('margin-top', (_surah_name_line_height-39)+'px');
-    bismillahWidth += 6;
-    bismillahWidthEng += 8.5;
-    if(bismillahWidthEng > 98)
-      bismillahWidthEng = 98;
-    $('#arabic0').css('width', bismillahWidth + '%');
-    $('#trans0').css('width', bismillahWidthEng + '%');
   }
 }
 function zoomout() {
@@ -1806,12 +1796,6 @@ function zoomout() {
     _surah_name_line_height = surah_name_line_height;
     $('#sura_nm').css('line-height', _surah_name_line_height+'px');
     $('#translation').css('margin-top', (_surah_name_line_height-39)+'px');
-    bismillahWidth -= 6;
-    bismillahWidthEng -= 8.5;
-    if(bismillahWidthEng < 70)
-      bismillahWidthEng = 70;
-    $('#arabic0').css('width', bismillahWidth + '%');
-    $('#trans0').css('width', bismillahWidthEng + '%');
   }
   if(zoom_size == 25) {
     $('.trns').css('font-size', '1.2rem');
@@ -2460,7 +2444,7 @@ function deletes_book(id) {
 </script>
 
 <!-- malihu scrollbar code start -->
-<script src="{{$PUBLIC_ASSETS}}/js/jquery.mCustomScrollbar.min.js"></script>
+<!-- <script src="{{$PUBLIC_ASSETS}}/js/jquery.mCustomScrollbar.min.js"></script>
 <script src="{{$PUBLIC_ASSETS}}/js/jquery.mousewheel.min.js"></script>
 
 <script>
@@ -2476,6 +2460,6 @@ function deletes_book(id) {
         }
       });
 		});
-</script>
+</script> -->
 <!-- malihu scrollbar code start -->
 @endpush
