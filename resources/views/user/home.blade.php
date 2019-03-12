@@ -1742,6 +1742,8 @@ $('.nav_box select').change(function(){
   $('#translation').css('margin-top', 0);
   $('#arabic0').css('width', '41%');
   $('#trans0').css('width', '70%');
+  $('.ayah-end1').css('width', '30px');
+  $('.ayah-end1 span').css('font-size', '14px');
 });
 
 function zoomin() {
@@ -1758,7 +1760,9 @@ function zoomin() {
     $(".trns").css("line-height","1.6");
     $(".arbic").css("line-height", "1.6");
     cust_num_size = cust_num_size + 0.1;
-    ayah_end_width =  ayah_end_width + 6;
+    ayah_end_width =  ayah_end_width + 9;
+    if(ayah_end_width > 43)
+      ayah_end_width = 43;
     ayah_end_font_size += 2;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
@@ -1790,7 +1794,9 @@ function zoomout() {
     $(".trns").css("line-height","1.5");
     $(".arbic").css("line-height", "1.5");
     cust_num_size = cust_num_size - 0.1;
-    ayah_end_width =  ayah_end_width - 6;
+    ayah_end_width =  ayah_end_width - 9;
+    if(ayah_end_width < 30)
+      ayah_end_width = 30;
     ayah_end_font_size -= 2;
     $('.custom-number').css("font-size", cust_num_size+'rem');
     $('.ayah-end1').css('width', ayah_end_width+'px');
