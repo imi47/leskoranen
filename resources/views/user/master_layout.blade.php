@@ -43,7 +43,15 @@
 	<script src="{{$PUBLIC_ASSETS}}/js/jquery.social-buttons.js"></script>
 	<script src="{{$PUBLIC_ASSETS}}/js/jquery.cookie.js"></script>
 	<script src="{{url('public/translation/jquery.translate.js')}}"></script>
-	<script src="{{url('public/scrol/autoscroll.js')}}"></script> 
+	<script src="{{url('public/scrol/autoscroll.js')}}"></script>
+
+
+	<!-- overlay scrollbar files start -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/css/OverlayScrollbars.min.css">
+	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/os-theme-block-dark.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/js/OverlayScrollbars.min.js"></script>
+	<!-- overlay scrollbar files end -->
+
 	<style type="text/css">
 	
 
@@ -92,6 +100,15 @@
 		  display: none;
 		  max-height: 40vh;
 		  color: #214300;
+		}
+
+		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
+			background: #8fbc8f;
+			border-radius: 3px;
+		}
+		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:hover:before, .os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle.active:before,
+		html.os-html > .os-host.os-host-scrolling.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
+			background: #5f9f5f;
 		}
 
 	</style>
@@ -424,6 +441,15 @@
         console.log(lang);
         ev.preventDefault();
     });
+
+		document.addEventListener("DOMContentLoaded", function () {
+			OverlayScrollbars(document.querySelectorAll('#tran-side, #arab-side'), {
+				className: 'os-theme-block-dark',
+				scrollbars: {
+					clickScrolling: true
+				}
+		 	});
+		});
 	</script>
 </body>
 

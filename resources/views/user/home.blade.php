@@ -32,6 +32,36 @@ $lastverse='';
         /*padding: 20px;*/
         /*border: 1px solid #121212;*/
       }
+      .os-content-glue {
+        height:1000px !important;
+      }
+      .page-header-section.footer {
+        z-index: 1;
+      }
+
+      .os-theme-block-dark > .os-scrollbar-vertical {
+        width:12px;
+      }
+
+      #home_content #translation,
+      #home_content #arabic,
+      #home_content #trans0 {
+        margin-right: 12px;
+      }
+
+      #arab-side:hover .os-scrollbar-handle:before,
+      #tran-side:hover .os-scrollbar-handle:before {
+        background: #6fa96f;
+      }
+
+      #home_content #translation {
+        margin-left: 12px;
+      }
+      @media (max-width:575px) {
+        #home_content #arabic {
+          margin-left: 12px;
+        }
+      }
 </style>
 
 <div id="wait" style="display: none;"></div>
@@ -2442,24 +2472,4 @@ function deletes_book(id) {
       
 
 </script>
-
-<!-- malihu scrollbar code start -->
-<!-- <script src="{{$PUBLIC_ASSETS}}/js/jquery.mCustomScrollbar.min.js"></script>
-<script src="{{$PUBLIC_ASSETS}}/js/jquery.mousewheel.min.js"></script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-			$("#arab-side").mCustomScrollbar({
-					scrollButtons: {
-						enable: false
-					}
-				});
-      $("#tran-side").mCustomScrollbar({
-        scrollButtons: {
-          enable: false
-        }
-      });
-		});
-</script> -->
-<!-- malihu scrollbar code start -->
 @endpush
