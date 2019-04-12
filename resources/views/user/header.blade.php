@@ -581,10 +581,10 @@ body{
 </section>
 
 <script>
-  $('#myTopnav .btn.Norwegian a').click(function(){
-    $('section.quran_menu section.script_box').addClass('norweg');
-  });
-  $('#myTopnav .btn.English a').click(function(){
-    $('section.quran_menu section.script_box').removeClass('norweg');
-  });
+    $('#myTopnav .btn.Norwegian a').click(function(){
+      $('section.quran_menu section.script_box').addClass('norweg');
+    });
+    $('#myTopnav .btn.English a').click(function(){
+      $('section.quran_menu section.script_box').removeClass('norweg');
+    });
 </script>

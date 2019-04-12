@@ -44,8 +44,7 @@ $lastverse='';
       }
 
       #home_content #translation,
-      #home_content #arabic,
-      #home_content #trans0 {
+      #home_content #arabic {
         margin-right: 12px;
       }
 
@@ -561,7 +560,7 @@ $lastverse='';
              </div>
              <div class="form-group">
               <select class="form-control trn" name="erorr_script">
-                <option selected="">Select</option>
+                <option class="trn" selected="">Select</option>
                 <option value="Arabic Text">Arabic Text</option>
                 <option value="Arabic Audio">Arabic Audio</option>
                 <option value="Norsk Translation">Norsk Translation</option>
@@ -885,19 +884,45 @@ else
     audio.play();
      
 
-            var parentPos = $("#trans"+current_verse_id).parent().offset();
-            var childPos = $("#trans"+current_verse_id).offset();
-            var childtop =  childPos.top - parentPos.top;
-            $('.tran-side').animate({
-                scrollTop: childtop
-            },2000);
+            // var parentPos = $("#trans"+c_cur_verse_elem).parent().offset();
+            // var childPos = $("#trans"+c_cur_verse_elem).offset();
+            // var childtop =  childPos.top - parentPos.top;
+            // $('.tran-side').animate({
+            //     scrollTop: childtop
+            // },2000);
 
-            var parentPos = $("#arabic"+current_verse_id).parent().offset();
-            var childPos = $("#arabic"+current_verse_id).offset();
-            var childtop =  childPos.top - parentPos.top;
-            $('.arabicSide').animate({
-                scrollTop: childtop
-            },2000);
+            // var parentPos = $("#arabic"+c_cur_verse_elem).parent().offset();
+            // var childPos = $("#arabic"+current_verse_id).offset();
+            // var childtop =  childPos.top - parentPos.top;
+            // $('.arabicSide').animate({
+            //     scrollTop: childtop
+            // },2000);
+
+
+            // document.getElementById("arabic"+current_verse_id).scrollIntoView({
+            //   behavior: 'smooth'
+            // });
+            
+            var elmnt = document.getElementById("trans"+current_verse_id);
+            elmnt.scrollIntoView();
+            var elmnt = document.getElementById("arabic"+current_verse_id);
+            elmnt.scrollIntoView();
+
+             $('.extra_button a').click(function() {
+              var elmnt = document.getElementById("trans"+current_verse_id);
+              elmnt.scrollIntoView();
+              var elmnt = document.getElementById("arabic"+current_verse_id);
+              elmnt.scrollIntoView();
+             });
+
+              // $(window).scrollTop(0);
+            // document.getElementById("trans"+current_verse_id).scrollIntoView({
+              // behavior: 'smooth'
+            // });
+            // document.querySelector("#arabic"+current_verse_id).scrollIntoView({
+            //   behavior: 'smooth'
+            // });
+
 
 
   
@@ -1183,7 +1208,6 @@ function getraku()
   emptyObject(c_obj);
   console.log(c_obj);
   var juz_number=$('#cmbJuz').val();
-  
   $.ajax({
    url:'{{ url('/get-juzz') }}',
    type: 'post',
@@ -1417,7 +1441,10 @@ function getSurah(get_special,verse='false'){
      $("#cmbTVerse").html("");
      $("#cmbTVerse").append(to_verse);
      $("#cmbTVerse1").val(t_ver); 
+     if(verse=='false')
+   {
      $("#cmbJuz").val(returnedData.juz_id);
+   }
      $("#cmbHizb").html("");
      $("#cmbHizb").append(raku);
      if(returnedData.surah_number!=9)
@@ -1650,11 +1677,15 @@ function getSurahFromVerse(){
    if(returnedData.surah_number!=9 && from_verse==1)
    {
    $('.bismila').show();
-   $('.fatiha').show();
+   if(returnedData.surah_number==1)
+   {
+      $('.fatiha').show();
+   }
    $('#cmbFVerse').val(0);
    }
    else
    {
+
     $('.bismila').hide();
     $('.fatiha').hide();
    }

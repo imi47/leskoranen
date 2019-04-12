@@ -318,10 +318,10 @@
      no: "Ruku"
    },
      "Script": {
-     no: "Tekst"
+     no: "Arabic Tekst"
    },
      "Reciter": {
-     no: "Resiterer"
+     no: "Resitert av"
    },
         "Tranlation": {
      no: "Oversettelse"

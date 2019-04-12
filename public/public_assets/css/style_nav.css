@@ -749,20 +749,18 @@ section.quran_menu section.script_box #cmbReciter {
 }
 
 section.quran_menu section.script_box {
-    width: 230px;
+    width: 246px;
 }
 
 section.quran_menu section.script_box.norweg {
-    width: 245px;
+    width: 275px;
 }
 
-section.quran_menu section.script_box.norweg #cmbScript {
-    margin-left: 26px;
-    width: 150px;
+section.quran_menu section.script_box.norweg #cmbReciter {
+    margin-left: 20px;
 }
 
 section.quran_menu section.script_box label {
-    /* width: 52px; */
     display: inline-block;
     color: #fefefe
 }
@@ -782,10 +780,6 @@ section.quran_menu section.translate_box p {
     margin: 5px 0;
     padding: 0
 }
-
-/* section.quran_menu section.translate_box label {
-    width: 95px!important
-} */
 
 section.quran_menu section.intro-footnote {
     width: 160px;
@@ -1560,7 +1554,8 @@ section.quran_menu ul li:nth-child(6):hover {
     }
 
     section.quran_menu section.script_box.norweg a.container_btn1 {
-        left: 224px;
+        left: 257px;
+        top: 9px;
     }
 
     .quran_menu ul li:nth-child(3) {
