@@ -249,7 +249,7 @@ video {
     top: 20px;
     left:-47px;
     z-index: 1;
-    border:2px solid #83ab33;
+    border:2px solid #8a2b44;
     cursor: auto;
 }
 
@@ -362,9 +362,9 @@ audio:not([controls]) {
 }
 
 .memorization_box, section.quran_menu li:nth-child(5):hover section, .intro-footnote {
-    border: 1px solid #83ab33;
+    border: 1px solid #3d0f1e;
     border-radius: 4px;
-    box-shadow:1px 1px 7px #888;
+    box-shadow:1px 1px 7px rgba(0, 0, 0, .2);
 }
 
 button,
@@ -562,14 +562,15 @@ textarea:invalid {
 }
 
 select {
-    color: #4c4c4c;
+    color: #fff;
     border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
     -o-appearance: none;
     appearance: none;
-    background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #cde69a;
+    /* background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #cde69a; */
+    background-color: #8a2b44;
     background-size: 15px auto;
     padding: 3px 22px 3px 5px;
     border-radius: 10px;
@@ -629,7 +630,7 @@ section.panes_box>section:nth-of-type(n+2) {
 
 section.quran_menu {
     height: 113px;
-    background: #9c3;
+    background: #4c1426;
 }
 
 div.qemenu_display {
@@ -679,7 +680,7 @@ section.quran_menu section {
     font-size: 16px;
     margin: 0;
     padding: 7px 5px 1px;
-    background: #9C3
+    /* background: #9C3 */
 }
 
 section.quran_menu section select {
@@ -1358,7 +1359,8 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
 
 .Qinput{border-radius:10px !important;width: 75px !important;height: 25px;background: #cde69a !important;text-align: left;margin: -27px;margin-top: -25px;margin-left: 113px;}
 .Qinput .btn-default{margin-top: 0px;width: 22px;margin-right: 0px;padding: 0px 5px !important;height: 25px !important;background: #add65c;border-radius:0px 10px 10px 0px !important;}
-.Qinput input{border-radius:10px 0px 0px 10px !important;background: #cde69a;border:none;outline: none;height: 25px;}
+.Qinput input{border-radius:10px 0px 0px 10px !important;background: #8a2b44;border:none;outline: none;height: 25px;color: #fff;
+}
 .Qinput .btn:focus, .Qinput input:focus{box-shadow: 0 0 0 0 rgba(0,123,255,.25);}
 
 /* @media only screen and (max-width:1780px) { */
@@ -1377,7 +1379,7 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
     z-index: 100;
     padding: 20px;
     width: 205px;
-    background: rgba(153, 204, 51, .98)
+    background: #4c1426;
 }
 section.quran_menu li:nth-child(6):hover section {
     visibility: visible
@@ -1386,7 +1388,7 @@ section.quran_menu li:nth-child(6) select {
     width: 100%
 }
 section.quran_menu ul li:nth-child(6):hover {
-    background-color: #9c3
+    background-color: #4c1426;
 }
 /* } */
 
@@ -1408,7 +1410,7 @@ section.quran_menu ul li:nth-child(6):hover {
         z-index: 100;
         padding: 20px;
         width: 220px;
-        background: rgba(153, 204, 51, .98);
+        background: #4c1426;
     }
     section.quran_menu li:nth-child(5):hover section {
         visibility: visible
@@ -1417,7 +1419,7 @@ section.quran_menu ul li:nth-child(6):hover {
         width: 100%
     }
     section.quran_menu ul li:nth-child(5):hover {
-        background-color: #9c3
+        background-color: #4c1426;
     }
 /* } */
 
@@ -1444,7 +1446,7 @@ section.quran_menu ul li:nth-child(6):hover {
         z-index: 100;
         padding: 20px;
         width: 230px;
-        background: rgba(153, 204, 51, .98);
+        background: #4c1426;
     }
     section.quran_menu section.memorization_box div+div {
         zoom: 100%;
@@ -1454,7 +1456,7 @@ section.quran_menu ul li:nth-child(6):hover {
         height: 28px
     }
     section.quran_menu ul li:nth-child(4):hover {
-        background-color: #9c3
+        background-color: #4c1426;
     }
     section.quran_menu ul li:nth-child(4):hover section {
         visibility: visible
@@ -1470,9 +1472,9 @@ section.quran_menu ul li:nth-child(6):hover {
         padding-bottom:15px;
     }
     .translate_box {
-        border: 1px solid #83ab33;
+        border: 1px #3d0f1e;
         border-radius: 4px;
-        box-shadow:1px 1px 7px #888;
+        box-shadow: rgba(0,0,0,.2);
     }
     section.quran_menu ul li:nth-child(3) {
         background: url(../img/qm_navigation.png) -135px 0 no-repeat;
@@ -1488,10 +1490,10 @@ section.quran_menu ul li:nth-child(6):hover {
         left: 0;
         z-index: 100;
         padding: 20px;
-        background: rgba(153, 204, 51, .98)
+        background: #4c1426;
     }
     section.quran_menu ul li:nth-child(3):hover {
-        background-color: #9c3
+        background-color: #4c1426;
     }
     section.quran_menu ul li:nth-child(3):hover section {
         visibility: visible
@@ -1505,9 +1507,9 @@ section.quran_menu ul li:nth-child(6):hover {
 
 @media only screen and (max-width:1070px) {
     .script_box {
-        border: 1px solid #83ab33;
+        border: 1px solid #3d0f1e;
         border-radius: 4px;
-        box-shadow:1px 1px 7px #888;
+        box-shadow: rgba(0,0,0,.2);
     }
     .tabs_nav a {
         padding: 10px 10px 9px
@@ -1526,10 +1528,10 @@ section.quran_menu ul li:nth-child(6):hover {
         top: 65px;
         left: 0;
         z-index: 100;
-        background: rgba(153, 204, 51, .98)
+        background: #4c1426;
     }
     section.quran_menu ul li:nth-child(2):hover {
-        background-color: #9c3
+        background-color: #4c1426;
     }
     section.quran_menu ul li:nth-child(2):hover section {
         visibility: visible
@@ -1610,9 +1612,9 @@ section.quran_menu ul li:nth-child(6):hover {
     }
 
     .nav_box {
-        border: 1px solid #83ab33;
+        border: 1px solid #3d0f1e;
         border-radius: 4px;
-        box-shadow:1px 1px 7px #888;
+        box-shadow:1px 1px 7px rgba(0, 0, 0, .2);
     }
     /* .aboveDrawer {
         top:128px;
@@ -1637,11 +1639,11 @@ section.quran_menu ul li:nth-child(6):hover {
         left: 0;
         z-index: 100;
         padding: 20px;
-        background: rgba(153, 204, 51, .98);
+        background: #4c1426;
         width: 256px
     }
     section.quran_menu ul li:hover {
-        background-color: #9c3
+        background-color: #4c1426;
     }
     section.quran_menu ul li:nth-child(1):hover section {
         visibility: visible

@@ -68,13 +68,13 @@
 		}
 
 		.footerDrawer .open {
-		  background-color: #83ab33;
+		  background-color: #dc5b9c;
 		  text-align: center;
 		  cursor: pointer;
 		}
 
 		.footerDrawer .content {
-		  background-color: #cde69a;
+		  background-color: #ffbfcf;
 		  display: none;
 		  max-height: 40vh;
 		  color: #214300;
@@ -89,14 +89,14 @@
 		}
 
 		.aboveDrawer .open {
-		  background-color: #83ab33;
+		  background-color: #dc5b9c;
 		  text-align: center;
 		  cursor: pointer;
 		}
 
 		.aboveDrawer .content {
 		  height: auto;
-		  background-color: #cde69a;
+		  background-color: #ffbfcf;
 		  display: none;
 		  max-height: 40vh;
 		  color: #214300;

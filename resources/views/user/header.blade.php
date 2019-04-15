@@ -20,10 +20,10 @@
  font-size: 17px;
 }
 .topnav a:hover {
- color: #9c3;
+ color: #ffa3b9;
 }
 .active {
- color: #9c3 !important;
+ color: #ffa3b9 !important;
 }
 .topnav .icon {
  display: none;
@@ -66,16 +66,16 @@
 }
 
 .language.lang-selected {
-  background-color: yellowgreen;
+  background-color: #4c1426;
 }
 
 .language.lang-not-selected {
   background-color: #fff;
-  border:1px solid #83ab33;
+  border:1px solid #4c1426;
 }
 
 .language.lang-not-selected a {
-  color:#83ab33;
+  color:#4c1426;
 }
 
 /* .language .not-selected {
@@ -225,11 +225,11 @@ body{
         @endif
       </select> --}}
       <div class="input-group Qinput">
-      <input onkeyup="this.value=this.value.replace(/[^\d]/,'')" type="text" id="cmbFVerse1" value="1" class="form-control" >
+      <input onfocus="from()" onkeyup="this.value=this.value.replace(/[^\d]/,'')" type="text" id="cmbFVerse1" value="1" class="form-control" >
             <div class="input-group-btn">
               
               <select style="
-    background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #cde69a;
+    background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #8a2b44;
     background-size: 15px auto;
     padding: 3px 22px 3px 5px;
     border-radius: 10px;" id="cmbFVerse" class="slectedopt fromdrop btn btn-default verseSelector">
@@ -256,11 +256,11 @@ body{
        @endif
      </select> --}}
      <div class="input-group Qinput" style="margin-left: 276px;">
-      <input type="text" id="cmbTVerse1" onkeyup="this.value=this.value.replace(/[^\d]/,'')" value="{{ $surah->verses }}" class="form-control">
+      <input onfocus="to()" type="text" id="cmbTVerse1" onkeyup="this.value=this.value.replace(/[^\d]/,'')" value="{{ $surah->verses }}" class="form-control">
             <div class="input-group-btn">
               
               <select id="cmbTVerse"  style="
-    background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #cde69a;
+    background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #8a2b44;
     background-size: 15px auto;
     padding: 3px 22px 3px 5px;
     border-radius: 10px;" class="fromdrop btn btn-default verseSelector slectedopt">
@@ -278,32 +278,59 @@ body{
 
 
 <script type="text/javascript">
+  var formv=''
+  var tov=''
+  function from() {
+   formv=$('#cmbFVerse1').val();
+   }
+  function to() {
+   tov=$('#cmbTVerse1').val();
+   }
   $("#cmbTVerse1").focusout(function(){
   var cmbTVerse1= $('#cmbTVerse1').val();
+
+  if(tov!=cmbTVerse1)
+  {  
+    
    $('#cmbTVerse').val(cmbTVerse1).change();
+  }
 })
   $("#cmbFVerse1").focusout(function(){
-  var cmbFVerse1= $('#cmbFVerse1').val();
-   $('#cmbFVerse').val(cmbFVerse1).change();
-})
+    
+  var cmbFVerse1=$('#cmbFVerse1').val();
+  
+  if(formv!=cmbFVerse1)
+  {  
+    $('#cmbFVerse').val(cmbFVerse1).change();
+  }
+  })
   $('#cmbTVerse1').keypress(function(event){
   var keycode = (event.keyCode ? event.keyCode : event.which);
   if(keycode == '13'){
+
     $('.fromdrop').focus();
    var cmbTVerse1= $('#cmbTVerse1').val();
+   if(tov!=cmbTVerse1)
+{
    $('#cmbTVerse').val(cmbTVerse1).change(); 
    playPause(); 
   }
+}
   
 });
   $('#cmbFVerse1').keypress(function(event){
   
   var keycode = (event.keyCode ? event.keyCode : event.which);
   if(keycode == '13'){
+
     $('.fromdrop').focus();
    var cmbFVerse1= $('#cmbFVerse1').val();
+   if(fromv==cmbFVerse1)
+   {
    $('#cmbFVerse').val(cmbFVerse1).change();
-   playPause();  
+    playPause();  
+    
+   }
   }
   
 });
@@ -581,10 +608,10 @@ body{
 </section>
 
 <script>
-    $('#myTopnav .btn.Norwegian a').click(function(){
-      $('section.quran_menu section.script_box').addClass('norweg');
-    });
-    $('#myTopnav .btn.English a').click(function(){
-      $('section.quran_menu section.script_box').removeClass('norweg');
-    });
+  $('#myTopnav .btn.Norwegian a').click(function(){
+    $('section.quran_menu section.script_box').addClass('norweg');
+  });
+  $('#myTopnav .btn.English a').click(function(){
+    $('section.quran_menu section.script_box').removeClass('norweg');
+  });
 </script>

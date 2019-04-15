@@ -61,7 +61,39 @@ $lastverse='';
           margin-left: 12px;
         }
       }
+
+
+    .design-filled {
+      position: absolute;
+      top: -201px;
+      width: 380px;
+      right: -163px;
+      opacity: .4;
+    }
+
+    .design-filled-2 {
+      position: absolute;
+      top: -500px;
+      right: -300px;
+      width: 1000px;
+      opacity: .12;
+    }
+
+    .quran_menu li,
+    .quran_menu li section,
+    .topnav * {
+      z-index: 1;
+    }
+
+    .aboveDrawer {
+      z-index: 0;
+    }
+
 </style>
+
+<img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled">
+<img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled-2">
+
 
 <div id="wait" style="display: none;"></div>
 
@@ -73,11 +105,11 @@ $lastverse='';
    
     <div class="col-sm-6 left tran-side" id="tran-side">
       <p class="text-center"  dir="ltr">
-        <span class="trns" style="color: #99cc33"><span id="sura_nm">{{ $surah->surah_name }}</span></span>
+        <span class="trns" style="color: #4c1426"><span id="sura_nm">{{ $surah->surah_name }}</span></span>
       </p>
       @if($surah->surah_number!=9)
       <p class="text-center" id="trans0"  dir="ltr">
-        <span class="trns bismila"  style="color: #99cc33">I Allahs navn, den Barmhjertige, den Nåderike</span>
+        <span class="trns bismila"  style="color: #4c1426">I Allahs navn, den Barmhjertige, den Nåderike</span>
         <span class='ayah-end1 fatiha'>
           <span style="width: 24px; padding: 3px 2px 3px 2px;">1</span>
         </span>
@@ -103,7 +135,7 @@ $lastverse='';
   <div class="col-sm-6 right notranslate arabicSide" id="arab-side">
 
     <p class="text-center" dir="rtl">
-      <span class="arbic" style="color: #99cc33">سُوۡرَةُ  <span id="sura_n">{{ $surah->surah_name_arabic }}</span> </span>
+      <span class="arbic" style="color: #4c1426">سُوۡرَةُ  <span id="sura_n">{{ $surah->surah_name_arabic }}</span> </span>
     </p>
     @if($surah->surah_number!=9)
      <script>
@@ -115,7 +147,7 @@ $lastverse='';
           </script>
           
     <p class="text-center" id="arabic0"  dir="rtl">
-      <span class="arbic bismila"  style="color: #99cc33;">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ</span>
+      <span class="arbic bismila"  style="color: #4c1426;">بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِيمِ</span>
       <span class='ayah-end1 fatiha'>
           <span style="width: 24px; padding: 3px 2px 3px 2px;">1</span>
         </span>
@@ -154,7 +186,7 @@ $lastverse='';
       </div>
       <div class="content">
         <div>
-          <a id="btnNext" class="next_b" onclick="nextfootnotes()" title="Next footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/forward.png"> </a>
+          <a id="btnNext" class="next_b" onclick="nextfootnotes()" title="Next footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/forward.svg"> </a>
           <a href="javascript:;" style="color:#214300; line-height: 1.2 !important;display: grid;justify-content: center;" data-toggle="modal" data-target="#footnotes">
             
             {{-- <p class="c-verse" style="font-size: 12px">{!!$surah->verse[0]->description!!}
@@ -163,7 +195,7 @@ $lastverse='';
               </p> --}}
               <p class="c-verse" style="font-size: 12px;">Surah Al-Fatihah er en bønn Allah lærer mennesker som skal studere Hans bok. Dens plassering i begynnelsen viser viktigheten av den for enhver som ønsker å dra nytte av Boken, og denne bønnen til Herren over alle universene bør derfor fremlegges først.</p>
           </a>
-          <a id="btnPrevious" class="pre_b" onclick="prefootnotes()" title="Previous Footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/rewind.png">
+          <a id="btnPrevious" class="pre_b" onclick="prefootnotes()" title="Previous Footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/rewind.svg">
         </a>
         </div>
       </div>
@@ -191,7 +223,7 @@ $lastverse='';
       </section>
       <section class="main_control">
         <a href="#" class="stop_b" title="Stop" onclick="stop_player()">
-          <img src="{{$PUBLIC_ASSETS}}/img/stop.png"></a>
+          <img src="{{$PUBLIC_ASSETS}}/img/stop.svg"></a>
           <a href="#" class="play_b" title="Play/Pause">
            <div style="padding-left:2.2px;">
             <div id="buf_2" class="cp-buffer-2" style="clip: rect(48px, 24px, 48px, 0px);">
@@ -212,9 +244,9 @@ $lastverse='';
           <audio id="next-audio">
             <source src="{{$ADMIN_ASSETS}}/audios/{{ $surah->verse[0]->link_to_audio }}" id="next-audio-src" type="audio/mpeg">
           </audio>
-          <a id="btnPrevious" class="pre_b" onclick="previousSurah()" title="Previous Sura"> <img src="{{$PUBLIC_ASSETS}}/img/rewind.png">
+          <a id="btnPrevious" class="pre_b" onclick="previousSurah()" title="Previous Sura"> <img src="{{$PUBLIC_ASSETS}}/img/rewind.svg">
           </a>
-          <a id="btnNext" class="next_b" onclick="nextSurah()" title="Next Sura"> <img src="{{$PUBLIC_ASSETS}}/img/forward.png"> </a>
+          <a id="btnNext" class="next_b" onclick="nextSurah()" title="Next Sura"> <img src="{{$PUBLIC_ASSETS}}/img/forward.svg"> </a>
         </section>
         <section class="extra_button barBox2">
           @if(\Auth::check())
@@ -286,7 +318,7 @@ $lastverse='';
 @endif
   
   <div id="logedin">
-  <p style="color: red">Kindly login for view or add bookmarks</p>
+  <p style="color: red" class="trn">Kindly login for view or add bookmarks</p>
   <div class="col-md-12">
   <a  href="#" class="trn btn btn-danger" onclick="change_content('Login')">Login</a>
   <a href="#" class="trn btn btn-danger" onclick="change_content('Signup')">Signup</a>
@@ -342,7 +374,7 @@ $lastverse='';
         <div class="jumbotron jumbotron-fluid pt-2">
           <div class="container-fluid">
             <h3 class="trn">Login</h3><span id="" style="color:#9c3;"></span>
-            <p style="color: red">Kindly login for view or add bookmarks</p>
+            <span style="color: red" class="trn">Kindly login for view or add bookmarks</p>
             <hr>
 
             @if(Session::get('successs'))
@@ -902,18 +934,17 @@ else
             // document.getElementById("arabic"+current_verse_id).scrollIntoView({
             //   behavior: 'smooth'
             // });
-            
             var elmnt = document.getElementById("trans"+current_verse_id);
-            elmnt.scrollIntoView();
+             elmnt.scrollIntoView();
             var elmnt = document.getElementById("arabic"+current_verse_id);
-            elmnt.scrollIntoView();
+             elmnt.scrollIntoView();
 
              $('.extra_button a').click(function() {
-              var elmnt = document.getElementById("trans"+current_verse_id);
-              elmnt.scrollIntoView();
-              var elmnt = document.getElementById("arabic"+current_verse_id);
-              elmnt.scrollIntoView();
-             });
+             var elmnt = document.getElementById("trans"+current_verse_id);
+             elmnt.scrollIntoView();
+             var elmnt = document.getElementById("arabic"+current_verse_id);
+             elmnt.scrollIntoView();
+            });
 
               // $(window).scrollTop(0);
             // document.getElementById("trans"+current_verse_id).scrollIntoView({
@@ -1882,11 +1913,9 @@ function zoomout() {
     $("#fore-color").css("color",color_code);
   });
 
-
-//seach page content js
-$('#searchBtn').click(function(){
-  // alert();
- var search_text=$('#txtSearchText').val();
+function searchResult()
+{
+   var search_text=$('#txtSearchText').val();
  var surah_id=$('#cmbSearchSura').val();
  var search_lang=$('#cmbSearchLanguage').val();
  var immn=$('#immn').val();
@@ -1936,6 +1965,23 @@ $('#searchBtn').click(function(){
      $("#total").show();
    }
  });
+    }
+
+
+$('#txtSearchText').on("keydown", function (e) {
+
+    if (e.keyCode === 13) { 
+      searchResult();
+
+    }
+        
+});
+
+//seach page content js
+$('#searchBtn').click(function(){
+  // alert();
+    searchResult();
+
 });
 function show_verse(surah_id,verse){
  change_content("home"); 
