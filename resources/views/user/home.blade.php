@@ -35,9 +35,6 @@ $lastverse='';
       .os-content-glue {
         height:1000px !important;
       }
-      .page-header-section.footer {
-        z-index: 1;
-      }
 
       .os-theme-block-dark > .os-scrollbar-vertical {
         width:12px;
@@ -79,20 +76,38 @@ $lastverse='';
       opacity: .12;
     }
 
+    .design-hollow {
+      position: fixed;
+      left: -324px;
+      bottom: -423px;
+      width: 700px;
+      z-index: 1;
+      opacity: .2;
+    }
+
+    #logo, .icon, .inner-tabs {
+      position: relative;
+    }
+
     .quran_menu li,
     .quran_menu li section,
     .topnav * {
-      z-index: 1;
+      z-index: 3;
     }
 
-    .aboveDrawer {
-      z-index: 0;
+    .aboveDrawer, #logo, .icon, .inner-tabs {
+      z-index: 2;
+    }
+
+    .footerDrawer {
+      z-index: 1;
     }
 
 </style>
 
 <img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled">
 <img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled-2">
+<img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow">
 
 
 <div id="wait" style="display: none;"></div>
@@ -268,6 +283,70 @@ $lastverse='';
 </div>
 </div>
 </div>
+
+<style>
+  footer {
+    background-color: #4c1426;
+    position: fixed;
+    bottom: 0;
+    height: 59px;
+    width:100%;
+  }
+
+  footer .controls-1 {
+    width: 80%;
+    margin: auto;
+    position: relative;
+  }
+  footer .controls-1 img {
+    position: absolute;
+    z-index: 2;
+    width: 28px;
+  }
+  footer .controls-1 .zoom-out {
+    left: calc(50% + 30% + 40px)
+  }
+  footer .controls-1 .zoom-in {
+    left: calc(50% + 30%)
+  }
+  footer .controls-1 .bookmark {
+    left: calc(50% + 30% + 80px)
+  }
+  footer .controls-1 .play {
+    width: 50px;
+    left: calc(50% - 25px);
+  }
+  footer .controls-1 .forward {
+    left: calc(50% + 15%);
+  }
+  footer .controls-1 .rewind {
+    right: calc(50% + 15%)
+  }
+  footer .controls-1 .stop {
+    right: calc(50% + 30%)
+  }
+
+</style>
+
+
+<footer>
+    <div class="controls-1">
+      <img src="{{$PUBLIC_ASSETS}}/img/stop.svg" onclick="" class="stop">
+      <img src="{{$PUBLIC_ASSETS}}/img/rewind.svg" onclick="" class="rewind">
+      <img src="{{$PUBLIC_ASSETS}}/img/play.svg" onclick="" class="play">
+      <img src="{{$PUBLIC_ASSETS}}/img/forward.svg" onclick="" class="forward">
+      <img src="{{$PUBLIC_ASSETS}}/img/zoom.svg" onclick="" width="30px" class="zoom-in">
+      <img src="{{$PUBLIC_ASSETS}}/img/zoom_out.svg" onclick="" class="zoom-out">
+      <img src="{{$PUBLIC_ASSETS}}/img/bookmark.svg" onclick="" class="bookmark">
+    </div>
+</footer>
+
+<script>
+    $('.controls-1 img').click(function() {
+      alert(1);
+    });
+  </script>
+
 </section>
 <section id="search_content" style="display: none;">
   <div class="container-fluid">

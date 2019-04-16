@@ -64,7 +64,6 @@
 		  width: 100%;
 		  position: fixed;
 		  bottom: 59px;
-		  z-index: 99;
 		}
 
 		.footerDrawer .open {
@@ -109,6 +108,10 @@
 		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:hover:before, .os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle.active:before,
 		html.os-html > .os-host.os-host-scrolling.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
 			background: #5f9f5f;
+		}
+
+		.footer {
+			display: none;
 		}
 
 	</style>

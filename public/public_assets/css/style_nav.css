@@ -1666,7 +1666,7 @@ section.quran_menu ul li:nth-child(6):hover {
         text-align: left
     }
     section.quran_menu ul li:nth-child(3), section.quran_menu ul li:nth-child(2) {
-        position:unset;
+        position:relative;
         right:unset;
     }
 }

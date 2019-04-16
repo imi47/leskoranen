@@ -401,7 +401,7 @@ body{
 
 </li>
 <li>
-<img src="{{$PUBLIC_ASSETS}}/img/repeat.png" alt="repeat" width='40px' height='40px'>
+<img src="{{$PUBLIC_ASSETS}}/img/repeat.svg" alt="repeat" width='40px' height='40px'>
  <section class="memorization_box">
   <div>
    <p>
