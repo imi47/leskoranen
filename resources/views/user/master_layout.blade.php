@@ -102,16 +102,12 @@
 		}
 
 		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
-			background: #8fbc8f;
+			background: #f49ab7;
 			border-radius: 3px;
 		}
 		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:hover:before, .os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle.active:before,
 		html.os-html > .os-host.os-host-scrolling.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
-			background: #5f9f5f;
-		}
-
-		.footer {
-			display: none;
+			background: #e57b9e;
 		}
 
 	</style>

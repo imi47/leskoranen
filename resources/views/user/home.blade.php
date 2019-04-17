@@ -47,7 +47,7 @@ $lastverse='';
 
       #arab-side:hover .os-scrollbar-handle:before,
       #tran-side:hover .os-scrollbar-handle:before {
-        background: #6fa96f;
+        background: #ef86a8;
       }
 
       #home_content #translation {
@@ -291,6 +291,7 @@ $lastverse='';
     bottom: 0;
     height: 59px;
     width:100%;
+    display: none;
   }
 
   footer .controls-1 {
@@ -733,6 +734,7 @@ $lastverse='';
 .footer{
  position: fixed;
  bottom: 0;
+ z-index: 1;
 }
 #wait {
   position: fixed;

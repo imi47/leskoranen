@@ -76,6 +76,7 @@ video {
 
 #home_content .left {
     padding-right: 0;
+    direction: rtl;
 }
 
 #home_content #arabic0,

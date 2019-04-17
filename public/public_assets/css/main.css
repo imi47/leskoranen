@@ -32,20 +32,6 @@ body {
     min-height: 100vh;
 }
 
-.mCSB_scrollTools .mCSB_draggerRail {
-    background-color: #aaa;
-  }
-  
-  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
-  .mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar, .mCSB_dragger_bar,
-  .mCSB_dragger_bar {
-    background-color: rgba(100,150,100,.75);
-  }
-  
-  .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
-    background-color: rgba(85,175,85,.75);
-  }
-
 .arbic {
     line-height: 200%;
     font-size: 1.9rem;
