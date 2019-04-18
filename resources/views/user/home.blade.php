@@ -52,62 +52,27 @@ $lastverse='';
 
       #home_content #translation {
         margin-left: 12px;
+        direction: ltr;
       }
       @media (max-width:575px) {
         #home_content #arabic {
           margin-left: 12px;
         }
+
+        #home_content > .container-fluid {
+          padding: 0;
+        }
+
+        #home_content > .container-fluid > .row {
+          width: 100%;
+          margin: 0;
+        }
       }
-
-
-    .design-filled {
-      position: absolute;
-      top: -201px;
-      width: 380px;
-      right: -163px;
-      opacity: .4;
-    }
-
-    .design-filled-2 {
-      position: absolute;
-      top: -500px;
-      right: -300px;
-      width: 1000px;
-      opacity: .12;
-    }
-
-    .design-hollow {
-      position: fixed;
-      left: -324px;
-      bottom: -423px;
-      width: 700px;
-      z-index: 1;
-      opacity: .2;
-    }
-
-    #logo, .icon, .inner-tabs {
-      position: relative;
-    }
-
-    .quran_menu li,
-    .quran_menu li section,
-    .topnav * {
-      z-index: 3;
-    }
-
-    .aboveDrawer, #logo, .icon, .inner-tabs {
-      z-index: 2;
-    }
-
-    .footerDrawer {
-      z-index: 1;
-    }
-
 </style>
 
 <img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled">
 <img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled-2">
-<img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow">
+<!-- <img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow"> -->
 
 
 <div id="wait" style="display: none;"></div>
@@ -218,6 +183,7 @@ $lastverse='';
   </div>
 </div>
 <div class="page-header-section footer">
+  <img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow">
   
  <div class="container">
 
@@ -284,69 +250,7 @@ $lastverse='';
 </div>
 </div>
 
-<style>
-  footer {
-    background-color: #4c1426;
-    position: fixed;
-    bottom: 0;
-    height: 59px;
-    width:100%;
-    display: none;
-  }
 
-  footer .controls-1 {
-    width: 80%;
-    margin: auto;
-    position: relative;
-  }
-  footer .controls-1 img {
-    position: absolute;
-    z-index: 2;
-    width: 28px;
-  }
-  footer .controls-1 .zoom-out {
-    left: calc(50% + 30% + 40px)
-  }
-  footer .controls-1 .zoom-in {
-    left: calc(50% + 30%)
-  }
-  footer .controls-1 .bookmark {
-    left: calc(50% + 30% + 80px)
-  }
-  footer .controls-1 .play {
-    width: 50px;
-    left: calc(50% - 25px);
-  }
-  footer .controls-1 .forward {
-    left: calc(50% + 15%);
-  }
-  footer .controls-1 .rewind {
-    right: calc(50% + 15%)
-  }
-  footer .controls-1 .stop {
-    right: calc(50% + 30%)
-  }
-
-</style>
-
-
-<footer>
-    <div class="controls-1">
-      <img src="{{$PUBLIC_ASSETS}}/img/stop.svg" onclick="" class="stop">
-      <img src="{{$PUBLIC_ASSETS}}/img/rewind.svg" onclick="" class="rewind">
-      <img src="{{$PUBLIC_ASSETS}}/img/play.svg" onclick="" class="play">
-      <img src="{{$PUBLIC_ASSETS}}/img/forward.svg" onclick="" class="forward">
-      <img src="{{$PUBLIC_ASSETS}}/img/zoom.svg" onclick="" width="30px" class="zoom-in">
-      <img src="{{$PUBLIC_ASSETS}}/img/zoom_out.svg" onclick="" class="zoom-out">
-      <img src="{{$PUBLIC_ASSETS}}/img/bookmark.svg" onclick="" class="bookmark">
-    </div>
-</footer>
-
-<script>
-    $('.controls-1 img').click(function() {
-      alert(1);
-    });
-  </script>
 
 </section>
 <section id="search_content" style="display: none;">
@@ -750,7 +654,7 @@ $lastverse='';
 .footnote-modal-btn {
       border-radius: 5px;
     height: 43px;
-    background-color: #83ab33;
+    background-color: #dc5b9c;
     /* border: 2px solid; */
     /* box-shadow: none; */
     border: none;
@@ -950,8 +854,6 @@ else
   }
 
   var id = eval(current_verse_id)-eval(1);
-  $("#arabic"+id).css("background-color", "white");
-  $("#trans"+id).css("background-color", "white");
   
   //$('#cmbFVerse').val(current_verse_id+1);
 
@@ -984,7 +886,7 @@ else
 
     if(highlight=='')
    
-      highlight = '#C4ECBD';
+      highlight = '#ffced9';
    
     $('#highlight-color div').click(function(){
       highlight = $(this).css('background-color');
@@ -1582,7 +1484,7 @@ if(verse=='false')
 {
     // alert(t_ver);
     playPause();
-    highlight = '#C4ECBD';
+    highlight = '#ffced9';
     $("#cmbFVerse").val(0);
     $("#cmbFVerse1").val(1);
     $.cookie('from_verse',1, { expires: 60 });
@@ -1594,7 +1496,7 @@ if(verse=='false')
 }
   else
   {
-   highlight = '#C4ECBD';
+   highlight = '#ffced9';
    $("#cmbFVerse").val(verse);
    $("#cmbFVerse1").val(verse);
    var to_verse=$.cookie("to_verse");

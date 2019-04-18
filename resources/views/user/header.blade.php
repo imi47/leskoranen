@@ -230,6 +230,7 @@ body{
               
               <select style="
     background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #8a2b44;
+    color: rgba(0,0,0,0) !important;
     background-size: 15px auto;
     padding: 3px 22px 3px 5px;
     border-radius: 10px;" id="cmbFVerse" class="slectedopt fromdrop btn btn-default verseSelector">
@@ -261,6 +262,7 @@ body{
               
               <select id="cmbTVerse"  style="
     background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #8a2b44;
+    color: rgba(0,0,0,0) !important;
     background-size: 15px auto;
     padding: 3px 22px 3px 5px;
     border-radius: 10px;" class="fromdrop btn btn-default verseSelector slectedopt">
@@ -462,7 +464,7 @@ body{
 </div>
 <div id="CP_BackColor">
  <label style="width:110px;" class="trn">Highlight</label>
- <div id="CP_BackColorInSide" style="width:1px; color:#C4ECBD; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
+ <div id="CP_BackColorInSide" style="width:1px; color:#ffa3b9; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
   █
   <img src="{{$PUBLIC_ASSETS}}/img/caret-down.svg" class='color-dropdown-toggle'>
   <div class="color-dropdown hidden" id='highlight-color'>
@@ -583,7 +585,7 @@ body{
           </select>
           <br>
          <div class="input-group mb-3" style="flex-wrap: nowrap;">
-          <input id="txtSearchText" type="text" class="form-control p-0" value="" style="background: #cde69a; border-radius: 10px;">
+          <input id="txtSearchText" type="text" class="form-control p-0" value="" style="background: #8a2b44; border-radius: 10px; border: none;">
           <div class="input-group-append">
            <a href="#" id="searchBtn"> <span class="input-group-text bg-white"> <i class="fa fa-search"></i></span></a>
 

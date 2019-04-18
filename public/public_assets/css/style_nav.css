@@ -85,6 +85,49 @@ video {
     width: fit-content;
 }
 
+.design-filled {
+    position: fixed;
+    top: -278px;
+    width: 450px;
+    right: -205px;
+    opacity: .4;
+  }
+
+  .design-filled-2 {
+    position: fixed;
+    top: -500px;
+    right: -300px;
+    width: 1000px;
+    opacity: .12;
+  }
+
+  .design-hollow {
+    position: fixed;
+    left: -324px;
+    bottom: -423px;
+    width: 700px;
+    /* z-index: 1; */
+    opacity: .2;
+  }
+
+  #logo, .icon, .inner-tabs {
+    position: relative;
+  }
+
+  .quran_menu li,
+  .quran_menu li section,
+  .topnav * {
+    z-index: 3;
+  }
+
+  .aboveDrawer, #logo, .icon, .inner-tabs {
+    z-index: 2;
+  }
+
+  .footerDrawer {
+    z-index: 2;
+  }
+
 /* .mCSB_scrollTools .mCSB_draggerContainer {
     left:12px;
 } */
@@ -344,6 +387,22 @@ section.audio_player section.main_control a.stop_b {
     section.quran_menu ul li:nth-child(4) img {
         padding-bottom:7px;
     }
+
+    .design-filled {
+        width: 300px;
+        top: -174px;
+        right: -140px;
+    }
+    .design-filled-2 {
+        width: 680px;
+        top: -370px;
+        right: -345px;
+    }
+    .design-hollow {
+        left: -166px;
+        bottom: -132px;
+        width: 350px;
+    }
 }
 
 #btnPrevious img,
@@ -390,10 +449,6 @@ textarea {
 
 a {
     color: #00e
-}
-
-a:visited {
-    color: #551a8b
 }
 
 a:hover {
@@ -755,7 +810,7 @@ section.quran_menu section.script_box {
 }
 
 section.quran_menu section.script_box.norweg {
-    width: 275px;
+    width: 286px;
 }
 
 section.quran_menu section.script_box.norweg #cmbReciter {
@@ -1173,14 +1228,14 @@ section.audio_player section.main_control a.volume_b img.mute_btn {
 
 section.script_box a.container_btn1 {
     position: absolute;
-    /* top: 9px; */
-    left: 210px;
+    top: 11px;
+    left: 218px;
 }
 
-section.script_box a.container_btn1 img:active,
+/* section.script_box a.container_btn1 img:active,
 section.script_box a.container_btn1 img:hover {
     background-color: rgba(153, 204, 51, .95)
-}
+} */
 
 section.script_box a.container_btn1 img {
     width: 30px;
@@ -1189,7 +1244,6 @@ section.script_box a.container_btn1 img {
 }
 
 section.script_box a.container_btn1 img.mute_btn {
-    background-color: rgba(153, 204, 51, .95);
     background-position: -68px -225px
 }
 
@@ -1358,11 +1412,15 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
     border-radius: 10px;
 }
 
-.Qinput{border-radius:10px !important;width: 75px !important;height: 25px;background: #cde69a !important;text-align: left;margin: -27px;margin-top: -25px;margin-left: 113px;}
+.Qinput{border-radius:10px !important;width: 75px !important;height: 25px;Ztext-align: left;margin: -27px;margin-top: -25px;margin-left: 113px;}
 .Qinput .btn-default{margin-top: 0px;width: 22px;margin-right: 0px;padding: 0px 5px !important;height: 25px !important;background: #add65c;border-radius:0px 10px 10px 0px !important;}
 .Qinput input{border-radius:10px 0px 0px 10px !important;background: #8a2b44;border:none;outline: none;height: 25px;color: #fff;
 }
 .Qinput .btn:focus, .Qinput input:focus{box-shadow: 0 0 0 0 rgba(0,123,255,.25);}
+.input-group.Qinput input.form-control:focus {
+    background-color: #8a2b44;
+    color:#fff;
+}
 
 /* @media only screen and (max-width:1780px) { */
     section.quran_menu ul li:nth-child(6) {
@@ -1443,7 +1501,7 @@ section.quran_menu ul li:nth-child(6):hover {
         height: auto;
         position: absolute;
         top: 65px;
-        right: -19px;
+        right: 0;
         z-index: 100;
         padding: 20px;
         width: 230px;
@@ -1557,8 +1615,8 @@ section.quran_menu ul li:nth-child(6):hover {
     }
 
     section.quran_menu section.script_box.norweg a.container_btn1 {
-        left: 257px;
-        top: 9px;
+        left: 268px;
+        top: 11px;
     }
 
     .quran_menu ul li:nth-child(3) {
@@ -1617,14 +1675,8 @@ section.quran_menu ul li:nth-child(6):hover {
         border-radius: 4px;
         box-shadow:1px 1px 7px rgba(0, 0, 0, .2);
     }
-    /* .aboveDrawer {
-        top:128px;
-    } */
     section.quran_menu {
         height: 65px
-    }
-    section.quran_menu ul li:nth-child(n+1) {
-        height: 12px
     }
     section.quran_menu ul li:nth-child(1) {
         background: url(../img/qm_navigation.png) no-repeat;
