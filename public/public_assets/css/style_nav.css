@@ -95,8 +95,8 @@ video {
 
   .design-filled-2 {
     position: fixed;
-    top: -500px;
-    right: -300px;
+    top: -435px;
+    right: -324px;
     width: 1000px;
     opacity: .12;
   }
@@ -106,7 +106,6 @@ video {
     left: -324px;
     bottom: -423px;
     width: 700px;
-    /* z-index: 1; */
     opacity: .2;
   }
 
@@ -128,10 +127,6 @@ video {
     z-index: 2;
   }
 
-/* .mCSB_scrollTools .mCSB_draggerContainer {
-    left:12px;
-} */
-
 .btn-find {
     border:2px solid #E74C3C;
     color:#E74C3C !important;
@@ -145,8 +140,6 @@ video {
 }
 
 .quran_menu {
-    /* display: flex; */
-    /* justify-content: center; */
     transition: 350ms;
 }
 
@@ -374,6 +367,19 @@ section.audio_player section.main_control a.stop_b {
     top:8px;
 }
 
+@media (max-width:991px) {
+    .design-filled-2 {
+        top: -576px;
+        right: -480px;
+    }
+
+    .design-hollow {
+        width: 580px;
+        left: -254px;
+        bottom: -358px;
+    }
+}
+
 @media (max-width:768px) {
     #btnPrevious,
     section.audio_player section.main_control a.next_b {
@@ -399,9 +405,9 @@ section.audio_player section.main_control a.stop_b {
         right: -345px;
     }
     .design-hollow {
-        left: -166px;
-        bottom: -132px;
-        width: 350px;
+        left: -208px;
+        bottom: -202px;
+        width: 400px;
     }
 }
 
@@ -625,7 +631,7 @@ select {
     -ms-appearance: none;
     -o-appearance: none;
     appearance: none;
-    /* background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #cde69a; */
+    background: url(https://read.quranexplorer.com/public/images/Quran/qe-portal-icons.png) top 8px right 8px no-repeat #cde69a;
     background-color: #8a2b44;
     background-size: 15px auto;
     padding: 3px 22px 3px 5px;
