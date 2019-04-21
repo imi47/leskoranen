@@ -71,8 +71,7 @@ $lastverse='';
 </style>
 
 <img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled">
-<img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled-2">
-<!-- <img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow"> -->
+<img src="{{$PUBLIC_ASSETS}}/img/design-filled.svg" alt="" class="design-filled-2">
 
 
 <div id="wait" style="display: none;"></div>
@@ -182,6 +181,11 @@ $lastverse='';
     </div>
   </div>
 </div>
+
+
+
+
+</section>
 <div class="page-header-section footer">
   <img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow">
   
@@ -249,10 +253,6 @@ $lastverse='';
 </div>
 </div>
 </div>
-
-
-
-</section>
 <section id="search_content" style="display: none;">
   <div class="container-fluid">
     <div class="row mt-2">
@@ -854,7 +854,9 @@ else
   }
 
   var id = eval(current_verse_id)-eval(1);
-  
+  $("#arabic"+id).css("background-color", "rgba(0,0,0,0)");
+  $("#trans"+id).css("background-color", "rgba(0,0,0,0)");
+
   //$('#cmbFVerse').val(current_verse_id+1);
 
     // if(typeof c_obj['verse_id' + current_verse_id] === 'undefined') {
