@@ -92,18 +92,18 @@
   display:block;
 }
 
-@media (min-width:891px) {
+@media (min-width:911px) {
   #logo + .inner-tabs {
   height:0 !important;
   }
 
-  .language {
+  .language, .switch {
     float:right;
   }
 }
 
-@media screen and (max-width: 890px) {
- .topnav a, .language {display: none;}
+@media screen and (max-width: 910px) {
+ .topnav a, .language, .switch {display: none;}
  .topnav #logo {display: block;}
  .topnav a.icon {
    float: right;
@@ -116,7 +116,7 @@
    right: 10px;
    top: -53px;
  }
- .topnav.responsive a, .topnav.responsive, .topnav.responsive button {
+ .topnav.responsive a, .topnav.responsive, .topnav.responsive button, .topnav.responsive .switch {
    float: none;
    display: block;
    text-align: left;
@@ -179,7 +179,13 @@ body{
     <i class="fa fa-bars"></i>
   </a>
 
+  <label class="switch" for="checkbox">
+    <input type="checkbox" id="checkbox"/>
+    <div class="slider round"></div>
+  </label>
+
       </div>
+
   </div>
  <section class="panes_box" id="home_menu" style='position:relative;'>
   <div class="aboveDrawer" data-toggle="tooltip" title='Surah Introduction'>

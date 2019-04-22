@@ -767,6 +767,17 @@ $lastverse='';
                 }
               });
       });
+
+      document.querySelector('#checkbox').onclick = function() {
+        if(this.checked) {
+          document.body.style.backgroundColor = 'beige';
+          document.querySelector('.topnav').style.backgroundColor = 'beige';
+        }
+        else {
+          document.body.style.backgroundColor = '#fff';
+          document.querySelector('.topnav').style.backgroundColor = '#fff';
+        }
+      }
  });
  // document.addEventListener("DOMContentLoaded", function() {
  //        document.body.scrollTop; //force css repaint to ensure cssom is ready
