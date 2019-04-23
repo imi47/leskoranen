@@ -181,7 +181,10 @@ body{
 
   <label class="switch" for="checkbox">
     <input type="checkbox" id="checkbox"/>
-    <div class="slider round"></div>
+    <div class="slider">
+      <span class="trn">White</span>
+      <span class="">Beige</span>
+    </div>
   </label>
 
       </div>
@@ -575,21 +578,14 @@ body{
           </select>
           <br>
           <label style="width: auto;" class="trn">Language</label>
-          <select class="" id="cmbSearchLanguage" name="ResourceID" style="width: 200px;">
+          <select class="" id="cmbSearchLanguage" name="ResourceID" style="width: 236px;">
             <option value="1">Arabic</option>
             <option value="2">Norsk</option>
           </select>
         </section>
-
-
       </li>
       <li>
        <section class="text_search nav_box">
-          <select class="" id="immn" name="immn" style="width: 200px;">
-            <option value="1" class="trn">With Immune</option>
-            <option value="2" selected="" class="trn">Without Immune</option>
-          </select>
-          <br>
          <div class="input-group mb-3" style="flex-wrap: nowrap;">
           <input id="txtSearchText" type="text" class="form-control p-0" value="" style="background: #8a2b44; border-radius: 10px; border: none;">
           <div class="input-group-append">
@@ -621,5 +617,20 @@ body{
   });
   $('#myTopnav .btn.English a').click(function(){
     $('section.quran_menu section.script_box').removeClass('norweg');
+  });
+
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelector('.switch').onclick = function() {
+      if(this.firstElementChild.checked) {
+        this.firstElementChild.nextElementSibling.firstElementChild.setAttribute('style', 'opacity:0');
+        this.firstElementChild.nextElementSibling.lastElementChild.setAttribute('style', 'opacity:1');
+
+      }
+      else {
+        this.firstElementChild.nextElementSibling.firstElementChild.setAttribute('style', 'opacity:1');
+        this.firstElementChild.nextElementSibling.lastElementChild.setAttribute('style', 'opacity:0');
+      }
+    }
   });
 </script>

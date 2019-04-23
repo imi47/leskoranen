@@ -30,6 +30,7 @@ html, body {
 
 body {
     min-height: 100vh;
+    transition: background-color .4s;
 }
 
 .arbic {

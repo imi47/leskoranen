@@ -303,6 +303,9 @@
    "Sura / Chapter": {
      no: "Surah / Kapittel"
    },
+	 "White": {
+     no: "Hvit"
+   },
    "Juz": {
      no: "Juz"
    },
