@@ -19,11 +19,11 @@
  text-decoration: none;
  font-size: 17px;
 }
-.topnav a:hover {
+/* .topnav a:hover {
  color: #ffa3b9;
-}
+} */
 .active {
- color: #ffa3b9 !important;
+ color: #8a2b44 !important;
 }
 .topnav .icon {
  display: none;
@@ -443,7 +443,7 @@ body{
  <section> 
    <!-- removed class option_box from section tag above-->
   <input id="chkAPNS" type="checkbox" checked="checked" value="" />
-  <label for="chkAPNS" class="trn">Auto play next sura</label>
+  <label for="chkAPNS" class="trn">Auto play next surah</label>
 
   <div id="CP_ForeColor">
    <label class="trn">Font</label>
@@ -473,7 +473,7 @@ body{
 </div>
 <div id="CP_BackColor">
  <label style="width:110px;" class="trn">Highlight</label>
- <div id="CP_BackColorInSide" style="width:1px; color:#ffa3b9; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
+ <div id="CP_BackColorInSide" style="width:1px; color:#f2db8c; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
   █
   <img src="{{$PUBLIC_ASSETS}}/img/caret-down.svg" class='color-dropdown-toggle'>
   <div class="color-dropdown hidden" id='highlight-color'>
@@ -587,7 +587,7 @@ body{
       <li>
        <section class="text_search nav_box">
          <div class="input-group mb-3" style="flex-wrap: nowrap;">
-          <input id="txtSearchText" type="text" class="form-control p-0" value="" style="background: #8a2b44; border-radius: 10px; border: none;">
+          <input id="txtSearchText" type="text" class="form-control p-0" value="" style="background: #8a2b44; border-radius: 10px; border: none; color: #fff;">
           <div class="input-group-append">
            <a href="#" id="searchBtn"> <span class="input-group-text bg-white"> <i class="fa fa-search"></i></span></a>
 

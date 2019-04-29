@@ -167,7 +167,7 @@ input:checked+.slider:before {
     left: -324px;
     bottom: -423px;
     width: 700px;
-    opacity: .2;
+    opacity: .12;
 }
 
 #logo,
@@ -191,6 +191,15 @@ input:checked+.slider:before {
 
 .footerDrawer {
     z-index: 2;
+}
+
+#search_content, #bookmark_content, #login_content, #forget, #Signup, #bug_report, #inv_friend_content {
+    position: relative;
+    z-index: 1;
+}
+
+#search_content .jumbotron, #bookmark_content .jumbotron, #login_content .jumbotron, #forget .jumbotron, #Signup .jumbotron, #bug_report .jumbotron, #inv_friend_content .jumbotron {
+    background-color: rgba(233,236,239,.7);
 }
 
 .btn-find {

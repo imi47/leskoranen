@@ -99,7 +99,7 @@
                   <li>
                     <section class="option_box">
                       <input id="chkAPNS" type="checkbox" checked="checked" value="" />
-                      <label for="chkAPNS">Auto play next sura</label>
+                      <label for="chkAPNS">Auto play next surah</label>
                     
                     </section>
                   </li>

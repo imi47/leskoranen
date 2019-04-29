@@ -166,7 +166,7 @@ $lastverse='';
       <div class="content">
         <div>
           <a id="btnNext" class="next_b" onclick="nextfootnotes()" title="Next footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/forward.svg"> </a>
-          <a href="javascript:;" style="color:#214300; line-height: 1.2 !important;display: grid;justify-content: center;" data-toggle="modal" data-target="#footnotes">
+          <a href="javascript:;" style="line-height: 1.2 !important;display: grid;justify-content: center;" data-toggle="modal" data-target="#footnotes">
             
             {{-- <p class="c-verse" style="font-size: 12px">{!!$surah->verse[0]->description!!}
               </p> --}}
@@ -358,7 +358,7 @@ $lastverse='';
         <div class="jumbotron jumbotron-fluid pt-2">
           <div class="container-fluid">
             <h3 class="trn">Login</h3><span id="" style="color:#9c3;"></span>
-            <span style="color: red" class="trn">Kindly login for view or add bookmarks</p>
+            <span style="color: red" class="trn">Kindly login for view or add bookmarks</span>
             <hr>
 
             @if(Session::get('successs'))
@@ -375,7 +375,7 @@ $lastverse='';
               <input type="password" class="form-control trn" placeholder="Your Password" id="" required="" name="password">
             </div>
             <div class="form-group">
-              <input style="height: auto; width: auto;" type="submit" name="btnSub" class="btn btn-danger trn" value="login">
+              <input style="height: auto; width: auto;" type="submit" name="btnSub" class="btn btn-danger trn" value="Login">
               <a href="#" class="trn btn btn-danger" onclick="change_content('Signup')">Signup</a>
   <a href="#" class="trn btn btn-danger" onclick="change_content('forget')">Forget Password</a>
               <!-- <input class="btn btn-del-bookmark" type="" name="" value="Delete Bookmark"> -->
@@ -654,7 +654,7 @@ $lastverse='';
 .footnote-modal-btn {
       border-radius: 5px;
     height: 43px;
-    background-color: #dc5b9c;
+    background-color: #8a2b44;
     /* border: 2px solid; */
     /* box-shadow: none; */
     border: none;
@@ -899,7 +899,7 @@ else
 
     if(highlight=='')
    
-      highlight = '#ffced9';
+      highlight = '#f2db8c';
    
     $('#highlight-color div').click(function(){
       highlight = $(this).css('background-color');
@@ -1497,7 +1497,7 @@ if(verse=='false')
 {
     // alert(t_ver);
     playPause();
-    highlight = '#ffced9';
+    highlight = '#f2db8c';
     $("#cmbFVerse").val(0);
     $("#cmbFVerse1").val(1);
     $.cookie('from_verse',1, { expires: 60 });
@@ -1509,7 +1509,7 @@ if(verse=='false')
 }
   else
   {
-   highlight = '#ffced9';
+   highlight = '#f2db8c';
    $("#cmbFVerse").val(verse);
    $("#cmbFVerse1").val(verse);
    var to_verse=$.cookie("to_verse");
@@ -1518,8 +1518,8 @@ if(verse=='false')
    $('#cmbTVerse1').val(to_verse);
    
    
-    // $("#arabic"+verse).css("background-color", highlight);
-    // $("#trans"+verse).css("background-color", highlight);
+    $("#arabic"+verse).css("background-color", highlight);
+    $("#trans"+verse).css("background-color", highlight);
     playPause();      
   }
   
@@ -1914,7 +1914,7 @@ function searchResult()
    var search_text=$('#txtSearchText').val();
  var surah_id=$('#cmbSearchSura').val();
  var search_lang=$('#cmbSearchLanguage').val();
- var immn=$('#immn').val();
+ // var immn=$('#immn').val();
  // stop_player();
  $.ajax({
    url:'{{ url('/get-search') }}',
@@ -1923,8 +1923,8 @@ function searchResult()
      "_token": "{{ csrf_token() }}",
      "surah_id" : surah_id,
      "search_text" : search_text,
-     "search_lang" : search_lang,
-     "immn" : immn
+     // "search_lang" : search_lang,
+     // "immn" : immn
    },
    beforeSend: function(){
      document.getElementById("wait").style.display = "block"; 
@@ -1939,9 +1939,10 @@ function searchResult()
 
      var results='';
      var total_found=0;
+     // alert(response);
      response.forEach( function (item) {
       total_found++;
-      if(search_lang=='1')
+      if(item.arabic_immune)
       {
 
         results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p class="arbic">'+item.arabic_immune+'</p>';

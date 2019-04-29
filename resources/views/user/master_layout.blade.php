@@ -67,16 +67,26 @@
 		}
 
 		.footerDrawer .open {
-		  background-color: #dc5b9c;
 		  text-align: center;
 		  cursor: pointer;
 		}
 
+		.footerDrawer .content, .aboveDrawer .content {
+			background-color: #8a2b44;
+			color: #fff;
+		}
+
+		.footerDrawer .open, .aboveDrawer .open {
+			background-color: #d6af28;
+		}
+
+		.footerDrawer .content a {
+			color: #fff;
+		}
+
 		.footerDrawer .content {
-		  background-color: #ffceda;
 		  display: none;
 		  max-height: 40vh;
-		  color: #214300;
 		}
 
 
@@ -88,17 +98,14 @@
 		}
 
 		.aboveDrawer .open {
-		  background-color: #dc5b9c;
 		  text-align: center;
 		  cursor: pointer;
 		}
 
 		.aboveDrawer .content {
 		  height: auto;
-		  background-color: #ffceda;
 		  display: none;
 		  max-height: 40vh;
-		  color: #214300;
 		}
 
 		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
@@ -277,7 +284,12 @@
 	<script>
 	$(document).ready(function()
 	{
-          $('#Norwegian').trigger('click');
+		$('#Norwegian').trigger('click');
+
+		$('.topnav .inner-tabs > a').click(function() {
+			$('.topnav .inner-tabs > a').removeClass('active');
+			$(this).addClass('active');
+		});
 	});
 	
 
@@ -291,14 +303,25 @@
    },
    
    "Invite Friend": {
-     no: "Inviter venn"
+     no: "Inviter en venn"
    },
-   
+   "Kindly login for view or add bookmarks": {
+     no: "Vennligst login for å se eller for å legge til favoritter"
+   },
+   "Login": {
+     no: "Logg inn"
+   },
+   "Signup": {
+     no: "Registrer deg"
+   },
+      "Forget Password": {
+     no: "Glemt passord"
+   },
    "Bug Reporting": {
      no: "Feilrapportering"
    },
       "Bookmarks": {
-     no: "Bokmerker"
+     no: "Favoritter"
    },
    "Sura / Chapter": {
      no: "Surah / Kapittel"
@@ -322,6 +345,9 @@
      "Script": {
      no: "Arabic Tekst"
    },
+   "Select": {
+     no: "Velg emne"
+   },
      "Reciter": {
      no: "Resitert av"
    },
@@ -332,10 +358,10 @@
      no: "Repeter vers"
    },
     "Range Repeat": {
-     no: "Gjenta rekkevidde"
+     no: "Repeter valgte vers"
    },
-   "Auto play next sura": {
-     no: "Auto spill neste sura"
+   "Auto play next surah": {
+     no: "Auto spill neste surah"
    },
    "Surah introduction": {
      no: "Surah introduksjon"
