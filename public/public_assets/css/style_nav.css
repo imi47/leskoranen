@@ -271,9 +271,7 @@ input:checked+.slider:before {
 
 .triangle {
     position: absolute;
-    width: 40px;
     height: auto;
-    transition: 350ms;
     z-index: 1;
 }
 
@@ -281,7 +279,6 @@ input:checked+.slider:before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
     margin: auto;
 }
 
@@ -310,6 +307,20 @@ input:checked+.slider:before {
     position: relative;
 }
 
+.aboveDrawer .open .triangle,
+.footerDrawer .open .triangle {
+    color: #8a2b44;
+}
+
+
+.aboveDrawer .open .triangle {
+    margin:6px 0 0 0;
+}
+
+.footerDrawer .open .triangle {
+    top: -20px;
+}
+
 .footerDrawer .content {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -319,15 +330,6 @@ input:checked+.slider:before {
     display: flex;
     justify-content: center;
     position: relative;
-}
-
-.footerDrawer>div .triangle {
-    bottom: -7px;
-    transform: rotate(180deg);
-}
-
-.aboveDrawer .triangle {
-    top: -7px;
 }
 
 #CP_ForeColorInSide,

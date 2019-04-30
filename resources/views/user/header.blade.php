@@ -200,7 +200,7 @@ body{
         </div>
       {{-- </div> --}}
       <div class="open">
-        <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" alt="" class='triangle'>
+        <p class="triangle">Surah intro</p>
       </div>
 
     </div>
@@ -506,11 +506,9 @@ body{
  <section class="intro-footnote">
     <div>
       <span class="trn">Surah introduction</span>
-      <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" class='triangle'>
     </div>
     <div>
       <span class="trn">Footnotes</span>
-      <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" class='triangle'>
     </div>
 </section>
 </li>

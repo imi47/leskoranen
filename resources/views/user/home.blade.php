@@ -161,7 +161,7 @@ $lastverse='';
     
     <div class="footerDrawer" data-toggle="tooltip" data-placement='bottom' title='Verse Footnotes'>
       <div class="open">
-        <img src="{{$PUBLIC_ASSETS}}/img/triangle.svg" alt="" class='triangle'>
+        <p class="triangle">Footnotes</p>
       </div>
       <div class="content">
         <div>
