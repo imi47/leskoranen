@@ -109,7 +109,7 @@
 		}
 
 		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
-			background: #f49ab7;
+			background: #ad3e5b;
 			border-radius: 3px;
 		}
 		.os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:hover:before, .os-theme-block-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle.active:before,

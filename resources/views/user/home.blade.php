@@ -47,7 +47,7 @@ $lastverse='';
 
       #arab-side:hover .os-scrollbar-handle:before,
       #tran-side:hover .os-scrollbar-handle:before {
-        background: #ef86a8;
+        background: #8a2b44;
       }
 
       #home_content #translation {
