@@ -568,7 +568,7 @@ body{
           </select>
           <br>
           <label style="width: auto;" class="trn">Language</label>
-          <select class="" id="cmbSearchLanguage" name="ResourceID" style="width: 236px;">
+          <select class="cmbSearchLanguage-search-section" id="cmbSearchLanguage" name="ResourceID" style="width: 236px;">
             <option value="1">Arabic</option>
             <option value="2">Norsk</option>
           </select>
@@ -604,8 +604,10 @@ body{
 <script>
   $('#myTopnav .btn.Norwegian a').click(function(){
     $('section.quran_menu section.script_box').addClass('norweg');
+    $('.cmbSearchLanguage-search-section').css('width', '236px');
   });
   $('#myTopnav .btn.English a').click(function(){
     $('section.quran_menu section.script_box').removeClass('norweg');
+    $('.cmbSearchLanguage-search-section').css('width', '209px');
   });
 </script>
