@@ -92,18 +92,18 @@
   display:block;
 }
 
-@media (min-width:911px) {
+@media (min-width:891px) {
   #logo + .inner-tabs {
   height:0 !important;
   }
 
-  .language, .switch {
+  .language {
     float:right;
   }
 }
 
-@media screen and (max-width: 910px) {
- .topnav a, .language, .switch {display: none;}
+@media screen and (max-width: 890px) {
+ .topnav a, .language {display: none;}
  .topnav #logo {display: block;}
  .topnav a.icon {
    float: right;
@@ -116,7 +116,7 @@
    right: 10px;
    top: -53px;
  }
- .topnav.responsive a, .topnav.responsive, .topnav.responsive button, .topnav.responsive .switch {
+ .topnav.responsive a, .topnav.responsive, .topnav.responsive button {
    float: none;
    display: block;
    text-align: left;
@@ -178,14 +178,6 @@ body{
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
-
-  <label class="switch" for="checkbox">
-    <input type="checkbox" id="checkbox"/>
-    <div class="slider">
-      <span class="trn">White</span>
-      <span class="">Beige</span>
-    </div>
-  </label>
 
       </div>
 
@@ -615,20 +607,5 @@ body{
   });
   $('#myTopnav .btn.English a').click(function(){
     $('section.quran_menu section.script_box').removeClass('norweg');
-  });
-
-
-  window.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelector('.switch').onclick = function() {
-      if(this.firstElementChild.checked) {
-        this.firstElementChild.nextElementSibling.firstElementChild.setAttribute('style', 'opacity:0');
-        this.firstElementChild.nextElementSibling.lastElementChild.setAttribute('style', 'opacity:1');
-
-      }
-      else {
-        this.firstElementChild.nextElementSibling.firstElementChild.setAttribute('style', 'opacity:1');
-        this.firstElementChild.nextElementSibling.lastElementChild.setAttribute('style', 'opacity:0');
-      }
-    }
   });
 </script>

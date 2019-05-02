@@ -141,7 +141,7 @@
 	
 	function myFunction() {
 		if(!navOpen) {
-		document.querySelector('#logo + .inner-tabs').style.height = '413px';
+		document.querySelector('#logo + .inner-tabs').style.height = '395px';
 		document.querySelector('.topnav').classList.add ('responsive');
 		navOpen = true;
 		}
