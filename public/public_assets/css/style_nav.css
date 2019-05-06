@@ -70,6 +70,26 @@ video {
     display: inline-block
 }
 
+#myTopnav {
+    transition: background-color .4s;
+}
+
+body.beige, #myTopnav.beige {
+    background-color: beige;
+}
+
+/* .brightness > img:last-child {
+    display: none;
+}
+
+.brightness.beige > img:first-child {
+    display: none;
+}
+
+.brightness.beige > img:last-child {
+    display: block;
+} */
+
 #home_content .mt-5 {
     margin-bottom: 3rem;
 }
@@ -1611,6 +1631,12 @@ section.quran_menu section.option_box input {
 
 /* } */
 
+@media (max-width:1300px) and (min-width:1201px) {
+    section.quran_menu ul li:nth-child(7) {
+        display: none;
+    }
+}
+
 @media only screen and (max-width:1200px) {
     section.quran_menu ul li:nth-child(3) {
         padding-bottom: 15px;
@@ -1651,6 +1677,20 @@ section.quran_menu section.option_box input {
     section.quran_menu ul li:nth-child(3) {
         position: absolute;
         right: 190px;
+    }
+
+    section.quran_menu.quran_menu ul li:nth-child(7) {
+        right: 250px;
+    }
+
+    section.quran_menu.quran_menu ul li:nth-child(7):hover {
+        background: none;   
+    }
+}
+
+@media (max-width:1130px) and (min-width:1071px) {
+    section.quran_menu.quran_menu ul li:nth-child(7) {
+        display: none;
     }
 }
 
@@ -1695,6 +1735,10 @@ section.quran_menu section.option_box input {
         position: absolute;
         right: 250px;
     }
+
+    section.quran_menu.quran_menu ul li:nth-child(7) {
+        right: 310px;
+    }
 }
 
 @media (min-width:921px) {
@@ -1729,6 +1773,13 @@ section.quran_menu section.option_box input {
 
     section.quran_menu ul li:nth-child(4) {
         right: 130px;
+    }
+    section.quran_menu ul li:nth-child(7) {
+        position: absolute;
+        right: 196px;
+        width: 53px;
+        padding: 10px 3px;
+        top: 3px;
     }
 }
 
@@ -1831,6 +1882,14 @@ section.quran_menu section.option_box input {
     section.quran_menu ul li:nth-child(2) {
         position: relative;
         right: unset;
+    }
+
+    section.quran_menu.quran_menu ul li:nth-child(7) {
+        width: 53px;
+        right: -12px;
+        top: 3px;
+        padding-top: 6px;
+        padding-bottom: 5px;
     }
 }
 
@@ -2005,6 +2064,14 @@ section.quran_menu section.option_box input {
     section.audio_player section.main_control a.stop_b {
         left: -5px;
     }
+
+    section.quran_menu.quran_menu ul li:nth-child(7) {
+        width: 52px;
+        right: -1px;
+        top: 1px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }
 
 .ir,
@@ -2025,7 +2092,7 @@ section.quran_menu section.option_box input {
 
 @media screen and (min-width:421px) {
     section.quran_menu ul li {
-        display: block !important
+        display: block;
     }
 }
 

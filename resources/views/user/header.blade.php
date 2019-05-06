@@ -504,6 +504,10 @@ body{
     </div>
 </section>
 </li>
+<li class="brightness">
+  <!-- <img src="{{$PUBLIC_ASSETS}}/img/brightness-full.svg" alt="brightness-full"> -->
+  <img src="{{$PUBLIC_ASSETS}}/img/brightness.svg" alt="brightness">
+</li>
 </ul>
 </section>
 
@@ -610,4 +614,10 @@ body{
     $('section.quran_menu section.script_box').removeClass('norweg');
     $('.cmbSearchLanguage-search-section').css('width', '209px');
   });
+
+  document.querySelector('.brightness').onclick = function() {
+    document.querySelector('body').classList.toggle('beige');
+    document.querySelector('#myTopnav').classList.toggle('beige');
+    // this.classList.toggle('beige');
+  }
 </script>
