@@ -330,6 +330,9 @@
    "Surah introduction": {
      no: "Surah introduksjon"
    },
+	 "Surah intro": {
+     no: "Surah introduksjon"
+   },
    "Chapter": {
      no: "Kapittel"
    },
@@ -394,6 +397,9 @@
    "Highlight": {
      no: "Markeringsfarge"
    },
+	 "Close": {
+     no: "Lukk"
+   },
  }
  var _t = $('body').translate({
 
@@ -434,7 +440,35 @@
 					clickScrolling: true
 				}
 		 	});
+
+			//  console.log($('.footer').offset().top - $('#home_menu').offset().top);
+			 setSearchContentHeight();
+
+			 for (e of document.querySelectorAll('.footerDrawer .triangle')) {
+				e.onclick = function() {
+					this.parentNode.parentNode.classList.toggle('open');
+					document.querySelector('.aboveDrawer').classList.remove('open');
+				}
+			 }
+
+			 for (e of document.querySelectorAll('.aboveDrawer .triangle')) {
+				e.onclick = function() {
+					this.parentNode.parentNode.classList.toggle('open');
+					document.querySelector('.footerDrawer').classList.remove('open');
+				}
+			 }
 		});
+
+		function setSearchContentHeight() {
+			var subt;
+			if(window.matchMedia('(min-width: 921px)').matches)
+				subt = 137;
+			else subt = 100;
+			var distance = $('.footer').offset().top - $('#home_menu').offset().top;
+			document.querySelector('#search_content .jumbotron-fluid.pt-2 > .container-fluid').style.height = `${distance - subt}px`;
+		}
+
+		window.addEventListener('resize', setSearchContentHeight);
 	</script>
 </body>
 

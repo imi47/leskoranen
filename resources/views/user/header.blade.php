@@ -192,7 +192,8 @@ body{
         </div>
       {{-- </div> --}}
       <div class="open">
-        <p class="triangle">Surah intro</p>
+        <p class="triangle trn">Surah intro</p>
+        <p class="triangle trn">Close</p>
       </div>
 
     </div>

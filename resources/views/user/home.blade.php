@@ -161,11 +161,12 @@ $lastverse='';
     
     <div class="footerDrawer" data-toggle="tooltip" data-placement='bottom' title='Verse Footnotes'>
       <div class="open">
-        <p class="triangle">Footnotes</p>
+        <p class="triangle trn">Footnotes</p>
+        <p class="triangle trn">Close</p>
       </div>
       <div class="content">
         <div>
-          <a id="btnNext" class="next_b" onclick="nextfootnotes()" title="Next footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/forward.svg"> </a>
+          <a id="btnNext" class="next_b" onclick="nextfootnotes()" title="Next footnotes"> <i class="fa fa-chevron-right" aria-hidden="true"></i> </a>
           <a href="javascript:;" style="line-height: 1.2 !important;display: grid;justify-content: center;" data-toggle="modal" data-target="#footnotes">
             
             {{-- <p class="c-verse" style="font-size: 12px">{!!$surah->verse[0]->description!!}
@@ -174,7 +175,7 @@ $lastverse='';
               </p> --}}
               <p class="c-verse" style="font-size: 12px;">Surah Al-Fatihah er en bønn Allah lærer mennesker som skal studere Hans bok. Dens plassering i begynnelsen viser viktigheten av den for enhver som ønsker å dra nytte av Boken, og denne bønnen til Herren over alle universene bør derfor fremlegges først.</p>
           </a>
-          <a id="btnPrevious" class="pre_b" onclick="prefootnotes()" title="Previous Footnotes"> <img src="{{$PUBLIC_ASSETS}}/img/rewind.svg">
+          <a id="btnPrevious" class="pre_b" onclick="prefootnotes()" title="Previous Footnotes"> <i class="fa fa-chevron-left"></i>
         </a>
         </div>
       </div>
