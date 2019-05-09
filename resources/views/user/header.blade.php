@@ -506,8 +506,8 @@ body{
 </section>
 </li>
 <li class="brightness">
-  <!-- <img src="{{$PUBLIC_ASSETS}}/img/brightness-full.svg" alt="brightness-full"> -->
   <img src="{{$PUBLIC_ASSETS}}/img/brightness.svg" alt="brightness">
+  <img src="{{$PUBLIC_ASSETS}}/img/brightness-beige.svg" alt="brightness-full">
 </li>
 </ul>
 </section>
@@ -619,6 +619,6 @@ body{
   document.querySelector('.brightness').onclick = function() {
     document.querySelector('body').classList.toggle('beige');
     document.querySelector('#myTopnav').classList.toggle('beige');
-    // this.classList.toggle('beige');
+    this.classList.toggle('beige');
   }
 </script>

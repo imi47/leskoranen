@@ -49,7 +49,7 @@
 	<!-- overlay scrollbar files start -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/css/OverlayScrollbars.min.css">
 	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/os-theme-block-dark.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/js/OverlayScrollbars.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/js/OverlayScrollbars.min.js"></script> -->
 	<!-- overlay scrollbar files end -->
 
 	<style type="text/css">
@@ -456,6 +456,16 @@
 					this.parentNode.parentNode.classList.toggle('open');
 					document.querySelector('.footerDrawer').classList.remove('open');
 				}
+			 }
+
+			 document.querySelector('.intro-footnote div:first-child').onclick = function() {
+				 document.querySelector('.aboveDrawer').classList.toggle('open');
+				 document.querySelector('.footerDrawer').classList.remove('open');
+			 }
+			 
+			 document.querySelector('.intro-footnote div:last-child').onclick = function() {
+				 document.querySelector('.footerDrawer').classList.toggle('open');
+				 document.querySelector('.aboveDrawer').classList.remove('open');
 			 }
 		});
 

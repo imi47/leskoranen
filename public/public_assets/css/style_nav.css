@@ -78,7 +78,11 @@ body.beige, #myTopnav.beige {
     background-color: beige;
 }
 
-/* .brightness > img:last-child {
+.brightness img {
+    width: 100%;
+}
+
+.brightness > img:last-child {
     display: none;
 }
 
@@ -88,7 +92,7 @@ body.beige, #myTopnav.beige {
 
 .brightness.beige > img:last-child {
     display: block;
-} */
+}
 
 #home_content .mt-5 {
     margin-bottom: 3rem;
