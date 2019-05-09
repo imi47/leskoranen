@@ -240,10 +240,19 @@ body.beige, #myTopnav.beige {
 }
 
 .footerDrawer .content > div {
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    grid-auto-flow: column;
+    grid-gap: 15px;
+}
+
+.footerDrawer .content > div #btnNext {
+    grid-column: 3;
+}
+
+.footerDrawer .content > div #btnPrevious {
+    grid-column: 1;
 }
 
 .footerDrawer .content > div i {
