@@ -222,6 +222,10 @@ body.beige, #myTopnav.beige {
     display: none;
 }
 
+.footerDrawer.open .open .triangle, .aboveDrawer.open .open .triangle {
+    background-color: #d6af28;
+}
+
 .footerDrawer.open .open > .triangle:first-child,
 .aboveDrawer.open .open > .triangle:first-child {
     display: none;
@@ -346,7 +350,6 @@ body.beige, #myTopnav.beige {
 }
 
 .footerDrawer .triangle, .aboveDrawer .triangle {
-    background-color: #d6af28;
     padding: 2px 5px;
 }
 

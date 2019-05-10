@@ -49,7 +49,7 @@
 	<!-- overlay scrollbar files start -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/css/OverlayScrollbars.min.css">
 	<link rel="stylesheet" href="{{$PUBLIC_ASSETS}}/css/os-theme-block-dark.css">
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/js/OverlayScrollbars.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.6.3/js/OverlayScrollbars.min.js"></script>
 	<!-- overlay scrollbar files end -->
 
 	<style type="text/css">
@@ -438,15 +438,16 @@
     });
 
 		document.addEventListener("DOMContentLoaded", function () {
-			OverlayScrollbars(document.querySelectorAll('#tran-side, #arab-side'), {
-				className: 'os-theme-block-dark',
-				scrollbars: {
-					clickScrolling: true
-				}
-		 	});
+			 OverlayScrollbars(document.querySelectorAll('#tran-side, #arab-side'), {
+					className: 'os-theme-block-dark',
+					scrollbars: {
+						clickScrolling: true
+					}
+				});
 
-			//  console.log($('.footer').offset().top - $('#home_menu').offset().top);
-			 setSearchContentHeight();
+			// console.log($('.footer').offset().top - $('#home_menu').offset().top);
+			setSearchContentHeight();
+			setMainContentHeight();
 		});
 
 		function setSearchContentHeight() {
@@ -458,7 +459,14 @@
 			document.querySelector('#search_content .jumbotron-fluid.pt-2 > .container-fluid').style.height = `${distance - subt}px`;
 		}
 
+		function setMainContentHeight() {
+			var distance = $('.footer').offset().top - $('#home_content').offset().top;
+			document.querySelector('#home_content .left').style.maxHeight = `${distance}px`;
+			document.querySelector('#home_content .right').style.maxHeight = `${distance}px`;
+		}
+
 		window.addEventListener('resize', setSearchContentHeight);
+		window.addEventListener('resize', setMainContentHeight);
 	</script>
 </body>
 
