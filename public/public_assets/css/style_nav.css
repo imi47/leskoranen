@@ -131,6 +131,13 @@ body.beige, #myTopnav.beige {
 
 .design-hollow {
     position: fixed;
+}
+
+.design-hollow-footer {
+    position: absolute;
+}
+
+.design-hollow, .design-hollow-footer {
     left: -324px;
     bottom: -423px;
     width: 700px;
@@ -490,7 +497,7 @@ section.audio_player section.main_control a.stop_b {
         right: -480px;
     }
 
-    .design-hollow {
+    .design-hollow, .design-hollow-footer {
         width: 580px;
         left: -254px;
         bottom: -358px;
@@ -524,7 +531,7 @@ section.audio_player section.main_control a.stop_b {
         right: -345px;
     }
 
-    .design-hollow {
+    .design-hollow, .design-hollow-footer {
         left: -208px;
         bottom: -202px;
         width: 400px;

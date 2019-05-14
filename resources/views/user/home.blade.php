@@ -187,10 +187,10 @@ $lastverse='';
 
 
 </section>
+<img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow">
 <div class="page-header-section footer">
-  <img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow">
-  
- <div class="container">
+  <img src="{{$PUBLIC_ASSETS}}/img/design-hollow.png" alt="" class="design-hollow-footer">
+  <div class="container">
 
   <div class="row">
 
@@ -640,6 +640,7 @@ $lastverse='';
  position: fixed;
  bottom: 0;
  z-index: 1;
+ overflow: hidden;
 }
 #wait {
   position: fixed;
