@@ -94,10 +94,6 @@ body.beige, #myTopnav.beige {
     display: block;
 }
 
-#home_content {
-    margin-top: -20px;
-}
-
 #home_content .mt-5 {
     margin-bottom: 3rem;
 }
@@ -1038,7 +1034,6 @@ section.quran_menu section.text_search {
     width: 280px;
     height: 105px;
     text-align: left;
-    margin-top: 4px;
 }
 
 section.quran_menu section.text_search label {
@@ -1864,15 +1859,19 @@ section.quran_menu section.option_box input {
         padding: 10px 3px;
         top: 3px;
     }
+
+    #home_content {
+        margin-top: -20px;
+    }
+
+    section.quran_menu section.text_search {
+        margin-top: 4px;
+    }
 }
 
 @media only screen and (max-width:920px) {
     section.quran_menu li:nth-child(2) section {
-        width: 245px !important;
-    }
-
-    section.quran_menu ul li:nth-child(6) {
-        padding-bottom: 50px;
+        width: 258px !important;
     }
 
     .aboveDrawer {
@@ -1990,6 +1989,13 @@ section.quran_menu section.option_box input {
 @media (min-width:576px) {
     #sura_nm {
         line-height: 60px;
+    }
+}
+
+@media (max-width:575px) {
+    .footerDrawer .triangle {
+        background-color: #fff;
+        width: 100%;
     }
 }
 
@@ -2161,16 +2167,6 @@ section.quran_menu section.option_box input {
 .visuallyhidden {
     border: 0;
     overflow: hidden
-}
-
-@media (max-width:445px) {
-    #search_menu section.quran_menu li:nth-child(1) section {
-        left: -83px;
-    }
-
-    #search_menu section.quran_menu li:nth-child(2) section {
-        left: -140px;
-    }
 }
 
 @media screen and (min-width:421px) {
