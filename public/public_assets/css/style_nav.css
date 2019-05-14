@@ -94,6 +94,10 @@ body.beige, #myTopnav.beige {
     display: block;
 }
 
+#home_content {
+    margin-top: -20px;
+}
+
 #home_content .mt-5 {
     margin-bottom: 3rem;
 }

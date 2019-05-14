@@ -461,8 +461,8 @@
 
 		function setMainContentHeight() {
 			var distance = $('.footer').offset().top - $('#home_content').offset().top;
-			document.querySelector('#home_content .left').style.maxHeight = `${distance}px`;
-			document.querySelector('#home_content .right').style.maxHeight = `${distance}px`;
+			document.querySelector('#home_content .left').style.maxHeight = `${distance - 30}px`;
+			document.querySelector('#home_content .right').style.maxHeight = `${distance - 30}px`;
 		}
 
 		window.addEventListener('resize', setSearchContentHeight);
