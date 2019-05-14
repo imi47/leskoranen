@@ -1913,7 +1913,7 @@ function searchResult()
      "_token": "{{ csrf_token() }}",
      "surah_id" : surah_id,
      "search_text" : search_text,
-     // "search_lang" : search_lang,
+      "search_lang" : search_lang,
      // "immn" : immn
    },
    beforeSend: function(){
@@ -1954,6 +1954,9 @@ function searchResult()
  });
     }
 
+$('#searchform').submit(function(e){
+    e.preventDefault();
+});
 
 $('#txtSearchText').on("keydown", function (e) {
 

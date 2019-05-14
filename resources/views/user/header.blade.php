@@ -557,7 +557,7 @@ body{
 
 <section class="panes_box" id="search_menu" style="display: none;">
   <section>
-   <form>
+   <form id="searchform">
     <section class="quran_menu">
      <ul>
       <li>
