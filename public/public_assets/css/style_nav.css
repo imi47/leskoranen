@@ -1718,7 +1718,7 @@ section.quran_menu li:nth-child(5) section > div:first-child,
 }
 
 section.quran_menu li:nth-child(5) section > div:first-child input {
-    margin-right: -5px;
+    margin-right: 5px;
 }
 
 section.quran_menu li:nth-child(5):hover section {
