@@ -914,9 +914,9 @@ ul li > ul > li.active > a {
         display: none
     }
 
-    #arab-side {
+    /* #arab-side {
         margin-bottom:75px;
-    }
+    } */
 }
 
 @media (max-width:375px) {

@@ -74,6 +74,10 @@ video {
     transition: background-color .4s;
 }
 
+#home_content {
+    margin-top: -20px;
+}
+
 body.beige, #myTopnav.beige {
     background-color: beige;
 }
@@ -342,7 +346,7 @@ body.beige, #myTopnav.beige {
 }
 
 .footerDrawer .open .triangle {
-    top: -20px;
+    top: -22px;
 }
 
 .footerDrawer .content {
@@ -363,6 +367,7 @@ body.beige, #myTopnav.beige {
 .aboveDrawer .triangle {
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
+    top: 2px;
 }
 
 .footerDrawer .triangle {
@@ -487,6 +492,24 @@ section.audio_player section.main_control a.stop_b {
     top: 8px;
 }
 
+.trans-mobile {
+    direction: ltr;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: none;
+}
+
+@media (max-width:575px) {
+    .footerDrawer:not(.open) .open .triangle, .aboveDrawer:not(.open) .open .triangle {
+        background-color: #fff;
+        transition: background-color .4s;
+    }
+
+    .footerDrawer:not(.open) .open .triangle.beige, .aboveDrawer:not(.open) .open .triangle.beige {
+        background-color: beige;
+    }
+}
+
 @media (max-width:991px) {
     .design-filled-2 {
         top: -576px;
@@ -499,6 +522,12 @@ section.audio_player section.main_control a.stop_b {
         bottom: -358px;
     }
 }
+
+/* @media (min-width:769px) {
+    .trans-mobile {
+        display: none;
+    }
+} */
 
 @media (max-width:768px) {
 
@@ -531,6 +560,27 @@ section.audio_player section.main_control a.stop_b {
         left: -208px;
         bottom: -202px;
         width: 400px;
+    }
+
+    #home_content .col-sm-6:first-child {
+        display: none !important;
+    }
+
+    #home_content .col-sm-6:last-child {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .trans-mobile {
+        display: block;
+    }
+
+    .trans-mobile.hidden {
+        display: none;
+    }
+
+    section.quran_menu.quran_menu ul li:nth-child(4) {
+        padding-bottom: 0;
     }
 }
 
@@ -1590,7 +1640,7 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
 /* @media only screen and (max-width:1780px) { */
 section.quran_menu ul li:nth-child(6) {
     padding-top: 10px;
-    padding-bottom: 7px;
+    padding-bottom: 5px;
     overflow: visible;
     width: 52px;
 }
@@ -1629,7 +1679,7 @@ section.quran_menu ul li:nth-child(5) {
         */
     overflow: visible;
     width: 65px;
-    padding-bottom: 20px;
+    padding-bottom: 12px;
 }
 
 section.quran_menu li:nth-child(5) section {
@@ -1860,9 +1910,9 @@ section.quran_menu section.option_box input {
         top: 3px;
     }
 
-    #home_content {
+    /* #home_content {
         margin-top: -20px;
-    }
+    } */
 
     section.quran_menu section.text_search {
         margin-top: 4px;
@@ -1971,7 +2021,7 @@ section.quran_menu section.option_box input {
         right: -12px;
         top: 3px;
         padding-top: 6px;
-        padding-bottom: 5px;
+        padding-bottom: 9px;
     }
 }
 
@@ -1989,13 +2039,6 @@ section.quran_menu section.option_box input {
 @media (min-width:576px) {
     #sura_nm {
         line-height: 60px;
-    }
-}
-
-@media (max-width:575px) {
-    .footerDrawer .triangle {
-        background-color: #fff;
-        width: 100%;
     }
 }
 
@@ -2160,6 +2203,43 @@ section.quran_menu section.option_box input {
         top: 1px;
         padding-top: 0;
         padding-bottom: 0;
+    }
+
+    .arbic {
+        font-size: 1.5rem !important;
+    }
+
+    .trans-mobile {
+        font-size: .9rem !important;
+        margin-top: .4rem;
+        margin-bottom: .7rem;
+    }
+
+    .ayah-end1 {
+        width: 26px !important;
+    }
+
+    .ayah-end1 span {
+        font-size: 12px !important;
+    }
+
+    section.quran_menu ul li:nth-child(5) {
+        padding-bottom: 15px;
+    }
+
+    section.quran_menu.quran_menu ul li:nth-child(4) {
+        height: 48px;
+    }
+
+    section.quran_menu ul li:nth-child(4) img {
+        margin-top: -37px;
+        padding-bottom: 0;
+        width: 44px;
+    }
+
+    section.quran_menu ul li:nth-child(6) {
+        padding-bottom: 0;
+        height: -47px;
     }
 }
 

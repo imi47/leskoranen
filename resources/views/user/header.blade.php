@@ -619,6 +619,8 @@ body{
   document.querySelector('.brightness').onclick = function() {
     document.querySelector('body').classList.toggle('beige');
     document.querySelector('#myTopnav').classList.toggle('beige');
+    document.querySelector('.footerDrawer:not(.open) .open .triangle').classList.toggle('beige');
+    document.querySelector('.aboveDrawer:not(.open) .open .triangle').classList.toggle('beige');
     this.classList.toggle('beige');
   }
 </script>

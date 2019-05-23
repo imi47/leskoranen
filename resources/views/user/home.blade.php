@@ -7,6 +7,10 @@ $lastverse='';
 <script>
   $(document).ready(function()
   {
+    if(typeof $.cookie('surah_id') === 'undefined'){
+      $.cookie('surah_id','3', { expires: 60 });
+      $.cookie('from_verse','0', { expires: 60 });
+    }
      var from_verse=$.cookie("from_verse");
      var surah_id=$.cookie("surah_id");
       // from_verse=+from_verse + +1;
@@ -733,9 +737,11 @@ $lastverse='';
   if(v == 'hide'){
     $('#tran-side').hide();
     $('#arab-side').removeClass('col-sm-6 right').addClass('col-sm-12');
+    $('.trans-mobile').addClass('hidden');
   }else if(v == 9){
     $('#tran-side').show();
     $('#arab-side').removeClass('col-sm-12').addClass('col-sm-6 right');
+    $('.trans-mobile').removeClass('hidden');
   }
  });
  st_ver = 1;
@@ -858,6 +864,7 @@ else
   var id = eval(current_verse_id)-eval(1);
   $("#arabic"+id).css("background-color", "rgba(0,0,0,0)");
   $("#trans"+id).css("background-color", "rgba(0,0,0,0)");
+  $("#trans-mobile"+id).css("background-color", "rgba(0,0,0,0)");
 
   //$('#cmbFVerse').val(current_verse_id+1);
 
@@ -897,6 +904,7 @@ else
     });
     $("#arabic"+current_verse_id).css("background-color", highlight);
     $("#trans"+current_verse_id).css("background-color", highlight);
+    $("#trans-mobile"+current_verse_id).css("background-color", highlight);
     $("#audio_source").prop('src', link);
     
     audio.load();
@@ -1093,7 +1101,10 @@ function stop_player(cond) {
   //         c_obj['arb_desc0'] = 'samp';
          // from_verse=from_verse+'<option class="opt" value="'+0+'">'+0+'</option>';
           // $('#cmbFVerse').val(0);
-  $('#cmbFVerse').val(1).change();
+  $('#cmbFVerse').val('1').change();
+  // if($('#cmbSura').val()==='3'){
+  //   $('#cmbSura').val('3').change();
+  // }
   // $('#cmbTVerse').val({{$surah->verses}}).change();
   
 }
@@ -1114,6 +1125,7 @@ function assign_temp() {
    next_play=false;
    $("#arabic"+t_ver).css("background-color", "white");
    $("#trans"+t_ver).css("background-color", "white");
+   $("#trans-mobile"+t_ver).css("background-color", "white");
    is_ended = false;
  }
 }
@@ -1178,7 +1190,7 @@ function getraku()
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span>";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
       i++;
     });
@@ -1420,13 +1432,13 @@ function getSurah(get_special,verse='false'){
       c_obj['arb_desc' + item.verse] = item.description;
       if(returnedData.surah_number!=1)
       {
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span>";
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";  
       }
       else
       {
         verses=+item.verse + +1;
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span>";
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </span>";  
       }
 
@@ -1511,6 +1523,7 @@ if(verse=='false')
    
     $("#arabic"+verse).css("background-color", highlight);
     $("#trans"+verse).css("background-color", highlight);
+    $("#trans-mobile"+verse).css("background-color", highlight);
     playPause();      
   }
   
@@ -1618,7 +1631,13 @@ function getSurahFromVerse(){
   assign_temp();
   var surah_id=$('#cmbSura').val();
   var from_verse=$('#cmbFVerse').val();
-  $.cookie('from_verse',from_verse, { expires: 60 });
+  if(surah_id === '3'){
+    $.cookie('from_verse',parseInt(from_verse)-1, { expires: 60 });
+  }
+  else{
+    $.cookie('from_verse',from_verse, { expires: 60 });
+  }
+  
   var to_verse=$('#cmbTVerse').val();
   $.ajax({
    url:'{{ url('/get-surah-from-verse') }}',
@@ -1646,8 +1665,17 @@ function getSurahFromVerse(){
      var i=1;
      var link='';
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"<span class='ayah-end1'> <span>"+item.verse+"</span></span></span>";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
+      if(returnedData.surah_number!=1)
+      {
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";  
+      }
+      else
+      {
+        verses=+item.verse+1;
+         arabic=arabic+"<span class='arbic' id='arabic"+verses+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+verses+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
+      translation=translation+"<span class='trns' id='trans"+verses+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </span>";  
+      }
 
 
       if(returnedData.surah_number==1 && item.verse==1)
@@ -1757,7 +1785,7 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(foot==1)
       {
@@ -1891,6 +1919,7 @@ function zoomout() {
       highlight = $(this).css('background-color');
       $("#arabic"+from_verse).css("background-color", highlight);
       $("#trans"+from_verse).css("background-color", highlight);
+      $("#trans-mobile"+from_verse).css("background-color", highlight);
     });
    $('#font-color div').click(function(){
     $('#font-color').addClass('hidden');
@@ -2537,6 +2566,11 @@ function deletes_book(id) {
 });
 
       }
+
+
+  $(function() {
+    // $('#arabic1').after('<p>sample text</p>');
+  });
       
 
 </script>
