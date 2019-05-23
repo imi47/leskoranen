@@ -911,12 +911,8 @@ ul li > ul > li.active > a {
 }
 @media screen and (max-width:768px) {
     .navbar-toggler {
-        display: none
+        display: none;
     }
-
-    /* #arab-side {
-        margin-bottom:75px;
-    } */
 }
 
 @media (max-width:375px) {

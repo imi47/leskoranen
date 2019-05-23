@@ -44,11 +44,6 @@ $lastverse='';
         width:12px;
       }
 
-      #home_content #translation,
-      #home_content #arabic {
-        margin-right: 12px;
-      }
-
       #arab-side:hover .os-scrollbar-handle:before,
       #tran-side:hover .os-scrollbar-handle:before {
         background: #8a2b44;
@@ -59,9 +54,6 @@ $lastverse='';
         direction: ltr;
       }
       @media (max-width:575px) {
-        #home_content #arabic {
-          margin-left: 12px;
-        }
 
         #home_content > .container-fluid {
           padding: 0;

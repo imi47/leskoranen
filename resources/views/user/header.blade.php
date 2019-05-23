@@ -435,38 +435,43 @@ body{
 <li>
  <section> 
    <!-- removed class option_box from section tag above-->
-  <input id="chkAPNS" type="checkbox" checked="checked" value="" />
-  <label for="chkAPNS" class="trn">Auto play next surah</label>
+  <div>
+    <input id="chkAPNS" type="checkbox" checked="checked" value="" />
+    <label for="chkAPNS" class="trn">Auto play next surah</label>
+  </div>
 
   <div id="CP_ForeColor">
-   <label class="trn">Font</label>
-   <div id="CP_ForeColorInSide" id="fore-color" style="width:1px; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
-    █
-    <img src="{{$PUBLIC_ASSETS}}/img/caret-down.svg" alt="" class='color-dropdown-toggle'>
-    <div class="color-dropdown hidden " id='font-color'>
-      <div style="background:#394a59"></div>
-      <div style="background:#675545"></div>
-      <div style="background:#913d1e"></div>
-      <div style="background:#4f552a"></div>
-      <div style="background:#20505f"></div>
-      <div style="background:#3d263a"></div>
-      <div style="background:#61162d"></div>
-      <div style="background:#001d77"></div>
-      <div style="background:#897a1a"></div>
-      <div style="background:#4b471a"></div>
-      <div style="background:#654458"></div>
-      <div style="background:#4d4e53"></div>
-      <div style="background:#6a5e16"></div>
-      <div style="background:#006066"></div>
-      <div style="background:#002e5f"></div>
-      <div style="background:#43165e"></div>
-      <div style="background:#C4ECBD"></div>
-      <div style="background:#c05017"></div>
+  <div>
+    <label class="trn">Font</label>
+    <div id="CP_ForeColorInSide" id="fore-color"
+      style="cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
+      █
+      <img src="{{$PUBLIC_ASSETS}}/img/caret-down.svg" alt="" class='color-dropdown-toggle'>
+      <div class="color-dropdown hidden " id='font-color'>
+        <div style="background:#394a59"></div>
+        <div style="background:#675545"></div>
+        <div style="background:#913d1e"></div>
+        <div style="background:#4f552a"></div>
+        <div style="background:#20505f"></div>
+        <div style="background:#3d263a"></div>
+        <div style="background:#61162d"></div>
+        <div style="background:#001d77"></div>
+        <div style="background:#897a1a"></div>
+        <div style="background:#4b471a"></div>
+        <div style="background:#654458"></div>
+        <div style="background:#4d4e53"></div>
+        <div style="background:#6a5e16"></div>
+        <div style="background:#006066"></div>
+        <div style="background:#002e5f"></div>
+        <div style="background:#43165e"></div>
+        <div style="background:#C4ECBD"></div>
+        <div style="background:#c05017"></div>
+      </div>
+    </div>
   </div>
-</div>
 <div id="CP_BackColor">
- <label style="width:110px;" class="trn">Highlight</label>
- <div id="CP_BackColorInSide" style="width:1px; color:#f2db8c; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
+ <label class="trn">Highlight</label>
+ <div id="CP_BackColorInSide" style="color:#f2db8c; cursor:pointer; display:inline; font-family:Arial; font-size:21px;">
   █
   <img src="{{$PUBLIC_ASSETS}}/img/caret-down.svg" class='color-dropdown-toggle'>
   <div class="color-dropdown hidden" id='highlight-color'>

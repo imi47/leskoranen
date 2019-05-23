@@ -582,6 +582,23 @@ section.audio_player section.main_control a.stop_b {
     section.quran_menu.quran_menu ul li:nth-child(4) {
         padding-bottom: 0;
     }
+
+    #logedin > div {
+        display: grid;
+        grid-gap: 10px;
+    }
+
+    #logedout .col-md-2 {
+        padding-left: 0;
+    }
+
+    #arabic .ayah-end1 {
+        margin: 0;
+    }
+
+    .os-content {
+        padding-left: 7px !important;
+    }
 }
 
 #btnPrevious img,
@@ -1103,19 +1120,14 @@ section.quran_menu section.memorization_box {
     text-align: left
 }
 
-section.quran_menu section.memorization_box label {
-    width: 112px
-}
-
 section.quran_menu section.memorization_box input {
     margin: 0 4px 7px 0
 }
 
-section.quran_menu section.memorization_box>div {
-    display: block;
-    width: 215px;
-    float: left;
-    margin-top: -3px
+section.quran_menu section.memorization_box > div > p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 section.quran_menu section.memorization_box>div+div {
@@ -1468,10 +1480,6 @@ section.translate_box a.container_btn1 img.mute_btn {
     background-position: -68px -225px
 }
 
-section.quran_menu section.memorization_box div {
-    width: 170px
-}
-
 section.quran_menu section.memorization_box div p {
     margin: 0;
     padding: 0
@@ -1652,7 +1660,7 @@ section.quran_menu li:nth-child(6) section {
     top: 65px;
     right: 0;
     z-index: 100;
-    padding: 20px;
+    padding: 15px;
     width: 205px;
     background: #4c1426;
 }
@@ -1689,9 +1697,28 @@ section.quran_menu li:nth-child(5) section {
     top: 65px;
     right: 0px;
     z-index: 100;
-    padding: 20px;
+    padding: 15px;
     width: 220px;
     background: #4c1426;
+}
+
+section.quran_menu li:nth-child(5) section > div label {
+    margin: 0;
+}
+
+section.quran_menu li:nth-child(5) section > div:first-child,
+#CP_ForeColor > div {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+#CP_ForeColor > div {
+    justify-content: space-between;
+}
+
+section.quran_menu li:nth-child(5) section > div:first-child input {
+    margin-right: -5px;
 }
 
 section.quran_menu li:nth-child(5):hover section {
@@ -1730,7 +1757,7 @@ section.quran_menu li:nth-child(4) section {
     top: 65px;
     right: 0;
     z-index: 100;
-    padding: 20px;
+    padding: 15px;
     width: 230px;
     background: #4c1426;
 }
@@ -1921,7 +1948,7 @@ section.quran_menu section.option_box input {
 
 @media only screen and (max-width:920px) {
     section.quran_menu li:nth-child(2) section {
-        width: 258px !important;
+        width: 275px !important;
     }
 
     .aboveDrawer {
@@ -2211,8 +2238,8 @@ section.quran_menu section.option_box input {
 
     .trans-mobile {
         font-size: .9rem !important;
-        margin-top: .4rem;
-        margin-bottom: .7rem;
+        margin-top: .2rem;
+        margin-bottom: .35rem;
     }
 
     .ayah-end1 {
