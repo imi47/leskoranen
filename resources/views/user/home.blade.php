@@ -7,10 +7,6 @@ $lastverse='';
 <script>
   $(document).ready(function()
   {
-    if(typeof $.cookie('surah_id') === 'undefined'){
-      $.cookie('surah_id','3', { expires: 60 });
-      $.cookie('from_verse','0', { expires: 60 });
-    }
      var from_verse=$.cookie("from_verse");
      var surah_id=$.cookie("surah_id");
       // from_verse=+from_verse + +1;
@@ -44,6 +40,11 @@ $lastverse='';
         width:12px;
       }
 
+      #home_content #translation,
+      #home_content #arabic {
+        margin-right: 12px;
+      }
+
       #arab-side:hover .os-scrollbar-handle:before,
       #tran-side:hover .os-scrollbar-handle:before {
         background: #8a2b44;
@@ -54,6 +55,9 @@ $lastverse='';
         direction: ltr;
       }
       @media (max-width:575px) {
+        #home_content #arabic {
+          margin-left: 12px;
+        }
 
         #home_content > .container-fluid {
           padding: 0;
@@ -323,8 +327,15 @@ $lastverse='';
             
             <form style="margin-top: 10px;" id="get_bookmarks" class="shake" role="form" method="post">
              @csrf
+             <?php
+            if(\Auth::check()){
+                $user_email = auth()->user()->email;
+            }else{
+                @$user_email = "";
+            }
+            ?>
              <div class="form-group">
-              <input type="email" class="form-control trn" placeholder="Your email" id="get_bookmarks_email" required="" name="email">
+              <input type="hidden" class="form-control trn" placeholder="Your email" id="get_bookmarks_email" required="" value="{{$user_email}}" name="email">
             </div>
             <div class="form-group">
               <input style="height: auto; width: auto;" type="submit" name="btnSub" class="btn btn-primary trn" value="Get Bookmarks">
@@ -402,7 +413,7 @@ $lastverse='';
             {{-- <p style="color: red">Kindly login for view or add bookmarks</p> --}}
             <hr>
             
-            <p class="alert alert-success" style="display: none;" id="forget_success"></p>
+            <p class="alert alert-success trn" style="display: none;" id="forget_success"></p>
             <p class="alert alert-danger" style="display: none;" id="forget_error"></p>
             <form id="forget_password" class="shake" role="form" method="post">
              @csrf
@@ -701,6 +712,22 @@ $lastverse='';
 </div>
 </div>
 </div>
+<div style="display:none !important">
+    <p class="trn" id="save_bookmark">Save Bookmark</p>
+    <p class="trn" id="btn_cancel">Cancel</p>
+    <p class="trn" id="btn_save">Save</p>
+    <p class="trn" id="btn_find">Find</p>
+    <p class="trn" id="b_exist">Bookmark is already saved</p>
+    <p class="trn" id="btn_close">Close</p>
+    <p class="trn" id="b_saved">Bookmark is saved</p>
+    <p class="trn" id="b_wrong">Something went wrong</p>
+    <p class="trn" id="b_deleted">Bookmark is deleted</p>
+    <p class="trn" id="b_sure">Are you sure you want delete</p>
+    <p class="trn" id="b_again">Try Again</p>
+    <p class="trn" id="btn_delete">Delete</p>
+    <p class="trn" id="b_sent_link">Sent a link in your email for change password</p>
+    <p class="trn" id="b_invalid_email">Invalid email. Kindly try again!</p>
+</div>
 @if(Session::get('successs'))
 <script>
   document.getElementById("home_content").style.display = "none";
@@ -729,11 +756,9 @@ $lastverse='';
   if(v == 'hide'){
     $('#tran-side').hide();
     $('#arab-side').removeClass('col-sm-6 right').addClass('col-sm-12');
-    $('.trans-mobile').addClass('hidden');
   }else if(v == 9){
     $('#tran-side').show();
     $('#arab-side').removeClass('col-sm-12').addClass('col-sm-6 right');
-    $('.trans-mobile').removeClass('hidden');
   }
  });
  st_ver = 1;
@@ -856,7 +881,6 @@ else
   var id = eval(current_verse_id)-eval(1);
   $("#arabic"+id).css("background-color", "rgba(0,0,0,0)");
   $("#trans"+id).css("background-color", "rgba(0,0,0,0)");
-  $("#trans-mobile"+id).css("background-color", "rgba(0,0,0,0)");
 
   //$('#cmbFVerse').val(current_verse_id+1);
 
@@ -896,7 +920,6 @@ else
     });
     $("#arabic"+current_verse_id).css("background-color", highlight);
     $("#trans"+current_verse_id).css("background-color", highlight);
-    $("#trans-mobile"+current_verse_id).css("background-color", highlight);
     $("#audio_source").prop('src', link);
     
     audio.load();
@@ -1093,10 +1116,7 @@ function stop_player(cond) {
   //         c_obj['arb_desc0'] = 'samp';
          // from_verse=from_verse+'<option class="opt" value="'+0+'">'+0+'</option>';
           // $('#cmbFVerse').val(0);
-  $('#cmbFVerse').val('1').change();
-  // if($('#cmbSura').val()==='3'){
-  //   $('#cmbSura').val('3').change();
-  // }
+  $('#cmbFVerse').val(1).change();
   // $('#cmbTVerse').val({{$surah->verses}}).change();
   
 }
@@ -1117,7 +1137,6 @@ function assign_temp() {
    next_play=false;
    $("#arabic"+t_ver).css("background-color", "white");
    $("#trans"+t_ver).css("background-color", "white");
-   $("#trans-mobile"+t_ver).css("background-color", "white");
    is_ended = false;
  }
 }
@@ -1182,7 +1201,7 @@ function getraku()
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
       i++;
     });
@@ -1424,13 +1443,13 @@ function getSurah(get_special,verse='false'){
       c_obj['arb_desc' + item.verse] = item.description;
       if(returnedData.surah_number!=1)
       {
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";  
       }
       else
       {
         verses=+item.verse + +1;
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </span>";  
       }
 
@@ -1501,6 +1520,12 @@ if(verse=='false')
     
     // $("#arabic"+1).css("background-color", highlight);
     // $("#trans"+1).css("background-color", highlight);
+    var current_verse_id = $('#cmbFVerse').val();
+  var elmnt = document.getElementById("trans"+current_verse_id);
+             elmnt.scrollIntoView();
+            var elmnt = document.getElementById("arabic"+current_verse_id);
+             elmnt.scrollIntoView();
+
 }
   else
   {
@@ -1515,8 +1540,12 @@ if(verse=='false')
    
     $("#arabic"+verse).css("background-color", highlight);
     $("#trans"+verse).css("background-color", highlight);
-    $("#trans-mobile"+verse).css("background-color", highlight);
     playPause();      
+    var current_verse_id = $('#cmbFVerse').val();
+  var elmnt = document.getElementById("trans"+current_verse_id);
+             elmnt.scrollIntoView();
+            var elmnt = document.getElementById("arabic"+current_verse_id);
+             elmnt.scrollIntoView();
   }
   
 
@@ -1524,10 +1553,11 @@ if(verse=='false')
    else
    {
    }
-
+    
    // $("#arabic").append(view);
    // 
  }
+ 
 });
 
 }
@@ -1623,13 +1653,7 @@ function getSurahFromVerse(){
   assign_temp();
   var surah_id=$('#cmbSura').val();
   var from_verse=$('#cmbFVerse').val();
-  if(surah_id === '3'){
-    $.cookie('from_verse',parseInt(from_verse)-1, { expires: 60 });
-  }
-  else{
-    $.cookie('from_verse',from_verse, { expires: 60 });
-  }
-  
+  $.cookie('from_verse',from_verse, { expires: 60 });
   var to_verse=$('#cmbTVerse').val();
   $.ajax({
    url:'{{ url('/get-surah-from-verse') }}',
@@ -1657,17 +1681,8 @@ function getSurahFromVerse(){
      var i=1;
      var link='';
      returnedData.verse.forEach( function (item) {
-      if(returnedData.surah_number!=1)
-      {
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
-      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";  
-      }
-      else
-      {
-        verses=+item.verse+1;
-         arabic=arabic+"<span class='arbic' id='arabic"+verses+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+verses+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
-      translation=translation+"<span class='trns' id='trans"+verses+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </span>";  
-      }
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+"<span class='ayah-end1'> <span>"+item.verse+"</span></span></span>";
+      translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
 
 
       if(returnedData.surah_number==1 && item.verse==1)
@@ -1777,7 +1792,7 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(foot==1)
       {
@@ -1911,7 +1926,6 @@ function zoomout() {
       highlight = $(this).css('background-color');
       $("#arabic"+from_verse).css("background-color", highlight);
       $("#trans"+from_verse).css("background-color", highlight);
-      $("#trans-mobile"+from_verse).css("background-color", highlight);
     });
    $('#font-color div').click(function(){
     $('#font-color').addClass('hidden');
@@ -1957,12 +1971,12 @@ function searchResult()
       if(item.arabic_immune)
       {
 
-        results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p class="arbic">'+item.arabic_immune+'</p>';
+        results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6><span class="trn">Sura</span> '+item.surah.surah_number+' - '+item.surah.surah_name+' : <span class="trn">Verse</span> '+item.verse+'</h6></a><p class="arbic">'+item.arabic_immune+'</p>';
 
       }
       else
       {
-       results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p>'+item.translation+'</p>';
+       results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6><span class="trn">Sura</span> '+item.surah.surah_number+' - '+item.surah.surah_name+' : <span class="trn">Verse</span> '+item.verse+'</h6></a><p>'+item.translation+'</p>';
 
      }
 
@@ -1971,6 +1985,12 @@ function searchResult()
      $("#results").append(results);
      $("#total_found").html("");
      $("#total_found").append(" : "+total_found);
+     var c_lan = $('.lang-selected').find('a').data('value');
+                  var _t = $('body').translate({
+                    lang: c_lan,
+                    t: dict
+                    });
+                    var str = _t.g("translate");
      $("#total").show();
    }
  });
@@ -2014,6 +2034,7 @@ function show_verse_bookmark(surah_id,from_verse,to_verse){
   $('#cmbFVerse').val(from_verse);
  $('#cmbSura').val(surah_id);
   getSurah('',from_verse);
+  
 }
 
 
@@ -2212,10 +2233,19 @@ function book()
   swal.close();
 }
 function save_bookmarks() {
+    var t_title = $('#save_bookmark').html();
+    var t_cancel = $('#btn_cancel').html();
+    var t_save = $('#btn_save').html();
+    var t_find = $('#btn_find').html();
+    @if(\Auth::check())
+    var user_email = "{{auth()->user()->email}}";
+    @else
+    var user_email = "";
+    @endif
   swal({
     type: "info",
-    title: 'Save BookMark',
-    text: '<div class="control-group"><input type="email" id="email_bookmark" class="form-control" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="Save" class="btn btn-success"> <a href="#" onclick="return book()")"  class="btn btn-find">Find</a> </div> ',
+    title: '<span  class="trn">'+t_title+'</span>',
+    text: '<div class="control-group trn"><input type="hidden" id="email_bookmark" class="form-control" value="'+user_email+'" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="'+t_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="'+t_save+'" class="btn btn-success"> <a href="#" onclick="return book()")"  class="btn btn-find">'+t_find+'</a> </div> ',
     html: true,
     showConfirmButton: false ,
 
@@ -2223,6 +2253,8 @@ function save_bookmarks() {
 }
 
 function submit() {
+    var btn_cancel = $('#btn_cancel').html();
+    var b_again = $('#b_again').html();
 
  var email = $('#email_bookmark').val();
  if(email=='')
@@ -2232,7 +2264,7 @@ function submit() {
     title: 'Provide Your Email',
     text: 'Email is required to save bookmarks.',
     html: true,
-    text: '<input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="Try Again" class="btn btn-success"></div>',
+    text: '<input type="reset" value="'+btn_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="'+b_again+'" class="btn btn-success"></div>',
     showConfirmButton: false ,
 
   });
@@ -2279,34 +2311,41 @@ else
               }
               else if(response==1)
               {
-                $('#results_bookmarks').html('Bookmark is saved.');
+                var b_saved = $('#b_saved').html();
+                var btn_close = $('#btn_close').html();
+                $('#results_bookmarks').html(b_saved);
                 swal({
                   type: "success",
-                  title: 'Bookmark is saved',
+                  title: b_saved,
                   html: true,
-                  text: '<input type="button" value="Close" onclick="swal.close()" class="btn btn-success">',
+                  text: '<input type="button" value="'+btn_close+'" onclick="swal.close()" class="btn btn-success">',
                   showConfirmButton: false ,
 
                 });
               }
               else if(response==2)
               {
+                var b_exist = $('#b_exist').html();
+                var btn_close = $('#btn_close').html();
                 swal({
                   type: "error",
-                  title: 'Bookmark is already saved',
+                  title: b_exist,
                   html: true,
-                  text: '<input type="button" value="Close" onclick="swal.close()" class="btn btn-success">',
+                  text: '<input type="button" value="'+btn_close+'" onclick="swal.close()" class="btn btn-success">',
                   showConfirmButton: false ,
 
                 });
               }
               else
               {
+                var b_exist = $('#b_exist').html();
+                var btn_cancel = $('#btn_cancel').html();
+                var b_again = $('#b_again').html();
                 swal({
                   type: "error",
-                  title: 'Something went wrong.',
+                  title: b_exist,
                   html: true,
-                  text: '<input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="Try Again" class="btn btn-success"></div>',
+                  text: '<input type="reset" value="'+btn_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="'+b_again+'" class="btn btn-success"></div>',
                   showConfirmButton: false ,
 
                 });
@@ -2349,21 +2388,29 @@ else
                   returnedData.forEach( function (item) {
                     total_found++;
 
-                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6 id='+item.id+'>Sura '+item.surah_number+',From Verse '+item.from_verse+', To Verse '+item.to_verse+'</a><a href="#" onclick="delete_book('+item.id+')">  <i class="fa fa-times" style="color:red; font-size:15px;"></i></h6> </a><p></p>';
+                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6 id='+item.id+'><span class="trn">Sura</span> '+item.surah_number+',From <span class="trn">Verse</span> '+item.from_verse+', To <span class="trn">Verse</span> '+item.to_verse+'</a><a href="#" onclick="delete_book('+item.id+')">  <i class="fa fa-times" style="color:red; font-size:15px;"></i></h6> </a><p></p>';
                   });
                   $("#results_bookmarks").html("");
                   $("#results_bookmarks").append(results);
                   $("#totalb").html("");
                   $("#totalb").append(" : "+total_found);
+                  var c_lan = $('.lang-selected').find('a').data('value');
+                  var _t = $('body').translate({
+                    lang: c_lan,
+                    t: dict
+                    });
+                    var str = _t.g("translate");
                   $("#total_found_bookmarks").show();
                 }
                 else
                 {
-                  $('#results_bookmarks').html('Something went wrong.');
+                    var b_wrong = $('#b_wrong').html();
+                  $('#results_bookmarks').html(b_wrong);
                 }
 
               }
             });
+            
       });
 
 
@@ -2394,14 +2441,14 @@ $('#forget_password').on('submit',function (e) {
                  {
                     $('#forget_error').hide();
                     $('#forget_success').show();
-                  $('#forget_success').html('Send a link in your email for change password');   
+                  $('#forget_success').html($('#b_sent_link').html());   
                   
                 }
                 else
                 {
                   $('#forget_success').hide();
                   $('#forget_error').show();
-                  $('#forget_error').html('invalid email kindly try again with valid input');
+                  $('#forget_error').html($('#b_invalid_email').html());
                 }
 
               }
@@ -2430,7 +2477,7 @@ $('#login').on('submit',function (e) {
                  
                  if(response=='true')
                  {
-                    // location.reload(true);
+                    location.reload(true);
                     document.getElementById("logedout").style.display = "block";
                     document.getElementById("logedin").style.display = "none";
                     document.getElementById("login_content").style.display = "none";
@@ -2502,11 +2549,13 @@ $('#login').on('submit',function (e) {
 
 
 function delete_book(id) {
-  
+var b_sure = $('#b_sure').html();
+var btn_cancel = $('#btn_cancel').html();
+var btn_delete = $('#btn_delete').html();
   swal({
     type: "info",
-    title: 'Are you sure you want delete?',
-    text: '<div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="deletes_book('+id+')" value="Delete" class="btn btn-success"> </div> ',
+    title: b_sure+'?',
+    text: '<div class="control-group"><br/><input type="reset" value="'+btn_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="deletes_book('+id+')" value="'+btn_delete+'" class="btn btn-success"> </div> ',
     html: true,
     showConfirmButton: false ,
 
@@ -2538,12 +2587,13 @@ function deletes_book(id) {
     if(response=='true')
     {
       $('#'+id).html('');
-
+    var b_deleted = $('#b_deleted').html();
+    var btn_close = $('#btn_close').html();
     swal({
                   type: "success",
-                  title: 'Bookmark is deleted',
+                  title: b_deleted,
                   html: true,
-                  text: '<input type="button" value="Close" onclick="swal.close()" class="btn btn-success">',
+                  text: '<input type="button" value="'+btn_close+'" onclick="swal.close()" class="btn btn-success">',
                   showConfirmButton: false ,
 
                 });
@@ -2558,11 +2608,6 @@ function deletes_book(id) {
 });
 
       }
-
-
-  $(function() {
-    // $('#arabic1').after('<p>sample text</p>');
-  });
       
 
 </script>

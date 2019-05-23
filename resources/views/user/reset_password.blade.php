@@ -9,7 +9,7 @@
                     <div class="panel-body">
                         <div class="text-center">
                           <h3><i class="fa fa-lock fa-4x"></i></h3>
-                          <h2 class="text-center">Change Password.</p>
+                          <h2 class="text-center">Bytt passord.</p>
                             <div class="panel-body">
                               
                               <form method="post" action="{{ route('change-password') }}" class="form">
@@ -17,19 +17,19 @@
                                 <input type="hidden" name="email" value="{{ $email }}">
 
                                   <div class="form-group">
-                                      <input placeholder="New Password" class="form-control" type="password" name="password">
+                                      <input placeholder="Nytt passord" class="form-control" type="password" name="password">
                                     </div>
                                     <span style="font-size: 12px; color: red;">{{ $errors->first('password') }}</span>
                                   
                                   <div class="form-group">
                                     <div class="form-group">
-                                      <input placeholder="Confirm Password" class="form-control" type="password" name="password_confirmation">
+                                      <input placeholder="Bekreft passord" class="form-control" type="password" name="password_confirmation">
                                     </div>
                                     <span style="color: red; font-size: 12px;">{{ $errors->first('password_confirmation') }}</span>
                                     
                                   
                                   <div class="form-group">
-                                    <button class="btn btn-lg btn-primary btn-block"  type="submit">Change Password</button>
+                                    <button class="btn btn-lg btn-primary btn-block"  type="submit">Bytt passord</button>
                                     
                                   </div>
                                 

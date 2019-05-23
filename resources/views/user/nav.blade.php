@@ -12,7 +12,7 @@
                       <label>Sura / Chapter</label>
                       <select class=""
                         id="cmbSura" name="SuraID" style="width: 237px;">
-                        <option value="1" selected>1 - Al-Fatiha</option>
+                        <option value="1">1 - Al-Fatiha</option>
                         <option value="2">2 - Al-Baqara</option>
                         <option value="3">3 - Al-E-Imran</option>
                         <option value="4">4 - An-Nisa</option>
