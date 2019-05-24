@@ -1182,7 +1182,7 @@ function getraku()
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
       i++;
     });
@@ -1777,7 +1777,7 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(foot==1)
       {
