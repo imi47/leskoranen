@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="content-type" content="font/ttf">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="{{$PUBLIC_ASSETS}}/img/forweb2.jpg" type="image/x-icon">
+	<link rel="shortcut icon" href="{{$PUBLIC_ASSETS}}/img/forweb2.png" type="image/x-icon">
 	<title>
 		{{$title}}
 	</title>
@@ -258,156 +258,206 @@
 
 
 
-		var dict = {
-			"Home": {
-				no: "Hjem"
-			},
-			"Search": {
-				no: "Søk"
-			},
-
-			"Invite Friend": {
-				no: "Inviter en venn"
-			},
-			"Kindly login for view or add bookmarks": {
-				no: "Vennligst login for å se eller for å legge til favoritter"
-			},
-			"Login": {
-				no: "Logg inn"
-			},
-			"Signup": {
-				no: "Registrer deg"
-			},
-			"Forget Password": {
-				no: "Glemt passord"
-			},
-			"Bug Reporting": {
-				no: "Feilrapportering"
-			},
-			"Bookmarks": {
-				no: "Favoritter"
-			},
-			"Sura / Chapter": {
-				no: "Surah / Kapittel"
-			},
-			"White": {
-				no: "Hvit"
-			},
-			"Juz": {
-				no: "Juz"
-			},
-			"From Verse": {
-				no: "Fra Vers"
-			},
-			"To Verse": {
-				no: "Til Vers"
-			},
-
-			"Ruku": {
-				no: "Ruku"
-			},
-			"Script": {
-				no: "Arabic Tekst"
-			},
-			"Select": {
-				no: "Velg emne"
-			},
-			"Reciter": {
-				no: "Resitert av"
-			},
-			"Tranlation": {
-				no: "Oversettelse"
-			},
-			"Verse Repeat": {
-				no: "Repeter vers"
-			},
-			"Range Repeat": {
-				no: "Repeter valgte vers"
-			},
-			"Auto play next surah": {
-				no: "Auto spill neste surah"
-			},
-			"Surah introduction": {
-				no: "Surah introduksjon"
-			},
-
-			"Footnotes": {
-				no: "Fotnoter"
-			},
-			"Surah introduction": {
-				no: "Surah introduksjon"
-			},
-			"Surah intro": {
-				no: "Surah introduksjon"
-			},
-			"Chapter": {
-				no: "Kapittel"
-			},
-			"All Chapters": {
-				no: "All kapitler"
-			},
-
-			"Language": {
-				no: "Språk"
-			},
-			"With Immune": {
-				no: "Med immunitet"
-			},
-			"Without Immune": {
-				no: "Uten immunitet"
-			},
-
-			"Search Results": {
-				no: "Søkeresultat"
-			},
-			"Send Invitation": {
-				no: "Send invitasjon"
-			},
-			"Your name": {
-				no: "Ditt navn"
-			},
-			"Your email": {
-				no: "Din epost"
-			},
-			"Friend's email": {
-				no: "Vennens post"
-			},
-			"Message": {
-				no: "Melding"
-			},
-			"Summary": {
-				no: "Sammendrag"
-			},
-			"Get Bookmarks": {
-				no: "Mine bokmerker"
-			},
-
-			"Arabic Text": {
-				no: "Arabisk tekst"
-			},
-
-			"Arabic Audio": {
-				no: "Arabisk lyd"
-			},
-			"Norsk Translation": {
-				no: "Norsk oversettelse"
-			},
-			"Details": {
-				no: "Beskrivelse"
-			},
-			"Total Search Count": {
-				no: "Totale Søkeresultater"
-			},
-			"Font": {
-				no: "Skrift farge"
-			},
-			"Highlight": {
-				no: "Markeringsfarge"
-			},
-			"Close": {
-				no: "Lukk"
-			},
-		}
+		var dict = {	
+   "Home": {	
+     no: "Hjem"	
+   },	
+   "Search": {	
+     no: "Søk"	
+   },	
+   	
+   "Invite Friend": {	
+     no: "Inviter en venn"	
+   },	
+   "Kindly login for view or add bookmarks": {	
+     no: "Vennligst login for å se eller for å legge til favoritter"	
+   },	
+   "Login": {	
+     no: "Logg inn"	
+   },	
+   "Signup": {	
+     no: "Registrer deg"	
+   },	
+      "Forget Password": {	
+     no: "Glemt passord"	
+   },	
+   "Bug Reporting": {	
+     no: "Feilrapportering"	
+   },	
+      "Bookmarks": {	
+     no: "Favoritter"	
+   },	
+   "Sura / Chapter": {	
+     no: "Surah / Kapittel"	
+   },	
+	 "White": {	
+     no: "Hvit"	
+   },	
+   "Juz": {	
+     no: "Juz"	
+   },	
+      "From Verse": {	
+     no: "Fra Vers"	
+   },	
+   "To Verse": {	
+     no: "Til Vers"	
+   },	
+       "Ruku": {	
+     no: "Ruku"	
+   },	
+     "Script": {	
+     no: "Arabic Tekst"	
+   },	
+   "Select": {	
+     no: "Velg emne"	
+   },	
+     "Reciter": {	
+     no: "Resitert av"	
+   },	
+        "Tranlation": {	
+     no: "Oversettelse"	
+   },	
+     "Verse Repeat": {	
+     no: "Repeter vers"	
+   },	
+    "Range Repeat": {	
+     no: "Repeter valgte vers"	
+   },	
+   "Auto play next surah": {	
+     no: "Auto spill neste surah"	
+   },	
+   "Surah introduction": {	
+     no: "Surah introduksjon"	
+   },	
+    "Footnotes": {	
+     no: "Fotnoter"	
+   },	
+   "Surah introduction": {	
+     no: "Surah introduksjon"	
+   },	
+	 "Surah intro": {	
+     no: "Surah introduksjon"	
+   },	
+   "Chapter": {	
+     no: "Kapittel"	
+   },	
+"All Chapters": {	
+     no: "All kapitler"	
+   },	
+    "Language": {	
+     no: "Språk"	
+   },	
+   "With Immune": {	
+     no: "Med immunitet"	
+   },	
+   "Without Immune": {	
+     no: "Uten immunitet"	
+   },	
+    	
+     "Search Results": {	
+     no: "Søkeresultat"	
+   },	
+   "Send Invitation": {	
+     no: "Send invitasjon"	
+   },	
+   "Your name": {	
+     no: "Ditt navn"	
+   },	
+   "Your email": {	
+     no: "Din epost"	
+   },	
+   "Your Password": {	
+     no: "Passord"	
+   },	
+    "Confirm Your Password": {	
+     no: "Bekreft passord"	
+   },	
+   "Friend's email": {	
+     no: "Vennens post"	
+   },	
+   "Message": {	
+     no: "Melding"	
+   },	
+"Summary": {	
+     no: "Sammendrag"	
+   },	
+      "Get Bookmarks": {	
+     no: "Mine bokmerker"	
+   },	
+    "Arabic Text": {	
+     no: "Arabisk tekst"	
+   },	
+    "Arabic Audio": {	
+     no: "Arabisk lyd"	
+   },	
+   "Norsk Translation": {	
+     no: "Norsk oversettelse"	
+   },	
+   "Details": {	
+     no: "Beskrivelse"	
+   },	
+   "Total Search Count": {	
+     no: "Totale Søkeresultater"	
+   },	
+   "Font": {	
+     no: "Skrift farge"	
+   },	
+   "Highlight": {	
+     no: "Markeringsfarge"	
+   },	
+	 "Close": {	
+     no: "Lukk"	
+   },	
+	 "Save Bookmark": {	
+     no: "Lagre Favoritter"	
+   },	
+	 "Cancel": {	
+     no: "Avbryt"	
+   },	
+	 "Save": {	
+     no: "Lagre"	
+   },	
+	 "Find": {	
+     no: "Finn"	
+   },	
+	 "Verify": {	
+     no: "Send passord"	
+   },	
+	 "Bookmark is already saved": {	
+     no: "Favoritter er allerede lagret"	
+   },	
+	 "Bookmark is saved": {	
+     no: "Favoritter er lagret"	
+   },	
+	 "Something went wrong": {	
+     no: "Noe gikk galt"	
+   },	
+	 "Bookmark is deleted": {	
+     no: "Favoritter er slettet"	
+   },	
+	 "Are you sure you want delete": {	
+     no: "Er du sikker på at du vil slette"	
+   },	
+	 "Try Again": {	
+     no: "Prøv igjen"	
+   },	
+	 "Delete": {	
+     no: "Slett"	
+   },	
+    "Sent a link in your email for change password": {	
+     no: "Sjekk din e-post for å endre passord."	
+   },	
+    "Invalid email. Kindly try again!": {	
+     no: "Feil e-post, vennligst prøv igjen!"	
+   },	
+    "Sura": {	
+     no: "Surah"	
+   },	
+    "Verse": {	
+     no: "Vers"	
+   },	
+    	
+ }
 		var _t = $('body').translate({
 
 			lang: "en",

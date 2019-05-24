@@ -323,8 +323,15 @@ $lastverse='';
             
             <form style="margin-top: 10px;" id="get_bookmarks" class="shake" role="form" method="post">
              @csrf
+             <?php
+            if(\Auth::check()){
+                $user_email = auth()->user()->email;
+            }else{
+                $user_email = "";
+            }
+            ?>
              <div class="form-group">
-              <input type="email" class="form-control trn" placeholder="Your email" id="get_bookmarks_email" required="" name="email">
+              <input type="hidden" class="form-control trn" placeholder="Your email" id="get_bookmarks_email" required="" value="{{$user_email}}" name="email"> 
             </div>
             <div class="form-group">
               <input style="height: auto; width: auto;" type="submit" name="btnSub" class="btn btn-primary trn" value="Get Bookmarks">
@@ -402,7 +409,7 @@ $lastverse='';
             {{-- <p style="color: red">Kindly login for view or add bookmarks</p> --}}
             <hr>
             
-            <p class="alert alert-success" style="display: none;" id="forget_success"></p>
+             <p class="alert alert-success trn" style="display: none;" id="forget_success"></p>
             <p class="alert alert-danger" style="display: none;" id="forget_error"></p>
             <form id="forget_password" class="shake" role="form" method="post">
              @csrf
@@ -700,6 +707,22 @@ $lastverse='';
 </div>
 </div>
 </div>
+</div>
+<div style="display:none !important"> 
+    <p class="trn" id="save_bookmark">Save Bookmark</p> 
+    <p class="trn" id="btn_cancel">Cancel</p> 
+    <p class="trn" id="btn_save">Save</p> 
+    <p class="trn" id="btn_find">Find</p> 
+    <p class="trn" id="b_exist">Bookmark is already saved</p> 
+    <p class="trn" id="btn_close">Close</p> 
+    <p class="trn" id="b_saved">Bookmark is saved</p> 
+    <p class="trn" id="b_wrong">Something went wrong</p>  
+    <p class="trn" id="b_deleted">Bookmark is deleted</p> 
+    <p class="trn" id="b_sure">Are you sure you want delete</p> 
+    <p class="trn" id="b_again">Try Again</p> 
+    <p class="trn" id="btn_delete">Delete</p> 
+    <p class="trn" id="b_sent_link">Sent a link in your email for change password</p> 
+    <p class="trn" id="b_invalid_email">Invalid email. Kindly try again!</p>  
 </div>
 @if(Session::get('successs'))
 <script>
@@ -1777,7 +1800,7 @@ function getSurahToVerse(){
      t_ver = to_verse;
 
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns  trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(foot==1)
       {
@@ -1957,12 +1980,12 @@ function searchResult()
       if(item.arabic_immune)
       {
 
-        results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p class="arbic">'+item.arabic_immune+'</p>';
+        results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6><span class="trn">Sura</span> '+item.surah.surah_number+' - '+item.surah.surah_name+' : <span class="trn">Verse</span> '+item.verse+'</h6></a><p class="arbic">'+item.arabic_immune+'</p>';
 
       }
       else
       {
-       results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6>Sura '+item.surah.surah_number+' - '+item.surah.surah_name+' : Verse '+item.verse+'</h6></a><p>'+item.translation+'</p>';
+       results=results+'<a href="#" onclick="show_verse('+item.surah.id+','+item.verse+')"> <h6><span class="trn">Sura</span> '+item.surah.surah_number+' - '+item.surah.surah_name+' : <span class="trn">Verse</span> '+item.verse+'</h6></a><p>'+item.translation+'</p>';
 
      }
 
@@ -1971,6 +1994,12 @@ function searchResult()
      $("#results").append(results);
      $("#total_found").html("");
      $("#total_found").append(" : "+total_found);
+     var c_lan = $('.lang-selected').find('a').data('value'); 
+                  var _t = $('body').translate({  
+                    lang: c_lan,  
+                    t: dict 
+                    }); 
+                    var str = _t.g("translate");
      $("#total").show();
    }
  });
@@ -2212,10 +2241,19 @@ function book()
   swal.close();
 }
 function save_bookmarks() {
+  var t_title = $('#save_bookmark').html(); 
+    var t_cancel = $('#btn_cancel').html(); 
+    var t_save = $('#btn_save').html(); 
+    var t_find = $('#btn_find').html(); 
+    @if(\Auth::check()) 
+    var user_email = "{{auth()->user()->email}}"; 
+    @else 
+    var user_email = "";  
+    @endif  
   swal({
     type: "info",
-    title: 'Save BookMark',
-    text: '<div class="control-group"><input type="email" id="email_bookmark" class="form-control" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="Save" class="btn btn-success"> <a href="#" onclick="return book()")"  class="btn btn-find">Find</a> </div> ',
+    title: '<span  class="trn">'+t_title+'</span>',
+    text: '<div class="control-group trn"><input type="hidden" id="email_bookmark" class="form-control" value="'+user_email+'" placeholder="Enter your email" name="email" required></div><input type="hidden" value=" name="ticket_id"><div class="control-group"><br/><input type="reset" value="'+t_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="submit()" value="'+t_save+'" class="btn btn-success"> <a href="#" onclick="return book()")"  class="btn btn-find">'+t_find+'</a> </div> ',
     html: true,
     showConfirmButton: false ,
 
@@ -2223,7 +2261,8 @@ function save_bookmarks() {
 }
 
 function submit() {
-
+var btn_cancel = $('#btn_cancel').html(); 
+    var b_again = $('#b_again').html();
  var email = $('#email_bookmark').val();
  if(email=='')
  {
@@ -2232,7 +2271,7 @@ function submit() {
     title: 'Provide Your Email',
     text: 'Email is required to save bookmarks.',
     html: true,
-    text: '<input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="Try Again" class="btn btn-success"></div>',
+    text: '<input type="reset" value="'+btn_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="'+b_again+'" class="btn btn-success"></div>',
     showConfirmButton: false ,
 
   });
@@ -2279,23 +2318,27 @@ else
               }
               else if(response==1)
               {
-                $('#results_bookmarks').html('Bookmark is saved.');
+                var b_saved = $('#b_saved').html();
+                var btn_close = $('#btn_close').html();
+                $('#results_bookmarks').html(b_saved);
                 swal({
                   type: "success",
-                  title: 'Bookmark is saved',
+                  title: b_saved,
                   html: true,
-                  text: '<input type="button" value="Close" onclick="swal.close()" class="btn btn-success">',
+                  text: '<input type="button" value="'+btn_close+'" onclick="swal.close()" class="btn btn-success">',
                   showConfirmButton: false ,
 
                 });
               }
               else if(response==2)
               {
+                var b_exist = $('#b_exist').html(); 
+                var btn_close = $('#btn_close').html();
                 swal({
                   type: "error",
-                  title: 'Bookmark is already saved',
+                  title: b_exist,
                   html: true,
-                  text: '<input type="button" value="Close" onclick="swal.close()" class="btn btn-success">',
+                  text: '<input type="button" value="'+btn_close+'" onclick="swal.close()" class="btn btn-success">',
                   showConfirmButton: false ,
 
                 });
@@ -2304,9 +2347,9 @@ else
               {
                 swal({
                   type: "error",
-                  title: 'Something went wrong.',
+                  title: b_exist,
                   html: true,
-                  text: '<input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="Try Again" class="btn btn-success"></div>',
+                  text: '<input type="reset" value="'+btn_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="button" onclick="save_bookmarks()" value="'+b_again+'" class="btn btn-success"></div>',
                   showConfirmButton: false ,
 
                 });
@@ -2349,17 +2392,24 @@ else
                   returnedData.forEach( function (item) {
                     total_found++;
 
-                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6 id='+item.id+'>Sura '+item.surah_number+',From Verse '+item.from_verse+', To Verse '+item.to_verse+'</a><a href="#" onclick="delete_book('+item.id+')">  <i class="fa fa-times" style="color:red; font-size:15px;"></i></h6> </a><p></p>';
+                    results=results+'<a href="#" onclick="show_verse_bookmark('+item.surah_id+','+item.from_verse+','+item.to_verse+')"> <h6 id='+item.id+'><span class="trn">Sura</span> '+item.surah_number+',From <span class="trn">Verse</span> '+item.from_verse+', To <span class="trn">Verse</span> '+item.to_verse+'</a><a href="#" onclick="delete_book('+item.id+')">  <i class="fa fa-times" style="color:red; font-size:15px;"></i></h6> </a><p></p>';
                   });
                   $("#results_bookmarks").html("");
                   $("#results_bookmarks").append(results);
                   $("#totalb").html("");
                   $("#totalb").append(" : "+total_found);
+                  var c_lan = $('.lang-selected').find('a').data('value'); 
+                  var _t = $('body').translate({  
+                    lang: c_lan,  
+                    t: dict 
+                    }); 
+                    var str = _t.g("translate");
                   $("#total_found_bookmarks").show();
                 }
                 else
                 {
-                  $('#results_bookmarks').html('Something went wrong.');
+                  var b_wrong = $('#b_wrong').html();
+                  $('#results_bookmarks').html(b_wrong);
                 }
 
               }
@@ -2394,14 +2444,14 @@ $('#forget_password').on('submit',function (e) {
                  {
                     $('#forget_error').hide();
                     $('#forget_success').show();
-                  $('#forget_success').html('Send a link in your email for change password');   
+                  $('#forget_success').html($('#b_sent_link').html()); 
                   
                 }
                 else
                 {
                   $('#forget_success').hide();
                   $('#forget_error').show();
-                  $('#forget_error').html('invalid email kindly try again with valid input');
+                  $('#forget_error').html($('#b_invalid_email').html());
                 }
 
               }
@@ -2430,7 +2480,7 @@ $('#login').on('submit',function (e) {
                  
                  if(response=='true')
                  {
-                    // location.reload(true);
+                    location.reload(true);
                     document.getElementById("logedout").style.display = "block";
                     document.getElementById("logedin").style.display = "none";
                     document.getElementById("login_content").style.display = "none";
@@ -2502,11 +2552,13 @@ $('#login').on('submit',function (e) {
 
 
 function delete_book(id) {
-  
+  var b_sure = $('#b_sure').html();   
+var btn_cancel = $('#btn_cancel').html(); 
+var btn_delete = $('#btn_delete').html();
   swal({
     type: "info",
-    title: 'Are you sure you want delete?',
-    text: '<div class="control-group"><br/><input type="reset" value="Cancel" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="deletes_book('+id+')" value="Delete" class="btn btn-success"> </div> ',
+    title: b_sure+'?',
+    text: '<div class="control-group"><br/><input type="reset" value="'+btn_cancel+'" onclick="swal.close()" class="btn btn-danger">&nbsp;&nbsp;&nbsp;<input type="submit" onclick="deletes_book('+id+')" value="'+btn_delete+'" class="btn btn-success"> </div> ',
     html: true,
     showConfirmButton: false ,
 
@@ -2538,12 +2590,14 @@ function deletes_book(id) {
     if(response=='true')
     {
       $('#'+id).html('');
+      var b_deleted = $('#b_deleted').html(); 
+    var btn_close = $('#btn_close').html();
 
     swal({
                   type: "success",
                   title: 'Bookmark is deleted',
                   html: true,
-                  text: '<input type="button" value="Close" onclick="swal.close()" class="btn btn-success">',
+                  text: '<input type="button" value="'+btn_close+'" onclick="swal.close()" class="btn btn-success">',
                   showConfirmButton: false ,
 
                 });
