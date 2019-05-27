@@ -167,11 +167,6 @@ body.beige, #myTopnav.beige {
     z-index: 2;
 }
 
-#search_content, #bookmark_content, #login_content, #forget, #Signup, #bug_report, #inv_friend_content {
-    position: relative;
-    z-index: 1;
-}
-
 #search_content .jumbotron, #bookmark_content .jumbotron, #login_content .jumbotron, #forget .jumbotron, #Signup .jumbotron, #bug_report .jumbotron, #inv_friend_content .jumbotron {
     background-color: rgba(233,236,239,.7);
 }
@@ -583,7 +578,10 @@ section.audio_player section.main_control a.stop_b {
         padding-bottom: 0;
     }
 
-    #logedin > div {
+    #logedin > div,
+    #login > .form-group:last-child,
+    #signup > .form-group:last-child,
+    #forget_password > .form-group:last-child {
         display: grid;
         grid-gap: 10px;
     }
@@ -1967,7 +1965,8 @@ section.quran_menu section.option_box input {
     .quran_menu ul li:first-child section .Qinput .input-group-btn select {
         width: 145px !important;
         margin-left: 75px !important;
-        margin-top: -43px !important;
+        margin-top: -46px !important;
+        border-left: 1px solid rgba(255,255,255,.1);
     }
 
     .quran_menu #cmbScript {
@@ -2237,9 +2236,12 @@ section.quran_menu section.option_box input {
     }
 
     .trans-mobile {
-        font-size: .9rem !important;
         margin-top: .2rem;
         margin-bottom: .35rem;
+    }
+
+    .trns, .trans-mobile {
+        font-size: .9rem !important;
     }
 
     .ayah-end1 {
@@ -2267,6 +2269,24 @@ section.quran_menu section.option_box input {
     section.quran_menu ul li:nth-child(6) {
         padding-bottom: 0;
         height: -47px;
+    }
+
+    #c-surah p {
+        font-size: 12px;
+    }
+
+    section.quran_menu section label,
+    .quran_menu span, .quran_menu select {
+        font-size: 14px;
+    }
+
+    #footnotes .modal-header h5 {
+        font-size: 18px;
+    }
+
+    #footnotes .c-verse {
+        font-size: 1rem !important;
+        line-height: 25px !important;
     }
 }
 
