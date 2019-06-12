@@ -500,7 +500,7 @@ body{
 
 </li>
 <li>
-  <object data="{{$PUBLIC_ASSETS}}/img/double-arrow.svg" type=""></object>
+<img src="{{$PUBLIC_ASSETS}}/img/double-arrow.svg" alt="">
  <section class="intro-footnote">
     <div>
       <span class="trn">Surah introduction</span>
@@ -628,4 +628,21 @@ body{
     document.querySelector('.aboveDrawer:not(.open) .open .triangle').classList.toggle('beige');
     this.classList.toggle('beige');
   }
+  
+  $(function() {
+    $('.quran_menu > ul > li:nth-child(-n+6)').mouseenter(function() {
+      $(this).children('section').css('display', 'block');
+    });
+    $('#home_content').mouseenter(function() {
+      if($('.quran_menu > ul > li:nth-child(-n+6) > section').css('position') == 'absolute')
+        $('.quran_menu > ul > li:nth-child(-n+6) > section').css('display', 'none');
+      // else $('.quran_menu > ul > li:nth-child(-n+6) > section').css('display', 'block');
+    });
+  });
+
+  window.onresize = function() {
+    if($('.quran_menu > ul > li:nth-child(-n+6) > section').css('position') != 'absolute')
+    $('.quran_menu > ul > li:nth-child(-n+6) > section').css('display', 'block');
+  }
 </script>
+

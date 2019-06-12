@@ -606,7 +606,7 @@ section.audio_player section.main_control a.next_b img {
     top: -20px;
 }
 
-section.quran_menu ul li:nth-child(6) object {
+section.quran_menu ul li:nth-child(6) img {
     transform: rotate(90deg);
 }
 
@@ -1646,7 +1646,7 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
 /* @media only screen and (max-width:1780px) { */
 section.quran_menu ul li:nth-child(6) {
     padding-top: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 9px;
     overflow: visible;
     width: 52px;
 }
@@ -2272,7 +2272,7 @@ section.quran_menu section.option_box input {
 
     section.quran_menu ul li:nth-child(6) {
         padding-bottom: 0;
-        height: -47px;
+        height: 47px;
     }
 
     #c-surah p {
