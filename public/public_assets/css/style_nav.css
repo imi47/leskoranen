@@ -1606,7 +1606,6 @@ section.quran_menu section.memorization_box div+div input[type=radio]:checked+la
 
 .Qinput {
     border-radius: 10px !important;
-    width: 75px !important;
     height: 25px;
     Ztext-align: left;
     margin: -27px;
@@ -1663,16 +1662,8 @@ section.quran_menu li:nth-child(6) section {
     background: #4c1426;
 }
 
-section.quran_menu li:nth-child(6):hover section {
-    visibility: visible
-}
-
 section.quran_menu li:nth-child(6) select {
     width: 100%
-}
-
-section.quran_menu ul li:nth-child(6):hover {
-    background-color: #4c1426;
 }
 
 /* } */
@@ -1720,16 +1711,8 @@ section.quran_menu li:nth-child(5) section > div:first-child input {
     margin-right: 5px;
 }
 
-section.quran_menu li:nth-child(5):hover section {
-    visibility: visible
-}
-
 section.quran_menu li:nth-child(5) select {
     width: 100%
-}
-
-section.quran_menu ul li:nth-child(5):hover {
-    background-color: #4c1426;
 }
 
 /* } */
@@ -1769,14 +1752,6 @@ section.quran_menu section.memorization_box div+div {
 
 section.quran_menu section.memorization_box div span.mem_span {
     height: 28px
-}
-
-section.quran_menu ul li:nth-child(4):hover {
-    background-color: #4c1426;
-}
-
-section.quran_menu ul li:nth-child(4):hover section {
-    visibility: visible
 }
 
 section.quran_menu section.option_box input {
@@ -1820,14 +1795,6 @@ section.quran_menu section.option_box input {
         z-index: 100;
         padding: 20px;
         background: #4c1426;
-    }
-
-    section.quran_menu ul li:nth-child(3):hover {
-        background-color: #4c1426;
-    }
-
-    section.quran_menu ul li:nth-child(3):hover section {
-        visibility: visible
     }
 
     section.quran_menu ul li:nth-child(3) {
@@ -1877,14 +1844,6 @@ section.quran_menu section.option_box input {
         left: 0;
         z-index: 100;
         background: #4c1426;
-    }
-
-    section.quran_menu ul li:nth-child(2):hover {
-        background-color: #4c1426;
-    }
-
-    section.quran_menu ul li:nth-child(2):hover section {
-        visibility: visible
     }
 
     section.quran_menu ul li:nth-child(2) {
@@ -1945,6 +1904,10 @@ section.quran_menu section.option_box input {
     section.quran_menu section.text_search {
         margin-top: 4px;
     }
+
+    .Qinput {
+        width: 75px;
+    }
 }
 
 @media only screen and (max-width:920px) {
@@ -1967,8 +1930,6 @@ section.quran_menu section.option_box input {
 
     .quran_menu ul li:first-child section .Qinput .input-group-btn select {
         width: 145px !important;
-        margin-left: 75px !important;
-        margin-top: -46px !important;
         border-left: 1px solid rgba(255,255,255,.1);
     }
 
@@ -2008,14 +1969,6 @@ section.quran_menu section.option_box input {
         padding: 20px;
         background: #4c1426;
         width: 256px
-    }
-
-    section.quran_menu ul li:hover {
-        background-color: #4c1426;
-    }
-
-    section.quran_menu ul li:nth-child(1):hover section {
-        visibility: visible
     }
 
     section.quran_menu ul li:nth-child(5) section {
@@ -2369,5 +2322,28 @@ section.quran_menu section.option_box input {
         bottom: 11px !important;
         top: unset !important;
         left: 50% !important;
+    }
+}
+
+@media (hover: hover) {
+    section.quran_menu ul li:hover section {
+        visibility: visible
+    }
+
+    section.quran_menu ul li.hovered {
+        background-color: #4c1426;
+    }
+}
+
+@media (hover: none) {
+    section.quran_menu ul li.open {
+        background-color: #4c1426;
+    } 
+    section.quran_menu ul li.open section {
+        visibility: visible !important;
+    }
+    
+    section.quran_menu ul li section.open {
+        visibility: visible !important;
     }
 }
