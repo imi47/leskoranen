@@ -181,7 +181,7 @@
   <section id="container">
     <div id="containerBody">
       <div class="topnav" id="myTopnav">
-        <a href="https://leskoranen.no" id="logo"><img src="{{$PUBLIC_ASSETS}}/img/forweb2.jpg" width="97px"
+        <a href="https://leskoranen.no" id="logo"><img src="{{$PUBLIC_ASSETS}}/img/Les-Koranen-logo-dark.png" width="97px"
             height="35px" alt=""></a>
         <div class="inner-tabs" style="padding: 10px;">
           <a href="#" class="active trn" onclick="change_content('home')">Home</a>
