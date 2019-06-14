@@ -2245,6 +2245,11 @@ section.quran_menu section.option_box input {
         font-size: 1rem !important;
         line-height: 25px !important;
     }
+
+    section.quran_menu.quran_menu ul li {
+        height: 47px;
+    }
+
 }
 
 .ir,
