@@ -181,8 +181,8 @@
   <section id="container">
     <div id="containerBody">
       <div class="topnav" id="myTopnav">
-        <a href="https://leskoranen.no" id="logo"><img src="{{$PUBLIC_ASSETS}}/img/Les-Koranen-logo-dark.png" width="97px"
-            height="35px" alt=""></a>
+        <a href="https://leskoranen.no" id="logo"><img src="{{$PUBLIC_ASSETS}}/img/Les-Koranen-logo-dark.png"
+            width="97px" height="35px" alt=""></a>
         <div class="inner-tabs" style="padding: 10px;">
           <a href="#" class="active trn" onclick="change_content('home')">Home</a>
           <a href="#" class="trn" onclick="change_content('search')">Search</a>
@@ -674,9 +674,14 @@
             $(this).parent('li').addClass('open');
           }
         });
-        document.onclick = function () {
-          $('.quran_menu li, .quran_menu li section').removeClass('open');
-        }
+      });
+
+      document.onclick = function () {
+        $('.quran_menu li, .quran_menu li section').removeClass('open');
+      }
+
+      $('#home_content').click(function() {
+        $('.quran_menu li, .quran_menu li section').removeClass('open');
       });
 
       $('.quran_menu li').mouseenter(function () {
