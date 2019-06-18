@@ -680,7 +680,14 @@
         $('.quran_menu li, .quran_menu li section').removeClass('open');
       }
 
-      $('#home_content').click(function() {
+      // the #home_content parameter is for iOS devices
+      $('#home_content, .color-dropdown, .intro-footnote div, #chkAPNS, #btnMAA').click(function(e) {
+        e.stopPropagation();
+        $('.quran_menu li, .quran_menu li section').removeClass('open');
+        $('.color-dropdown-toggle').removeClass('turn');
+      });
+
+      $('.quran_menu li section select').change(function() {
         $('.quran_menu li, .quran_menu li section').removeClass('open');
       });
 
@@ -690,8 +697,11 @@
       });
 
       $('.quran_menu li').mouseleave(function () {
-        if ($(this).children('section').css('position') == 'absolute')
+        if ($(this).children('section').css('position') == 'absolute') {
           $(this).removeClass('hovered');
+          $('.color-dropdown-toggle').removeClass('turn');
+          $('.color-dropdown').addClass('hidden');
+        }
       });
     });
 

@@ -1870,8 +1870,8 @@ section.quran_menu section.option_box input {
     }
 
     section.quran_menu section.script_box.norweg a.container_btn1 {
-        left: 268px;
-        top: 11px;
+        left: 256px;
+        top: 9px;
     }
 
     .quran_menu ul li:nth-child(3) {
@@ -1938,7 +1938,8 @@ section.quran_menu section.option_box input {
     }
 
     section.script_box a.container_btn1 {
-        left: 215px;
+        left: 246px;
+        top: 8px;
     }
 
     .nav_box {
@@ -2250,6 +2251,9 @@ section.quran_menu section.option_box input {
         height: 47px;
     }
 
+    section.script_box a.container_btn1 {
+        left: 241px;
+    }
 }
 
 .ir,
@@ -2345,10 +2349,10 @@ section.quran_menu section.option_box input {
         background-color: #4c1426;
     } 
     section.quran_menu ul li.open section {
-        visibility: visible !important;
+        visibility: visible;
     }
     
     section.quran_menu ul li section.open {
-        visibility: visible !important;
+        visibility: visible;
     }
 }

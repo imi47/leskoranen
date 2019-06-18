@@ -157,6 +157,12 @@
 			}
 		}
 
+		$('#myTopnav .inner-tabs a:not(.icon)').click(function() {
+				$('.topnav').removeClass('responsive');
+				$('#logo + .inner-tabs').css('height', '0');
+				navOpen = false;
+		});
+
 		var aboveDrawerOpen = false;
 		var footerDrawerOpen = false;
 		$('.footerDrawer > div .triangle, .intro-footnote div:last-child').on('click', function () {
@@ -250,7 +256,7 @@
 		$(document).ready(function () {
 			$('#Norwegian').trigger('click');
 
-			$('.topnav .inner-tabs > a').click(function () {
+			$('.topnav .inner-tabs > a:not(.icon)').click(function () {
 				$('.topnav .inner-tabs > a').removeClass('active');
 				$(this).addClass('active');
 			});
