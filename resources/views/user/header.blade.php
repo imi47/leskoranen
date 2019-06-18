@@ -659,50 +659,48 @@
       this.classList.toggle('beige');
     }
 
-    $(function () {
-      $('.quran_menu li').click(function (e) {
+    $('.quran_menu li').click(function (e) {
+      e.stopPropagation();
+      $(this).siblings().removeClass('open');
+      $(this).siblings().children('section').removeClass('open');
+      if ($(this).children('section').css('position') == 'absolute')
+        $(this).toggleClass('open');
+
+      $('section.quran_menu ul li section').click(function (e) {
         e.stopPropagation();
-        $(this).siblings().removeClass('open');
-        $(this).siblings().children('section').removeClass('open');
-        if ($(this).children('section').css('position') == 'absolute')
-          $(this).toggleClass('open');
-
-        $('section.quran_menu ul li section').click(function (e) {
-          e.stopPropagation();
-          if ($(this).css('position') == 'absolute') {
-            $(this).addClass('open');
-            $(this).parent('li').addClass('open');
-          }
-        });
-      });
-
-      document.onclick = function () {
-        $('.quran_menu li, .quran_menu li section').removeClass('open');
-      }
-
-      // the #home_content parameter is for iOS devices
-      $('#home_content, .color-dropdown, .intro-footnote div, #chkAPNS, #btnMAA').click(function(e) {
-        e.stopPropagation();
-        $('.quran_menu li, .quran_menu li section').removeClass('open');
-        $('.color-dropdown-toggle').removeClass('turn');
-      });
-
-      $('.quran_menu li section select').change(function() {
-        $('.quran_menu li, .quran_menu li section').removeClass('open');
-      });
-
-      $('.quran_menu li').mouseenter(function () {
-        if ($(this).children('section').css('position') == 'absolute')
-          $(this).addClass('hovered');
-      });
-
-      $('.quran_menu li').mouseleave(function () {
-        if ($(this).children('section').css('position') == 'absolute') {
-          $(this).removeClass('hovered');
-          $('.color-dropdown-toggle').removeClass('turn');
-          $('.color-dropdown').addClass('hidden');
+        if ($(this).css('position') == 'absolute') {
+          $(this).addClass('open');
+          $(this).parent('li').addClass('open');
         }
       });
+    });
+
+    document.onclick = function () {
+      $('.quran_menu li, .quran_menu li section').removeClass('open');
+    }
+
+    // the #home_content parameter is for iOS devices
+    $('#home_content, .color-dropdown, .intro-footnote div, #chkAPNS, #btnMAA').click(function (e) {
+      e.stopPropagation();
+      $('.quran_menu li, .quran_menu li section').removeClass('open');
+      $('.color-dropdown-toggle').removeClass('turn');
+    });
+
+    $('.quran_menu li section select').change(function () {
+      $('.quran_menu li, .quran_menu li section').removeClass('open');
+    });
+
+    $('.quran_menu li').mouseenter(function () {
+      if ($(this).children('section').css('position') == 'absolute')
+        $(this).addClass('hovered');
+    });
+
+    $('.quran_menu li').mouseleave(function () {
+      if ($(this).children('section').css('position') == 'absolute') {
+        $(this).removeClass('hovered');
+        $('.color-dropdown-toggle').removeClass('turn');
+        $('.color-dropdown').addClass('hidden');
+      }
     });
 
   </script>
