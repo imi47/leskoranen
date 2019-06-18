@@ -1201,11 +1201,17 @@ function getraku()
      // $('#sura_nm').html(returnedData.surah['surah_name']);
      // $('#c-surah').html(returnedData.surah['introduction']);
      //update to verse option 
+     
      returnedData.verse.forEach( function (item) {
+      var trans_mobile = 'trans-mobile';
+      if($('#cmbTranslation').val() == 'hide') {
+        trans_mobile = 'trans-mobile hidden';
+      }
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
+      
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns "+trans_mobile+"' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";
       i++;
     });
@@ -1440,20 +1446,25 @@ function getSurah(get_special,verse='false'){
      $('#sura_n').html(returnedData.surah_name_arabic);
      $('#sura_nm').html(returnedData.surah_name);
      $('#c-surah').html(returnedData.introduction);
+     
      returnedData.verse.forEach( function (item) {
-      
+      var trans_mobile = 'trans-mobile';
+      if($('#cmbTranslation').val() == 'hide') {
+        trans_mobile = 'trans-mobile hidden';
+      }
       c_obj['verse_id' + item.verse] = item.verse;
       c_obj['arb_link' + item.verse] = item.link_to_audio;
       c_obj['arb_desc' + item.verse] = item.description;
+      
       if(returnedData.surah_number!=1)
       {
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns "+trans_mobile+"' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";  
       }
       else
       {
         verses=+item.verse + +1;
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns "+trans_mobile+"' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </span>";  
       }
 
@@ -1679,16 +1690,21 @@ function getSurahFromVerse(){
      var returnedData = JSON.parse(response);
      var i=1;
      var link='';
+     
      returnedData.verse.forEach( function (item) {
+      var trans_mobile = 'trans-mobile';
+      if($('#cmbTranslation').val() == 'hide') {
+        trans_mobile = 'trans-mobile hidden';
+      }
       if(returnedData.surah_number!=1)
       {
-         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
+         arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span></span> <p class='trns "+trans_mobile+"' id='trans-mobile"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span>";  
       }
       else
       {
         verses=+item.verse+1;
-         arabic=arabic+"<span class='arbic' id='arabic"+verses+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns trans-mobile' id='trans-mobile"+verses+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
+         arabic=arabic+"<span class='arbic' id='arabic"+verses+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+verses+"</span> </span></span> <p class='trns "+trans_mobile+"' id='trans-mobile"+verses+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </p>";
       translation=translation+"<span class='trns' id='trans"+verses+"'>"+item.translation+" <span class='ayah-end1'> <span>"+verses+"</span> </span> </span>";  
       }
 
@@ -1798,9 +1814,13 @@ function getSurahToVerse(){
      var returnedData = JSON.parse(response);
      var i=1;
      t_ver = to_verse;
-
+     
      returnedData.verse.forEach( function (item) {
-      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns  trans-mobile' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
+      var trans_mobile = 'trans-mobile';
+      if($('#cmbTranslation').val() == 'hide') {
+        trans_mobile = 'trans-mobile hidden';
+      }
+      arabic=arabic+"<span class='arbic' id='arabic"+item.verse+"'>"+item.arabic_immune+" <span class='ayah-end1'> <span>"+item.verse+"</span> </span> </span> <p class='trns  "+trans_mobile+"' id='trans-mobile"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </p> ";
       translation=translation+"<span class='trns' id='trans"+item.verse+"'>"+item.translation+" </span> <span class='ayah-end1'> <span>"+item.verse+"</span> </span>";
       if(foot==1)
       {

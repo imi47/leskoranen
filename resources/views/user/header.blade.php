@@ -663,8 +663,10 @@
       e.stopPropagation();
       $(this).siblings().removeClass('open');
       $(this).siblings().children('section').removeClass('open');
-      if ($(this).children('section').css('position') == 'absolute')
+      if ($(this).children('section').css('position') == 'absolute') {
         $(this).toggleClass('open');
+        $(this).children('section').toggleClass('open');
+      }
 
       $('section.quran_menu ul li section').click(function (e) {
         e.stopPropagation();
@@ -702,5 +704,4 @@
         $('.color-dropdown').addClass('hidden');
       }
     });
-
   </script>
