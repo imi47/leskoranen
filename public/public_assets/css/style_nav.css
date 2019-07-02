@@ -494,6 +494,38 @@ section.audio_player section.main_control a.stop_b {
     display: none;
 }
 
+#wait {
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    background-color: #8a2b44;
+    width: 70%;
+    padding-bottom: 1.2rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    color: white;
+    box-shadow: 0px 0px 20px rgba(0,0,0,.5);
+    border-radius: 4px;
+}
+
+#wait img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7em;
+    top: 2em;
+}
+
+#wait p {
+    text-align: center;
+    font-size: 2em;
+    width: 80%;
+    margin: 5.5em auto 0 auto;
+    font-family: "_PDMS_Saleem_QuranFont", "_PDMS_Saleem_QuranFont8.eot", Tahoma, Arial;
+    line-height: 1.4;
+}
+
 @media (max-width:575px) {
     .footerDrawer:not(.open) .open .triangle, .aboveDrawer:not(.open) .open .triangle {
         background-color: #fff;
@@ -516,13 +548,11 @@ section.audio_player section.main_control a.stop_b {
         left: -254px;
         bottom: -358px;
     }
-}
 
-/* @media (min-width:769px) {
-    .trans-mobile {
-        display: none;
+    #wait {
+        width: 80%;
     }
-} */
+}
 
 @media (max-width:768px) {
 
@@ -596,6 +626,10 @@ section.audio_player section.main_control a.stop_b {
 
     .os-content {
         padding-left: 7px !important;
+    }
+
+    #wait {
+        font-size: 13px;
     }
 }
 
@@ -2253,6 +2287,11 @@ section.quran_menu section.option_box input {
 
     section.script_box a.container_btn1 {
         left: 241px;
+    }
+
+    #wait {
+        width: 90%;
+        font-size: 11px;
     }
 }
 

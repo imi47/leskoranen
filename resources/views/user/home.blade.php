@@ -69,8 +69,10 @@ $lastverse='';
 <img src="{{$PUBLIC_ASSETS}}/img/design-filled.png" alt="" class="design-filled">
 <img src="{{$PUBLIC_ASSETS}}/img/design-filled.svg" alt="" class="design-filled-2">
 
-
-<div id="wait" style="display: none;"></div>
+<div id="wait">
+  <img src="{{$PUBLIC_ASSETS}}/img/tail-spin.svg" alt="">
+  <p>وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ ۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى الْخَاشِعِينَ</p>
+</div>
 
 <section id="home_content" >
   
@@ -644,16 +646,6 @@ $lastverse='';
  bottom: 0;
  z-index: 1;
  overflow: hidden;
-}
-#wait {
-  position: fixed;
-  left: 0px;
-  top: 10px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: url('{{$PUBLIC_ASSETS}}/img/loader.gif') 50% 50% no-repeat rgba(249,249,249,0.7);
-  background-size: 1150px 250px;
 }
 
 .footnote-modal-btn {
