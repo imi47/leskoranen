@@ -937,15 +937,15 @@ else
             //   behavior: 'smooth'
             // });
             var elmnt = document.getElementById("trans"+current_verse_id);
-             elmnt.scrollIntoView();
+             elmnt.scrollIntoView({ behavior: 'smooth' });
             var elmnt = document.getElementById("arabic"+current_verse_id);
-             elmnt.scrollIntoView();
+             elmnt.scrollIntoView({ behavior: 'smooth' });
 
              $('.extra_button a').click(function() {
              var elmnt = document.getElementById("trans"+current_verse_id);
-             elmnt.scrollIntoView();
+             elmnt.scrollIntoView({ behavior: 'smooth' });
              var elmnt = document.getElementById("arabic"+current_verse_id);
-             elmnt.scrollIntoView();
+             elmnt.scrollIntoView({ behavior: 'smooth' });
             });
 
               // $(window).scrollTop(0);
@@ -2624,12 +2624,6 @@ function deletes_book(id) {
 });
 
       }
-
-
-  $(function() {
-    // $('#arabic1').after('<p>sample text</p>');
-  });
-      
 
 </script>
 @endpush

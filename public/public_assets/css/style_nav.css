@@ -267,6 +267,7 @@ body.beige, #myTopnav.beige {
 
 .footerDrawer .content > div i {
     font-size: 1.2rem;
+    padding: 5px;
 }
 
 /* .footerDrawer .fa-chevron-right {
